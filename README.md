@@ -11,7 +11,12 @@
 # Scoop
 > 한국공학대학교 소프트웨어전공 팀 진지한   
 > 개발 기간 : 2023.12 ~ 2024.08
-<br>
+
+## 🤖 팀원 소개
+| 신예진 | 임연지 | 한수빈 |
+| :--------: | :--------: | :--------: |
+| [@yeahzxnn](https://github.com/yeahzxnn) | [@yeonjy](https://github.com/yeonjy) | [@realhsb](https://github.com/realhsb) |
+| 소프트웨어전공 4학년 | 소프트웨어전공 4학년 | 소프트웨어전공 4학년 |
 
 ## 📁 시스템 구조도
 <img src="https://github.com/tukcomCD2024/JinJiHan/assets/81320703/9a50f20c-acdc-4bae-a533-dcd96f5dec34">
@@ -27,9 +32,3 @@
 <img src="https://github.com/tukcomCD2024/JinJiHan/assets/81320703/f71ba2c5-63ac-4c79-b8ed-5d4516bba985">
 <br>
 <br>
-
-## 팀원 소개
-| 신예진 | 임연지 | 한수빈 |
-| :--------: | :--------: | :--------: |
-| [@yeahzxnn](https://github.com/yeahzxnn) | [@yeonjy](https://github.com/yeonjy) | [@realhsb](https://github.com/realhsb) |
-| 소프트웨어전공 4학년 | 소프트웨어전공 4학년 | 소프트웨어전공 4학년 |
