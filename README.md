@@ -24,7 +24,7 @@
 <br>
 
 ## 🛠️ System Architecture
-<img src="https://github.com/tukcomCD2024/JinJiHan/assets/81320703/9a50f20c-acdc-4bae-a533-dcd96f5dec34">
+<img src="https://github.com/tukcomCD2024/JinJiHan/assets/81320703/f71ba2c5-63ac-4c79-b8ed-5d4516bba985">
 <br>
 <br>
 
