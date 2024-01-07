@@ -11,6 +11,22 @@
 # Scoop
 > 한국공학대학교 소프트웨어전공 팀 진지한   
 > 개발 기간 : 2023.12 ~ 2024.08
+<br>
+
+## 📁 시스템 구조도
+<img src="https://github.com/tukcomCD2024/JinJiHan/assets/81320703/9a50f20c-acdc-4bae-a533-dcd96f5dec34">
+<br>
+<br>
+
+## 🔗 ERD
+<img src="https://github.com/tukcomCD2024/JinJiHan/assets/81320703/72e66961-d299-44e4-8091-f9f4e7b542b0">
+<br>
+<br>
+
+## 🛠️ System Architecture
+<img src="https://github.com/tukcomCD2024/JinJiHan/assets/81320703/9a50f20c-acdc-4bae-a533-dcd96f5dec34">
+<br>
+<br>
 
 ## 팀원 소개
 | 신예진 | 임연지 | 한수빈 |
