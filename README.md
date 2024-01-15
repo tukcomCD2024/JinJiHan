@@ -1,7 +1,9 @@
 # JinJiHan (진지한)
 
-<div align="center"> 
+<div align=center> 
+  
   [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FtukcomCD2024%2FJinJiHan&count_bg=%23FF6B17&title_bg=%23000000&icon=github.svg&icon_color=%23FFFFFF&title=&edge_flat=true)](https://github.com/tukcomCD2024/JinJiHan)
+  
 </div>
 
 # Scoop
@@ -11,7 +13,7 @@
 
 |신예진|임연지|한수빈|
 |:---:|:---:|:---:|
-|![@yeahzxnn](https://github.com/yeahzxnn)|![@yeonjy](https://github.com/yeonjy)|![@realhsb](https://github.com/realhsb)|
+|[@yeahzxnn](https://github.com/yeahzxnn)|[@yeonjy](https://github.com/yeonjy)|[@realhsb](https://github.com/realhsb)|
 |소프트웨어전공 4학년|소프트웨어전공 4학년|소프트웨어전공 4학년|
 
 ---
