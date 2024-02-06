@@ -16,6 +16,7 @@
 		6C77049F2B722CE4001B17CB /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77049E2B722CE4001B17CB /* ARView.swift */; };
 		6C7704A12B722CEB001B17CB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7704A02B722CEB001B17CB /* ProfileView.swift */; };
 		6C7704A32B722D3B001B17CB /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C7704A22B722D3B001B17CB /* ColorAssets.xcassets */; };
+		6C7704A52B723104001B17CB /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C7704A42B723104001B17CB /* ImageAssets.xcassets */; };
 		6CC4DDC72B5574670080E7E8 /* RollTheDiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4DDC62B5574670080E7E8 /* RollTheDiceApp.swift */; };
 		6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4DDC82B5574670080E7E8 /* ContentView.swift */; };
 		6CC4DDCB2B5574690080E7E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		6C77049E2B722CE4001B17CB /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		6C7704A02B722CEB001B17CB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		6C7704A22B722D3B001B17CB /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		6C7704A42B723104001B17CB /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
 		6CC4DDC32B5574670080E7E8 /* RollTheDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RollTheDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC4DDC62B5574670080E7E8 /* RollTheDiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollTheDiceApp.swift; sourceTree = "<group>"; };
 		6CC4DDC82B5574670080E7E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */,
 				6C7704A22B722D3B001B17CB /* ColorAssets.xcassets */,
+				6C7704A42B723104001B17CB /* ImageAssets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				6CC4DDCE2B5574690080E7E8 /* Preview Assets.xcassets in Resources */,
 				6C7704A32B722D3B001B17CB /* ColorAssets.xcassets in Resources */,
+				6C7704A52B723104001B17CB /* ImageAssets.xcassets in Resources */,
 				6CC4DDCB2B5574690080E7E8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
