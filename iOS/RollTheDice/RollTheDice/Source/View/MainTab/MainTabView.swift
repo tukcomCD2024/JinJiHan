@@ -23,7 +23,7 @@ struct MainTabView: View {
                             Image(systemName: mainTabViewModel.selectedTabType.image)
                         }
                         .tag(0)
-                    ChatView()
+                    AIChatView()
                         .tabItem {
                             Image(systemName: "message")
                         }
