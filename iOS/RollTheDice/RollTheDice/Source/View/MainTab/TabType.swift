@@ -8,19 +8,19 @@
 import Foundation
 
 enum MainTabType: String, CaseIterable, CustomStringConvertible {
-    case news
+    case newsList
     case chat
-    case bookmark
+    case bookmarkList
     case ar
     case profile
     
     var description: String {
         switch self {
-        case .news:
+        case .newsList:
             return "뉴스"
         case .chat:
             return "채팅"
-        case .bookmark:
+        case .bookmarkList:
             return "북마크"
         case .ar:
             return "AR"
@@ -31,12 +31,12 @@ enum MainTabType: String, CaseIterable, CustomStringConvertible {
     
     var image: String {
         switch self {
-        case .news:
+        case .newsList:
             return "newspaper"
         case .chat:
             return "message"
-        case .bookmark:
-            return "bookmark"
+        case .bookmarkList:
+            return "bookmarkList"
         case .ar:
             return "square.stack.3d.up.fill"
         case .profile:
@@ -46,11 +46,11 @@ enum MainTabType: String, CaseIterable, CustomStringConvertible {
     
     var index: Int {
         switch self {
-        case .news:
+        case .newsList:
             return .zero
         case .chat:
             return 1
-        case .bookmark:
+        case .bookmarkList:
             return 2
         case .ar:
             return 3
