@@ -24,7 +24,7 @@ struct MainTabView: View {
                         }
                         .environmentObject(NewsListViewModel())
                         .tag(0)
-                    ChatView()
+                    AIChatView()
                         .tabItem {
                             Image(systemName: "message")
                         }
