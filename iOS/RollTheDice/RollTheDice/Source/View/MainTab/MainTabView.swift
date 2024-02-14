@@ -11,6 +11,8 @@ struct MainTabView: View {
     
     @StateObject private var mainTabViewModel = MainTabViewModel()
     
+    @EnvironmentObject private var newsListViewModel: NewsListViewModel
+    
     var body: some View {
         ZStack {
             Color.backgroundDark
@@ -18,30 +20,35 @@ struct MainTabView: View {
             
             NavigationStack {
                 TabView(selection: $mainTabViewModel.selectedTabItem) {
-                    NewsView()
+                    NewsListView()
                         .tabItem {
-                            Image(systemName: mainTabViewModel.selectedTabType.image)
+                            Image(systemName: "message")
                         }
+                        .environmentObject(newsListViewModel)
                         .tag(0)
                     AIChatView()
                         .tabItem {
                             Image(systemName: "message")
                         }
                         .tag(1)
-                    BookmarkView()
+                    BookmarkListView()
                         .tabItem {
                             Image(systemName: "bookmark")
                         }
+                        .environmentObject(BookmarkListViewModel())
+                        .tag(2)
                     
                     ARView()
                         .tabItem {
                             Image(systemName: "square.stack.3d.up.fill")
                         }
+                        .tag(3)
                     
                     ProfileView()
                         .tabItem {
                             Image(systemName: "person.crop.circle")
                         }
+                        .tag(4)
                 }
             }
         }
@@ -50,4 +57,5 @@ struct MainTabView: View {
 
 #Preview {
     MainTabView()
+        .environmentObject(NewsListViewModel())
 }
