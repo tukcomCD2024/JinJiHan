@@ -39,5 +39,6 @@ struct ChatBubbleView: View {
 struct AIChatCustomView_Previews: PreviewProvider {
     static var previews: some View {
         AIChatCustomView()
+            .previewLayout(.sizeThatFits)
     }
 }
