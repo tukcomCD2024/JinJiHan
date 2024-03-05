@@ -20,7 +20,7 @@ struct AIChatTitleView: View {
                     selectedIndex = index
                 }) {
                     Text("여기에채팅제목이뜹니다. \(index)")
-                        .foregroundColor(selectedIndex == index ? .white : .primary)
+                        .foregroundColor(.basicWhite)
                         .padding()
                 }
                 .background(selectedIndex == index ? Color.primary01 : Color.black)

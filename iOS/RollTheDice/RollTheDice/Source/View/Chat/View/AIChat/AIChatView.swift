@@ -12,47 +12,67 @@ struct AIChatView: View {
     @State private var messages: [String] = []
     
     var body: some View {
-        ScrollView{
+        ZStack {
+            Color.backgroundDark.ignoresSafeArea(.all)
             HStack {
-                AIChatTitleView()
-                
-                Spacer()
+                ScrollView(showsIndicators: false) {
+                    AIChatTitleView()
+                }
                 
                 VStack {
-                    AIChatCustomView()
-                        .padding(.leading,-400)
-                    
-                    MyChatCustomView()
-                        .padding(.leading, 400)
-                    
-                    VStack(alignment: .trailing) {
-                        ForEach(messages, id: \.self) { message in
-                            Text(message)
-                                .padding()
-                                .background(Color("basicWhite"))
-                                .foregroundColor(.black)
-                                .cornerRadius(30)
-                                .padding(.bottom, 20)
-                        }
-                    }.padding(.leading, 400)
-                    
-                    HStack {
-                        TextField("Type a message", text: $text)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding()
+                    ScrollView{
                         
-                        Button(action: sendMessage) {
-                            Image(systemName: "arrow.up.circle")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                                .padding(.trailing)
+                        HStack {
+                            Spacer()
+                            
+                            VStack {
+                                HStack {
+                                    AIChatCustomView()
+                                    Spacer()
+                                }
+                                
+                                HStack {
+                                    Spacer()
+                                    MyChatCustomView()
+                                }
+                                
+                                VStack(alignment: .trailing) {
+                                    HStack {
+                                        Spacer()
+                                        VStack {
+                                            ForEach(messages, id: \.self) { message in
+                                                Text(message)
+                                                    .padding()
+                                                    .background(.basicWhite)
+                                                    .foregroundColor(.black)
+                                                    .cornerRadius(30)
+                                                    .padding(.bottom, 20)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                    VStack {
+                        
+                        HStack {
+                            TextField("Type a message", text: $text)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .padding()
+                            
+                            Button(action: sendMessage) {
+                                Image(systemName: "arrow.up.circle")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .padding(.trailing)
+                            }
                         }
                     }
                 }
-                
-                
             }
-            
         }
         
     }
