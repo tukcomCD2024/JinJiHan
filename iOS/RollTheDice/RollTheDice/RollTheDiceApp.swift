@@ -19,7 +19,6 @@ struct RollTheDiceApp: App {
             if appState.hasLogin {
                 NavigationStack(path: $pathModel.paths) {
                     MainTabView()
-                        .ig
                 }
             } else {
                 SignUpView()
