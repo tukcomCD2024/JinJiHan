@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35041AAB2BA1B78000EEFBA6 /* ProfileTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35041AAA2BA1B78000EEFBA6 /* ProfileTypeView.swift */; };
+		35041AAD2BA1B7CC00EEFBA6 /* ProfileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35041AAC2BA1B7CC00EEFBA6 /* ProfileType.swift */; };
+		35041AB02BA1B89800EEFBA6 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35041AAF2BA1B89800EEFBA6 /* ProfileModel.swift */; };
+		35041AB32BA1B92400EEFBA6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35041AB22BA1B92400EEFBA6 /* SettingView.swift */; };
 		352EE6832B76103400E51B60 /* ChatTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352EE6822B76103400E51B60 /* ChatTitleView.swift */; };
 		352EE6872B76120500E51B60 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352EE6862B76120500E51B60 /* ChatModel.swift */; };
 		35AA272F2B79FCAE004EFFAE /* ChatExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA272E2B79FCAE004EFFAE /* ChatExampleView.swift */; };
@@ -52,6 +56,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35041AAA2BA1B78000EEFBA6 /* ProfileTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTypeView.swift; sourceTree = "<group>"; };
+		35041AAC2BA1B7CC00EEFBA6 /* ProfileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileType.swift; sourceTree = "<group>"; };
+		35041AAF2BA1B89800EEFBA6 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		35041AB22BA1B92400EEFBA6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		352EE6822B76103400E51B60 /* ChatTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTitleView.swift; sourceTree = "<group>"; };
 		352EE6862B76120500E51B60 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		35AA272E2B79FCAE004EFFAE /* ChatExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatExampleView.swift; sourceTree = "<group>"; };
@@ -108,6 +116,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35041AA92BA1B76C00EEFBA6 /* ProfileType */ = {
+			isa = PBXGroup;
+			children = (
+				35041AAA2BA1B78000EEFBA6 /* ProfileTypeView.swift */,
+				35041AAC2BA1B7CC00EEFBA6 /* ProfileType.swift */,
+			);
+			path = ProfileType;
+			sourceTree = "<group>";
+		};
+		35041AAE2BA1B87F00EEFBA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35041AAF2BA1B89800EEFBA6 /* ProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		35041AB12BA1B91100EEFBA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6C7704A02B722CEB001B17CB /* ProfileView.swift */,
+				35041AB22BA1B92400EEFBA6 /* SettingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		352EE6842B7611E900E51B60 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,7 +349,9 @@
 		6C7704952B7229D4001B17CB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				6C7704A02B722CEB001B17CB /* ProfileView.swift */,
+				35041AAE2BA1B87F00EEFBA6 /* Model */,
+				35041AA92BA1B76C00EEFBA6 /* ProfileType */,
+				35041AB12BA1B91100EEFBA6 /* View */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -441,6 +477,7 @@
 				6C3237A12B7C377600B699AB /* BookmarkViewModel.swift in Sources */,
 				35AA274D2B7A09CA004EFFAE /* ChattingView.swift in Sources */,
 				6C3237AC2B7C382200B699AB /* News.swift in Sources */,
+				35041AB32BA1B92400EEFBA6 /* SettingView.swift in Sources */,
 				6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */,
 				6C3237A52B7C37D100B699AB /* BookmarkView.swift in Sources */,
 				6C3237AE2B7C382E00B699AB /* NewsViewModel.swift in Sources */,
@@ -449,7 +486,9 @@
 				35AA27562B7A1495004EFFAE /* MyChatCustomView.swift in Sources */,
 				35AA273E2B79FED7004EFFAE /* Lorem.swift in Sources */,
 				35AA27432B79FF91004EFFAE /* ChatInteractorProtocol.swift in Sources */,
+				35041AB02BA1B89800EEFBA6 /* ProfileModel.swift in Sources */,
 				35AA27582B7A1A34004EFFAE /* AIChatTitleView.swift in Sources */,
+				35041AAB2BA1B78000EEFBA6 /* ProfileTypeView.swift in Sources */,
 				35AA27492B79FFF4004EFFAE /* Date+Random.swift in Sources */,
 				35AA27312B79FCF3004EFFAE /* ChatExampleViewModel.swift in Sources */,
 				35AA273A2B79FEAA004EFFAE /* MockAttachment.swift in Sources */,
@@ -465,6 +504,7 @@
 				6C7704A12B722CEB001B17CB /* ProfileView.swift in Sources */,
 				6C77049F2B722CE4001B17CB /* ARView.swift in Sources */,
 				6C3237B72B7C434600B699AB /* ChatType.swift in Sources */,
+				35041AAD2BA1B7CC00EEFBA6 /* ProfileType.swift in Sources */,
 				6CC4DDC72B5574670080E7E8 /* RollTheDiceApp.swift in Sources */,
 				6C77048C2B722686001B17CB /* MainTabView.swift in Sources */,
 				6C7704992B722A20001B17CB /* MainTabViewModel.swift in Sources */,
