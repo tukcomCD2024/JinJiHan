@@ -34,7 +34,9 @@ struct CustomNavigationBar: View {
                 Button {
                     leftBtnAction()                    // 전달 받은 액션을 버튼에 대딥
                 } label: {
-                    Image("leftArrow")
+                    Text("<")
+                        .foregroundStyle(.basicWhite)
+//                    Image("leftArrow")
                 }
                 
             }
@@ -59,7 +61,7 @@ struct CustomNavigationBar: View {
             }
         }
         .padding(.horizontal, 20)
-        .frame(height: 20)
+        .frame(height: 40)
   }
 
 }

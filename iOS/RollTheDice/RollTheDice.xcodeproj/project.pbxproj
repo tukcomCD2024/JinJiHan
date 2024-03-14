@@ -284,6 +284,14 @@
 			path = General;
 			sourceTree = "<group>";
 		};
+		6C454A862B9DB433006FD9D0 /* CustomNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				6C454A872B9DB6C2006FD9D0 /* CustomNavigationBar.swift */,
+			);
+			path = CustomNavigationBar;
+			sourceTree = "<group>";
+		};
 		6C7704852B72260F001B17CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
