@@ -8,6 +8,5 @@
 import Foundation
 
 enum PathType: Hashable {
-    case mainTabView
-    case chatView
+    case chatView(isAiMode: Bool)
 }

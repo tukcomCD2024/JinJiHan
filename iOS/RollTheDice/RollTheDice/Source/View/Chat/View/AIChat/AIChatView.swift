@@ -8,66 +8,73 @@
 import SwiftUI
 
 struct AIChatView: View {
+    
+    @EnvironmentObject var pathModel: PathModel
     @State private var text: String = ""
     @State private var messages: [String] = []
     
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
-            HStack {
-                ScrollView(showsIndicators: false) {
-                    AIChatTitleView()
-                }
-                
-                VStack {
-                    ScrollView{
-                        
-                        HStack {
-                            Spacer()
+            VStack {
+                CustomNavigationBar(leftBtnAction: {
+                    [pathModel.paths.removeLast()]
+                })
+                HStack {
+                    ScrollView(showsIndicators: false) {
+                        AIChatTitleView()
+                    }
+                    
+                    VStack {
+                        ScrollView{
                             
-                            VStack {
-                                HStack {
-                                    AIChatCustomView()
-                                    Spacer()
-                                }
+                            HStack {
+                                Spacer()
                                 
-                                HStack {
-                                    Spacer()
-                                    MyChatCustomView()
-                                }
-                                
-                                VStack(alignment: .trailing) {
+                                VStack {
+                                    HStack {
+                                        AIChatCustomView()
+                                        Spacer()
+                                    }
+                                    
                                     HStack {
                                         Spacer()
-                                        VStack {
-                                            ForEach(messages, id: \.self) { message in
-                                                Text(message)
-                                                    .padding()
-                                                    .background(.basicWhite)
-                                                    .foregroundColor(.black)
-                                                    .cornerRadius(30)
-                                                    .padding(.bottom, 20)
+                                        MyChatCustomView()
+                                    }
+                                    
+                                    VStack(alignment: .trailing) {
+                                        HStack {
+                                            Spacer()
+                                            VStack {
+                                                ForEach(messages, id: \.self) { message in
+                                                    Text(message)
+                                                        .padding()
+                                                        .background(.basicWhite)
+                                                        .foregroundColor(.black)
+                                                        .cornerRadius(30)
+                                                        .padding(.bottom, 20)
+                                                }
                                             }
                                         }
                                     }
                                 }
                             }
+                            
                         }
                         
-                    }
-                    
-                    VStack {
-                        
-                        HStack {
-                            TextField("Type a message", text: $text)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .padding()
+                        VStack {
                             
-                            Button(action: sendMessage) {
-                                Image(systemName: "arrow.up.circle")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .padding(.trailing)
+                            HStack {
+                                TextField("Type a message", text: $text)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding()
+                                
+                                Button(action: sendMessage) {
+                                    Image(systemName: "arrow.up.circle")
+                                        .resizable()
+                                        .frame(width: 30, height: 30)
+                                        .padding(.trailing)
+                                }
                             }
                         }
                     }
@@ -89,5 +96,6 @@ struct AIChatView: View {
 struct AIChatView_Previews: PreviewProvider {
     static var previews: some View {
         AIChatView()
+            .environmentObject(PathModel())
     }
 }

@@ -11,7 +11,9 @@ import SwiftUI
 struct RollTheDiceApp: App {
     
     @StateObject var appState = AppState()
-    @StateObject private var pathModel: PathModel = .init(paths: [.mainTabView])
+    @StateObject private var pathModel = PathModel()
+    
+    @StateObject var newsListViewModel = NewsListViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -19,11 +21,27 @@ struct RollTheDiceApp: App {
             if appState.hasLogin {
                 NavigationStack(path: $pathModel.paths) {
                     MainTabView()
+                        .environmentObject(newsListViewModel)
+                        .navigationDestination(for: PathType.self, destination: { pathType in
+                            
+                            switch pathType {
+                            case .chatView(isAiMode: true) :
+                                AIChatView()
+                                    .navigationBarBackButtonHidden()
+                                
+                            case .chatView(isAiMode: false):
+                                Text("user")
+                                    .navigationBarBackButtonHidden()
+                            }
+                        })
                 }
+                .environmentObject(pathModel)
+                
             } else {
                 SignUpView()
             }
         }
+        
     }
 }
 
