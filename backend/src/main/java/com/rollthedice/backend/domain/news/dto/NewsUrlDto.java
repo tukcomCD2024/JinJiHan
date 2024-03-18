@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.dto;
+package com.rollthedice.backend.domain.news.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
