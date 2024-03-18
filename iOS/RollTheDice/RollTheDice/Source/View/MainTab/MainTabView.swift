@@ -22,11 +22,11 @@ struct MainTabView: View {
                 TabView(selection: $mainTabViewModel.selectedTabItem) {
                     NewsListView()
                         .tabItem {
-                            Image(systemName: "message")
+                            Image(systemName: "newspaper")
                         }
-                        .environmentObject(newsListViewModel)
+                        .environmentObject(NewsListViewModel())
                         .tag(0)
-                    AIChatView()
+                    ChatTypeView()
                         .tabItem {
                             Image(systemName: "message")
                         }
