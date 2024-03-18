@@ -30,4 +30,15 @@ public class News extends BaseTimeEntity {
         this.thumbnailUrl = thumbnailUrl;
     }
 
+    public void addNewsBody(String title, String content, String category, String postDate) {
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.postDate = postDate;
+    }
+
+    public void updateSummarizedContent(String content) {
+        this.content = content;
+    }
+
 }
