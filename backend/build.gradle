@@ -32,7 +32,13 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// jsoup 의존성 추가
+	implementation 'org.jsoup:jsoup:1.15.3'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
