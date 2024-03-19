@@ -48,6 +48,7 @@
 		6CDB29CF2BA97C550081037B /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C62BA97C550081037B /* Pretendard-Bold.otf */; };
 		6CDB29D02BA97C550081037B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C72BA97C550081037B /* Pretendard-Medium.otf */; };
 		6CDB29D12BA97C550081037B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C82BA97C550081037B /* Pretendard-Light.otf */; };
+		6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2A012BAA085A0081037B /* OpenAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */,
 				35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +351,7 @@
 			name = RollTheDice;
 			packageProductDependencies = (
 				35C71BF12B79F39900F777D1 /* ExyteChat */,
+				6CDB2A012BAA085A0081037B /* OpenAI */,
 			);
 			productName = RollTheDice;
 			productReference = 6CC4DDC32B5574670080E7E8 /* RollTheDice.app */;
@@ -380,6 +383,7 @@
 			mainGroup = 6CC4DDBA2B5574670080E7E8;
 			packageReferences = (
 				35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */,
+				6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */,
 			);
 			productRefGroup = 6CC4DDC42B5574670080E7E8 /* Products */;
 			projectDirPath = "";
@@ -666,6 +670,14 @@
 				minimumVersion = 1.3.5;
 			};
 		};
+		6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -673,6 +685,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */;
 			productName = ExyteChat;
+		};
+		6CDB2A012BAA085A0081037B /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
