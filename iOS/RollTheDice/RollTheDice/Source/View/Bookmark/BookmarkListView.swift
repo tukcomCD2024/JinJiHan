@@ -21,7 +21,7 @@ struct BookmarkListView: View {
     
     private struct BookmarkListContentView: View {
         @EnvironmentObject var bookmarkListViewModel: BookmarkListViewModel
-        var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+        var columns: [GridItem] = [ GridItem(), GridItem() ]
         
         fileprivate var body: some View {
             ScrollViewReader { value in
@@ -37,6 +37,7 @@ struct BookmarkListView: View {
 //                            }
                         }
                     }
+                    .padding(.vertical, 90)
                 }
             }
         }

@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct ChatTypeView: View {
+    @EnvironmentObject private var pathModel: PathModel
     @State var isSelected: Bool = false
     
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
             ChatTypeContentView(isSelected: $isSelected)
-            if isSelected {
-                AIChatView()
-            }
         }
     }
     
     private struct ChatTypeContentView: View {
         
         @Binding var isSelected: Bool
+        @EnvironmentObject private var pathModel: PathModel
         
         fileprivate var body: some View {
             HStack {
                 Button {
                     isSelected.toggle()
+                    pathModel.paths.append(.chatView(isAiMode: true))
                 } label: {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundStyle(.primary01)
@@ -37,10 +37,10 @@ struct ChatTypeView: View {
                             VStack {
                                 HStack {
                                     Text("Chat GPT랑\n토론하기")
-                                        .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                                        .multilineTextAlignment(.leading)
                                         .font(.system(size: 40, weight: .bold))
                                         .foregroundStyle(.basicWhite)
-
+                                    
                                     Spacer()
                                 }
                                 
@@ -61,7 +61,7 @@ struct ChatTypeView: View {
                 }
                 
                 Button {
-                    
+                    pathModel.paths.append(.chatView(isAiMode: false))
                 } label: {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundStyle(.gray01)
@@ -97,4 +97,5 @@ struct ChatTypeView: View {
 
 #Preview {
     ChatTypeView()
+        .environmentObject(PathModel())
 }
