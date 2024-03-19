@@ -1,6 +1,6 @@
 package com.rollthedice.backend.domain.crawling;
 
-import com.rollthedice.backend.domain.dto.NewsUrlDto;
+import com.rollthedice.backend.domain.news.dto.NewsUrlDto;
 import com.rollthedice.backend.domain.news.entity.News;
 import com.rollthedice.backend.domain.news.service.NewsCategory;
 import com.rollthedice.backend.domain.news.service.NewsService;
@@ -37,6 +37,7 @@ public class NewsCrawlingService {
                 scrapNewsContentsAndUpdate(categoryName, news);
             }
         }
+        newsService.summarizeNewsContent();
     }
 
     private void scrapNewsUrls(String categoryUrl) throws IOException {
