@@ -9,7 +9,6 @@ from news.crud.news_summarizer import summarize_news
 load_dotenv()
 logger = logging.getLogger(__name__)
 
-# RabbitMQ 설정
 credentials = PlainCredentials(username=os.getenv('RABBITMQ_USERNAME'), password=os.getenv('RABBITMQ_PASSWORD'))
 connection = BlockingConnection(ConnectionParameters(host=os.getenv('RABBITMQ_HOST'),
                                                      port=int(os.getenv('RABBITMQ_PORT')),
@@ -37,6 +36,5 @@ def callback(ch, method, properties, body):
         logger.info("Error decoding JSON from the received data.")
 
 
-# 메시지 소비 시작
 channel.basic_consume(queue=os.getenv('SUMMARY_QUEUE'), on_message_callback=callback, auto_ack=True)
 channel.start_consuming()
