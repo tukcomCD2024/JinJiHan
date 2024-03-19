@@ -26,7 +26,7 @@ struct RollTheDiceApp: App {
                             
                             switch pathType {
                             case .chatView(isAiMode: true) :
-                                AIChatView()
+                                GPTChatView()
                                     .navigationBarBackButtonHidden()
                                 
                             case .chatView(isAiMode: false):
