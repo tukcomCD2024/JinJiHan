@@ -15,6 +15,6 @@ public class MemberService {
     @Transactional
     public void signUp(SignUpDto dto) {
         Member member = authService.getMember();
-        member.updateNickname(dto.getNickname());
+        member.signUp(dto.getNickname());
     }
 }
