@@ -53,6 +53,10 @@
 		6CDB29FD2BAA07FD0081037B /* GPTChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */; };
 		6CDB29FF2BAA08280081037B /* GPTChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */; };
 		6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2A012BAA085A0081037B /* OpenAI */; };
+		6CF130B52BAB74FD00A437B6 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130B42BAB74FD00A437B6 /* CombineMoya */; };
+		6CF130B72BAB74FD00A437B6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130B62BAB74FD00A437B6 /* Moya */; };
+		6CF130B92BAB74FD00A437B6 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130B82BAB74FD00A437B6 /* ReactiveMoya */; };
+		6CF130BB2BAB74FD00A437B6 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130BA2BAB74FD00A437B6 /* RxMoya */; };
 		6CF130BF2BAB783300A437B6 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130BE2BAB783300A437B6 /* APIConstants.swift */; };
 		6CF130C22BAB786600A437B6 /* APIHeaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130C12BAB786600A437B6 /* APIHeaderManager.swift */; };
 		6CF130C52BAB79DE00A437B6 /* RollTheDiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130C42BAB79DE00A437B6 /* RollTheDiceAPI.swift */; };
@@ -119,8 +123,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF130BB2BAB74FD00A437B6 /* RxMoya in Frameworks */,
 				6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */,
 				35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */,
+				6CF130B72BAB74FD00A437B6 /* Moya in Frameworks */,
+				6CF130B92BAB74FD00A437B6 /* ReactiveMoya in Frameworks */,
+				6CF130B52BAB74FD00A437B6 /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +428,10 @@
 			packageProductDependencies = (
 				35C71BF12B79F39900F777D1 /* ExyteChat */,
 				6CDB2A012BAA085A0081037B /* OpenAI */,
+				6CF130B42BAB74FD00A437B6 /* CombineMoya */,
+				6CF130B62BAB74FD00A437B6 /* Moya */,
+				6CF130B82BAB74FD00A437B6 /* ReactiveMoya */,
+				6CF130BA2BAB74FD00A437B6 /* RxMoya */,
 			);
 			productName = RollTheDice;
 			productReference = 6CC4DDC32B5574670080E7E8 /* RollTheDice.app */;
@@ -452,6 +464,7 @@
 			packageReferences = (
 				35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */,
 				6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */,
+				6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 6CC4DDC42B5574670080E7E8 /* Products */;
 			projectDirPath = "";
@@ -753,6 +766,14 @@
 				minimumVersion = 0.2.6;
 			};
 		};
+		6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -765,6 +786,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */;
 			productName = OpenAI;
+		};
+		6CF130B42BAB74FD00A437B6 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		6CF130B62BAB74FD00A437B6 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		6CF130B82BAB74FD00A437B6 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		6CF130BA2BAB74FD00A437B6 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
