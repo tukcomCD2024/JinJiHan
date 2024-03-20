@@ -27,7 +27,7 @@ struct NewsListView: View {
             ScrollViewReader { value in
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack {
-                        ForEach(newsListViewModel.newsList, id: \.self) { news in
+                        ForEach(newsListViewModel.newsResponse ?? [], id: \.self) { news in
                             NewsView(news: news)
 //                                .onTapGesture {
 //                                    withAnimation {
@@ -36,8 +36,14 @@ struct NewsListView: View {
 //                                }
 //                            }
                         }
+                        .onAppear(perform: {
+                            print("func fetch news")
+                        })
                     }
                 }
+            }
+            .task {
+                newsListViewModel.getAllNewsData(page: 0,size: 10)
             }
         }
     }
