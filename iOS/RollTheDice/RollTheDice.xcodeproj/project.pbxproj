@@ -53,6 +53,7 @@
 		6CDB29FD2BAA07FD0081037B /* GPTChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */; };
 		6CDB29FF2BAA08280081037B /* GPTChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */; };
 		6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2A012BAA085A0081037B /* OpenAI */; };
+		6CF130B22BAB74BA00A437B6 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130B12BAB74BA00A437B6 /* NewsService.swift */; };
 		6CF130B52BAB74FD00A437B6 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130B42BAB74FD00A437B6 /* CombineMoya */; };
 		6CF130B72BAB74FD00A437B6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130B62BAB74FD00A437B6 /* Moya */; };
 		6CF130B92BAB74FD00A437B6 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130B82BAB74FD00A437B6 /* ReactiveMoya */; };
@@ -111,6 +112,7 @@
 		6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatViewModel.swift; sourceTree = "<group>"; };
 		6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatView.swift; sourceTree = "<group>"; };
 		6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatListViewModel.swift; sourceTree = "<group>"; };
+		6CF130B12BAB74BA00A437B6 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		6CF130BE2BAB783300A437B6 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		6CF130C12BAB786600A437B6 /* APIHeaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHeaderManager.swift; sourceTree = "<group>"; };
 		6CF130C42BAB79DE00A437B6 /* RollTheDiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollTheDiceAPI.swift; sourceTree = "<group>"; };
@@ -383,6 +385,14 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		6CF130BC2BAB77BF00A437B6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6CF130B12BAB74BA00A437B6 /* NewsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		6CF130BD2BAB77D300A437B6 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +532,7 @@
 				6C454A822B9DAFA3006FD9D0 /* Path.swift in Sources */,
 				6C454A842B9DAFCB006FD9D0 /* PathType.swift in Sources */,
 				6C3237B52B7C433D00B699AB /* ChatTypeView.swift in Sources */,
+				6CF130B22BAB74BA00A437B6 /* NewsService.swift in Sources */,
 				6C3237B22B7C385000B699AB /* NewsListViewModel.swift in Sources */,
 				6C454A782B9DA657006FD9D0 /* SignUpQuestionView.swift in Sources */,
 				6CA901962BA2EC0100E20259 /* Font.swift in Sources */,
