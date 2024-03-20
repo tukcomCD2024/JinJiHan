@@ -53,6 +53,18 @@
 		6CDB29FD2BAA07FD0081037B /* GPTChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */; };
 		6CDB29FF2BAA08280081037B /* GPTChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */; };
 		6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2A012BAA085A0081037B /* OpenAI */; };
+		6CF130AD2BAB0C4400A437B6 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130AC2BAB0C4400A437B6 /* AuthenticationViewModel.swift */; };
+		6CF130AF2BAB0C4F00A437B6 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130AE2BAB0C4F00A437B6 /* AuthenticatedView.swift */; };
+		6CF130B22BAB74BA00A437B6 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130B12BAB74BA00A437B6 /* NewsService.swift */; };
+		6CF130B52BAB74FD00A437B6 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130B42BAB74FD00A437B6 /* CombineMoya */; };
+		6CF130B72BAB74FD00A437B6 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130B62BAB74FD00A437B6 /* Moya */; };
+		6CF130B92BAB74FD00A437B6 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130B82BAB74FD00A437B6 /* ReactiveMoya */; };
+		6CF130BB2BAB74FD00A437B6 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF130BA2BAB74FD00A437B6 /* RxMoya */; };
+		6CF130BF2BAB783300A437B6 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130BE2BAB783300A437B6 /* APIConstants.swift */; };
+		6CF130C22BAB786600A437B6 /* APIHeaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130C12BAB786600A437B6 /* APIHeaderManager.swift */; };
+		6CF130C52BAB79DE00A437B6 /* RollTheDiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130C42BAB79DE00A437B6 /* RollTheDiceAPI.swift */; };
+		6CF130C72BAB7B9800A437B6 /* RollTheDiceAPINews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130C62BAB7B9800A437B6 /* RollTheDiceAPINews.swift */; };
+		6CF130C92BAB7CC200A437B6 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130C82BAB7CC200A437B6 /* BaseTargetType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +114,14 @@
 		6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatViewModel.swift; sourceTree = "<group>"; };
 		6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatView.swift; sourceTree = "<group>"; };
 		6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatListViewModel.swift; sourceTree = "<group>"; };
+		6CF130AC2BAB0C4400A437B6 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		6CF130AE2BAB0C4F00A437B6 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		6CF130B12BAB74BA00A437B6 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		6CF130BE2BAB783300A437B6 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		6CF130C12BAB786600A437B6 /* APIHeaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHeaderManager.swift; sourceTree = "<group>"; };
+		6CF130C42BAB79DE00A437B6 /* RollTheDiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollTheDiceAPI.swift; sourceTree = "<group>"; };
+		6CF130C62BAB7B9800A437B6 /* RollTheDiceAPINews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollTheDiceAPINews.swift; sourceTree = "<group>"; };
+		6CF130C82BAB7CC200A437B6 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +129,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF130BB2BAB74FD00A437B6 /* RxMoya in Frameworks */,
 				6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */,
 				35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */,
+				6CF130B72BAB74FD00A437B6 /* Moya in Frameworks */,
+				6CF130B92BAB74FD00A437B6 /* ReactiveMoya in Frameworks */,
+				6CF130B52BAB74FD00A437B6 /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +232,7 @@
 				6C454A852B9DB429006FD9D0 /* General */,
 				6C7704882B722647001B17CB /* View */,
 				6C454A7F2B9DAF21006FD9D0 /* Model */,
+				6CF130B02BAB0CEB00A437B6 /* Domain */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -215,6 +240,7 @@
 		6C7704882B722647001B17CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6CF130AB2BAB0C2D00A437B6 /* Authentication */,
 				6C454A762B9DA62C006FD9D0 /* SignUp */,
 				6C77048A2B72267E001B17CB /* MainTab */,
 				6C77048D2B7229A3001B17CB /* News */,
@@ -353,6 +379,60 @@
 			path = ChatGPT;
 			sourceTree = "<group>";
 		};
+		6CF130AB2BAB0C2D00A437B6 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				6CF130AC2BAB0C4400A437B6 /* AuthenticationViewModel.swift */,
+				6CF130AE2BAB0C4F00A437B6 /* AuthenticatedView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		6CF130B02BAB0CEB00A437B6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6CF130C32BAB794100A437B6 /* RollTheDiceAPI */,
+				6CF130C02BAB785B00A437B6 /* API */,
+				6CF130BD2BAB77D300A437B6 /* Foundation */,
+				6CF130BC2BAB77BF00A437B6 /* Service */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		6CF130BC2BAB77BF00A437B6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6CF130B12BAB74BA00A437B6 /* NewsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6CF130BD2BAB77D300A437B6 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				6CF130BE2BAB783300A437B6 /* APIConstants.swift */,
+				6CF130C82BAB7CC200A437B6 /* BaseTargetType.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		6CF130C02BAB785B00A437B6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6CF130C12BAB786600A437B6 /* APIHeaderManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		6CF130C32BAB794100A437B6 /* RollTheDiceAPI */ = {
+			isa = PBXGroup;
+			children = (
+				6CF130C42BAB79DE00A437B6 /* RollTheDiceAPI.swift */,
+				6CF130C62BAB7B9800A437B6 /* RollTheDiceAPINews.swift */,
+			);
+			path = RollTheDiceAPI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -372,6 +452,10 @@
 			packageProductDependencies = (
 				35C71BF12B79F39900F777D1 /* ExyteChat */,
 				6CDB2A012BAA085A0081037B /* OpenAI */,
+				6CF130B42BAB74FD00A437B6 /* CombineMoya */,
+				6CF130B62BAB74FD00A437B6 /* Moya */,
+				6CF130B82BAB74FD00A437B6 /* ReactiveMoya */,
+				6CF130BA2BAB74FD00A437B6 /* RxMoya */,
 			);
 			productName = RollTheDice;
 			productReference = 6CC4DDC32B5574670080E7E8 /* RollTheDice.app */;
@@ -404,6 +488,7 @@
 			packageReferences = (
 				35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */,
 				6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */,
+				6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 6CC4DDC42B5574670080E7E8 /* Products */;
 			projectDirPath = "";
@@ -443,9 +528,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C454A882B9DB6C2006FD9D0 /* CustomNavigationBar.swift in Sources */,
+				6CF130BF2BAB783300A437B6 /* APIConstants.swift in Sources */,
+				6CF130C52BAB79DE00A437B6 /* RollTheDiceAPI.swift in Sources */,
 				6C454A7A2B9DA67C006FD9D0 /* SignUpViewModel.swift in Sources */,
 				6C3237AA2B7C381500B699AB /* NewsView.swift in Sources */,
+				6CF130C92BAB7CC200A437B6 /* BaseTargetType.swift in Sources */,
 				6CDB29FF2BAA08280081037B /* GPTChatListViewModel.swift in Sources */,
+				6CF130AD2BAB0C4400A437B6 /* AuthenticationViewModel.swift in Sources */,
 				6CDB29F92BAA07350081037B /* GPTChat.swift in Sources */,
 				6CDB29FD2BAA07FD0081037B /* GPTChatView.swift in Sources */,
 				6C3237A12B7C377600B699AB /* BookmarkViewModel.swift in Sources */,
@@ -457,10 +546,13 @@
 				6C3237A72B7C37E500B699AB /* BookmarkListViewModel.swift in Sources */,
 				6C454A822B9DAFA3006FD9D0 /* Path.swift in Sources */,
 				6C454A842B9DAFCB006FD9D0 /* PathType.swift in Sources */,
+				6CF130AF2BAB0C4F00A437B6 /* AuthenticatedView.swift in Sources */,
 				6C3237B52B7C433D00B699AB /* ChatTypeView.swift in Sources */,
+				6CF130B22BAB74BA00A437B6 /* NewsService.swift in Sources */,
 				6C3237B22B7C385000B699AB /* NewsListViewModel.swift in Sources */,
 				6C454A782B9DA657006FD9D0 /* SignUpQuestionView.swift in Sources */,
 				6CA901962BA2EC0100E20259 /* Font.swift in Sources */,
+				6CF130C22BAB786600A437B6 /* APIHeaderManager.swift in Sources */,
 				6CDB29FB2BAA07B10081037B /* GPTChatViewModel.swift in Sources */,
 				6C32379F2B7C376D00B699AB /* Bookmark.swift in Sources */,
 				6C454A7E2B9DAA3F006FD9D0 /* SignUpFinishView.swift in Sources */,
@@ -471,6 +563,7 @@
 				6C77048C2B722686001B17CB /* MainTabView.swift in Sources */,
 				6C7704992B722A20001B17CB /* MainTabViewModel.swift in Sources */,
 				6C454A7C2B9DA71C006FD9D0 /* SignUpView.swift in Sources */,
+				6CF130C72BAB7B9800A437B6 /* RollTheDiceAPINews.swift in Sources */,
 				6C77049D2B722CE0001B17CB /* BookmarkListView.swift in Sources */,
 				6C77049B2B722A5A001B17CB /* TabType.swift in Sources */,
 			);
@@ -700,6 +793,14 @@
 				minimumVersion = 0.2.6;
 			};
 		};
+		6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -712,6 +813,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */;
 			productName = OpenAI;
+		};
+		6CF130B42BAB74FD00A437B6 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		6CF130B62BAB74FD00A437B6 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		6CF130B82BAB74FD00A437B6 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		6CF130BA2BAB74FD00A437B6 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
