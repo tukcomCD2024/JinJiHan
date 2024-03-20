@@ -6,7 +6,10 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.annotations.ColumnDefault;
 
+@Slf4j
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -24,6 +27,9 @@ public class News extends BaseTimeEntity {
     private String category;
     private String postDate;
 
+    @ColumnDefault("0L")
+    private long views;
+
     @Builder
     public News(String url, String thumbnailUrl) {
         this.url = url;
@@ -31,6 +37,7 @@ public class News extends BaseTimeEntity {
     }
 
     public void addNewsBody(String title, String content, String category, String postDate) {
+        log.info("now category name: {}", category);
         this.title = title;
         this.content = content;
         this.category = category;
@@ -41,4 +48,7 @@ public class News extends BaseTimeEntity {
         this.content = content;
     }
 
+    public void increaseView() {
+        views++;
+    }
 }
