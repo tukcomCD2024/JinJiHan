@@ -9,6 +9,9 @@ import SwiftUI
 
 struct MainTabView: View {
     
+    @EnvironmentObject private var pathModel: PathModel
+    @EnvironmentObject private var newsListViewModel: NewsListViewModel
+    
     @StateObject private var mainTabViewModel = MainTabViewModel()
     
     var body: some View {
@@ -16,38 +19,43 @@ struct MainTabView: View {
             Color.backgroundDark
                 .ignoresSafeArea(.all)
             
-            NavigationStack {
-                TabView(selection: $mainTabViewModel.selectedTabItem) {
-                    NewsView()
-                        .tabItem {
-                            Image(systemName: mainTabViewModel.selectedTabType.image)
-                        }
-                        .tag(0)
-                    ChatView()
-                        .tabItem {
-                            Image(systemName: "message")
-                        }
-                        .tag(1)
-                    BookmarkView()
-                        .tabItem {
-                            Image(systemName: "bookmark")
-                        }
-                    
-                    ARView()
-                        .tabItem {
-                            Image(systemName: "square.stack.3d.up.fill")
-                        }
-                    
-                    ProfileView()
-                        .tabItem {
-                            Image(systemName: "person.crop.circle")
-                        }
-                }
+            TabView(selection: $mainTabViewModel.selectedTabItem) {
+                NewsListView()
+                    .tabItem {
+                        Image(systemName: "newspaper")
+                    }
+                    .environmentObject(newsListViewModel)
+                    .tag(0)
+                ChatTypeView()
+                    .tabItem {
+                        Image(systemName: "message")
+                    }
+                    .tag(1)
+                BookmarkListView()
+                    .tabItem {
+                        Image(systemName: "bookmark")
+                    }
+                    .environmentObject(BookmarkListViewModel())
+                    .tag(2)
+                
+                ARView()
+                    .tabItem {
+                        Image(systemName: "square.stack.3d.up.fill")
+                    }
+                    .tag(3)
+                
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "person.crop.circle")
+                    }
+                    .tag(4)
             }
         }
+    
     }
 }
 
 #Preview {
     MainTabView()
+        .environmentObject(NewsListViewModel())
 }

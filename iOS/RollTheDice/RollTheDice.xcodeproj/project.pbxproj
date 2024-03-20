@@ -7,38 +7,101 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = 35C71BF12B79F39900F777D1 /* ExyteChat */; };
+		6C32379F2B7C376D00B699AB /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32379E2B7C376D00B699AB /* Bookmark.swift */; };
+		6C3237A12B7C377600B699AB /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237A02B7C377600B699AB /* BookmarkViewModel.swift */; };
+		6C3237A52B7C37D100B699AB /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237A42B7C37D100B699AB /* BookmarkView.swift */; };
+		6C3237A72B7C37E500B699AB /* BookmarkListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237A62B7C37E500B699AB /* BookmarkListViewModel.swift */; };
+		6C3237AA2B7C381500B699AB /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237A92B7C381500B699AB /* NewsView.swift */; };
+		6C3237AC2B7C382200B699AB /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237AB2B7C382200B699AB /* News.swift */; };
+		6C3237AE2B7C382E00B699AB /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237AD2B7C382E00B699AB /* NewsViewModel.swift */; };
+		6C3237B22B7C385000B699AB /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237B12B7C385000B699AB /* NewsListViewModel.swift */; };
+		6C3237B52B7C433D00B699AB /* ChatTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237B42B7C433D00B699AB /* ChatTypeView.swift */; };
+		6C3237B72B7C434600B699AB /* ChatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237B62B7C434600B699AB /* ChatType.swift */; };
+		6C454A782B9DA657006FD9D0 /* SignUpQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C454A772B9DA657006FD9D0 /* SignUpQuestionView.swift */; };
+		6C454A7A2B9DA67C006FD9D0 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C454A792B9DA67C006FD9D0 /* SignUpViewModel.swift */; };
+		6C454A7C2B9DA71C006FD9D0 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C454A7B2B9DA71C006FD9D0 /* SignUpView.swift */; };
+		6C454A7E2B9DAA3F006FD9D0 /* SignUpFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C454A7D2B9DAA3F006FD9D0 /* SignUpFinishView.swift */; };
+		6C454A822B9DAFA3006FD9D0 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C454A812B9DAFA3006FD9D0 /* Path.swift */; };
+		6C454A842B9DAFCB006FD9D0 /* PathType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C454A832B9DAFCB006FD9D0 /* PathType.swift */; };
+		6C454A882B9DB6C2006FD9D0 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C454A872B9DB6C2006FD9D0 /* CustomNavigationBar.swift */; };
 		6C77048C2B722686001B17CB /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77048B2B722686001B17CB /* MainTabView.swift */; };
-		6C77048F2B7229B1001B17CB /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77048E2B7229B1001B17CB /* NewsView.swift */; };
-		6C7704922B7229C0001B17CB /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7704912B7229C0001B17CB /* ChatView.swift */; };
+		6C77048F2B7229B1001B17CB /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77048E2B7229B1001B17CB /* NewsListView.swift */; };
 		6C7704992B722A20001B17CB /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7704982B722A20001B17CB /* MainTabViewModel.swift */; };
 		6C77049B2B722A5A001B17CB /* TabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77049A2B722A5A001B17CB /* TabType.swift */; };
-		6C77049D2B722CE0001B17CB /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77049C2B722CE0001B17CB /* BookmarkView.swift */; };
+		6C77049D2B722CE0001B17CB /* BookmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77049C2B722CE0001B17CB /* BookmarkListView.swift */; };
 		6C77049F2B722CE4001B17CB /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77049E2B722CE4001B17CB /* ARView.swift */; };
 		6C7704A12B722CEB001B17CB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7704A02B722CEB001B17CB /* ProfileView.swift */; };
 		6C7704A32B722D3B001B17CB /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C7704A22B722D3B001B17CB /* ColorAssets.xcassets */; };
 		6C7704A52B723104001B17CB /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C7704A42B723104001B17CB /* ImageAssets.xcassets */; };
+		6CA901962BA2EC0100E20259 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA901952BA2EC0100E20259 /* Font.swift */; };
 		6CC4DDC72B5574670080E7E8 /* RollTheDiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4DDC62B5574670080E7E8 /* RollTheDiceApp.swift */; };
 		6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4DDC82B5574670080E7E8 /* ContentView.swift */; };
 		6CC4DDCB2B5574690080E7E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */; };
 		6CC4DDCE2B5574690080E7E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC4DDCD2B5574690080E7E8 /* Preview Assets.xcassets */; };
+		6CDB29C92BA97C550081037B /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C02BA97C550081037B /* Pretendard-Black.otf */; };
+		6CDB29CA2BA97C550081037B /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C12BA97C550081037B /* Pretendard-ExtraBold.otf */; };
+		6CDB29CB2BA97C550081037B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C22BA97C550081037B /* Pretendard-Regular.otf */; };
+		6CDB29CC2BA97C550081037B /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C32BA97C550081037B /* Pretendard-Thin.otf */; };
+		6CDB29CD2BA97C550081037B /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C42BA97C550081037B /* Pretendard-SemiBold.otf */; };
+		6CDB29CE2BA97C550081037B /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C52BA97C550081037B /* Pretendard-ExtraLight.otf */; };
+		6CDB29CF2BA97C550081037B /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C62BA97C550081037B /* Pretendard-Bold.otf */; };
+		6CDB29D02BA97C550081037B /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C72BA97C550081037B /* Pretendard-Medium.otf */; };
+		6CDB29D12BA97C550081037B /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C82BA97C550081037B /* Pretendard-Light.otf */; };
+		6CDB29F92BAA07350081037B /* GPTChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29F82BAA07350081037B /* GPTChat.swift */; };
+		6CDB29FB2BAA07B10081037B /* GPTChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */; };
+		6CDB29FD2BAA07FD0081037B /* GPTChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */; };
+		6CDB29FF2BAA08280081037B /* GPTChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */; };
+		6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2A012BAA085A0081037B /* OpenAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C32379E2B7C376D00B699AB /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		6C3237A02B7C377600B699AB /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
+		6C3237A42B7C37D100B699AB /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		6C3237A62B7C37E500B699AB /* BookmarkListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListViewModel.swift; sourceTree = "<group>"; };
+		6C3237A92B7C381500B699AB /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		6C3237AB2B7C382200B699AB /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		6C3237AD2B7C382E00B699AB /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		6C3237B12B7C385000B699AB /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
+		6C3237B42B7C433D00B699AB /* ChatTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTypeView.swift; sourceTree = "<group>"; };
+		6C3237B62B7C434600B699AB /* ChatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatType.swift; sourceTree = "<group>"; };
+		6C454A772B9DA657006FD9D0 /* SignUpQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpQuestionView.swift; sourceTree = "<group>"; };
+		6C454A792B9DA67C006FD9D0 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		6C454A7B2B9DA71C006FD9D0 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		6C454A7D2B9DAA3F006FD9D0 /* SignUpFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFinishView.swift; sourceTree = "<group>"; };
+		6C454A812B9DAFA3006FD9D0 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		6C454A832B9DAFCB006FD9D0 /* PathType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathType.swift; sourceTree = "<group>"; };
+		6C454A872B9DB6C2006FD9D0 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		6C77048B2B722686001B17CB /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		6C77048E2B7229B1001B17CB /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
-		6C7704912B7229C0001B17CB /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		6C77048E2B7229B1001B17CB /* NewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListView.swift; sourceTree = "<group>"; };
 		6C7704982B722A20001B17CB /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		6C77049A2B722A5A001B17CB /* TabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabType.swift; sourceTree = "<group>"; };
-		6C77049C2B722CE0001B17CB /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
+		6C77049C2B722CE0001B17CB /* BookmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListView.swift; sourceTree = "<group>"; };
 		6C77049E2B722CE4001B17CB /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		6C7704A02B722CEB001B17CB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		6C7704A22B722D3B001B17CB /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
 		6C7704A42B723104001B17CB /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
+		6CA901952BA2EC0100E20259 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		6CC4DDC32B5574670080E7E8 /* RollTheDice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RollTheDice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC4DDC62B5574670080E7E8 /* RollTheDiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollTheDiceApp.swift; sourceTree = "<group>"; };
 		6CC4DDC82B5574670080E7E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CC4DDCD2B5574690080E7E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6CDB29BF2BA9735C0081037B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6CDB29C02BA97C550081037B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		6CDB29C12BA97C550081037B /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		6CDB29C22BA97C550081037B /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		6CDB29C32BA97C550081037B /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		6CDB29C42BA97C550081037B /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		6CDB29C52BA97C550081037B /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		6CDB29C62BA97C550081037B /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		6CDB29C72BA97C550081037B /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		6CDB29C82BA97C550081037B /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		6CDB29F82BAA07350081037B /* GPTChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChat.swift; sourceTree = "<group>"; };
+		6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatViewModel.swift; sourceTree = "<group>"; };
+		6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatView.swift; sourceTree = "<group>"; };
+		6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,15 +109,92 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */,
+				35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C32379D2B7C374E00B699AB /* BookmarkCard */ = {
+			isa = PBXGroup;
+			children = (
+				6C32379E2B7C376D00B699AB /* Bookmark.swift */,
+				6C3237A02B7C377600B699AB /* BookmarkViewModel.swift */,
+				6C3237A42B7C37D100B699AB /* BookmarkView.swift */,
+				6C3237A62B7C37E500B699AB /* BookmarkListViewModel.swift */,
+			);
+			path = BookmarkCard;
+			sourceTree = "<group>";
+		};
+		6C3237A82B7C380200B699AB /* NewsCard */ = {
+			isa = PBXGroup;
+			children = (
+				6C3237A92B7C381500B699AB /* NewsView.swift */,
+				6C3237AD2B7C382E00B699AB /* NewsViewModel.swift */,
+				6C3237AB2B7C382200B699AB /* News.swift */,
+			);
+			path = NewsCard;
+			sourceTree = "<group>";
+		};
+		6C3237B32B7C433000B699AB /* ChatType */ = {
+			isa = PBXGroup;
+			children = (
+				6C3237B42B7C433D00B699AB /* ChatTypeView.swift */,
+				6C3237B62B7C434600B699AB /* ChatType.swift */,
+			);
+			path = ChatType;
+			sourceTree = "<group>";
+		};
+		6C454A762B9DA62C006FD9D0 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				6C454A772B9DA657006FD9D0 /* SignUpQuestionView.swift */,
+				6C454A7B2B9DA71C006FD9D0 /* SignUpView.swift */,
+				6C454A792B9DA67C006FD9D0 /* SignUpViewModel.swift */,
+				6C454A7D2B9DAA3F006FD9D0 /* SignUpFinishView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		6C454A7F2B9DAF21006FD9D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6C454A802B9DAF9F006FD9D0 /* Path */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6C454A802B9DAF9F006FD9D0 /* Path */ = {
+			isa = PBXGroup;
+			children = (
+				6C454A812B9DAFA3006FD9D0 /* Path.swift */,
+				6C454A832B9DAFCB006FD9D0 /* PathType.swift */,
+			);
+			path = Path;
+			sourceTree = "<group>";
+		};
+		6C454A852B9DB429006FD9D0 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				6C454A862B9DB433006FD9D0 /* CustomNavigationBar */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		6C454A862B9DB433006FD9D0 /* CustomNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				6C454A872B9DB6C2006FD9D0 /* CustomNavigationBar.swift */,
+			);
+			path = CustomNavigationBar;
+			sourceTree = "<group>";
+		};
 		6C7704852B72260F001B17CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6CA901812BA2EBBA00E20259 /* Font */,
 				6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */,
 				6C7704A22B722D3B001B17CB /* ColorAssets.xcassets */,
 				6C7704A42B723104001B17CB /* ImageAssets.xcassets */,
@@ -65,7 +205,9 @@
 		6C7704862B722618001B17CB /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6C454A852B9DB429006FD9D0 /* General */,
 				6C7704882B722647001B17CB /* View */,
+				6C454A7F2B9DAF21006FD9D0 /* Model */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -73,6 +215,7 @@
 		6C7704882B722647001B17CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6C454A762B9DA62C006FD9D0 /* SignUp */,
 				6C77048A2B72267E001B17CB /* MainTab */,
 				6C77048D2B7229A3001B17CB /* News */,
 				6C7704902B7229B6001B17CB /* Chat */,
@@ -96,7 +239,9 @@
 		6C77048D2B7229A3001B17CB /* News */ = {
 			isa = PBXGroup;
 			children = (
-				6C77048E2B7229B1001B17CB /* NewsView.swift */,
+				6C3237A82B7C380200B699AB /* NewsCard */,
+				6C77048E2B7229B1001B17CB /* NewsListView.swift */,
+				6C3237B12B7C385000B699AB /* NewsListViewModel.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -104,7 +249,8 @@
 		6C7704902B7229B6001B17CB /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				6C7704912B7229C0001B17CB /* ChatView.swift */,
+				6CDB29F72BAA06FB0081037B /* ChatGPT */,
+				6C3237B32B7C433000B699AB /* ChatType */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -112,7 +258,8 @@
 		6C7704932B7229C4001B17CB /* Bookmark */ = {
 			isa = PBXGroup;
 			children = (
-				6C77049C2B722CE0001B17CB /* BookmarkView.swift */,
+				6C32379D2B7C374E00B699AB /* BookmarkCard */,
+				6C77049C2B722CE0001B17CB /* BookmarkListView.swift */,
 			);
 			path = Bookmark;
 			sourceTree = "<group>";
@@ -131,6 +278,31 @@
 				6C7704A02B722CEB001B17CB /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		6CA901812BA2EBBA00E20259 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				6CA901952BA2EC0100E20259 /* Font.swift */,
+				6CA901822BA2EBBF00E20259 /* Pretendard */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		6CA901822BA2EBBF00E20259 /* Pretendard */ = {
+			isa = PBXGroup;
+			children = (
+				6CDB29C02BA97C550081037B /* Pretendard-Black.otf */,
+				6CDB29C62BA97C550081037B /* Pretendard-Bold.otf */,
+				6CDB29C12BA97C550081037B /* Pretendard-ExtraBold.otf */,
+				6CDB29C52BA97C550081037B /* Pretendard-ExtraLight.otf */,
+				6CDB29C82BA97C550081037B /* Pretendard-Light.otf */,
+				6CDB29C72BA97C550081037B /* Pretendard-Medium.otf */,
+				6CDB29C22BA97C550081037B /* Pretendard-Regular.otf */,
+				6CDB29C42BA97C550081037B /* Pretendard-SemiBold.otf */,
+				6CDB29C32BA97C550081037B /* Pretendard-Thin.otf */,
+			);
+			path = Pretendard;
 			sourceTree = "<group>";
 		};
 		6CC4DDBA2B5574670080E7E8 = {
@@ -152,6 +324,7 @@
 		6CC4DDC52B5574670080E7E8 /* RollTheDice */ = {
 			isa = PBXGroup;
 			children = (
+				6CDB29BF2BA9735C0081037B /* Info.plist */,
 				6C7704862B722618001B17CB /* Source */,
 				6C7704852B72260F001B17CB /* Resources */,
 				6CC4DDC62B5574670080E7E8 /* RollTheDiceApp.swift */,
@@ -167,6 +340,17 @@
 				6CC4DDCD2B5574690080E7E8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6CDB29F72BAA06FB0081037B /* ChatGPT */ = {
+			isa = PBXGroup;
+			children = (
+				6CDB29F82BAA07350081037B /* GPTChat.swift */,
+				6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */,
+				6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */,
+				6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */,
+			);
+			path = ChatGPT;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +369,10 @@
 			dependencies = (
 			);
 			name = RollTheDice;
+			packageProductDependencies = (
+				35C71BF12B79F39900F777D1 /* ExyteChat */,
+				6CDB2A012BAA085A0081037B /* OpenAI */,
+			);
 			productName = RollTheDice;
 			productReference = 6CC4DDC32B5574670080E7E8 /* RollTheDice.app */;
 			productType = "com.apple.product-type.application";
@@ -213,6 +401,10 @@
 				Base,
 			);
 			mainGroup = 6CC4DDBA2B5574670080E7E8;
+			packageReferences = (
+				35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */,
+				6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */,
+			);
 			productRefGroup = 6CC4DDC42B5574670080E7E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -227,10 +419,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CDB29D12BA97C550081037B /* Pretendard-Light.otf in Resources */,
+				6CDB29CF2BA97C550081037B /* Pretendard-Bold.otf in Resources */,
 				6CC4DDCE2B5574690080E7E8 /* Preview Assets.xcassets in Resources */,
 				6C7704A32B722D3B001B17CB /* ColorAssets.xcassets in Resources */,
+				6CDB29CE2BA97C550081037B /* Pretendard-ExtraLight.otf in Resources */,
+				6CDB29CA2BA97C550081037B /* Pretendard-ExtraBold.otf in Resources */,
+				6CDB29CC2BA97C550081037B /* Pretendard-Thin.otf in Resources */,
 				6C7704A52B723104001B17CB /* ImageAssets.xcassets in Resources */,
+				6CDB29CB2BA97C550081037B /* Pretendard-Regular.otf in Resources */,
+				6CDB29CD2BA97C550081037B /* Pretendard-SemiBold.otf in Resources */,
 				6CC4DDCB2B5574690080E7E8 /* Assets.xcassets in Resources */,
+				6CDB29C92BA97C550081037B /* Pretendard-Black.otf in Resources */,
+				6CDB29D02BA97C550081037B /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,15 +442,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C454A882B9DB6C2006FD9D0 /* CustomNavigationBar.swift in Sources */,
+				6C454A7A2B9DA67C006FD9D0 /* SignUpViewModel.swift in Sources */,
+				6C3237AA2B7C381500B699AB /* NewsView.swift in Sources */,
+				6CDB29FF2BAA08280081037B /* GPTChatListViewModel.swift in Sources */,
+				6CDB29F92BAA07350081037B /* GPTChat.swift in Sources */,
+				6CDB29FD2BAA07FD0081037B /* GPTChatView.swift in Sources */,
+				6C3237A12B7C377600B699AB /* BookmarkViewModel.swift in Sources */,
+				6C3237AC2B7C382200B699AB /* News.swift in Sources */,
 				6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */,
-				6C77048F2B7229B1001B17CB /* NewsView.swift in Sources */,
+				6C3237A52B7C37D100B699AB /* BookmarkView.swift in Sources */,
+				6C3237AE2B7C382E00B699AB /* NewsViewModel.swift in Sources */,
+				6C77048F2B7229B1001B17CB /* NewsListView.swift in Sources */,
+				6C3237A72B7C37E500B699AB /* BookmarkListViewModel.swift in Sources */,
+				6C454A822B9DAFA3006FD9D0 /* Path.swift in Sources */,
+				6C454A842B9DAFCB006FD9D0 /* PathType.swift in Sources */,
+				6C3237B52B7C433D00B699AB /* ChatTypeView.swift in Sources */,
+				6C3237B22B7C385000B699AB /* NewsListViewModel.swift in Sources */,
+				6C454A782B9DA657006FD9D0 /* SignUpQuestionView.swift in Sources */,
+				6CA901962BA2EC0100E20259 /* Font.swift in Sources */,
+				6CDB29FB2BAA07B10081037B /* GPTChatViewModel.swift in Sources */,
+				6C32379F2B7C376D00B699AB /* Bookmark.swift in Sources */,
+				6C454A7E2B9DAA3F006FD9D0 /* SignUpFinishView.swift in Sources */,
 				6C7704A12B722CEB001B17CB /* ProfileView.swift in Sources */,
 				6C77049F2B722CE4001B17CB /* ARView.swift in Sources */,
-				6C7704922B7229C0001B17CB /* ChatView.swift in Sources */,
+				6C3237B72B7C434600B699AB /* ChatType.swift in Sources */,
 				6CC4DDC72B5574670080E7E8 /* RollTheDiceApp.swift in Sources */,
 				6C77048C2B722686001B17CB /* MainTabView.swift in Sources */,
 				6C7704992B722A20001B17CB /* MainTabViewModel.swift in Sources */,
-				6C77049D2B722CE0001B17CB /* BookmarkView.swift in Sources */,
+				6C454A7C2B9DA71C006FD9D0 /* SignUpView.swift in Sources */,
+				6C77049D2B722CE0001B17CB /* BookmarkListView.swift in Sources */,
 				6C77049B2B722A5A001B17CB /* TabType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +609,7 @@
 				DEVELOPMENT_TEAM = 4YH4UGRTMH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RollTheDice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -417,6 +640,7 @@
 				DEVELOPMENT_TEAM = 4YH4UGRTMH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RollTheDice/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -458,6 +682,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/Chat.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.5;
+			};
+		};
+		6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MacPaw/OpenAI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		35C71BF12B79F39900F777D1 /* ExyteChat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */;
+			productName = ExyteChat;
+		};
+		6CDB2A012BAA085A0081037B /* OpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6CC4DDBB2B5574670080E7E8 /* Project object */;
 }
