@@ -12,6 +12,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -26,6 +27,7 @@ public class NewsCrawlingService {
 
     private final NewsService newsService;
 
+    @Transactional
     @Scheduled(cron = CRON, zone = ZONE)
     public void scrap() throws IOException {
         for (NewsCategory category : NewsCategory.values()) {
@@ -33,7 +35,7 @@ public class NewsCrawlingService {
             String categoryName = category.getName();
 
             scrapNewsUrls(categoryUrl);
-            for (final News news : newsService.getAllNews()) {
+            for (final News news : newsService.getNotCrawled()) {
                 scrapNewsContentsAndUpdate(categoryName, news);
             }
         }
@@ -61,7 +63,8 @@ public class NewsCrawlingService {
         }
     }
 
-    private void scrapNewsContentsAndUpdate(String categoryName, News news) throws IOException {
+    @Transactional
+    public void scrapNewsContentsAndUpdate(String categoryName, News news) throws IOException {
         Document doc = Jsoup.connect(news.getUrl()).get();
 
         String title = scrapTitle(doc);
