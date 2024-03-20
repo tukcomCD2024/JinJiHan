@@ -5,6 +5,8 @@ from pika import BlockingConnection, ConnectionParameters, PlainCredentials, Bas
 
 from news.schema.message_item import MessageItem
 
+load_dotenv()
+
 CONFIG = {
     'username': os.getenv('RABBITMQ_USERNAME'),
     'password': os.getenv('RABBITMQ_PASSWORD'),

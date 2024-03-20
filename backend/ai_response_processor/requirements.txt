@@ -2,5 +2,5 @@ langchain==0.0.332
 python-dotenv==1.0.0
 openai==0.28.0
 uvicorn==0.28.0
-pika
-fastapi
+pika==1.3.2
+fastapi==0.110.0
