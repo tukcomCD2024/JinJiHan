@@ -53,6 +53,7 @@ public class SecurityConfig {
                         -> authorizeRequests
                         .anyRequest().permitAll())
                 .oauth2Login(oauth2 -> oauth2
+                        .loginPage("/login")
                         .successHandler(oAuth2LoginSuccessHandler)
                         .failureHandler(oAuth2LoginFailureHandler)
                         .userInfoEndpoint(userInfo -> userInfo.userService(customOAuth2UserService))  //customUserService 설정
