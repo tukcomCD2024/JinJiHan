@@ -78,9 +78,14 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     }
 
     public void saveAuthentication(Member member) {
+        String password = member.getPassword();
+        if (password == null) {
+            password = PasswordUtil.generateRandomPassword();
+        }
+
         UserDetails userDetails = User.builder()
                 .username(member.getEmail())
-                .password(PasswordUtil.generateRandomPassword())
+                .password(password)
                 .roles(member.getRole().name())
                 .build();
 
