@@ -14,13 +14,11 @@ public class Member extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String oauthId;  //로그인한 소셜 타입의 식별자 값
+    private String oauthId;
     private String nickname;
     private String email;
     private String password;
     private String imageUrl;
-
-    private String refreshToken;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -35,10 +33,6 @@ public class Member extends BaseTimeEntity {
         this.email = email;
         this.imageUrl = imageUrl;
         return this;
-    }
-
-    public void updateRefreshToken(String updateRefreshToken) {
-        this.refreshToken = updateRefreshToken;
     }
 
     public void signUp(String nickname) {
