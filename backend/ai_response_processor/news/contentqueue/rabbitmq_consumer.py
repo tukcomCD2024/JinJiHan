@@ -1,8 +1,9 @@
 import os
+import time
 from dotenv import load_dotenv
 import json
 import logging
-from pika import BlockingConnection, ConnectionParameters, PlainCredentials
+from pika import BlockingConnection, ConnectionParameters, PlainCredentials, exceptions
 
 from news.crud.news_summarizer import summarize_news
 
@@ -37,4 +38,8 @@ def callback(ch, method, properties, body):
 
 
 channel.basic_consume(queue=os.getenv('SUMMARY_QUEUE'), on_message_callback=callback, auto_ack=True)
-channel.start_consuming()
+try:
+    channel.start_consuming()
+except (exceptions.AMQPConnectionError, exceptions.StreamLostError) as e:
+    logger.error("Connection lost or failed, retrying... Error: {}".format(e))
+    time.sleep(10)
