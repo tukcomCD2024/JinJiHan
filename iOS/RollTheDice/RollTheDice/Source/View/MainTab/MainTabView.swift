@@ -20,35 +20,26 @@ struct MainTabView: View {
                 .ignoresSafeArea(.all)
             
             TabView(selection: $mainTabViewModel.selectedTabItem) {
+                
+                StatisticsListView()
+                    .tabItem {
+                        Image(systemName: "list.bullet.rectangle")
+                    }
+                    .tag(0)
+                
                 NewsListView()
                     .tabItem {
-                        Image(systemName: "newspaper")
+                        Image(systemName: "square.3.layers.3d.down.left")
                     }
                     .environmentObject(newsListViewModel)
-                    .tag(0)
+                    .tag(1)
+                
                 ChatTypeView()
                     .tabItem {
                         Image(systemName: "message")
                     }
-                    .tag(1)
-                BookmarkListView()
-                    .tabItem {
-                        Image(systemName: "bookmark")
-                    }
-                    .environmentObject(BookmarkListViewModel())
                     .tag(2)
-                
-                ARView()
-                    .tabItem {
-                        Image(systemName: "square.stack.3d.up.fill")
-                    }
-                    .tag(3)
-                
-                ProfileView()
-                    .tabItem {
-                        Image(systemName: "person.crop.circle")
-                    }
-                    .tag(4)
+
             }
         }
     
