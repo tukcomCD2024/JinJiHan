@@ -27,7 +27,7 @@ struct MainTabView: View {
                     }
                     .tag(0)
                 
-                NewsListView()
+                NewsCardListView()
                     .tabItem {
                         Image(systemName: "square.3.layers.3d.down.left")
                     }
