@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: ${DRIVER_CLASS_NAME}
-    url: jdbc:mysql://${DATABASE_URL}/${DATABASE_SCHEMA}
+    url: ${DATASOURCE_URL}
     username: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
   jpa:
