@@ -1,4 +1,4 @@
-name: Roll The Dice Backend CD
+name: Roll The Dice Backend CI/CD
 
 defaults:
   run:
