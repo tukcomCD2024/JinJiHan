@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3569720E2BBE8519006D80FD /* NewsCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3569720D2BBE8519006D80FD /* NewsCardListView.swift */; };
+		356972102BC4E4E7006D80FD /* NewsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3569720F2BC4E4E7006D80FD /* NewsCardView.swift */; };
 		357666102BBD4BF6002C226A /* StatisticsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576660F2BBD4BF6002C226A /* StatisticsListView.swift */; };
 		357666132BBD54AA002C226A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357666122BBD54AA002C226A /* SplashView.swift */; };
 		357666152BBD5C04002C226A /* FieldStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357666142BBD5C04002C226A /* FieldStatisticsView.swift */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		3569720D2BBE8519006D80FD /* NewsCardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardListView.swift; sourceTree = "<group>"; };
+		3569720F2BC4E4E7006D80FD /* NewsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardView.swift; sourceTree = "<group>"; };
 		3576660F2BBD4BF6002C226A /* StatisticsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsListView.swift; sourceTree = "<group>"; };
 		357666122BBD54AA002C226A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		357666142BBD5C04002C226A /* FieldStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldStatisticsView.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 			children = (
 				3569720C2BBE84F3006D80FD /* BeforeUIModify */,
 				3569720D2BBE8519006D80FD /* NewsCardListView.swift */,
+				3569720F2BC4E4E7006D80FD /* NewsCardView.swift */,
 			);
 			path = NewsCard;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356972102BC4E4E7006D80FD /* NewsCardView.swift in Sources */,
 				6C454A882B9DB6C2006FD9D0 /* CustomNavigationBar.swift in Sources */,
 				6CF130BF2BAB783300A437B6 /* APIConstants.swift in Sources */,
 				6CF130C52BAB79DE00A437B6 /* RollTheDiceAPI.swift in Sources */,

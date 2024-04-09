@@ -12,7 +12,9 @@ struct NewsCardListView: View {
     
     @State private  var currentIndex: Int = 0
     @GestureState private var dragOffset: CGFloat = 0
-    private let card: [String] = ["Spoon","Spoon","Spoon","Spoon","Spoon","Spoon","Spoon","Spoon","Spoon","Spoon"]
+
+    private let newscard: [NewsCardView] = [NewsCardView(), NewsCardView(), NewsCardView(), NewsCardView(), NewsCardView(), NewsCardView(), NewsCardView(), NewsCardView(), NewsCardView(), NewsCardView()]
+        
     
     var body: some View {
         
@@ -26,16 +28,13 @@ struct NewsCardListView: View {
 //                        .bold()
 //                        .foregroundColor(.primary01)
                     
-                    ForEach(0..<card.count, id: \.self) { index in
-                        Image(card[index])
-                            .frame(width: 300, height: 500)
+                    ForEach(0..<newscard.count, id: \.self) { index in
+                        newscard[index]
+                            .frame(width: 370, height: 440)
                             .cornerRadius(25)
                             .opacity(currentIndex == index ? 1.0 : 0.5)
                             .scaleEffect(currentIndex == index ? 1.2 : 0.8 )
                             .offset(x : CGFloat(index - currentIndex) * 300 + dragOffset, y: 0)
-                        
-                        
-                        
                         
                     }
                 }
@@ -49,7 +48,7 @@ struct NewsCardListView: View {
                                 }
                             } else if value.translation.width < -threshold {
                                 withAnimation{
-                                    currentIndex = min(card.count, -1, currentIndex, +1 )
+                                    currentIndex = min(newscard.count, -1, currentIndex, +1 )
                                 }
                             }
                             
@@ -78,7 +77,7 @@ struct NewsCardListView: View {
                         
                         Button {
                             withAnimation {
-                                currentIndex = min(card.count - 1, currentIndex + 1)
+                                currentIndex = min(newscard.count - 1, currentIndex + 1)
                             }
                         } label: {
                             Image(systemName: "arrow.right")
