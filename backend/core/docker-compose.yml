@@ -19,9 +19,21 @@ services:
         sleep 10 && rabbitmq-plugins enable rabbitmq_web_stomp &
         tail -f /dev/null
       "
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
     ports:
       - "5672:5672"
       - "15672:15672"
+    volumes:
+      - data_rabbitmq:/rabbitmq
+    networks:
+      - backend
+    restart: always
+    tty: true
 
 networks:
   backend:
+
+volumes:
+  data_rabbitmq: null
