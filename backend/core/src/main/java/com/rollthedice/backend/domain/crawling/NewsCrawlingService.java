@@ -10,6 +10,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,9 @@ public class NewsCrawlingService {
     private static final String CRON = "0 0 6,12 * * *";
     private static final String ZONE = "Asia/Seoul";
 
+    @Value("${crawling.quantity}")
+    private int crawlingQuantity;
+
     private final NewsService newsService;
 
     @Transactional
@@ -34,19 +38,32 @@ public class NewsCrawlingService {
             String categoryUrl = MAIN_URL + category.getNum();
             String categoryName = category.getName();
 
-            scrapNewsUrls(categoryUrl);
+            scrapCategoryNews(categoryUrl);
             for (final News news : newsService.getNotCrawled()) {
-                scrapNewsContentsAndUpdate(categoryName, news);
+                Document doc = Jsoup.connect(news.getUrl()).get();
+                String title = scrapTitle(doc);
+                String content = scrapContent(doc);
+                String postDate = scrapPostDate(doc);
+
+                news.addNewsBody(title, content, categoryName, postDate);
             }
         }
         newsService.summarizeNewsContent();
     }
 
-    private void scrapNewsUrls(String categoryUrl) throws IOException {
+    private void scrapCategoryNews(String categoryUrl) throws IOException {
         Document doc = Jsoup.connect(categoryUrl).get();
-        Elements newsList = doc.select(".sa_list");
+        Elements newsList = doc.select(".sa_list").select("li");
+        if (newsList.size() < crawlingQuantity) {
+            scrapNewsUrl(newsList.size(), newsList);
+            return;
+        }
+        scrapNewsUrl(crawlingQuantity, newsList);
+    }
 
-        for (Element news : newsList.select("li")) {
+    private void scrapNewsUrl(int quantity, Elements newsList) {
+        for (int i = 0; i < quantity; i++) {
+            Element news = newsList.get(i);
             String thumbnailUrl = scrapThumbnailUrl(news);
             String url = Objects.requireNonNull(news.selectFirst(".sa_text_title")).attr("href");
 

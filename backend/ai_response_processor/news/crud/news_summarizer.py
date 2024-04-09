@@ -17,7 +17,7 @@ def summarize_news(news_id: int, content: str):
 
     template = ChatPromptTemplate.from_messages(
         [
-            ("system", "You're a news summarizer. Also, the answer must be no more than 500 characters in Korean."),
+            ("system", "You're a news summarizer. Also, the answer must be summarized in Korean within 30% of the user's request."),
             ("user", "{raw_news_content}"),
         ]
     )

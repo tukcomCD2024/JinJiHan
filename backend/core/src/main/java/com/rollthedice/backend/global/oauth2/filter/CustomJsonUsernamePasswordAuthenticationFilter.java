@@ -1,4 +1,4 @@
-package com.rollthedice.backend.global.login.filter;
+package com.rollthedice.backend.global.oauth2.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
