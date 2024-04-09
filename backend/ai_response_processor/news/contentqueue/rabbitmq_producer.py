@@ -1,7 +1,8 @@
 import os
+import time
 from dotenv import load_dotenv
 import json
-from pika import BlockingConnection, ConnectionParameters, PlainCredentials, BasicProperties
+from pika import BlockingConnection, ConnectionParameters, PlainCredentials, BasicProperties, exceptions
 
 from news.schema.message_item import MessageItem
 
@@ -26,16 +27,22 @@ def get_connection_params():
                                 heartbeat=600,
                                 blocked_connection_timeout=300)
 
+
 def send_message(message: MessageItem):
-    connection = BlockingConnection(get_connection_params())
-    channel = connection.channel()
-    channel.queue_declare(queue=CONFIG['queue_name'], durable=True)
+    try:
+        connection = BlockingConnection(get_connection_params())
+        channel = connection.channel()
+        channel.queue_declare(queue=CONFIG['queue_name'], durable=True)
 
-    props = BasicProperties(content_type=CONTENT_TYPE, delivery_mode=1)
-    serialized_message = json.dumps(message.__dict__)
+        props = BasicProperties(content_type=CONTENT_TYPE, delivery_mode=1)
+        serialized_message = json.dumps(message.__dict__)
 
-    channel.basic_publish(exchange=CONFIG['exchange_name'],
-                          routing_key=CONFIG['routing_key'],
-                          body=serialized_message,
-                          properties=props)
-    connection.close()
+        channel.basic_publish(exchange=CONFIG['exchange_name'],
+                              routing_key=CONFIG['routing_key'],
+                              body=serialized_message,
+                              properties=props)
+        connection.close()
+    except (exceptions.AMQPConnectionError, exceptions.StreamLostError) as e:
+        print("Connection failed, retrying in 5 seconds... Error: {}".format(e))
+        time.sleep(5)
+        send_message(message)
