@@ -76,6 +76,7 @@ struct NewsCardView: View {
         }
         .frame(width: 370, height: 440)
         .shadow(color: .gray, radius: 125, x: 0, y: 0)
+        //북마크 해결 필요
 //        overlay {
 //            Button {
 //                isBookmarked1.toggle()
