@@ -27,7 +27,7 @@ jobs:
     steps:
       # 지정한 저장소(현재 REPO)에서 코드를 워크플로우 환경으로 가져오도록 하는 github action
       - name: Checkout
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.ACTION_TOKEN }}
           submodules: true
