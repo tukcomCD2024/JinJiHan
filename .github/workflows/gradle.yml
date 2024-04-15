@@ -22,10 +22,11 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'Dev-backend'
+    if: ${{ github.event.pull_request.base.ref == 'Dev-backend' || github.event_name == 'push' }}
 
     steps:
       # 지정한 저장소(현재 REPO)에서 코드를 워크플로우 환경으로 가져오도록 하는 github action
+      - name: Checkout
       - uses: actions/checkout@v3
 
       # open jdk 17 버전 환경을 세팅
@@ -33,7 +34,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: "adopt"
+          distribution: "temurin"
 
       # Github secrets로부터 데이터를 받아서, 워크 플로우에 파일을 생성
       - name: Make application.yml
@@ -71,5 +72,6 @@ jobs:
           script: |
             sudo docker rm -f $(docker ps -qa)
             sudo docker pull ${{ secrets.DOCKER_REPO }}/backend-dev
-            docker-compose up -d
-            docker image prune -f
+            cd ~/JinJiHan
+            sudo docker-compose -f docker-compose.yml down
+            sudo docker-compose -f docker-compose.yml up --build -d
