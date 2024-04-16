@@ -41,7 +41,9 @@ jobs:
 
       # docker-compose.yml Secret Setup
       - name: Set Docker-compose.yml
-        uses: microsoft/variable-substitution@v1
+        
+      - uses: actions/checkout@v2
+      - uses: microsoft/variable-substitution@v1
         with:
           files: './docker-compose.yml'
         env:
