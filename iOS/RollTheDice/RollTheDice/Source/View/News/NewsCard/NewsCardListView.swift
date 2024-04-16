@@ -117,6 +117,8 @@ struct NewsCardListView: View {
     
     @State private var currentIndex: Int = 0
     @GestureState private var dragOffset: CGFloat = 0
+    @State private var isBookMarkTabbed = false
+    @State private var isProfileTabbed = false
     
     private let newsCards: [AnyView] = [
         AnyView(SelectedNewsCardView()),
@@ -191,22 +193,31 @@ struct NewsCardListView: View {
                 
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
-                        // First button action
+                        isBookMarkTabbed = true
                     }) {
                         Image("bookmarkfill")
                             .font(.title)
                             .foregroundColor(.primary01)
                             .frame(width: 10, height: 30)
                             .padding(.trailing, 10)
+                    }.fullScreenCover(isPresented: $isBookMarkTabbed) {
+                        
+//                        BookmarkListView(bookmarkListViewModel: BookmarkListViewModel, selectedIndex: Int)
+//                            .frame(width: 970, height: 495)
                     }
                     
                     Button(action: {
-                        // Second button action
+                        isProfileTabbed = true
+                        
                     }) {
                         Image(systemName: "person.fill")
                             .font(.title)
                             .foregroundColor(.primary01)
                             .frame(width: 30, height: 30)
+                    }.fullScreenCover(isPresented: $isProfileTabbed) {
+                        
+                        ProfileView()
+                            .frame(width: 970, height: 495)
                     }
                 }
             }

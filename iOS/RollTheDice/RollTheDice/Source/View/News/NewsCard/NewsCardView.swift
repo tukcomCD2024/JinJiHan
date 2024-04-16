@@ -12,6 +12,7 @@ import SwiftUI
 struct NewsCardView: View {
     
     @State private var newsBookmarked: Bool = false
+    @State private var isDetailCardNewsPresented1 = false
     
     var body: some View {
         ZStack {
@@ -55,6 +56,7 @@ struct NewsCardView: View {
                 
                 HStack(alignment: .top, spacing: 10) {
                     Button {
+                        isDetailCardNewsPresented1 = true
                         
                     } label: {
                         Text("더보기")
@@ -64,6 +66,10 @@ struct NewsCardView: View {
                             )
                             .foregroundColor(.gray01)
                         
+                    }.fullScreenCover(isPresented: $isDetailCardNewsPresented1) {
+                        // full screen으로 새로운 뷰로 네비게이션
+                        DetailCardNews()
+                            .frame(width: 970, height: 495)
                     }
                 }
                 .padding(.horizontal, 30)
