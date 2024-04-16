@@ -25,6 +25,15 @@ jobs:
     if: ${{ github.event.pull_request.base.ref == 'Dev-backend' || github.event_name == 'push' }}
 
     steps:
+     # docker-compose.yml Secret Setup
+      - name: Set Docker-compose.yml
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: ./docker-compose.yml
+        env:
+          services.rabbitmq.environment.RABBITMQ_DEFAULT_USER: ${{ secrets.RABBITMQ_DEFAULT_USER }}
+          services.rabbitmq.environment.RABBITMQ_DEFAULT_PASS: ${{ secrets.RABBITMQ_DEFAULT_PASS }}
+    
       # 지정한 저장소(현재 REPO)에서 코드를 워크플로우 환경으로 가져오도록 하는 github action
       - name: Checkout
         uses: actions/checkout@v3
@@ -38,15 +47,6 @@ jobs:
         with:
           java-version: '17'
           distribution: "temurin"
-
-      # docker-compose.yml Secret Setup
-      - name: Set Docker-compose.yml
-        uses: microsoft/variable-substitution@v1
-        with:
-          files: ./docker-compose.yml
-        env:
-          services.rabbitmq.environment.RABBITMQ_DEFAULT_USER: ${{ secrets.RABBITMQ_DEFAULT_USER }}
-          services.rabbitmq.environment.RABBITMQ_DEFAULT_PASS: ${{ secrets.RABBITMQ_DEFAULT_PASS }}
 
       # gradle을 통해 소스 빌드
       - name: Build with Gradle
