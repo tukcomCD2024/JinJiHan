@@ -1,4 +1,4 @@
-[submodule "backend/core/src/main/resources/config"]
-	path = backend/core/src/main/resources/config
+[submodule "backend/core/src/main/resources/scoop-core-config"]
+	path = backend/core/src/main/resources/scoop-core-config
 	url = https://github.com/yeonjy/scoop-core-config.git
 	branch = main
