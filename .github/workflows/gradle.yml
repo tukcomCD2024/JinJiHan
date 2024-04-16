@@ -41,11 +41,9 @@ jobs:
 
       # docker-compose.yml Secret Setup
       - name: Set Docker-compose.yml
-        
-      - uses: actions/checkout@v2
-      - uses: microsoft/variable-substitution@v1
+        uses: microsoft/variable-substitution@v1
         with:
-          files: './docker-compose.yml'
+          files: ./docker-compose.yml
         env:
           services.rabbitmq.environment.RABBITMQ_DEFAULT_USER: ${{ secrets.RABBITMQ_DEFAULT_USER }}
           services.rabbitmq.environment.RABBITMQ_DEFAULT_PASS: ${{ secrets.RABBITMQ_DEFAULT_PASS }}
