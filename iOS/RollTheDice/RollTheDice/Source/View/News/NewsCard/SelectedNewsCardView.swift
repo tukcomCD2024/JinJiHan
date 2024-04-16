@@ -12,6 +12,7 @@ import SwiftUI
 struct SelectedNewsCardView: View {
     
     @State private var onBookMarked: Bool = false
+    @State private var isDetailCardNewsPresented = false
     
     var body: some View {
         ZStack {
@@ -51,13 +52,23 @@ struct SelectedNewsCardView: View {
                   .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 0)
                 
                 HStack(alignment: .center, spacing: 16) {
-                    // pretendardBold14
-                    Text("더보기")
-                      .font(
-                        Font.custom("Pretendard", size: 14)
-                          .weight(.bold)
-                      )
-                      .foregroundColor(.gray01)
+                    
+                    Button {
+                        isDetailCardNewsPresented = true
+                        
+                    } label: {
+                        Text("더보기")
+                            .font(
+                                Font.custom("Pretendard", size: 14)
+                                    .weight(.bold)
+                            )
+                            .foregroundColor(.gray01)
+                        
+                    }.fullScreenCover(isPresented: $isDetailCardNewsPresented) {
+                        // full screen으로 새로운 뷰로 네비게이션
+                        DetailCardNews()
+                            .frame(width: 970, height: 495)
+                    }
                     
                 }
                 .padding(.horizontal, 30)
