@@ -3,7 +3,7 @@ name: Roll The Dice Backend CI/CD
 defaults:
   run:
     shell: bash
-    working-directory: ./backend
+    working-directory: ./backend/core
 
 # Dev-backend 브랜치에 코드가 push 되거나 pull_request 되었을 때 이 파일의 내용이 실행됨
 on:
