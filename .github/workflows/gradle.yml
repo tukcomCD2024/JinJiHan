@@ -45,6 +45,15 @@ jobs:
           chmod +x ./gradlew
           ./gradlew clean build -x test
 
+      # docker-compose.yml Secret Setup
+      - name: Set Docker-compose.yml
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: docker-compose.yml
+        env:
+          services.rabbitmq.environment.RABBITMQ_DEFAULT_USER: ${{ secrets.RABBITMQ_DEFAULT_USER }}
+          services.rabbitmq.environment.RABBITMQ_DEFAULT_PASS: ${{ secrets.RABBITMQ_DEFAULT_PASS }}
+
       # dockerfile을 통해 이미지를 빌드하고, 이를 docker repo로 push
       # 이 때 사용되는 ${{ secrets.DOCKER_REPO }}/backend-dev 가 위에서 만든 도커 repository.
       - name: Docker build & push to docker repo
