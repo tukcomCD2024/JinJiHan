@@ -105,7 +105,6 @@ jobs:
           script: |
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}:latest
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
-            cd ~/JinJiHan
             sudo docker-compose -f docker-compose.yml down
             sudo docker-compose -f docker-compose.yml up --build -d
 
