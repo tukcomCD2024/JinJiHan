@@ -38,7 +38,7 @@ jobs:
       - name: Setting environment variables # 환경변수 설정
         run: |
           echo "AWS_DEFAULT_REGION=ap-northeast-2" >> $GITHUB_ENV
-          echo "AWS_SG_NAME=launch-wizard-2" >> $GITHUB_ENV
+          echo "AWS_SG_NAME=launch-wizard-1" >> $GITHUB_ENV
           
       # open jdk 17 버전 환경을 세팅
       - name: Set up JDK 17
