@@ -74,7 +74,7 @@ jobs:
           envs: GITHUB_SHA
           script: |
             sudo docker rm -f $(docker ps -qa)
-            sudo docker pull ${{ secrets.DOCKER_REPO }}/backend-dev
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
             cd ~/JinJiHan
             sudo docker-compose -f docker-compose.yml down
             sudo docker-compose -f docker-compose.yml up --build -d
