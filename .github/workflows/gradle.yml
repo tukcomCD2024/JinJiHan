@@ -89,7 +89,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ubuntu
           key: ${{ secrets.KEY }}
-          envs: GITHUB_SHA
+          # envs: GITHUB_SHA
           script: |
             sudo docker rm -f $(docker ps -qa)
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
