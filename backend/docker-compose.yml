@@ -8,8 +8,22 @@ services:
     depends_on:
       - redis
       - rabbitmq
+      - ai_server
     networks:
       - app-tier
+
+  ai_server:
+    container_name: ai-response-processor
+    image: "limyeonjy/ai-response-processor"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/code/app
+    depends_on:
+      - rabbitmq
+    networks:
+      - app-tier
+
   redis:
     image: redis:latest
     container_name: redis
