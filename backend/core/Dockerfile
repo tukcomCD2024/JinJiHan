@@ -1,4 +1,4 @@
 FROM eclipse-temurin:17-jdk-jammy AS build
-WORKDIR /app
-COPY . /app
-CMD ["gradle", "bootRun"]
+ARG JAR_FILE=build/libs/cicdTest-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]

@@ -103,10 +103,11 @@ jobs:
           key: ${{ secrets.KEY }}
           envs: GITHUB_SHA
           script: |
+            sudo docker rm -f $(docker ps -qa)
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}:latest
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
+            sudo docker-compose -f docker-compose.yml down
             sudo docker-compose -f docker-compose.yml up --build -d
-            docker image prune -f
 
       - name: Remove Github Actions IP from security group
         run: | # 작업이 끝났으니 다시 인바운드 룰에서 제거
