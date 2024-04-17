@@ -1,12 +1,22 @@
 version: "3.9"
 services:
+  server:
+    container_name: rollthedice
+    image: "limyeonjy/rollthedice"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+      - rabbitmq
+    networks:
+      - app-tier
   redis:
     image: redis:latest
     container_name: redis
     ports:
       - "6379:6379"
     networks:
-      backend:
+      - app-tier
     restart: always
     tty: true
 
@@ -28,12 +38,13 @@ services:
     volumes:
       - data_rabbitmq:/rabbitmq
     networks:
-      - backend
+      - app-tier
     restart: always
     tty: true
 
 networks:
-  backend:
+  app-tier:
+    driver: bridge
 
 volumes:
   data_rabbitmq: null
