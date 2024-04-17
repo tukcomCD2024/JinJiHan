@@ -31,6 +31,14 @@ jobs:
         with:
           token: ${{ secrets.ACTION_TOKEN }}
           submodules: true
+      - name: Get Github action IP # 액션 IP 얻어오기
+        id: ip
+        uses: haythem/public-ip@v1.2
+        
+      - name: Setting environment variables # 환경변수 설정
+        run: |
+          echo "AWS_DEFAULT_REGION=ap-northeast-2" >> $GITHUB_ENV
+          echo "AWS_SG_NAME=launch-wizard-2" >> $GITHUB_ENV
           
       # open jdk 17 버전 환경을 세팅
       - name: Set up JDK 17
@@ -61,6 +69,16 @@ jobs:
           docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }} .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
 
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_IAM_ACCESS_KEY_ID }} # IAM 엑세스키
+          aws-secret-access-key: ${{ secrets.AWS_IAM_SECRET_KEY }} ## IAM 시크릿 키
+          aws-region: ap-northeast-2
+      - name: Add Github Actions IP to Security group
+        run: | # 명령어로 시큐리티 그룹 인바운드 임시 설정
+          aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32 
+
       # appleboy/ssh-action@master 액션을 사용하여 지정한 서버에 ssh로 접속하고, script를 실행
       # script의 내용은 도커의 기존 프로세스들을 제거하고, docker repo로부터 위에서 push한 내용을 pull 받아 실행
       # 실행 시, docker-compose를 사용
@@ -78,3 +96,11 @@ jobs:
             cd ~/JinJiHan
             sudo docker-compose -f docker-compose.yml down
             sudo docker-compose -f docker-compose.yml up --build -d
+
+      - name: Remove Github Actions IP from security group
+        run: | # 작업이 끝났으니 다시 인바운드 룰에서 제거
+          aws ec2 revoke-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_SECRET_KEY }}
+          AWS_DEFAULT_REGION: ap-northeast-2
