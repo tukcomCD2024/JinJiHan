@@ -79,7 +79,7 @@ jobs:
 #          context: ./backend/ai_response_processor
 #          file: ./backend/ai_response_processor/Dockerfile
 #          push: true
-#          tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}
+#          tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -103,7 +103,8 @@ jobs:
           key: ${{ secrets.KEY }}
           envs: GITHUB_SHA
           script: |
-            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}:latest
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
             cd ~/JinJiHan
             sudo docker-compose -f docker-compose.yml down
             sudo docker-compose -f docker-compose.yml up --build -d
