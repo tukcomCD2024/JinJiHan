@@ -16,6 +16,8 @@
 		3576661B2BBD65C3002C226A /* FieldStatisticsReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576661A2BBD65C3002C226A /* FieldStatisticsReportView.swift */; };
 		357FC6E82BCE433E00AD8915 /* SelectedNewsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC6E72BCE433E00AD8915 /* SelectedNewsCardView.swift */; };
 		357FC6EA2BCE866B00AD8915 /* DetailCardNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */; };
+		357FC6F02BD0F84E00AD8915 /* AfterDebateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC6EF2BD0F84E00AD8915 /* AfterDebateView.swift */; };
+		357FC6F22BD0F9F000AD8915 /* DebateSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC6F12BD0F9F000AD8915 /* DebateSummaryView.swift */; };
 		35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = 35C71BF12B79F39900F777D1 /* ExyteChat */; };
 		6C32379F2B7C376D00B699AB /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32379E2B7C376D00B699AB /* Bookmark.swift */; };
 		6C3237A12B7C377600B699AB /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237A02B7C377600B699AB /* BookmarkViewModel.swift */; };
@@ -85,6 +87,8 @@
 		3576661A2BBD65C3002C226A /* FieldStatisticsReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldStatisticsReportView.swift; sourceTree = "<group>"; };
 		357FC6E72BCE433E00AD8915 /* SelectedNewsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsCardView.swift; sourceTree = "<group>"; };
 		357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardNews.swift; sourceTree = "<group>"; };
+		357FC6EF2BD0F84E00AD8915 /* AfterDebateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterDebateView.swift; sourceTree = "<group>"; };
+		357FC6F12BD0F9F000AD8915 /* DebateSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebateSummaryView.swift; sourceTree = "<group>"; };
 		6C32379E2B7C376D00B699AB /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		6C3237A02B7C377600B699AB /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
 		6C3237A42B7C37D100B699AB /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
@@ -202,6 +206,15 @@
 				357666162BBD5C5B002C226A /* DailyStatisticsView.swift */,
 			);
 			path = DailyStatistics;
+			sourceTree = "<group>";
+		};
+		357FC6EE2BD0F83D00AD8915 /* AfterDebateView */ = {
+			isa = PBXGroup;
+			children = (
+				357FC6EF2BD0F84E00AD8915 /* AfterDebateView.swift */,
+				357FC6F12BD0F9F000AD8915 /* DebateSummaryView.swift */,
+			);
+			path = AfterDebateView;
 			sourceTree = "<group>";
 		};
 		6C32379D2B7C374E00B699AB /* BookmarkCard */ = {
@@ -339,6 +352,7 @@
 		6C7704902B7229B6001B17CB /* Debate */ = {
 			isa = PBXGroup;
 			children = (
+				357FC6EE2BD0F83D00AD8915 /* AfterDebateView */,
 				6CDB29F72BAA06FB0081037B /* ChatGPT */,
 				6C3237B32B7C433000B699AB /* ChatType */,
 			);
@@ -601,6 +615,7 @@
 				357666152BBD5C04002C226A /* FieldStatisticsView.swift in Sources */,
 				357FC6EA2BCE866B00AD8915 /* DetailCardNews.swift in Sources */,
 				6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */,
+				357FC6F02BD0F84E00AD8915 /* AfterDebateView.swift in Sources */,
 				6C3237A52B7C37D100B699AB /* BookmarkView.swift in Sources */,
 				6C3237AE2B7C382E00B699AB /* NewsViewModel.swift in Sources */,
 				6C77048F2B7229B1001B17CB /* NewsListView.swift in Sources */,
@@ -627,6 +642,7 @@
 				6C77048C2B722686001B17CB /* MainTabView.swift in Sources */,
 				6C7704992B722A20001B17CB /* MainTabViewModel.swift in Sources */,
 				6C454A7C2B9DA71C006FD9D0 /* SignUpView.swift in Sources */,
+				357FC6F22BD0F9F000AD8915 /* DebateSummaryView.swift in Sources */,
 				6CF130C72BAB7B9800A437B6 /* RollTheDiceAPINews.swift in Sources */,
 				6C77049D2B722CE0001B17CB /* BookmarkListView.swift in Sources */,
 				6C77049B2B722A5A001B17CB /* TabType.swift in Sources */,
