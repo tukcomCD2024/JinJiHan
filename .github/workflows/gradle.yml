@@ -111,7 +111,7 @@ jobs:
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}:latest
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
-            sudo docker-compose -f docker-compose.yml up --build -d
+            sudo ./backend/docker-compose -f docker-compose.yml up --build -d
             docker image prune -f
 
       - name: Remove Github Actions IP from security group
