@@ -108,6 +108,7 @@ jobs:
           key: ${{ secrets.KEY }}
           envs: GITHUB_SHA
           script: |
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}:latest
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
             sudo docker-compose -f docker-compose.yml up --build -d
