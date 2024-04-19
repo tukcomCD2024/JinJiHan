@@ -63,13 +63,18 @@ jobs:
           ./gradlew clean build -x test
 
       # dockerfile을 통해 이미지를 빌드하고, 이를 docker repo로 push
-      - name: Docker build & push to docker repo
+      - name: Docker build & push CORE to docker repo
+        working-directory: ./backend/core
         run: |
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker build -f ./backend/core/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }} ./backend/core/
+          docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }} .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}
-          
-          docker build -f ./backend/ai_response_processor/Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }} ./backend/ai_response_processor/
+
+      - name: Docker build & push AI to docker repo
+        working-directory: ./backend/ai_response_processor
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ secretsAI_DOCKER_REPO }} .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}
 
 #      # FastAPI를 빌드하고 푸시
