@@ -14,4 +14,6 @@ public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
     Boolean existsBookmarkByMemberAndNews(Member member, News news);
 
     List<Bookmark> findAllByMemberOrderByCreatedAt(Member member, Pageable pageable);
+
+    void deleteByNewsId(Long newsId);
 }

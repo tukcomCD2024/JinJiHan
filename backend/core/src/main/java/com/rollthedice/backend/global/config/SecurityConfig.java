@@ -1,13 +1,9 @@
 package com.rollthedice.backend.global.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rollthedice.backend.domain.member.repository.MemberRepository;
 import com.rollthedice.backend.global.jwt.filter.JwtAuthenticationProcessingFilter;
 import com.rollthedice.backend.global.jwt.refresh.service.RefreshTokenService;
 import com.rollthedice.backend.global.jwt.service.JwtService;
-//import com.rollthedice.backend.global.login.handler.LoginFailureHandler;
-//import com.rollthedice.backend.global.login.handler.LoginSuccessHandler;
-//import com.rollthedice.backend.global.login.service.LoginService;
 import com.rollthedice.backend.global.oauth2.handler.OAuth2LoginFailureHandler;
 import com.rollthedice.backend.global.oauth2.handler.OAuth2LoginSuccessHandler;
 import com.rollthedice.backend.global.oauth2.service.CustomOAuth2UserService;

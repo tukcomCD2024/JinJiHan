@@ -1,0 +1,64 @@
+version: "3.9"
+services:
+  server:
+    container_name: rollthedice
+    image: "limyeonjy/rollthedice"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+      - rabbitmq
+      - ai_server
+    networks:
+      - app-tier
+
+  ai_server:
+    container_name: ai-response-processor
+    image: "limyeonjy/ai-response-processor"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/code/app
+    depends_on:
+      - rabbitmq
+    networks:
+      - app-tier
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-tier
+    restart: always
+    tty: true
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    entrypoint: >
+      /bin/bash -c "
+        rabbitmq-server &
+        sleep 10 && rabbitmq-plugins enable rabbitmq_web_stomp &
+        tail -f /dev/null
+      "
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - data_rabbitmq:/rabbitmq
+    networks:
+      - app-tier
+    restart: always
+    tty: true
+
+networks:
+  app-tier:
+    driver: bridge
+
+volumes:
+  data_rabbitmq: null

@@ -1,6 +1,5 @@
 package com.rollthedice.backend.domain.news.controller;
 
-import com.rollthedice.backend.domain.crawling.NewsCrawlingService;
 import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
 import com.rollthedice.backend.domain.news.service.NewsService;
 import lombok.RequiredArgsConstructor;

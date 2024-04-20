@@ -32,7 +32,7 @@ public class NewsCrawlingService {
     private final NewsService newsService;
 
     @Transactional
-    @Scheduled(cron = CRON, zone = ZONE)
+    // @Scheduled(cron = CRON, zone = ZONE)
     public void scrap() throws IOException {
         for (NewsCategory category : NewsCategory.values()) {
             String categoryUrl = MAIN_URL + category.getNum();

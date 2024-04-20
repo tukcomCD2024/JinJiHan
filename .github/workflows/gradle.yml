@@ -1,0 +1,123 @@
+name: Roll The Dice Backend CI/CD
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./backend/core
+
+# Dev-backend 브랜치에 코드가 push 되거나 pull_request 되었을 때 이 파일의 내용이 실행됨
+on:
+  push:
+    branches:
+      - Dev-backend
+  pull_request:
+    branches:
+      - Dev-backend
+
+# Github Actions VM에서 읽을 수 있도록 허용
+permissions:
+  contents: read
+
+# 실제 실행될 내용
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    if: ${{ github.event.pull_request.base.ref == 'Dev-backend' || github.event_name == 'push' }}
+
+    steps:
+      # 지정한 저장소(현재 REPO)에서 코드를 워크플로우 환경으로 가져오도록 하는 github action
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACTION_TOKEN }}
+          submodules: true
+      - name: Get Github action IP # 액션 IP 얻어오기
+        id: ip
+        uses: haythem/public-ip@v1.2
+        
+      - name: Setting environment variables # 환경변수 설정
+        run: |
+          echo "AWS_DEFAULT_REGION=ap-northeast-2" >> $GITHUB_ENV
+          echo "AWS_SG_NAME=launch-wizard-1" >> $GITHUB_ENV
+          
+      # open jdk 17 버전 환경을 세팅
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: "temurin"
+      
+      # docker-compose.yml Secret Setup
+      - name: Set Docker-compose.yml
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: ./backend/docker-compose.yml
+        env:
+          services.rabbitmq.environment.RABBITMQ_DEFAULT_USER: ${{ secrets.RABBITMQ_DEFAULT_USER }}
+          services.rabbitmq.environment.RABBITMQ_DEFAULT_PASS: ${{ secrets.RABBITMQ_DEFAULT_PASS }}
+
+      # gradle을 통해 소스 빌드
+      - name: Build with Gradle
+        run: |
+          chmod +x ./gradlew
+          ./gradlew clean build -x test
+
+      # dockerfile을 통해 이미지를 빌드하고, 이를 docker repo로 push
+      - name: Docker build & push CORE to docker repo
+        working-directory: ./backend/core
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }} .
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}
+
+      - name: Docker build & push AI to docker repo
+        working-directory: ./backend/ai_response_processor
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }} .
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}
+
+#      # FastAPI를 빌드하고 푸시
+#      - name: Build and push Docker image
+#        uses: docker/build-push-action@v5
+#        with:
+#          context: ./backend/ai_response_processor
+#          file: ./backend/ai_response_processor/Dockerfile
+#          push: true
+#          tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_IAM_ACCESS_KEY_ID }} # IAM 엑세스키
+          aws-secret-access-key: ${{ secrets.AWS_IAM_SECRET_KEY }} ## IAM 시크릿 키
+          aws-region: ap-northeast-2
+      - name: Add Github Actions IP to Security group
+        run: | # 명령어로 시큐리티 그룹 인바운드 임시 설정
+          aws ec2 authorize-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32 
+
+      # appleboy/ssh-action@master 액션을 사용하여 지정한 서버에 ssh로 접속하고, script를 실행
+      # script의 내용은 도커의 기존 프로세스들을 제거하고, docker repo로부터 위에서 push한 내용을 pull 받아 실행
+      # 실행 시, docker-compose를 사용
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        id: deploy
+        with:
+          host: ${{ secrets.HOST }}
+          username: ubuntu
+          key: ${{ secrets.KEY }}
+          envs: GITHUB_SHA
+          script: |
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}:latest
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
+            sudo docker-compose -f docker-compose.yml up --build -d
+            docker image prune -f
+
+      - name: Remove Github Actions IP from security group
+        run: | # 작업이 끝났으니 다시 인바운드 룰에서 제거
+          aws ec2 revoke-security-group-ingress --group-name ${{ env.AWS_SG_NAME }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_SECRET_KEY }}
+          AWS_DEFAULT_REGION: ap-northeast-2

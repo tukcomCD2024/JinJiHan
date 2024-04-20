@@ -1,0 +1,64 @@
+spring:
+  datasource:
+    driver-class-name: ${DRIVER_CLASS_NAME}
+    url: ${DATASOURCE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-id: ${KAKAO_CLIENT_ID}  #rest api 키 값
+            client-secret: ${KAKAO_CLIENT_SECRET}
+            redirect-uri: ${KAKAO_REDIRECT_URI}
+            client-authentication-method: client_secret_post
+            authorization-grant-type: authorization_code
+            client-name: Kakao
+            scope:
+              - profile_nickname
+              - profile_image
+              - account_email
+        provider:
+          kakao:
+            authorization-uri: ${KAKAO_AUTHORIZATION_URI}
+            token-uri: ${KAKAO_TOKEN_URI}
+            user-info-uri: ${KAKAO_USER_INFO_URI}
+            user-name-attribute: id
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: ${REDIS_PORT}
+
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    listener:
+      simple:
+        prefetch: 50
+
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
+  access:
+    expiration: 3600000  #1hours
+    header: Authorization
+  refresh:
+    expiration: 604800000  #7days
+    header: Authorization-refresh
+
+rabbitmq:
+  summary:
+    queue.name: ${SUMMARY_QUEUE_NAME}
+    exchange.name: ${SUMMARY_EXCHANGE_NAME}
+    routing.key: ${SUMMARY_ROUTING_KEY}
+  store:
+    queue.name: ${STORE_QUEUE_NAME}
+    exchange.name: ${STORE_EXCHANGE_NAME}
+    routing.key: ${STORE_ROUTING_KEY}
