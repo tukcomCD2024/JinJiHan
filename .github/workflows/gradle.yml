@@ -111,7 +111,8 @@ jobs:
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}:latest
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
-            sudo docker-compose -f docker-compose.yml up --build -d
+            docker run -d --name ${{ secrets.CORE_DOCKER_REPO }} -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/${{ secrets.CORE_DOCKER_REPO }}
+            docker run -d --name ${{ secrets.AI_DOCKER_REPO }} -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}
             docker image prune -f
 
       - name: Remove Github Actions IP from security group
