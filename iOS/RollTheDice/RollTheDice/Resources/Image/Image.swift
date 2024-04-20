@@ -23,6 +23,15 @@ extension Image {
             
     }
     
+    func scoopImageModifier() -> some View {
+        self
+            .resizable()
+        
+            .aspectRatio(contentMode: .fill)
+            .frame(height: 100)
+            
+    }
+    
 //    func IconModifier() -> some View {
 //        self
 //            .ImageModifier()
