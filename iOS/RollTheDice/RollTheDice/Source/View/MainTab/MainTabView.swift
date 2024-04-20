@@ -10,9 +10,9 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject private var pathModel: PathModel
-    @EnvironmentObject private var newsListViewModel: NewsListViewModel
+    @StateObject var newsListViewModel: NewsListViewModel
     
-    @StateObject private var mainTabViewModel = MainTabViewModel()
+    @StateObject var mainTabViewModel = MainTabViewModel()
     
     var body: some View {
         ZStack {
@@ -27,7 +27,7 @@ struct MainTabView: View {
                     }
                     .tag(0)
                 
-                NewsCardListView()
+                NewsListView(newsListViewModel: newsListViewModel)
                     .tabItem {
                         Image(systemName: "square.3.layers.3d.down.left")
                     }
@@ -47,6 +47,6 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    MainTabView(newsListViewModel: NewsListViewModel())
         .environmentObject(NewsListViewModel())
 }
