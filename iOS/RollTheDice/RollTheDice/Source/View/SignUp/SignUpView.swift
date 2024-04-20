@@ -10,9 +10,17 @@ import SwiftUI
 struct SignUpView: View {
     var body: some View {
         ZStack {
-            Color.backgroundDark.ignoresSafeArea(.all)
+            Color("primary01")
+                        .ignoresSafeArea(.all)
+            
             VStack {
+                
                 Spacer()
+                    .frame(height: 100)
+                
+                Text("SCOOP")
+                                .bold()
+                                .font(.system(size: 300))
                 
                 Button {
                     

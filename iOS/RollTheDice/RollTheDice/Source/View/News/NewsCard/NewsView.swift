@@ -10,77 +10,89 @@ import SwiftUI
 struct NewsView: View {
     
     @State var news: News
+    var isVisibleView: Bool = true
+    var cardWidth: Double = 0.0
+    var cardHeight: Double = 0.0
     
     var body: some View {
-        ZStack {
-            Color.gray07.ignoresSafeArea(.all)
-            
-            
-            VStack(spacing: 0) {
+        VStack(alignment: .center, spacing: 20) {
+            HStack {
                 Text(news.title)
-                    .font(.system(size: 32, weight: .bold))
-                    .foregroundStyle(.basicWhite)
-                    .padding(.top, 50)
-                HStack {
-                    Spacer()
-//                        .frame(height: 10)
-                    Text(news.date)
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(.gray05)
-                }
-                
+                    .font(.pretendardBold32)
+                    .foregroundStyle(.basicBlack)
+                    .multilineTextAlignment(.leading)
                 Spacer()
-                    .frame(height: 10)
-                AsyncImage(url: URL(string: news.image)) { image in
+            }
+            HStack {
+                Spacer()
+                Text(news.postDate)
+                    .font(.pretendardBold12)
+                    .foregroundStyle(.gray05)
+            }
+            
+            
+            AsyncImage(url: URL(string: news.image)) { phase in
+                switch phase {
+                case .success(let image):
                     image
                         .resizable()
-                        .scaledToFill()
-                        .frame(maxHeight: 150)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
-                    
-                } placeholder: {
-                    Image("photo.circle.fill")
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 322, height: 160)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 0)
+                case .empty:
+                    Image(systemName: "photo.circle.fill")
+                
+                case .failure(_):
+                    Image(systemName: "photo.circle.fill")
+                @unknown default:
+                    Text("");
                 }
                 
-                Spacer()
-                    .frame(height: 30)
-                
-                Text(news.content)
-                    .font(.system(size: 14, weight: .bold))
-                    .foregroundStyle(.basicWhite)
-                Spacer()
             }
             
-            .padding(.horizontal, 40)
             
-            
-            
-        }
-        .frame(width: 400, height: 510)
-        .clipShape(
-            RoundedRectangle(cornerRadius: 15)
-        )
-        .overlay {
-            Button {
-                // TODO: 북마크 설정 / 해제
-                news.isBookmarked.toggle()
-            } label: {
-                Image(systemName: "bookmark.fill")
-
-                    .resizable()
-                    .frame(width: 40, height: 65)
-//                    .fixedSize()
+            if isVisibleView {
+                Button {
                     
-                    .foregroundStyle(news.isBookmarked ? .primary01 : .gray01)
-
+                } label: {
+                    Text("더보기")
+                        .font(.pretendardBold14)
+                        .foregroundStyle(.gray01)
+                        .padding(.horizontal, 30)
+                        .padding(.vertical, 13)
+                        .background(.primary01)
+                        .clipShape(
+                            RoundedRectangle(cornerRadius: 16)
+                        )
+                        .shadow(color: .basicBlack.opacity(0.25), radius: 2, x: 0, y: 0)
+                    
+                }
             }
-            .offset(x: 140, y: -230)
+                
+        }
+        .padding(.horizontal, 24)
+        .padding(.bottom, 25)
+        .padding(.top, 50)
+        .frame(width: 370)
+        .background(
+                LinearGradient(colors: isVisibleView ?  [.basicWhite, .primaryLight01] : [.basicWhite], startPoint: .top, endPoint: .bottom)
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 32))
+        .overlay {
+            // TODO : 북마크 버튼 위치 수정하기 
+            Button {
+                
+            } label: {
+                Image(.bookmarkfill)
+            }
         }
     }
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    NewsView(news: .init(title: "2024년 ‘소셜 미디어 다이어트’를 위해 바꿔볼 것", date: "2023년12월3일", image: "https://imgnews.pstatic.net/image/008/2024/03/05/0005007355_001_20240305100101016.jpg?type=w647", content: "2024년으로 접어든지 한 달이 넘었다. 하지만 올 해가 어떻게 흘러갈지 예측하기는 쉽지 않다. 한 가지 확실한 것은 정치적으로 매우 중요한 해라는 점이다. 미국과 러시아, 우크라이나, 방글라데시, 인도, 대만, 한국, 남아프리카공화국, 유럽의회, 영국에서 선거가 치러질 예정이다.", isBookmarked: false))
+    NewsView(news: .init(title: "NHN, 작년 영업익 555억원...전년비 42%", postDate: "2023년2월13일", image: "https://cdnimage.dailian.co.kr/news/202402/news_1707866329_1327972_m_1.png", content: "2NHN은 연결기준 지난해 영업이익이 555억원으로 전년 대비 42.2% 증가했다고 14일 밝혔다.같은 기간 매출은 7.3% 증가한 2조2696억원으로 연간 최대치를 기록했다. 작년 4분기 매출은 5983억원으로 전년 동기 대비 6.7% 올랐다. 반면 영업손실은 78억원으로 적자전환했다. 커머스 부문의 장기 미회수채권 대손상각비 인식과 기술 부문의 기 인식 매출 차감 등 일회성 요인이 영향을 미쳤다.", isBookmarked: false))
         .previewInterfaceOrientation(.landscapeLeft)
         .previewLayout(.sizeThatFits)
+        .colorScheme(.dark)
 }

@@ -9,14 +9,15 @@ import SwiftUI
 
 struct GPTChatView: View {
     
+    @EnvironmentObject var pathModel: PathModel
     @StateObject var chatListViewModel = GPTChatListViewModel()
-    @State var selectedChat: GPTChat? = nil
+    @State var selectedChat: GPTChat? = .init(title: "hi", messages: [.init(content: "안녕하세요", isUser: false)])
     
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
             VStack {
-                CustomNavigationBar(title: selectedChat?.title ?? "", isDisplayLeadingBtn: true, leadingItems: [(Image("chevron.left"), {})])
+                CustomNavigationBar(title: selectedChat?.title ?? "", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {pathModel.paths.popLast()})])
                 MessageTitleView(chatListViewModel: chatListViewModel, selectedChat: $selectedChat)
             }
         }
