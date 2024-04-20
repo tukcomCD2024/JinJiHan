@@ -1,6 +1,7 @@
 package com.rollthedice.backend.domain.member.service;
 
 import com.rollthedice.backend.domain.member.dto.SignUpDto;
+import com.rollthedice.backend.domain.member.dto.response.MemberResponse;
 import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.member.query.AuthService;
 import com.rollthedice.backend.global.jwt.refresh.service.RefreshTokenService;
@@ -28,5 +29,13 @@ public class MemberService {
         String refreshToken = jwtService.createRefreshToken();
         jwtService.setRefreshTokenHeader(response, refreshToken);
         refreshTokenService.updateToken(member.getEmail(), refreshToken);
+    }
+
+    public MemberResponse getMemberInfo() {
+        Member member = authService.getMember();
+        return MemberResponse.builder()
+                .email(member.getEmail())
+                .nickname(member.getNickname())
+                .build();
     }
 }
