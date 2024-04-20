@@ -31,22 +31,24 @@ struct MainTabView: View {
                     .tabItem {
                         Image(systemName: "square.3.layers.3d.down.left")
                     }
-                    .environmentObject(newsListViewModel)
+//                    .environmentObject(newsListViewModel)
                     .tag(1)
                 
                 ChatTypeView()
+//                    .environmentObject(pathModel)
                     .tabItem {
                         Image(systemName: "message")
                     }
+//                    .environmentObject(pathModel)
                     .tag(2)
 
             }
         }
-    
     }
 }
 
 #Preview {
     MainTabView(newsListViewModel: NewsListViewModel())
-        .environmentObject(NewsListViewModel())
+        .environmentObject(PathModel())
+//        .environmentObject(NewsListViewModel())
 }
