@@ -20,8 +20,7 @@ struct RollTheDiceApp: App {
             
             if appState.hasLogin {
                 NavigationStack(path: $pathModel.paths) {
-                    MainTabView()
-                        .environmentObject(newsListViewModel)
+                    MainTabView(newsListViewModel: newsListViewModel)
                         .navigationDestination(for: PathType.self, destination: { pathType in
                             
                             switch pathType {
