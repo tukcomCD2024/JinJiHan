@@ -59,6 +59,7 @@
 		6CDB29FD2BAA07FD0081037B /* GPTChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */; };
 		6CDB29FF2BAA08280081037B /* GPTChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */; };
 		6CE2AC122BD43FB900416A02 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE2AC112BD43FB900416A02 /* SignInView.swift */; };
+		6CE2AC1B2BD444BB00416A02 /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6CE2AC1A2BD444BB00416A02 /* OpenAI */; settings = {ATTRIBUTES = (Required, ); }; };
 		6CF130AD2BAB0C4400A437B6 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130AC2BAB0C4400A437B6 /* AuthenticationViewModel.swift */; };
 		6CF130AF2BAB0C4F00A437B6 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130AE2BAB0C4F00A437B6 /* AuthenticatedView.swift */; };
 		6CF130B22BAB74BA00A437B6 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130B12BAB74BA00A437B6 /* NewsService.swift */; };
@@ -143,10 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CF130BB2BAB74FD00A437B6 /* RxMoya in Frameworks */,
-				6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */,
 				35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */,
 				6CF130B72BAB74FD00A437B6 /* Moya in Frameworks */,
 				6CF130B92BAB74FD00A437B6 /* ReactiveMoya in Frameworks */,
+				6CE2AC1B2BD444BB00416A02 /* OpenAI in Frameworks */,
 				6CF130B52BAB74FD00A437B6 /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +397,7 @@
 			children = (
 				6CC4DDC52B5574670080E7E8 /* RollTheDice */,
 				6CC4DDC42B5574670080E7E8 /* Products */,
+				6CE2AC152BD443F400416A02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -447,6 +449,12 @@
 			path = SignIn;
 			sourceTree = "<group>";
 		};
+		6CE2AC152BD443F400416A02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
 		};
 		6CF130AB2BAB0C2D00A437B6 /* Authentication */ = {
 			isa = PBXGroup;
@@ -520,11 +528,11 @@
 			name = RollTheDice;
 			packageProductDependencies = (
 				35C71BF12B79F39900F777D1 /* ExyteChat */,
-				6CDB2A012BAA085A0081037B /* OpenAI */,
 				6CF130B42BAB74FD00A437B6 /* CombineMoya */,
 				6CF130B62BAB74FD00A437B6 /* Moya */,
 				6CF130B82BAB74FD00A437B6 /* ReactiveMoya */,
 				6CF130BA2BAB74FD00A437B6 /* RxMoya */,
+				6CE2AC1A2BD444BB00416A02 /* OpenAI */,
 			);
 			productName = RollTheDice;
 			productReference = 6CC4DDC32B5574670080E7E8 /* RollTheDice.app */;
@@ -782,8 +790,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -813,8 +820,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -865,8 +871,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/MacPaw/OpenAI";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.6;
+				kind = exactVersion;
+				version = 0.2.6;
 			};
 		};
 		6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */ = {
@@ -885,7 +891,7 @@
 			package = 35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */;
 			productName = ExyteChat;
 		};
-		6CDB2A012BAA085A0081037B /* OpenAI */ = {
+		6CE2AC1A2BD444BB00416A02 /* OpenAI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */;
 			productName = OpenAI;
