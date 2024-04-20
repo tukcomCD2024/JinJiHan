@@ -1,5 +1,6 @@
 package com.rollthedice.backend.domain.bookmark.service;
 
+import com.rollthedice.backend.domain.bookmark.entity.Bookmark;
 import com.rollthedice.backend.domain.bookmark.repository.BookmarkRepository;
 import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.member.query.AuthService;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 @Service
 public class BookmarkService {
     private final AuthService authService;
+    private final NewsService newsService;
     private final BookmarkRepository bookmarkRepository;
     private final NewsMapper newsMapper;
 
@@ -34,6 +36,20 @@ public class BookmarkService {
                 .map(bookmark -> newsMapper.toResponse(bookmark.getNews(), true))
                 .collect(Collectors.toList());
 
+    }
+
+    @Transactional
+    public void saveBookmark(Long newsId) {
+        Member member = authService.getMember();
+        bookmarkRepository.save(Bookmark.builder()
+                        .member(member)
+                        .news(newsService.getOneNews(newsId))
+                        .build());
+    }
+
+    @Transactional
+    public void deleteBookmark(Long newsId) {
+        bookmarkRepository.deleteByNewsId(newsId);
     }
 }
 

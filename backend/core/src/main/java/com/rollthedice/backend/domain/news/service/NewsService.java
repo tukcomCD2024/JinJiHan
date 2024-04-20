@@ -1,6 +1,5 @@
 package com.rollthedice.backend.domain.news.service;
 
-import com.rollthedice.backend.domain.bookmark.entity.Bookmark;
 import com.rollthedice.backend.domain.bookmark.service.BookmarkService;
 import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.member.query.AuthService;
@@ -65,5 +64,9 @@ public class NewsService {
                 .map(news -> newsMapper.toResponse(
                         news, bookmarkService.isBookmarked(member, news)))
                 .collect(Collectors.toList());
+    }
+
+    public News getOneNews(Long newsId) {
+        return newsRepository.findById(newsId).orElseThrow(EntityNotFoundException::new);
     }
 }
