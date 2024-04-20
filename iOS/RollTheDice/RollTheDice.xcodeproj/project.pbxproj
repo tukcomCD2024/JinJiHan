@@ -58,7 +58,7 @@
 		6CDB29FB2BAA07B10081037B /* GPTChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */; };
 		6CDB29FD2BAA07FD0081037B /* GPTChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */; };
 		6CDB29FF2BAA08280081037B /* GPTChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */; };
-		6CDB2A022BAA085A0081037B /* OpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = 6CDB2A012BAA085A0081037B /* OpenAI */; };
+		6CE2AC122BD43FB900416A02 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE2AC112BD43FB900416A02 /* SignInView.swift */; };
 		6CF130AD2BAB0C4400A437B6 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130AC2BAB0C4400A437B6 /* AuthenticationViewModel.swift */; };
 		6CF130AF2BAB0C4F00A437B6 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130AE2BAB0C4F00A437B6 /* AuthenticatedView.swift */; };
 		6CF130B22BAB74BA00A437B6 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF130B12BAB74BA00A437B6 /* NewsService.swift */; };
@@ -126,6 +126,7 @@
 		6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatViewModel.swift; sourceTree = "<group>"; };
 		6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatView.swift; sourceTree = "<group>"; };
 		6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTChatListViewModel.swift; sourceTree = "<group>"; };
+		6CE2AC112BD43FB900416A02 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		6CF130AC2BAB0C4400A437B6 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		6CF130AE2BAB0C4F00A437B6 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		6CF130B12BAB74BA00A437B6 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
@@ -293,6 +294,7 @@
 			children = (
 				357666112BBD5494002C226A /* Splah */,
 				6CF130AB2BAB0C2D00A437B6 /* Authentication */,
+				6CE2AC102BD43FA800416A02 /* SignIn */,
 				6C454A762B9DA62C006FD9D0 /* SignUp */,
 				6C77048A2B72267E001B17CB /* MainTab */,
 				3576660D2BBD4A09002C226A /* Statistics */,
@@ -436,6 +438,15 @@
 			);
 			path = ChatGPT;
 			sourceTree = "<group>";
+		};
+		6CE2AC102BD43FA800416A02 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				6CE2AC112BD43FB900416A02 /* SignInView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		};
 		6CF130AB2BAB0C2D00A437B6 /* Authentication */ = {
 			isa = PBXGroup;
@@ -623,6 +634,7 @@
 				6C454A7E2B9DAA3F006FD9D0 /* SignUpFinishView.swift in Sources */,
 				6C7704A12B722CEB001B17CB /* ProfileView.swift in Sources */,
 				6C3237B72B7C434600B699AB /* ChatType.swift in Sources */,
+				6CE2AC122BD43FB900416A02 /* SignInView.swift in Sources */,
 				6CC4DDC72B5574670080E7E8 /* RollTheDiceApp.swift in Sources */,
 				6C77048C2B722686001B17CB /* MainTabView.swift in Sources */,
 				6C7704992B722A20001B17CB /* MainTabViewModel.swift in Sources */,
