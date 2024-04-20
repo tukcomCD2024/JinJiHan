@@ -10,6 +10,7 @@ import SwiftUI
 extension Font {
     
     // Bold
+    static let pretendardBold150: Font = .custom("Pretendard-Bold", size: 150)
     static let pretendardBold40: Font = .custom("Pretendard-Bold", size: 40)
     static let pretendardBold32: Font = .custom("Pretendard-Bold", size: 32)
     static let pretendardBold24: Font = .custom("Pretendard-Bold", size: 24)
@@ -31,4 +32,11 @@ func checkFontFile() {
         }
     }
 }
+
+/// 프레임을 폰트 높이에 맞추기
+func heightForFontSize(size: CGFloat) -> CGFloat {
+    let font = UIFont.systemFont(ofSize: size)
+    return font.capHeight
+}
+
 
