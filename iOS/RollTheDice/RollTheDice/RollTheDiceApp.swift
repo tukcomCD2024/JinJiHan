@@ -31,6 +31,12 @@ struct RollTheDiceApp: App {
                             case .chatView(isAiMode: false):
                                 Text("user")
                                     .navigationBarBackButtonHidden()
+                            case .detailNewsView:
+                                DetailCardNews()
+                            case .typeReportView:
+                                TypeReportView()
+                            case .dailyReportView:
+                                DailyReportView()
                             }
                         })
                 }

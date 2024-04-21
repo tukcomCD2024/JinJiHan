@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct StatisticsListView: View {
+struct ReportListView: View {
     
     @State private var selectedSegment = 0
     
@@ -41,9 +41,9 @@ struct StatisticsListView: View {
                 Spacer()
                 
                 if selectedSegment == 0 {
-                    FieldStatisticsListView()
+                    TypeReportView()
                 } else if selectedSegment == 1 {
-                    DailyStatisticsView()
+                    DailyReportView()
                 }
                 
                 
@@ -58,5 +58,5 @@ struct StatisticsListView: View {
 }
 
 #Preview {
-    StatisticsListView()
+    ReportListView()
 }
