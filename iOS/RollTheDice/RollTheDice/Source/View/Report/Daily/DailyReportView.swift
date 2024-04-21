@@ -18,7 +18,7 @@ struct DailyReportView: View {
                 
                 Spacer()
                 
-                HStack(spacing: 70) {
+                HStack {
                     statisticsView
                     reportView
                 }
@@ -31,9 +31,15 @@ struct DailyReportView: View {
         }
     }
     
+
+    /// 데일리 막대 그래프
     var statisticsView: some View {
         RoundedRectangle(cornerRadius: 16)
-            .foregroundStyle(.gray02)
+            .stroke(.basicWhite, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
+            .background(.gray07)
+            .overlay {
+                DailyBarChartView()
+            }
     }
     
     // TODO : 배치 바꾸기!!
@@ -64,6 +70,7 @@ struct DailyReportView: View {
                         HStack {
                             Text("안녕하세요. 이것은 통계입니다. 안녕하세요. 이것은 통계입니다. ")
                                 .multilineTextAlignment(.leading)
+                                
                             Spacer()
                         }
                         .padding(.horizontal, 4)
@@ -75,6 +82,7 @@ struct DailyReportView: View {
                     }
                     .padding(.vertical, 34)
                     .padding(.horizontal, 24)
+                    .foregroundStyle(.gray06)
                     
                     HStack {
                         Spacer()
@@ -85,7 +93,6 @@ struct DailyReportView: View {
                                 .frame(height: 250, alignment: .top)
                                 .clipped()
                         }
-//                        Spacer()
                     }
                 }
             }
