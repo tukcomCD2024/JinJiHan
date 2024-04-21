@@ -17,7 +17,7 @@ struct TypeReportView: View {
                 
                 Spacer()
                 
-                HStack(spacing: 70) {
+                HStack {
                     statisticsView
                     reportView
                 }
@@ -32,7 +32,8 @@ struct TypeReportView: View {
     
     var statisticsView: some View {
         RoundedRectangle(cornerRadius: 16)
-            .foregroundStyle(.gray02)
+            .stroke(.basicWhite, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
+            .background(.gray07)
     }
     
     // TODO : 배치 바꾸기!!
@@ -74,6 +75,7 @@ struct TypeReportView: View {
                     }
                     .padding(.vertical, 34)
                     .padding(.horizontal, 24)
+                    .foregroundStyle(.gray06)
                     
                     HStack {
                         Spacer()
