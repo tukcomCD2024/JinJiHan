@@ -14,7 +14,7 @@ struct DailyReportView: View {
             Color.backgroundDark.ignoresSafeArea(.all)
             
             VStack {
-                CustomNavigationBar(title: "요일별 뉴스 관람 개수 통계", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
+//                CustomNavigationBar(title: "요일별 뉴스 관람 개수 통계", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
                 
                 Spacer()
                 

@@ -13,7 +13,7 @@ struct TypeReportView: View {
             Color.backgroundDark.ignoresSafeArea(.all)
             
             VStack {
-                CustomNavigationBar(title: "분야별 레포트", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
+//                CustomNavigationBar(title: "분야별 레포트", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
                 
                 Spacer()
                 
