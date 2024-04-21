@@ -21,7 +21,7 @@ struct MainTabView: View {
             
             TabView(selection: $mainTabViewModel.selectedTabItem) {
                 
-                StatisticsListView()
+                ReportListView()
                     .tabItem {
                         Image(systemName: "list.bullet.rectangle")
                     }
