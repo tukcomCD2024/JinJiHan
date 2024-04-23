@@ -14,6 +14,7 @@ struct RollTheDiceApp: App {
     @StateObject private var pathModel = PathModel()
     
     @StateObject var newsListViewModel = NewsListViewModel()
+    @StateObject var bookmarkListViewModel = BookmarkListViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -37,10 +38,16 @@ struct RollTheDiceApp: App {
                                 TypeReportView()
                             case .dailyReportView:
                                 DailyReportView()
+                            case .bookmarkView:
+                                BookmarkListView(bookmarkListViewModel: bookmarkListViewModel)
+                            case .mypageView:
+                                Text("mypageView")
                             }
                         })
                 }
+                .navigationBarBackButtonHidden()
                 .environmentObject(pathModel)
+                
                 
             } else {
                 SignUpView()
