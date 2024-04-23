@@ -12,4 +12,6 @@ enum PathType: Hashable {
     case detailNewsView
     case typeReportView     // 분야별 뉴스 통계
     case dailyReportView    // 요일별 뉴스 관람 개수 통계
+    case bookmarkView       // 북마크뷰
+    case mypageView         // 마이페이지뷰
 }
