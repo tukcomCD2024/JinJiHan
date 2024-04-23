@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct DebateSummaryView: View {
+    @EnvironmentObject var pathModel: PathModel
+    
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
             
             VStack {
-                CustomNavigationBar(title: "토론요약", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
+                CustomNavigationBar(title: "토론요약", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), { pathModel.paths.popLast() })])
                 
                 sumView
 
             }
         }
+        .navigationBarBackButtonHidden()
     }
     
     var sumView: some View {
