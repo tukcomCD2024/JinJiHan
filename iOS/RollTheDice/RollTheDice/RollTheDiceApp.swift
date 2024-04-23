@@ -14,6 +14,7 @@ struct RollTheDiceApp: App {
     @StateObject private var pathModel = PathModel()
     
     @StateObject var newsListViewModel = NewsListViewModel()
+    @StateObject var bookmarkListViewModel = BookmarkListViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -23,6 +24,7 @@ struct RollTheDiceApp: App {
                     MainTabView(newsListViewModel: newsListViewModel)
                         .navigationDestination(for: PathType.self, destination: { pathType in
                             
+                            // 각 뷰마다 .navigationBarBackButtonHidden() 설정하기!
                             switch pathType {
                             case .chatView(isAiMode: true) :
                                 GPTChatView()
@@ -37,10 +39,18 @@ struct RollTheDiceApp: App {
                                 TypeReportView()
                             case .dailyReportView:
                                 DailyReportView()
+                            case .bookmarkView:
+                                BookmarkListView(bookmarkListViewModel: bookmarkListViewModel)
+                            case .mypageView:
+                                Text("mypageView")
+                            case .debateSummaryView:
+                                DebateSummaryView()
                             }
                         })
                 }
+                
                 .environmentObject(pathModel)
+                
                 
             } else {
                 SignUpView()
