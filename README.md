@@ -19,8 +19,20 @@
 
 ---
 
-## 📁 개발 시스템 구조도
+## 📁 개발 시스템 구성도
 ![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/5df840e4-9c04-4d01-8fe1-119f53d4ae12)
+
+## 📙 시스템 디자인
+![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/62e40a3d-8143-4caf-aa55-1a73f7d97e90)
+
+![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/9694ef38-8112-4448-885c-9a0f49886eb5) | ![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/7cb02e75-bf3c-4387-bd5c-44d012575c9e)
+---|---|
+
+![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/cece44e4-8a78-4b5b-877f-dc43597d4ecc) | ![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/af4b50a7-33e8-4563-ac8b-462c87a3b380)
+---|---|
+
+![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/5cb15e5e-4f14-4f62-aad6-93d3de38305c)
+---|
 
 
 ## 🔗 ERD
