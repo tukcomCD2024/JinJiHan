@@ -1,6 +1,8 @@
 package com.rollthedice.backend.domain.debate.controller;
 
+import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
+import com.rollthedice.backend.domain.debate.service.DebateMessageService;
 import com.rollthedice.backend.domain.debate.service.DebateRoomService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -12,10 +14,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("debates")
 public class DebateController {
     private final DebateRoomService debateRoomService;
+    private final DebateMessageService debateMessageService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     public void saveDebateRoom(@RequestBody @Valid final DebateRoomRequest request) {
         debateRoomService.saveDebateRoom(request);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/{roomId}/human")
+    public void saveHumanDebateMessage(@PathVariable final Long roomId, @RequestBody final DebateMessageRequest request) {
+        debateMessageService.saveHumanDebateMessage(roomId, request);
     }
 }
