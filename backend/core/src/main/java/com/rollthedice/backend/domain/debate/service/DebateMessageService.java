@@ -23,7 +23,14 @@ public class DebateMessageService {
     @Transactional
     public void saveHumanDebateMessage(final Long roomId, DebateMessageRequest request) {
         final Member member = authService.getMember();
-        final DebateRoom debateRoom = debateRoomRepository.findById(roomId).orElseThrow(EntityNotFoundException::new);
-        debateMessageRepository.save(request.toEntity(member, debateRoom));
+        debateMessageRepository.save(request.toEntity(member, getDebateRoom(roomId)));
+    }
+
+    public void saveAIDebateMessage(Long roomId, DebateMessageRequest request) {
+        
+    }
+
+    private DebateRoom getDebateRoom(final Long roomId) {
+        return debateRoomRepository.findById(roomId).orElseThrow(EntityNotFoundException::new);
     }
 }
