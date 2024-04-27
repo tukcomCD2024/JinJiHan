@@ -16,11 +16,19 @@ import lombok.NoArgsConstructor;
 public class DebateMessageRequest {
     private String message;
 
-    public DebateMessage toEntity(Member sender, DebateRoom debateRoom) {
+    public DebateMessage toHumanMessageEntity(Member sender, DebateRoom debateRoom) {
         return DebateMessage.builder()
                 .message(this.message)
                 .senderType(SenderType.HUMAN)
                 .sender(sender)
+                .debateRoom(debateRoom)
+                .build();
+    }
+
+    public DebateMessage toAIMessageEntity(DebateRoom debateRoom) {
+        return DebateMessage.builder()
+                .message(this.message)
+                .senderType(SenderType.AI)
                 .debateRoom(debateRoom)
                 .build();
     }

@@ -23,11 +23,11 @@ public class DebateMessageService {
     @Transactional
     public void saveHumanDebateMessage(final Long roomId, DebateMessageRequest request) {
         final Member member = authService.getMember();
-        debateMessageRepository.save(request.toEntity(member, getDebateRoom(roomId)));
+        debateMessageRepository.save(request.toHumanMessageEntity(member, getDebateRoom(roomId)));
     }
 
     public void saveAIDebateMessage(Long roomId, DebateMessageRequest request) {
-        
+        debateMessageRepository.save(request.toAIMessageEntity(getDebateRoom(roomId)));
     }
 
     private DebateRoom getDebateRoom(final Long roomId) {
