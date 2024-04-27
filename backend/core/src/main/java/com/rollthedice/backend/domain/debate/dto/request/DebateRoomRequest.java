@@ -1,6 +1,6 @@
 package com.rollthedice.backend.domain.debate.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
+import com.rollthedice.backend.domain.debate.entity.DebateRoom;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,6 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class DebateRoomRequest {
-    @NotBlank
     private String topic;
 }

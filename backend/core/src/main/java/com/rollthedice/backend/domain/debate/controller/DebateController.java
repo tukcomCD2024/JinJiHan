@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class DebateController {
     private final DebateRoomService debateRoomService;
 
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     public void saveDebateRoom(@RequestBody @Valid final DebateRoomRequest request) {
         debateRoomService.saveDebateRoom(request);
