@@ -30,9 +30,10 @@ public class DebateMessage extends BaseTimeEntity {
     private DebateRoom debateRoom;
 
     @Builder
-    public DebateMessage(String message, SenderType senderType, DebateRoom debateRoom) {
+    public DebateMessage(String message, SenderType senderType, Member sender, DebateRoom debateRoom) {
         this.message = message;
         this.senderType = senderType;
+        this.sender = sender;
         this.debateRoom = debateRoom;
     }
 
