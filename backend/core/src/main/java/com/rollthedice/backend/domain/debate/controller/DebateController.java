@@ -27,4 +27,10 @@ public class DebateController {
     public void saveHumanDebateMessage(@PathVariable final Long roomId, @RequestBody final DebateMessageRequest request) {
         debateMessageService.saveHumanDebateMessage(roomId, request);
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/{roomId}/ai")
+    public void saveAIDebateMessage(@PathVariable final Long roomId, @RequestBody final DebateMessageRequest request) {
+        debateMessageService.saveAIDebateMessage(roomId, request);
+    }
 }
