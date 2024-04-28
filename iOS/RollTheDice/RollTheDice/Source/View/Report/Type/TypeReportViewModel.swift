@@ -8,20 +8,26 @@
 import Foundation
 
 class TypeReportViewModel: ObservableObject {
-    @Published var typeReportList: TypeReport
+    
+    @Published var reportList: TypeReportList
     
     init(
-        typeReportList: TypeReport = .init(
-            typeReportList: [
-                [NewsType.economy : 10.0],
-                [NewsType.living : 20.0],
-                [NewsType.politics : 30.0],
-                [NewsType.science : 5.0],
-                [NewsType.society : 5.0],
-                [NewsType.world : 30.0],
+        reportList: TypeReportList = .init(
+            reportList: [
+                .init(newsType: .economy, view: 10),
+                .init(newsType: .living, view: 20),
+                .init(newsType: .politics, view: 30),
+                .init(newsType: .science, view: 5),
+                .init(newsType: .society, view: 5),
+                .init(newsType: .world, view: 30)
             ]
         )
     ) {
-        self.typeReportList = typeReportList
+        self.reportList = reportList
+    }
+    
+    // 비율이 낮은 순으로 정렬 (파이 차트에서 반시계방향으로 그래프 차지)
+    var sortedList: [TypeReport] {
+        return reportList.reportList.sorted { $0.view > $1.view }
     }
 }

@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct TypeReportView: View {
+    
+    @EnvironmentObject var pathModel: PathModel
+    
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
             
             VStack {
-//                CustomNavigationBar(title: "분야별 레포트", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
+                CustomNavigationBar(isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {pathModel.paths.popLast()})])
                 
                 Spacer()
                 
@@ -28,12 +31,17 @@ struct TypeReportView: View {
             }
             
         }
+        .navigationBarBackButtonHidden()
     }
     
     var statisticsView: some View {
+        
         RoundedRectangle(cornerRadius: 16)
             .stroke(.basicWhite, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
             .background(.gray07)
+            .overlay {
+                TypePieChartView(reportViewModel: TypeReportViewModel())
+            }
     }
     
     // TODO : 배치 바꾸기!!

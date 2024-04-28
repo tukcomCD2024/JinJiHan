@@ -9,26 +9,30 @@ import SwiftUI
 
 
 struct DailyReportView: View {
+    
+    @EnvironmentObject var pathModel: PathModel
+    
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
             
             VStack {
-//                CustomNavigationBar(title: "요일별 뉴스 관람 개수 통계", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
+                /// 내비게이션 뒤로가기 
+                CustomNavigationBar(isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {pathModel.paths.popLast()})])
                 
                 Spacer()
                 
                 HStack {
                     statisticsView
-                    reportView
+                    reportView 
                 }
                 .frame(height: 500)
                 .padding(.horizontal, 110)
                 
                 Spacer()
             }
-            
         }
+        .navigationBarBackButtonHidden()
     }
     
 
@@ -38,7 +42,8 @@ struct DailyReportView: View {
             .stroke(.basicWhite, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
             .background(.gray07)
             .overlay {
-                DailyBarChartView()
+                DailyBarChartView(dailyViewModel: DailyReportViewModel())
+                    .padding(50)
             }
     }
     
