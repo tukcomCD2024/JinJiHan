@@ -17,10 +17,9 @@ struct DailyBarChartView: View {
     @State var selectedView: Int?
     
     
-    var dateToValue: (date: Date, views: Int)? {
+    var selectedValue: (date: Date, views: Int)? {
         if let selectedDay {
             for preview in dailyViewModel.dailyViews {
-                print("\(preview.date.formatted()), \(selectedDay.formatted(date: .long, time: .omitted))")
                 if preview.date.formatted(date: .long, time: .omitted) == selectedDay.formatted(date: .long, time: .omitted) {
                     return (selectedDay, preview.views)
                 }
@@ -58,15 +57,20 @@ struct DailyBarChartView: View {
                         y: .value("Views", day.views)
                         
                     )
-                    .foregroundStyle(.orange)
+                    .cornerRadius(8)
+                    .foregroundStyle(.primary01.gradient)
+//                    .foregroundStyle(selectedValue?.date.formatted(date: .abbreviated, time: .omitted) == selectedDay?.formatted(date: .abbreviated, time: .omitted) ? .orange : .blue)
+                    //TODO: 바 선택 / 미선택에 따른 막대 투명도 조절
+                    .opacity(selectedValue?.date == nil || selectedValue?.date.formatted(date: .numeric, time: .omitted) == selectedDay?.formatted(date: .numeric, time: .omitted) ? 1 : 0.5)
                 }
                 
                 if let selectedDay = selectedDay {
-                    if dateToValue != nil {
+                    if selectedValue != nil {
                         
                         RuleMark(
                             x: .value("Day", selectedDay, unit: .day)
                         )
+                        .zIndex(-1)
                         .annotation(
                             position: .top,
                             alignment: .centerLastTextBaseline,
@@ -92,14 +96,14 @@ struct DailyBarChartView: View {
     @ViewBuilder
     var popoverView: some View {
         VStack(alignment: .center) {
-            Text("\(dateToValue?.date.formatted(date: .numeric, time: .omitted) ?? "")")
+            Text("\(selectedValue?.date.formatted(date: .numeric, time: .omitted) ?? "")")
                 .font(.pretendardRegular14)
-            Text("\(dateToValue?.views ?? 0)")
-                .font(.pretendardBold32)
+            Text("\(selectedValue?.views ?? 0)")
+                .font(.pretendardBold24)
 
         }
         .padding(10)
-        .background(.gray06)
+        .background(.gray06.gradient)
         .clipShape(
             RoundedRectangle(cornerRadius: 8)
         )
