@@ -20,6 +20,7 @@ public class DebateRoomService {
     private final AuthService authService;
     private final DebateRoomMapper debateRoomMapper;
     private final DebateRoomRepository debateRoomRepository;
+    private final DebateMessageService debateMessageService;
 
 
     @Transactional
@@ -36,7 +37,9 @@ public class DebateRoomService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public void deleteDebateRoom(Long roomId) {
+        debateMessageService.deleteAllDebateMessages(roomId);
         debateRoomRepository.deleteById(roomId);
     }
 }
