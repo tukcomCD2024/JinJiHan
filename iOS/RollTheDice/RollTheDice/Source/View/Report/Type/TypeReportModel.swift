@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct TypeReportList {
+struct TypeReportList: Hashable {
     var reportList: [TypeReport]
 }
 
 struct TypeReport: Hashable, Identifiable {
     var id = UUID()
-    var typeReportList: NewsType
+    var newsType: NewsType
     var view: Int
 
     //  case politics   // 정치
