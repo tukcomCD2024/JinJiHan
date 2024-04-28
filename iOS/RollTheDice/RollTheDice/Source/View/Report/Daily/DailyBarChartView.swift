@@ -19,7 +19,7 @@ struct DailyBarChartView: View {
     
     var selectedValue: (date: Date, views: Int)? {
         if let selectedDay {
-            for preview in dailyViewModel.dailyViews {
+            for preview in dailyViewModel.dailyReportList.reportList {
                 if preview.date.formatted(date: .long, time: .omitted) == selectedDay.formatted(date: .long, time: .omitted) {
                     return (selectedDay, preview.views)
                 }
@@ -51,7 +51,7 @@ struct DailyBarChartView: View {
                 .frame(height: 100)
             
             Chart{
-                ForEach(dailyViewModel.dailyViews) { day in
+                ForEach(dailyViewModel.dailyReportList.reportList) { day in
                     BarMark(
                         x: .value("Day", day.date, unit: .weekdayOrdinal),
                         y: .value("Views", day.views)

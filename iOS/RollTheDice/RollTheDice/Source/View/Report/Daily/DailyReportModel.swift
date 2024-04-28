@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 
+struct DailyReportList: Hashable {
+    var reportList: [DailyReport]
+}
+
 struct DailyReport: Hashable, Identifiable {
     let id = UUID()
     let dateStr: String // DateFormatter로 변환
@@ -23,13 +27,5 @@ struct DailyReport: Hashable, Identifiable {
         let convertedDate = dateFormatter.date(from: dateStr)!
         
         return convertedDate
-    }
-    
-    init(
-        dateStr: String,
-        views: Int
-    ) {
-        self.dateStr = dateStr
-        self.views = views
     }
 }
