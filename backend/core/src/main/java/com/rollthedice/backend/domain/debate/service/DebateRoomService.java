@@ -35,4 +35,8 @@ public class DebateRoomService {
                 .map(debateRoomMapper::toResponse)
                 .collect(Collectors.toList());
     }
+
+    public void deleteDebateRoom(Long roomId) {
+        debateRoomRepository.deleteById(roomId);
+    }
 }
