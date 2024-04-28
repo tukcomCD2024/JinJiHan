@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DebateMessageRepository extends JpaRepository<DebateMessage, Long> {
-
+    void deleteAllInBatchByDebateRoomId(final Long id);
 }

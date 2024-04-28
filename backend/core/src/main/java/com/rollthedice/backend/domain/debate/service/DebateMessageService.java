@@ -27,4 +27,9 @@ public class DebateMessageService {
     private DebateRoom getDebateRoom(final Long roomId) {
         return debateRoomRepository.findById(roomId).orElseThrow(EntityNotFoundException::new);
     }
+
+    @Transactional
+    public void deleteAllDebateMessages(Long roomId) {
+        debateMessageRepository.deleteAllInBatchByDebateRoomId(roomId);
+    }
 }
