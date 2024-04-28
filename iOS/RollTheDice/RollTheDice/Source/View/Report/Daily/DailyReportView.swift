@@ -14,7 +14,7 @@ struct DailyReportView: View {
             Color.backgroundDark.ignoresSafeArea(.all)
             
             VStack {
-//                CustomNavigationBar(title: "요일별 뉴스 관람 개수 통계", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
+                CustomNavigationBar( isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
                 
                 Spacer()
                 
@@ -38,7 +38,8 @@ struct DailyReportView: View {
             .stroke(.basicWhite, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
             .background(.gray07)
             .overlay {
-                DailyBarChartView()
+                DailyBarChartView(dailyViewModel: DailyReportViewModel())
+                
             }
     }
     
