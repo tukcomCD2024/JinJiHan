@@ -9,12 +9,16 @@ import SwiftUI
 
 
 struct DailyReportView: View {
+    
+    @EnvironmentObject var pathModel: PathModel
+    
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
             
             VStack {
-                CustomNavigationBar( isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
+                /// 내비게이션 뒤로가기 
+                CustomNavigationBar(isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {pathModel.paths.popLast()})])
                 
                 Spacer()
                 

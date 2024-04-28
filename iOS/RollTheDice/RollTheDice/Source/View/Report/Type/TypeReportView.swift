@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct TypeReportView: View {
+    
+    @EnvironmentObject var pathModel: PathModel
+    
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
             
             VStack {
-//                CustomNavigationBar(title: "분야별 레포트", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {})])
+                CustomNavigationBar(isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {pathModel.paths.popLast()})])
                 
                 Spacer()
                 
