@@ -20,7 +20,7 @@ struct DailyReportView: View {
                 
                 HStack {
                     statisticsView
-                    reportView
+                    reportView 
                 }
                 .frame(height: 500)
                 .padding(.horizontal, 110)
@@ -39,7 +39,7 @@ struct DailyReportView: View {
             .background(.gray07)
             .overlay {
                 DailyBarChartView(dailyViewModel: DailyReportViewModel())
-                
+                    .padding(50)
             }
     }
     

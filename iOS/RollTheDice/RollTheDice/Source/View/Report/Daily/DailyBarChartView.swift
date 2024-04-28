@@ -17,20 +17,17 @@ struct DailyBarChartView: View {
     @State var selectedView: Int?
     
     
-    var dateToView: Int? {
+    var dateToValue: (date: Date, views: Int)? {
         if let selectedDay {
             for preview in dailyViewModel.dailyViews {
                 print("\(preview.date.formatted()), \(selectedDay.formatted(date: .long, time: .omitted))")
                 if preview.date.formatted(date: .long, time: .omitted) == selectedDay.formatted(date: .long, time: .omitted) {
-                    return preview.views
+                    return (selectedDay, preview.views)
                 }
             }
         }
         return nil
     }
-    
-    // TODO: 평균 기사 개수 구하는 함수 작성
-//    var avg: Double = 99.9
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -51,6 +48,9 @@ struct DailyBarChartView: View {
                 Spacer()
             }
             
+            Spacer()
+                .frame(height: 100)
+            
             Chart{
                 ForEach(dailyViewModel.dailyViews) { day in
                     BarMark(
@@ -62,22 +62,23 @@ struct DailyBarChartView: View {
                 }
                 
                 if let selectedDay = selectedDay {
+                    if dateToValue != nil {
                         
-                    RuleMark(
-                        x: .value("Day", selectedDay, unit: .day)
-                    )
-                    .annotation(
-                        position: .top,
-                        alignment: .leading,
-                        overflowResolution: .init(
-                            x: .fit(to: .chart),
-                            y: .disabled
+                        RuleMark(
+                            x: .value("Day", selectedDay, unit: .day)
                         )
-                    ) {
-                        
-                        Text("\(dateToView ?? -1)")
+                        .annotation(
+                            position: .top,
+                            alignment: .centerLastTextBaseline,
+                            overflowResolution: .init(
+                                x: .fit(to: .chart),
+                                y: .disabled
+                            )
+                        ) {
+                            popoverView
+                        }
+                        .foregroundStyle(.basicWhite)
                     }
-                    .foregroundStyle(.basicWhite)
                 }
             }
             .chartXAxis {
@@ -86,7 +87,26 @@ struct DailyBarChartView: View {
             .chartYAxis(.hidden)
             .chartXSelection(value: $selectedDay)
         }
-        .frame(width: 440, height: 300)
+    }
+    
+    @ViewBuilder
+    var popoverView: some View {
+        VStack(alignment: .center) {
+            Text("\(dateToValue?.date.formatted(date: .numeric, time: .omitted) ?? "")")
+                .font(.pretendardRegular14)
+            Text("\(dateToValue?.views ?? 0)")
+                .font(.pretendardBold32)
+
+        }
+        .padding(10)
+        .background(.gray06)
+        .clipShape(
+            RoundedRectangle(cornerRadius: 8)
+        )
+        .overlay {
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(.gray05, lineWidth: 1.0)
+        }
     }
 }
 
