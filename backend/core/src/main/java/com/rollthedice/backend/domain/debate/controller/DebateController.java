@@ -32,6 +32,12 @@ public class DebateController {
         return debateRoomService.getDebateRooms(pageable);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{roomId}")
+    public void deleteDebateRoom(@PathVariable final Long roomId) {
+        debateRoomService.deleteDebateRoom(roomId);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{roomId}/human")
     public void saveHumanDebateMessage(@PathVariable final Long roomId, @RequestBody final DebateMessageRequest request) {
