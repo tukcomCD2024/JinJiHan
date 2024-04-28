@@ -1,10 +1,8 @@
 package com.rollthedice.backend.domain.debate.entity;
 
+import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.global.config.BaseTimeEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,8 +18,13 @@ public class DebateRoom extends BaseTimeEntity {
 
     private String topic;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
     @Builder
-    public DebateRoom(String topic) {
+    public DebateRoom(Member member, String topic) {
+        this.member = member;
         this.topic = topic;
     }
 }
