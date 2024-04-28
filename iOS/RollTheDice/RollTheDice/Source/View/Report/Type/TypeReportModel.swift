@@ -7,15 +7,19 @@
 
 import Foundation
 
-struct TypeReport {
-    var typeReportList: [[NewsType : Double]]
+struct TypeReportList {
+    var reportList: [TypeReport]
 }
 
-enum NewsType {
-    case politics   // 정치
-    case economy    // 경제
-    case society    // 사회
-    case living     // 생활/문화
-    case world      // 세계
-    case science    // IT/과학
+struct TypeReport: Hashable, Identifiable {
+    var id = UUID()
+    var typeReportList: NewsType
+    var view: Int
+
+    //  case politics   // 정치
+    //  case economy    // 경제
+    //  case society    // 사회
+    //  case living     // 생활/문화
+    //  case world      // 세계
+    //  case science    // IT/과학
 }
