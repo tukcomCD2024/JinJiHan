@@ -2,6 +2,7 @@ package com.rollthedice.backend.domain.debate.controller;
 
 import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
+import com.rollthedice.backend.domain.debate.dto.response.DebateMessageResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
 import com.rollthedice.backend.domain.debate.service.DebateMessageService;
 import com.rollthedice.backend.domain.debate.service.DebateRoomService;
@@ -48,5 +49,11 @@ public class DebateController {
     @PostMapping("/{roomId}/ai")
     public void saveAIDebateMessage(@PathVariable final Long roomId, @RequestBody final DebateMessageRequest request) {
         debateMessageService.saveAIDebateMessage(roomId, request);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{roomId}")
+    public List<DebateMessageResponse> getDebateMessages(@PathVariable final Long roomId) {
+        return debateMessageService.getDebateMessages(roomId);
     }
 }
