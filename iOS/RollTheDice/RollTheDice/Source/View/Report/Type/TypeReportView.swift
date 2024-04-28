@@ -34,9 +34,13 @@ struct TypeReportView: View {
     }
     
     var statisticsView: some View {
+        
         RoundedRectangle(cornerRadius: 16)
             .stroke(.basicWhite, lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
             .background(.gray07)
+            .overlay {
+                TypePieChartView(reportViewModel: TypeReportViewModel())
+            }
     }
     
     // TODO : 배치 바꾸기!!
