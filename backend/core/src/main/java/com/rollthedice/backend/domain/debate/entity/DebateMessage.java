@@ -22,18 +22,13 @@ public class DebateMessage extends BaseTimeEntity {
     private SenderType senderType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sender_id")
-    private Member sender;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "debate_room_id")
     private DebateRoom debateRoom;
 
     @Builder
-    public DebateMessage(String message, SenderType senderType, Member sender, DebateRoom debateRoom) {
+    public DebateMessage(String message, SenderType senderType, DebateRoom debateRoom) {
         this.message = message;
         this.senderType = senderType;
-        this.sender = sender;
         this.debateRoom = debateRoom;
     }
 
