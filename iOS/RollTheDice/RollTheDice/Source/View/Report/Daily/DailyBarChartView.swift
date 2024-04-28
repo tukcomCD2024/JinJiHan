@@ -16,6 +16,8 @@ struct DailyBarChartView: View {
     @State var selectedDay: Date?
     @State var selectedView: Int?
     
+    var isPreview: Bool = false
+    
     
     var selectedValue: (date: Date, views: Int)? {
         if let selectedDay {
@@ -30,25 +32,29 @@ struct DailyBarChartView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("이번주 평균")
-                        .foregroundStyle(.gray04)
-                        .font(.pretendardBold12)
-                    HStack {
-                        Text(dailyViewModel.averageView)
-                            .foregroundStyle(.basicWhite)
-                            .font(.pretendardBold40)
-                        Text("기사")
+            if !isPreview {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("이번주 평균")
                             .foregroundStyle(.gray04)
                             .font(.pretendardBold12)
+                        HStack {
+                            Text(dailyViewModel.averageView)
+                                .foregroundStyle(.basicWhite)
+                                .font(.pretendardBold40)
+                            Text("기사")
+                                .foregroundStyle(.gray04)
+                                .font(.pretendardBold12)
+                        }
                     }
+                    Spacer()
                 }
+                
                 Spacer()
+                    .frame(height: 100)
             }
             
-            Spacer()
-                .frame(height: 100)
+            
             
             Chart{
                 ForEach(dailyViewModel.dailyReportList.reportList) { day in
@@ -59,32 +65,36 @@ struct DailyBarChartView: View {
                     )
                     .cornerRadius(8)
                     .foregroundStyle(.primary01.gradient)
-//                    .foregroundStyle(selectedValue?.date.formatted(date: .abbreviated, time: .omitted) == selectedDay?.formatted(date: .abbreviated, time: .omitted) ? .orange : .blue)
+
                     //TODO: 바 선택 / 미선택에 따른 막대 투명도 조절
                     .opacity(selectedValue?.date == nil || selectedValue?.date.formatted(date: .numeric, time: .omitted) == selectedDay?.formatted(date: .numeric, time: .omitted) ? 1 : 0.5)
                 }
                 
-                if let selectedDay = selectedDay {
-                    if selectedValue != nil {
-                        
-                        RuleMark(
-                            x: .value("Day", selectedDay, unit: .day)
-                        )
-                        .zIndex(-1)
-                        .annotation(
-                            position: .top,
-                            alignment: .centerLastTextBaseline,
-                            overflowResolution: .init(
-                                x: .fit(to: .chart),
-                                y: .disabled
+                if !isPreview {
+                    if let selectedDay = selectedDay {
+                        if selectedValue != nil {
+                            
+                            RuleMark(
+                                x: .value("Day", selectedDay, unit: .day)
                             )
-                        ) {
-                            popoverView
+                            .zIndex(-1)
+                            .annotation(
+                                position: .top,
+                                alignment: .centerLastTextBaseline,
+                                overflowResolution: .init(
+                                    x: .fit(to: .chart),
+                                    y: .disabled
+                                )
+                            ) {
+                                popoverView
+                            }
+                            .foregroundStyle(.basicWhite)
                         }
-                        .foregroundStyle(.basicWhite)
                     }
                 }
             }
+            .padding(isPreview ? 50 : 0)
+            .chartXAxis(isPreview ? .hidden : .visible)
             .chartXAxis {
                 AxisMarks(values: .automatic(desiredCount: 7))
             }
