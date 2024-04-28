@@ -31,7 +31,7 @@ public class DebateRoomService {
     @Transactional(readOnly = true)
     public List<DebateRoomResponse> getDebateRooms(Pageable pageable) {
         final Member member = authService.getMember();
-        return debateRoomRepository.findAllByMemberOrderByCreatedAt(member, pageable).stream()
+        return debateRoomRepository.findAllByMember(member, pageable).stream()
                 .map(debateRoomMapper::toResponse)
                 .collect(Collectors.toList());
     }
