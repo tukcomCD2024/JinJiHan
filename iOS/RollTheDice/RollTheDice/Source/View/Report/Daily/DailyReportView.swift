@@ -31,8 +31,8 @@ struct DailyReportView: View {
                 
                 Spacer()
             }
-            
         }
+        .navigationBarBackButtonHidden()
     }
     
 

@@ -31,6 +31,7 @@ struct TypeReportView: View {
             }
             
         }
+        .navigationBarBackButtonHidden()
     }
     
     var statisticsView: some View {
