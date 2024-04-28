@@ -2,12 +2,16 @@ package com.rollthedice.backend.domain.debate.controller;
 
 import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
+import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
 import com.rollthedice.backend.domain.debate.service.DebateMessageService;
 import com.rollthedice.backend.domain.debate.service.DebateRoomService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,6 +24,12 @@ public class DebateController {
     @PostMapping("")
     public void saveDebateRoom(@RequestBody @Valid final DebateRoomRequest request) {
         debateRoomService.saveDebateRoom(request);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("")
+    public List<DebateRoomResponse> getDebateRooms(final Pageable pageable) {
+        return debateRoomService.getDebateRooms(pageable);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
