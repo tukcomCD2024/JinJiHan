@@ -10,9 +10,9 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject private var pathModel: PathModel
-    @EnvironmentObject private var newsListViewModel: NewsListViewModel
+    @StateObject var newsListViewModel: NewsListViewModel
     
-    @StateObject private var mainTabViewModel = MainTabViewModel()
+    @StateObject var mainTabViewModel = MainTabViewModel()
     
     var body: some View {
         ZStack {
@@ -20,42 +20,35 @@ struct MainTabView: View {
                 .ignoresSafeArea(.all)
             
             TabView(selection: $mainTabViewModel.selectedTabItem) {
-                NewsListView()
+                
+                StatisticsListView()
                     .tabItem {
-                        Image(systemName: "newspaper")
+                        Image(systemName: "list.bullet.rectangle")
                     }
-                    .environmentObject(newsListViewModel)
                     .tag(0)
+                
+                NewsListView(newsListViewModel: newsListViewModel)
+                    .tabItem {
+                        Image(systemName: "square.3.layers.3d.down.left")
+                    }
+//                    .environmentObject(newsListViewModel)
+                    .tag(1)
+                
                 ChatTypeView()
+//                    .environmentObject(pathModel)
                     .tabItem {
                         Image(systemName: "message")
                     }
-                    .tag(1)
-                BookmarkListView()
-                    .tabItem {
-                        Image(systemName: "bookmark")
-                    }
-                    .environmentObject(BookmarkListViewModel())
+//                    .environmentObject(pathModel)
                     .tag(2)
-                
-                ARView()
-                    .tabItem {
-                        Image(systemName: "square.stack.3d.up.fill")
-                    }
-                    .tag(3)
-                
-                ProfileView()
-                    .tabItem {
-                        Image(systemName: "person.crop.circle")
-                    }
-                    .tag(4)
+
             }
         }
-    
     }
 }
 
 #Preview {
-    MainTabView()
-        .environmentObject(NewsListViewModel())
+    MainTabView(newsListViewModel: NewsListViewModel())
+        .environmentObject(PathModel())
+//        .environmentObject(NewsListViewModel())
 }

@@ -19,8 +19,8 @@
 
 ---
 
-## 📁 시스템 구조도
-![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/6158eb16-358f-4b5f-b921-5f96eb9754f2)
+## 📁 개발 시스템 구조도
+![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/5df840e4-9c04-4d01-8fe1-119f53d4ae12)
 
 
 ## 🔗 ERD
@@ -28,4 +28,4 @@
 
 
 ## 🛠️ System Architecture
-![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/9b034e4c-1cb5-407f-a5a9-f8a2f0bfb32b)
+![](https://github.com/tukcomCD2024/JinJiHan/assets/81320703/10637a77-24ab-432f-b818-2d3d63fdbec1)
