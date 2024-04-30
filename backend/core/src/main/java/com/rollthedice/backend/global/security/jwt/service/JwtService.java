@@ -31,7 +31,7 @@ public class JwtService {
     private final MemberRepository memberRepository;
     private final RefreshTokenService refreshTokenService;
 
-    @Value("${jwt.secretKey}")
+    @Value("${jwt.secret-key}")
     private String secretKey;
     @Value("${jwt.access.expiration}")
     private Long accessTokenExpirationPeriod;
