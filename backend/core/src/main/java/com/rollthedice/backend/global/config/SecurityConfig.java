@@ -1,3 +1,5 @@
+package com.rollthedice.backend.global.config;
+
 import com.rollthedice.backend.domain.member.repository.MemberRepository;
 import com.rollthedice.backend.global.security.jwt.filter.JwtAuthenticationProcessingFilter;
 import com.rollthedice.backend.global.security.jwt.refresh.service.RefreshTokenService;
