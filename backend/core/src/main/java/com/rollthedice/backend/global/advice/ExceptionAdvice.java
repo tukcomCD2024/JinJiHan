@@ -1,6 +1,6 @@
 package com.rollthedice.backend.global.advice;
 
-import com.rollthedice.backend.global.jwt.exception.NotFoundTokenException;
+import com.rollthedice.backend.global.security.jwt.exception.NotFoundTokenException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

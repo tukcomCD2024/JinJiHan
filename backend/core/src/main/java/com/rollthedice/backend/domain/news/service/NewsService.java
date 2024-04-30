@@ -2,7 +2,7 @@ package com.rollthedice.backend.domain.news.service;
 
 import com.rollthedice.backend.domain.bookmark.service.BookmarkService;
 import com.rollthedice.backend.domain.member.entity.Member;
-import com.rollthedice.backend.domain.member.query.AuthService;
+import com.rollthedice.backend.global.oauth2.service.AuthService;
 import com.rollthedice.backend.domain.news.contentqueue.ContentProducer;
 import com.rollthedice.backend.domain.news.dto.ContentMessageDto;
 import com.rollthedice.backend.domain.news.dto.NewsUrlDto;

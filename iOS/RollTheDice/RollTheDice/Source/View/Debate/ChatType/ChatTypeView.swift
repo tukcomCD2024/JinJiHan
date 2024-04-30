@@ -9,90 +9,143 @@ import SwiftUI
 
 struct ChatTypeView: View {
     @EnvironmentObject private var pathModel: PathModel
-    @State var isSelected: Bool = false
+//    @State var isSelected: Bool = false
     
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
-            ChatTypeContentView(isSelected: $isSelected)
+            VStack {
+                CustomNavigationBar(
+                    isDisplayTrailingBtn: true,
+                    trailingItems: [
+                        (Image(.bookmarkfill), { pathModel.paths.append(.bookmarkView)}),
+                        (Image(.profileWhite), { pathModel.paths.append(.mypageView)})
+                    ]
+                )
+                Spacer()
+                recentReadNewsView
+                Spacer()
+                
+                chatListView
+                
+
+            }
+            
         }
     }
     
-    private struct ChatTypeContentView: View {
-        
-        @Binding var isSelected: Bool
-        @EnvironmentObject private var pathModel: PathModel
-        
-        fileprivate var body: some View {
+    var recentReadNewsView: some View {
+        VStack(alignment: .leading) {
+            Text("최근에 본 뉴스")
+                .foregroundStyle(.gray01)
+                .font(.pretendardBold32)
             HStack {
                 Button {
-                    isSelected.toggle()
-                    pathModel.paths.append(.chatView(isAiMode: true))
+                    //                    isSelected.toggle()
+                    //                    pathModel.paths.append(.chatView(isAiMode: true))
                 } label: {
                     RoundedRectangle(cornerRadius: 15)
                         .foregroundStyle(.primary01)
-                        .frame(width: 350, height: 400)
-                        
+                        .frame(width: 200, height: 200)
+                    
                         .overlay {
                             VStack {
                                 HStack {
-                                    Text("Chat GPT랑\n토론하기")
+                                    Text("기사제목")
                                         .multilineTextAlignment(.leading)
-                                        .font(.system(size: 40, weight: .bold))
+                                        .font(.pretendardBold24)
                                         .foregroundStyle(.basicWhite)
-                                    
-                                    Spacer()
-                                }
-                                
-                                Spacer()
-                                
-                                HStack {
-                                    Spacer()
-                                    Text("🤖")
-                                        .font(.system(size: 100))
                                 }
                             }
-                            .padding(.horizontal, 35)
-                            .padding(.bottom, 35)
-                            .padding(.top, 45)
-                            
-
                         }
                 }
                 
                 Button {
-                    pathModel.paths.append(.chatView(isAiMode: false))
+                    //                    isSelected.toggle()
+                    //                    pathModel.paths.append(.chatView(isAiMode: true))
                 } label: {
                     RoundedRectangle(cornerRadius: 15)
-                        .foregroundStyle(.gray01)
-                        .frame(width: 350, height: 400)
-                        
+                        .foregroundStyle(.primary01)
+                        .frame(width: 200, height: 200)
+                    
                         .overlay {
                             VStack {
                                 HStack {
-                                    Spacer()
-                                    Text("인간이랑\n토론하기")
-                                        .multilineTextAlignment(.trailing)
-                                        .font(.system(size: 40, weight: .bold))
-                                        .foregroundStyle(.primary01)
-                                }
-                                
-                                Spacer()
-                                
-                                HStack {
-                                    Text("🫶")
-                                        .font(.system(size: 100))
-                                    Spacer()
+                                    Text("기사제목")
+                                        .multilineTextAlignment(.leading)
+                                        .font(.pretendardBold24)
+                                        .foregroundStyle(.basicWhite)
                                 }
                             }
-                            .padding(.horizontal, 35)
-                            .padding(.bottom, 35)
-                            .padding(.top, 45)
+                        }
+                }
+                
+                Button {
+                    //                    isSelected.toggle()
+                    //                    pathModel.paths.append(.chatView(isAiMode: true))
+                } label: {
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundStyle(.primary01)
+                        .frame(width: 200, height: 200)
+                    
+                        .overlay {
+                            VStack {
+                                HStack {
+                                    Text("기사제목")
+                                        .multilineTextAlignment(.leading)
+                                        .font(.pretendardBold24)
+                                        .foregroundStyle(.basicWhite)
+                                }
+                            }
                         }
                 }
             }
         }
     }
+    
+    var chatListView: some View {
+        VStack(alignment: .leading) {
+            
+            Text("채팅 목록")
+                .foregroundStyle(.gray01)
+                .font(.pretendardBold32)
+        
+            ScrollView {
+                HStack {
+                    Button {
+                        //                    isSelected.toggle()
+                        //                    pathModel.paths.append(.chatView(isAiMode: true))
+                    } label: {
+                        RoundedRectangle(cornerRadius: 15)
+                            .foregroundStyle(.primary01)
+                            .frame(width: 600, height: 100)
+                        
+                            .overlay {
+                                HStack {
+                                    Text("기사제목")
+                                        .multilineTextAlignment(.leading)
+                                        .font(.pretendardBold24)
+                                        .foregroundStyle(.basicWhite)
+                                    
+                                    Spacer()
+                                    
+                                    
+                                }
+                            }
+                    }
+                    Button {
+                        pathModel.paths.append(.debateSummaryView)
+                    } label: {
+                        
+                        Image(.chevronRight)
+                            .padding(10)
+                            .background(.basicBlack)
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 #Preview {
