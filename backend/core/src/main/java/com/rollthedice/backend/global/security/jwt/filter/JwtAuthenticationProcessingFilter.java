@@ -33,7 +33,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     private final MemberRepository memberRepository;
     private final RefreshTokenService refreshTokenService;
 
-    private GrantedAuthoritiesMapper authoritiesMapper = new NullAuthoritiesMapper();
+    private final GrantedAuthoritiesMapper authoritiesMapper = new NullAuthoritiesMapper();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
@@ -42,8 +42,8 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         }
+
         String refreshToken = jwtService.extractRefreshToken(request)
-                .filter(jwtService::isTokenValid)
                 .orElse(null);
 
         if (refreshToken != null) {
@@ -52,7 +52,6 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
             return;
         }
 
-        log.info("refresh token is null");
         checkAccessTokenAndAuthentication(request, response, filterChain);
     }
 
@@ -76,6 +75,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
                             )
                     );
         } catch (Exception e) {
+
             response.sendError(HttpServletResponse.SC_FORBIDDEN);
         }
         filterChain.doFilter(request, response);
@@ -95,6 +95,6 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
-
 }
+
 
