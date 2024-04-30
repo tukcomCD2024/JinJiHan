@@ -15,18 +15,7 @@ struct ChatTypeView: View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
             VStack {
-                CustomNavigationBar(
-                    isDisplayTrailingBtn: true,
-                    trailingItems: [
-                        (Image(.bookmarkfill), { pathModel.paths.append(.bookmarkView)}),
-                        (Image(.profileWhite), { pathModel.paths.append(.mypageView)})
-                    ]
-                )
-                Spacer()
-                recentReadNewsView
-                Spacer()
-                
-                chatListView
+
                 
 
             }
