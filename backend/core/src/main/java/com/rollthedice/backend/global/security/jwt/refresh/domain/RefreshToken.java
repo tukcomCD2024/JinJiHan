@@ -1,4 +1,4 @@
-package com.rollthedice.backend.global.jwt.refresh.domain;
+package com.rollthedice.backend.global.security.jwt.refresh.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;

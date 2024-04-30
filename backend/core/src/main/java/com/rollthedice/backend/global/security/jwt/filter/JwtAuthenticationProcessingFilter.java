@@ -1,11 +1,12 @@
-package com.rollthedice.backend.global.jwt.filter;
+package com.rollthedice.backend.global.security.jwt.filter;
 
 import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.member.repository.MemberRepository;
-import com.rollthedice.backend.global.jwt.refresh.domain.RefreshToken;
-import com.rollthedice.backend.global.jwt.refresh.service.RefreshTokenService;
-import com.rollthedice.backend.global.jwt.service.JwtService;
-import com.rollthedice.backend.global.jwt.util.PasswordUtil;
+import com.rollthedice.backend.global.security.jwt.exception.InvalidTokenException;
+import com.rollthedice.backend.global.security.jwt.refresh.domain.RefreshToken;
+import com.rollthedice.backend.global.security.jwt.refresh.service.RefreshTokenService;
+import com.rollthedice.backend.global.security.jwt.service.JwtService;
+import com.rollthedice.backend.global.security.jwt.util.PasswordUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,8 +30,8 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     private static final String NO_CHECK_URL = "/login";
 
     private final JwtService jwtService;
-    private final RefreshTokenService refreshTokenService;
     private final MemberRepository memberRepository;
+    private final RefreshTokenService refreshTokenService;
 
     private GrantedAuthoritiesMapper authoritiesMapper = new NullAuthoritiesMapper();
 
@@ -47,6 +48,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
 
         if (refreshToken != null) {
             checkRefreshTokenAndReIssueAccessToken(response, refreshToken);
+            response.sendError(HttpServletResponse.SC_FORBIDDEN);
             return;
         }
 
@@ -55,47 +57,44 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
     }
 
     public void checkRefreshTokenAndReIssueAccessToken(HttpServletResponse response, String refreshToken) {
-        RefreshToken refresh = refreshTokenService.findByToken(refreshToken);
-        String reIssuedRefreshToken = reIssueRefreshToken(refresh.getEmail());
-        jwtService.sendAccessAndRefreshToken(response,
-                jwtService.createAccessToken(refresh.getEmail()), reIssuedRefreshToken);
+        if (jwtService.isTokenValid(refreshToken)) {
+            RefreshToken refresh = refreshTokenService.findByToken(refreshToken);
+            jwtService.sendAccessAndRefreshToken(response, refresh.getEmail());
+        }
     }
 
-    private String reIssueRefreshToken(String email) {
-        String reIssuedRefreshToken = jwtService.createRefreshToken();
-
-        refreshTokenService.updateToken(email, reIssuedRefreshToken);
-        return reIssuedRefreshToken;
-    }
-
-    private void checkAccessTokenAndAuthentication(HttpServletRequest request, HttpServletResponse response,
-        FilterChain filterChain) throws ServletException, IOException {
-        jwtService.extractAccessToken(request)
-                .filter(jwtService::isTokenValid)
-                .ifPresent(accessToken -> jwtService.extractEmail(accessToken)
-                        .ifPresent(email -> memberRepository.findByEmail(email)
-                                .ifPresent(this::saveAuthentication)));
+    public void checkAccessTokenAndAuthentication(HttpServletRequest request, HttpServletResponse response,
+                                                  FilterChain filterChain) throws ServletException, IOException {
+        log.info("checkAccessTokenAndAuthentication() 호출");
+        try {
+            jwtService.extractAccessToken(request)
+                    .ifPresent(accessToken -> jwtService.extractEmail(accessToken)
+                            .ifPresentOrElse(email -> memberRepository.findByEmail(email).ifPresent(this::saveAuthentication),
+                                    () -> {
+                                        throw new InvalidTokenException("Invalid access token");
+                                    }
+                            )
+                    );
+        } catch (Exception e) {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN);
+        }
         filterChain.doFilter(request, response);
     }
 
-    public void saveAuthentication(Member member) {
-        String password = member.getPassword();
-        if (password == null) {
-            password = PasswordUtil.generateRandomPassword();
-        }
+    public void saveAuthentication(Member myMember) {
+        String password = PasswordUtil.generateRandomPassword();
 
-        UserDetails userDetails = User.builder()
-                .username(member.getEmail())
+        UserDetails userDetailsUser = User.builder()
+                .username(myMember.getEmail())
                 .password(password)
-                .roles(member.getRole().name())
+                .roles(myMember.getRole().name())
                 .build();
 
-        Authentication authentication =
-                new UsernamePasswordAuthenticationToken(userDetails, null,
-                        authoritiesMapper.mapAuthorities(userDetails.getAuthorities()));
+        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetailsUser, null,
+                authoritiesMapper.mapAuthorities(userDetailsUser.getAuthorities()));
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String name = SecurityContextHolder.getContext().getAuthentication().getName();
-        log.info("jwt authentication name : {}", name);
     }
+
 }
 

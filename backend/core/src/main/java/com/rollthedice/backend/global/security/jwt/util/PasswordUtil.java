@@ -1,4 +1,4 @@
-package com.rollthedice.backend.global.jwt.util;
+package com.rollthedice.backend.global.security.jwt.util;
 
 import java.util.Random;
 
