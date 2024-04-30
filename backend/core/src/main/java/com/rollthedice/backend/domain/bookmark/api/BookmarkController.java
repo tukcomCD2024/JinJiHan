@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.bookmark.controller;
+package com.rollthedice.backend.domain.bookmark.api;
 
 import com.rollthedice.backend.domain.bookmark.service.BookmarkService;
 import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
