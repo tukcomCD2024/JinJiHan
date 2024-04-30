@@ -30,11 +30,10 @@ public class Member extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    public Member update(MemberServiceDto dto) {
+    public void update(MemberServiceDto dto) {
         this.email = dto.getEmail();
         this.imageUrl = dto.getImageUrl();
         this.nickname = dto.getNickname();
-        return this;
     }
 
     public void signUp(String nickname) {
