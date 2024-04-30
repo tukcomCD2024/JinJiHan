@@ -1,4 +1,4 @@
-package com.rollthedice.backend.global.jwt.exception;
+package com.rollthedice.backend.global.security.jwt.exception;
 
 public class NotFoundTokenException extends RuntimeException {
     public NotFoundTokenException() {

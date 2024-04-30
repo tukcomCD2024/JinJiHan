@@ -1,6 +1,6 @@
-package com.rollthedice.backend.global.jwt.refresh.repository;
+package com.rollthedice.backend.global.security.jwt.refresh.repository;
 
-import com.rollthedice.backend.global.jwt.refresh.domain.RefreshToken;
+import com.rollthedice.backend.global.security.jwt.refresh.domain.RefreshToken;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

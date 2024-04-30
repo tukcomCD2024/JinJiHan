@@ -5,7 +5,7 @@ import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
 import com.rollthedice.backend.domain.debate.mapper.DebateRoomMapper;
 import com.rollthedice.backend.domain.debate.repository.DebateRoomRepository;
 import com.rollthedice.backend.domain.member.entity.Member;
-import com.rollthedice.backend.domain.member.query.AuthService;
+import com.rollthedice.backend.global.oauth2.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

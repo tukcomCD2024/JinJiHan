@@ -1,8 +1,8 @@
-package com.rollthedice.backend.global.jwt.refresh.service;
+package com.rollthedice.backend.global.security.jwt.refresh.service;
 
-import com.rollthedice.backend.global.jwt.exception.NotFoundTokenException;
-import com.rollthedice.backend.global.jwt.refresh.domain.RefreshToken;
-import com.rollthedice.backend.global.jwt.refresh.repository.RefreshTokenRepository;
+import com.rollthedice.backend.global.security.jwt.exception.NotFoundTokenException;
+import com.rollthedice.backend.global.security.jwt.refresh.domain.RefreshToken;
+import com.rollthedice.backend.global.security.jwt.refresh.repository.RefreshTokenRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

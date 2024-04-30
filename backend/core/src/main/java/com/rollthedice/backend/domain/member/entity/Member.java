@@ -1,5 +1,6 @@
 package com.rollthedice.backend.domain.member.entity;
 
+import com.rollthedice.backend.domain.member.dto.MemberServiceDto;
 import com.rollthedice.backend.global.config.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,10 +30,10 @@ public class Member extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    public Member update(String email, String imageUrl) {
-        this.email = email;
-        this.imageUrl = imageUrl;
-        return this;
+    public void update(MemberServiceDto dto) {
+        this.email = dto.getEmail();
+        this.imageUrl = dto.getImageUrl();
+        this.nickname = dto.getNickname();
     }
 
     public void signUp(String nickname) {
