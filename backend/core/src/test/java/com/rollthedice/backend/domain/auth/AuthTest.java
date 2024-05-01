@@ -2,7 +2,7 @@ package com.rollthedice.backend.domain.auth;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.rollthedice.backend.domain.member.controller.MemberController;
+import com.rollthedice.backend.domain.member.api.MemberController;
 import com.rollthedice.backend.domain.member.dto.MemberUpdateDto;
 import com.rollthedice.backend.domain.member.service.MemberService;
 import com.rollthedice.backend.global.LoginTest;
@@ -35,7 +35,7 @@ public class AuthTest extends LoginTest {
     public void accessToken_로그인_성공() throws Exception {
         // when
         final ResultActions perform = mockMvc.perform(post("/members").contentType(MediaType.APPLICATION_JSON)
-                .content(toRequestBody(new MemberUpdateDto("yeonjy", "imageUrl2")))
+                .content(toRequestBody(new MemberUpdateDto("yeonjy")))
                 .header("Authorization", "Bearer " + accessToken));
 
         // then
@@ -55,7 +55,7 @@ public class AuthTest extends LoginTest {
 
         // when
         final ResultActions perform = mockMvc.perform(post("/members").contentType(MediaType.APPLICATION_JSON)
-                .content(toRequestBody(new MemberUpdateDto("yeonjy", "imageUrl2")))
+                .content(toRequestBody(new MemberUpdateDto("yeonjy")))
                 .header("Authorization", "Bearer " + accessToken));
 
         // then
@@ -78,7 +78,7 @@ public class AuthTest extends LoginTest {
 
         // when
         final ResultActions perform = mockMvc.perform(post("/members").contentType(MediaType.APPLICATION_JSON)
-                .content(toRequestBody(new MemberUpdateDto("yeonjy", "imageUrl2")))
+                .content(toRequestBody(new MemberUpdateDto("yeonjy")))
                 .header("Authorization-refresh", "Bearer " + refreshToken)).andDo(print());
 
         // then
@@ -99,7 +99,7 @@ public class AuthTest extends LoginTest {
 
         // when
         final ResultActions perform = mockMvc.perform(post("/members").contentType(MediaType.APPLICATION_JSON)
-                .content(toRequestBody(new MemberUpdateDto("yeonjy", "imageUrl2")))
+                .content(toRequestBody(new MemberUpdateDto("yeonjy")))
                 .header("Authorization-refresh", "Bearer " + refreshToken)).andDo(print());
 
         // then

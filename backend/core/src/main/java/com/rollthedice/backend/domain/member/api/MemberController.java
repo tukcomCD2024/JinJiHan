@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.member.controller;
+package com.rollthedice.backend.domain.member.api;
 
 import com.rollthedice.backend.domain.member.dto.MemberServiceDto;
 import com.rollthedice.backend.domain.member.dto.MemberUpdateDto;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("members")
-public class MemberController {
+public class MemberController implements MemberApi{
     private final MemberService memberService;
 
-    @PostMapping
+    @PostMapping("")
     public ResponseEntity<HttpStatus> updateMember(@LoginMemberEmail String email,
                                                    @RequestBody MemberUpdateDto memberUpdateDto) {
         MemberServiceDto memberServiceDto = memberUpdateDto.toServiceDto(email);
@@ -31,6 +31,7 @@ public class MemberController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
+    @Override
     public MemberResponse getMemberInfo() {
         return memberService.getMemberInfo();
     }

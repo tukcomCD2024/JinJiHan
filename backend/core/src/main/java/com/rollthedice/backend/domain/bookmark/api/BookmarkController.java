@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.bookmark.controller;
+package com.rollthedice.backend.domain.bookmark.api;
 
 import com.rollthedice.backend.domain.bookmark.service.BookmarkService;
 import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
@@ -12,23 +12,26 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("bookmarks")
-public class BookmarkController {
+public class BookmarkController implements BookmarkApi {
     private final BookmarkService bookmarkService;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
+    @Override
     public List<NewsResponse> getBookmarked(final Pageable pageable) {
         return bookmarkService.getBookmarkedNews(pageable);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{newsId}")
+    @Override
     public void saveBookmark(@PathVariable final Long newsId) {
         bookmarkService.saveBookmark(newsId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{newsId}")
+    @Override
     public void deleteBookmark(@PathVariable final Long newsId) {
         bookmarkService.deleteBookmark(newsId);
     }

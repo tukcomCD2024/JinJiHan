@@ -13,14 +13,11 @@ import lombok.NoArgsConstructor;
 public class MemberUpdateDto {
     @Schema(description = "변경할 닉네임")
     private String nickname;
-    @Schema(description = "변경할 이미지 S3 Url")
-    private String imageUrl;
 
     public MemberServiceDto toServiceDto(String email) {
         return MemberServiceDto.builder()
                 .email(email)
                 .nickname(this.nickname)
-                .imageUrl(this.imageUrl)
                 .build();
     }
 }
