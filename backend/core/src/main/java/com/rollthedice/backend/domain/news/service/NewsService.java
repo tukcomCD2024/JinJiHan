@@ -2,6 +2,7 @@ package com.rollthedice.backend.domain.news.service;
 
 import com.rollthedice.backend.domain.bookmark.service.BookmarkService;
 import com.rollthedice.backend.domain.member.entity.Member;
+import com.rollthedice.backend.domain.news.dto.response.NewsDetailResponse;
 import com.rollthedice.backend.domain.news.exception.NewsNotFoundException;
 import com.rollthedice.backend.global.oauth2.service.AuthService;
 import com.rollthedice.backend.domain.news.contentqueue.ContentProducer;
@@ -66,7 +67,9 @@ public class NewsService {
                 .collect(Collectors.toList());
     }
 
-    public News getOneNews(Long newsId) {
-        return newsRepository.findById(newsId).orElseThrow(NewsNotFoundException::new);
+    public NewsDetailResponse getDetailNews(Long newsId) {
+        Member member = authService.getMember();
+        final News news = newsRepository.findById(newsId).orElseThrow(NewsNotFoundException::new);
+        return newsMapper.toDetailResponse(news, bookmarkService.isBookmarked(member, news));
     }
 }
