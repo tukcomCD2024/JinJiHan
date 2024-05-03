@@ -1,14 +1,13 @@
 package com.rollthedice.backend.domain.member.service;
 
 import com.rollthedice.backend.domain.member.dto.MemberServiceDto;
-import com.rollthedice.backend.domain.member.dto.SignUpDto;
 import com.rollthedice.backend.domain.member.dto.response.MemberResponse;
 import com.rollthedice.backend.domain.member.entity.Member;
+import com.rollthedice.backend.domain.member.exception.MemberNotFoundException;
 import com.rollthedice.backend.domain.member.repository.MemberRepository;
 import com.rollthedice.backend.global.oauth2.service.AuthService;
 import com.rollthedice.backend.global.security.jwt.refresh.service.RefreshTokenService;
 import com.rollthedice.backend.global.security.jwt.service.JwtService;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +37,7 @@ public class MemberService {
 
     @Transactional(readOnly = true)
     public Member findByEmail(String email) {
-        return memberRepository.findByEmail(email).orElseThrow(EntityNotFoundException::new);
+        return memberRepository.findByEmail(email).orElseThrow(MemberNotFoundException::new);
     }
 
     public MemberResponse getMemberInfo() {

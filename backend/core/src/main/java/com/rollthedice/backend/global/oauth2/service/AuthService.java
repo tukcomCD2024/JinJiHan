@@ -3,12 +3,12 @@ package com.rollthedice.backend.global.oauth2.service;
 import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.member.entity.Role;
 import com.rollthedice.backend.domain.member.entity.SocialType;
+import com.rollthedice.backend.domain.member.exception.MemberNotFoundException;
 import com.rollthedice.backend.domain.member.repository.MemberRepository;
 import com.rollthedice.backend.global.oauth2.dto.LoginRequest;
 import com.rollthedice.backend.global.oauth2.userInfo.OAuth2UserInfo;
 import com.rollthedice.backend.global.security.jwt.service.JwtService;
 import com.rollthedice.backend.global.query.QueryService;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -54,7 +54,7 @@ public class AuthService {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        return memberRepository.findByEmail(userDetails.getUsername()).orElseThrow(EntityNotFoundException::new);
+        return memberRepository.findByEmail(userDetails.getUsername()).orElseThrow(MemberNotFoundException::new);
     }
 
 }
