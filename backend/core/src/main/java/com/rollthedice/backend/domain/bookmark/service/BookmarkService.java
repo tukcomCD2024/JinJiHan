@@ -3,12 +3,12 @@ package com.rollthedice.backend.domain.bookmark.service;
 import com.rollthedice.backend.domain.bookmark.entity.Bookmark;
 import com.rollthedice.backend.domain.bookmark.repository.BookmarkRepository;
 import com.rollthedice.backend.domain.member.entity.Member;
+import com.rollthedice.backend.domain.news.exception.NewsNotFoundException;
 import com.rollthedice.backend.global.oauth2.service.AuthService;
 import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
 import com.rollthedice.backend.domain.news.entity.News;
 import com.rollthedice.backend.domain.news.mapper.NewsMapper;
 import com.rollthedice.backend.domain.news.repository.NewsRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -45,7 +45,7 @@ public class BookmarkService {
         bookmarkRepository.save(Bookmark.builder()
                         .member(member)
                         .news(newsRepository.findById(newsId)
-                                .orElseThrow(EntityNotFoundException::new))
+                                .orElseThrow(NewsNotFoundException::new))
                         .build());
     }
 

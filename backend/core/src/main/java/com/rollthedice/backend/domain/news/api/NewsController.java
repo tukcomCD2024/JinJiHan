@@ -1,5 +1,6 @@
 package com.rollthedice.backend.domain.news.api;
 
+import com.rollthedice.backend.domain.news.dto.response.NewsDetailResponse;
 import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
 import com.rollthedice.backend.domain.news.service.NewsService;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +21,11 @@ public class NewsController implements NewsApi {
     @Override
     public List<NewsResponse> getNews(final Pageable pageable) {
         return newsService.getNews(pageable);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{newsId}")
+    public NewsDetailResponse getDetailNews(final @PathVariable Long newsId) {
+        return newsService.getDetailNews(newsId);
     }
 }
