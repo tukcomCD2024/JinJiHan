@@ -2,6 +2,8 @@ package com.rollthedice.backend.domain.news.service;
 
 import com.rollthedice.backend.domain.bookmark.service.BookmarkService;
 import com.rollthedice.backend.domain.member.entity.Member;
+import com.rollthedice.backend.domain.news.dto.response.NewsDetailResponse;
+import com.rollthedice.backend.domain.news.exception.NewsNotFoundException;
 import com.rollthedice.backend.global.oauth2.service.AuthService;
 import com.rollthedice.backend.domain.news.contentqueue.ContentProducer;
 import com.rollthedice.backend.domain.news.dto.ContentMessageDto;
@@ -10,7 +12,6 @@ import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
 import com.rollthedice.backend.domain.news.entity.News;
 import com.rollthedice.backend.domain.news.mapper.NewsMapper;
 import com.rollthedice.backend.domain.news.repository.NewsRepository;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
@@ -45,7 +46,7 @@ public class NewsService {
     @Transactional
     public void updateSummarizedNews(ContentMessageDto messageDto) {
         News news = newsRepository.findById(messageDto.getId())
-                .orElseThrow(EntityNotFoundException::new);
+                .orElseThrow(NewsNotFoundException::new);
         news.updateSummarizedContent(messageDto.getContent());
     }
 
@@ -66,7 +67,9 @@ public class NewsService {
                 .collect(Collectors.toList());
     }
 
-    public News getOneNews(Long newsId) {
-        return newsRepository.findById(newsId).orElseThrow(EntityNotFoundException::new);
+    public NewsDetailResponse getDetailNews(Long newsId) {
+        Member member = authService.getMember();
+        final News news = newsRepository.findById(newsId).orElseThrow(NewsNotFoundException::new);
+        return newsMapper.toDetailResponse(news, bookmarkService.isBookmarked(member, news));
     }
 }
