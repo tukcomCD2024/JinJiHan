@@ -4,6 +4,7 @@ import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateMessageResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
 import com.rollthedice.backend.domain.debate.service.DebateMessageService;
 import com.rollthedice.backend.domain.debate.service.DebateRoomService;
 import jakarta.validation.Valid;
@@ -61,5 +62,12 @@ public class DebateController implements DebateApi {
     @Override
     public List<DebateMessageResponse> getDebateMessages(@PathVariable final Long roomId) {
         return debateMessageService.getDebateMessages(roomId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{roomId}")
+    @Override
+    public DebateSummaryResponse getSummarizedDebate(@PathVariable final Long roomId) {
+        return debateMessageService.summaryDebateMessages(roomId);
     }
 }
