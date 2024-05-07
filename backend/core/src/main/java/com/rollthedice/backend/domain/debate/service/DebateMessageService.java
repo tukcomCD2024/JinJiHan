@@ -9,12 +9,14 @@ import com.rollthedice.backend.domain.debate.mapper.DebateMessageMapper;
 import com.rollthedice.backend.domain.debate.repository.DebateRoomRepository;
 import com.rollthedice.backend.domain.news.repository.DebateMessageRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class DebateMessageService {
@@ -49,7 +51,7 @@ public class DebateMessageService {
 
     public DebateSummaryResponse summaryDebateMessages(final Long roomId) {
         StringBuilder sb = new StringBuilder();
-        getDebateMessages(roomId).stream().map(message -> sb.append(message.getMessage()));
+        getDebateMessages(roomId).forEach(message -> sb.append(message.getMessage()));
         return DebateSummaryResponse.builder()
                 .roomId(roomId)
                 .summary(clovaSummary.summaryDebate(sb.toString()))
