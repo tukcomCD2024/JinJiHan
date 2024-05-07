@@ -4,6 +4,7 @@ import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateMessageResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -103,6 +104,23 @@ public interface DebateApi {
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
             Long roomId
     );
+
+    @Operation(
+            summary = "토론 요약",
+            description = "토론방의 토론 메세지들을 요약합니다.",
+            security = {@SecurityRequirement(name = "access_token")},
+            tags = {"debate_message"}
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "OK"
+    )
+    DebateSummaryResponse getSummarizedDebate(
+            @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
+            Long roomId
+    );
+
+
 
 
 
