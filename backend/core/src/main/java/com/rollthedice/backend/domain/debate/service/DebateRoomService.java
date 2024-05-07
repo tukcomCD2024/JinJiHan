@@ -2,6 +2,7 @@ package com.rollthedice.backend.domain.debate.service;
 
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
 import com.rollthedice.backend.domain.debate.mapper.DebateRoomMapper;
 import com.rollthedice.backend.domain.debate.repository.DebateRoomRepository;
 import com.rollthedice.backend.domain.member.entity.Member;
@@ -21,6 +22,7 @@ public class DebateRoomService {
     private final DebateRoomMapper debateRoomMapper;
     private final DebateRoomRepository debateRoomRepository;
     private final DebateMessageService debateMessageService;
+    private final ClovaSummary clovaSummary;
 
 
     @Transactional
@@ -41,5 +43,15 @@ public class DebateRoomService {
     public void deleteDebateRoom(Long roomId) {
         debateMessageService.deleteAllDebateMessages(roomId);
         debateRoomRepository.deleteById(roomId);
+    }
+
+    @Transactional
+    public DebateSummaryResponse summaryDebateMessages(final Long roomId) {
+        StringBuilder sb = new StringBuilder();
+        debateMessageService.getDebateMessages(roomId).forEach(message -> sb.append(message.getMessage()));
+        return DebateSummaryResponse.builder()
+                .roomId(roomId)
+                .summary(clovaSummary.summaryDebate(sb.toString()))
+                .build();
     }
 }

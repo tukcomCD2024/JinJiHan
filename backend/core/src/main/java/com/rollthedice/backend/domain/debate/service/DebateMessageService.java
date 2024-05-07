@@ -23,7 +23,6 @@ public class DebateMessageService {
     private final DebateRoomRepository debateRoomRepository;
     private final DebateMessageRepository debateMessageRepository;
     private final DebateMessageMapper debateMessageMapper;
-    private final ClovaSummary clovaSummary;
 
     @Transactional
     public void saveHumanDebateMessage(final Long roomId, DebateMessageRequest request) {
@@ -48,15 +47,4 @@ public class DebateMessageService {
                 .stream().map(debateMessageMapper::toResponse)
                 .collect(Collectors.toList());
     }
-
-    public DebateSummaryResponse summaryDebateMessages(final Long roomId) {
-        StringBuilder sb = new StringBuilder();
-        getDebateMessages(roomId).forEach(message -> sb.append(message.getMessage()));
-        return DebateSummaryResponse.builder()
-                .roomId(roomId)
-                .summary(clovaSummary.summaryDebate(sb.toString()))
-                .build();
-    }
-
-
 }
