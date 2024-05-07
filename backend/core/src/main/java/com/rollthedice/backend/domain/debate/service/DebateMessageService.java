@@ -47,4 +47,11 @@ public class DebateMessageService {
                 .stream().map(debateMessageMapper::toResponse)
                 .collect(Collectors.toList());
     }
+
+    public StringBuilder getAllMessages(Long roomId) {
+        StringBuilder sb = new StringBuilder();
+        getDebateMessages(roomId)
+                .forEach(message -> sb.append(message.getMessage()));
+        return sb;
+    }
 }
