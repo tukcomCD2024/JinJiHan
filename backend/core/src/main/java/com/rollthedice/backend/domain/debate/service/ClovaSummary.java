@@ -2,6 +2,7 @@ package com.rollthedice.backend.domain.debate.service;
 
 import com.rollthedice.backend.global.error.ErrorCode;
 import com.rollthedice.backend.global.error.exception.ExternalApiException;
+import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 import org.apache.tomcat.util.json.JSONParser;
 import org.apache.tomcat.util.json.ParseException;
@@ -18,6 +19,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 
+@Slf4j
 @Service
 public class ClovaSummary {
     private static final String KOREAN = "ko";
@@ -30,25 +32,30 @@ public class ClovaSummary {
     @Value("${clova.secret-key}")
     private String SECRET;
 
-    @Value("${clova.client-id")
+    @Value("${clova.client-id}")
     private String CLIENT_ID;
-    
+
     public String summaryDebate(String messages) {
+        log.info("요약할 메세지: {}" ,messages);
         try {
             URL url = new URL(API_URL);
             HttpURLConnection connection = createRequestHeader(url);
             createRequestBody(connection, messages);
 
+            log.info("정상1");
             StringBuilder response = getResponse(connection);
-
+            log.info("정상2");
             return parseResponse(response);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ExternalApiException(ErrorCode.CLOVA_API_ERROR);
         }
     }
 
     private HttpURLConnection createRequestHeader(URL url) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setDoInput(true);
+        connection.setDoOutput(true);
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/json;");
         connection.setRequestProperty("X-NCP-APIGW-API-KEY-ID", CLIENT_ID);
@@ -98,6 +105,7 @@ public class ClovaSummary {
         if (HttpStatusCode.valueOf(responseCode).is2xxSuccessful()) {
             return new BufferedReader(new InputStreamReader(connection.getInputStream()));
         }
+        log.error("Clova Api error response code: {}", responseCode);
         return new BufferedReader(new InputStreamReader(connection.getErrorStream()));
     }
 
@@ -106,7 +114,6 @@ public class ClovaSummary {
         JSONParser parser = new JSONParser(response.toString());
         LinkedHashMap<String, String> hashMap = (LinkedHashMap<String, String>) parser.parse();
         JSONObject parsed = new JSONObject(hashMap);
-        String summary = parsed.get("summary").toString();
-
+        return parsed.get("summary").toString();
     }
 }
