@@ -68,6 +68,6 @@ public class DebateController implements DebateApi {
     @GetMapping("/summary/{roomId}")
     @Override
     public DebateSummaryResponse getSummarizedDebate(@PathVariable final Long roomId) {
-        return debateRoomService.summaryDebateMessages(roomId);
+        return debateRoomService.summaryDebate(roomId);
     }
 }
