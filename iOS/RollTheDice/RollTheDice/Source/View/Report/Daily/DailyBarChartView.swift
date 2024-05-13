@@ -108,8 +108,10 @@ struct DailyBarChartView: View {
         VStack(alignment: .center) {
             Text("\(selectedValue?.date.formatted(date: .numeric, time: .omitted) ?? "")")
                 .font(.pretendardRegular14)
+                .foregroundStyle(.gray02)
             Text("\(selectedValue?.views ?? 0)")
                 .font(.pretendardBold24)
+                .foregroundStyle(.basicWhite)
 
         }
         .padding(10)
