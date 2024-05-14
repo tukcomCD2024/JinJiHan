@@ -4,6 +4,7 @@ import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateMessageResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
 import com.rollthedice.backend.domain.debate.service.DebateMessageService;
 import com.rollthedice.backend.domain.debate.service.DebateRoomService;
 import jakarta.validation.Valid;
@@ -56,10 +57,30 @@ public class DebateController implements DebateApi {
         debateMessageService.saveAIDebateMessage(roomId, request);
     }
 
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PatchMapping("/{roomId}")
+    public void finishDebate(@PathVariable final Long roomId) {
+        debateRoomService.closeDebate(roomId);
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
     @GetMapping("/{roomId}")
     @Override
     public List<DebateMessageResponse> getDebateMessages(@PathVariable final Long roomId) {
         return debateMessageService.getDebateMessages(roomId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping("/summary/{roomId}")
+    @Override
+    public DebateSummaryResponse summarizeDebate(@PathVariable final Long roomId) {
+        return debateRoomService.summaryDebate(roomId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/summary/{roomId}")
+    @Override
+    public DebateSummaryResponse getSummarizedDebate(@PathVariable final Long roomId) {
+        return debateRoomService.getSummarizedDebate(roomId);
     }
 }

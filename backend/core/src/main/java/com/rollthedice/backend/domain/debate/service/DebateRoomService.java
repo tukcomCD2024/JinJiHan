@@ -2,6 +2,9 @@ package com.rollthedice.backend.domain.debate.service;
 
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
+import com.rollthedice.backend.domain.debate.entity.DebateRoom;
+import com.rollthedice.backend.domain.debate.exception.DebateRoomNotFoundException;
 import com.rollthedice.backend.domain.debate.mapper.DebateRoomMapper;
 import com.rollthedice.backend.domain.debate.repository.DebateRoomRepository;
 import com.rollthedice.backend.domain.member.entity.Member;
@@ -21,6 +24,7 @@ public class DebateRoomService {
     private final DebateRoomMapper debateRoomMapper;
     private final DebateRoomRepository debateRoomRepository;
     private final DebateMessageService debateMessageService;
+    private final ClovaSummary clovaSummary;
 
 
     @Transactional
@@ -41,5 +45,32 @@ public class DebateRoomService {
     public void deleteDebateRoom(Long roomId) {
         debateMessageService.deleteAllDebateMessages(roomId);
         debateRoomRepository.deleteById(roomId);
+    }
+
+    @Transactional
+    public DebateSummaryResponse summaryDebate(final Long roomId) {
+        DebateRoom room = debateRoomRepository.findById(roomId).orElseThrow(DebateRoomNotFoundException::new);
+        StringBuilder sb = debateMessageService.getAllMessages(roomId);
+        String summary = clovaSummary.summaryDebate(sb.toString());
+        room.updateSummary(summary);
+
+        return DebateSummaryResponse.builder()
+                .roomId(roomId)
+                .summary(room.getSummary())
+                .build();
+    }
+
+    public DebateSummaryResponse getSummarizedDebate(final Long roomId) {
+        DebateRoom room = debateRoomRepository.findById(roomId).orElseThrow(DebateRoomNotFoundException::new);
+        return DebateSummaryResponse.builder()
+                .roomId(roomId)
+                .summary(room.getSummary())
+                .build();
+    }
+
+    @Transactional
+    public void closeDebate(final Long roomId) {
+        DebateRoom room = debateRoomRepository.findById(roomId).orElseThrow(DebateRoomNotFoundException::new);
+        room.closeDebate();
     }
 }
