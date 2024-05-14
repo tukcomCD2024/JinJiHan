@@ -17,11 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Service
 public class MemberService {
-    private final AuthService authService;
-    private final RefreshTokenService refreshTokenService;
-    private final JwtService jwtService;
-    private final HttpServletRequest request;
-    private final HttpServletResponse response;
+    private final AuthService authService;;
     private final MemberRepository memberRepository;
 
 
