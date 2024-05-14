@@ -57,7 +57,7 @@ public class DebateController implements DebateApi {
         debateMessageService.saveAIDebateMessage(roomId, request);
     }
 
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     @GetMapping("/{roomId}")
     @Override
     public List<DebateMessageResponse> getDebateMessages(@PathVariable final Long roomId) {
@@ -65,9 +65,16 @@ public class DebateController implements DebateApi {
     }
 
     @ResponseStatus(HttpStatus.OK)
+    @PostMapping("/summary/{roomId}")
+    @Override
+    public DebateSummaryResponse summarizeDebate(@PathVariable final Long roomId) {
+        return debateRoomService.summaryDebate(roomId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
     @GetMapping("/summary/{roomId}")
     @Override
     public DebateSummaryResponse getSummarizedDebate(@PathVariable final Long roomId) {
-        return debateRoomService.summaryDebate(roomId);
+        return debateRoomService.getSummarizedDebate(roomId);
     }
 }
