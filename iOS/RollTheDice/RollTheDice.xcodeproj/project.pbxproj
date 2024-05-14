@@ -135,7 +135,7 @@
 		6CC4DDC82B5574670080E7E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CC4DDCD2B5574690080E7E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6CDB29BF2BA9735C0081037B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		6CDB29BF2BA9735C0081037B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDB29C02BA97C550081037B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		6CDB29C12BA97C550081037B /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		6CDB29C22BA97C550081037B /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -305,9 +305,18 @@
 			path = Log;
 			sourceTree = "<group>";
 		};
+		6C7651442BF3AF2700196536 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				6CDB29BF2BA9735C0081037B /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		6C7704852B72260F001B17CB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6C7651442BF3AF2700196536 /* Support */,
 				6C94799C2BD3BFFA00D5AEEB /* Image */,
 				6CA901812BA2EBBA00E20259 /* Font */,
 				6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */,
@@ -453,7 +462,6 @@
 		6CC4DDC52B5574670080E7E8 /* RollTheDice */ = {
 			isa = PBXGroup;
 			children = (
-				6CDB29BF2BA9735C0081037B /* Info.plist */,
 				6C7704862B722618001B17CB /* Source */,
 				6C7704852B72260F001B17CB /* Resources */,
 				6CC4DDC62B5574670080E7E8 /* RollTheDiceApp.swift */,
@@ -882,7 +890,7 @@
 				DEVELOPMENT_TEAM = 4YH4UGRTMH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RollTheDice/Info.plist;
+				INFOPLIST_FILE = RollTheDice/Resources/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -912,7 +920,7 @@
 				DEVELOPMENT_TEAM = 4YH4UGRTMH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RollTheDice/Info.plist;
+				INFOPLIST_FILE = RollTheDice/Resources/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
