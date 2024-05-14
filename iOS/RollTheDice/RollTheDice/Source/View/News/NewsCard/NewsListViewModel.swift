@@ -39,7 +39,7 @@ import SwiftUI
 //        
 //        newsCancellable =
 //        provider.requestWithProgressPublisher(
-//            .news(
+                sort: "string",
 //                page: page,
 //                size: size,
 //                token: accessToken
