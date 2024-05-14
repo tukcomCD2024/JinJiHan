@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class DebateRoomResponse {
     private Long id;
     private String topic;
+    private Boolean isClosed;
 }
