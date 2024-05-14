@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum RollTheDiceAPI {
+enum ScoopAPI {
     static let baseURL = "localhost:8080"
 }

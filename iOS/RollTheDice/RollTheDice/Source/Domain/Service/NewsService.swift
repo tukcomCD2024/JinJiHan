@@ -14,13 +14,13 @@ enum NewsService {
 
 extension NewsService: BaseTargetType {
     var baseURL: URL {
-        return URL(string: RollTheDiceAPI.baseURL)!
+        return URL(string: ScoopAPI.baseURL)!
     }
     
     var path: String {
         switch self {
         case .news:
-            return RollTheDiceAPINews.newsFetch
+            return ScoopAPINews.newsFetch
         }
     }
     
