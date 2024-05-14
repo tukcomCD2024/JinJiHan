@@ -11,9 +11,9 @@ import Foundation
 //import Moya
 import SwiftUI
 
-//class NewsListViewModel: ObservableObject {
-//    // News = [NewsModel]
-//    
+// Macro -> iOS 17.0 이상부터. @Published 안 해도 됨.
+// 사용할 때 var 형식으로 해도 됨.
+@Observable class NewsListViewModel {
 //    
 //    @Published var newsResponse: NewsResponse?
 //    var currentPage = 0

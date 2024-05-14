@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewsListView: View {
     
-    @StateObject var newsListViewModel: NewsListViewModel
+    var newsListViewModel: NewsListViewModel
     @State var selectedIndex: Int = 0
     
     var body: some View {

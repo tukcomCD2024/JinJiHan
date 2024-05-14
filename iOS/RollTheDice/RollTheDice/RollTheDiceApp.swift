@@ -13,7 +13,7 @@ struct RollTheDiceApp: App {
     @StateObject var appState = AppState()
     @StateObject private var pathModel = PathModel()
     
-    @StateObject var newsListViewModel = NewsListViewModel()
+    var newsListViewModel = NewsListViewModel()
     @StateObject var bookmarkListViewModel = BookmarkListViewModel()
     
     var body: some Scene {
