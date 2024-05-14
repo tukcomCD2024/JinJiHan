@@ -57,6 +57,12 @@ public class DebateController implements DebateApi {
         debateMessageService.saveAIDebateMessage(roomId, request);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PatchMapping("/{roomId}")
+    public void finishDebate(@PathVariable final Long roomId) {
+        debateRoomService.closeDebate(roomId);
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping("/{roomId}")
     @Override

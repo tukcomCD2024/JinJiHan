@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,7 +39,7 @@ public interface DebateApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "OK"
+            description = "요청에 성공하였습니다."
     )
     List<DebateRoomResponse> getDebateRooms(Pageable pageable);
 
@@ -50,7 +51,7 @@ public interface DebateApi {
     )
     @ApiResponse(
             responseCode = "204",
-            description = "No Content"
+            description = "토론방 삭제에 성공하였으며, 응답값은 없습니다."
     )
     void deleteDebateRoom(@Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
                           Long roomId
@@ -91,6 +92,27 @@ public interface DebateApi {
     );
 
     @Operation(
+            summary = "토론 종료",
+            description = "토론을 종료합니다.",
+            security = {@SecurityRequirement(name = "access_token")},
+            tags = {"토론방"}
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "204",
+                    description = "요청에 성공하였으며 응답값은 없습니다."
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "토론방을 찾지 못했습니다."
+            )
+    })
+    void finishDebate(
+            @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
+            Long roomId
+    );
+
+    @Operation(
             summary = "토론 메세지 조회",
             description = "토론방의 토론 메세지 이력을 조회합니다.",
             security = {@SecurityRequirement(name = "access_token")},
@@ -98,7 +120,7 @@ public interface DebateApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "OK"
+            description = "요청에 성공하였습니다."
     )
     List<DebateMessageResponse> getDebateMessages(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
@@ -111,10 +133,16 @@ public interface DebateApi {
             security = {@SecurityRequirement(name = "access_token")},
             tags = {"토론방"}
     )
-    @ApiResponse(
-            responseCode = "201",
-            description = "Created"
-    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "토론 요약이 성공하였습니다."
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "토론방을 찾지 못했습니다."
+            )
+    })
     DebateSummaryResponse summarizeDebate(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
             Long roomId
@@ -126,10 +154,16 @@ public interface DebateApi {
             security = {@SecurityRequirement(name = "access_token")},
             tags = {"토론방"}
     )
-    @ApiResponse(
-            responseCode = "200",
-            description = "OK"
-    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "요청에 성공하였습니다."
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "토론방을 찾지 못했습니다."
+            )
+    })
     DebateSummaryResponse getSummarizedDebate(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
             Long roomId
