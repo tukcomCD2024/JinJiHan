@@ -34,6 +34,11 @@
 		6C454A882B9DB6C2006FD9D0 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C454A872B9DB6C2006FD9D0 /* CustomNavigationBar.swift */; };
 		6C4F7BAB2BDE50C600ED01DA /* DailyReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4F7BAA2BDE50C600ED01DA /* DailyReportModel.swift */; };
 		6C4F7BAD2BDE510900ED01DA /* DailyReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4F7BAC2BDE510900ED01DA /* DailyReportViewModel.swift */; };
+		6C7651382BF37E7200196536 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7651372BF37E7200196536 /* MoyaLoggingPlugin.swift */; };
+		6C76513C2BF37ED300196536 /* Extension+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76513B2BF37ED300196536 /* Extension+Log.swift */; };
+		6C76513E2BF37F1E00196536 /* Extension+OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76513D2BF37F1E00196536 /* Extension+OSLog.swift */; };
+		6C7651402BF37F3400196536 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76513F2BF37F3400196536 /* Log.swift */; };
+		6C7651422BF37F5C00196536 /* OSLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7651412BF37F5C00196536 /* OSLog.framework */; };
 		6C77048C2B722686001B17CB /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77048B2B722686001B17CB /* MainTabView.swift */; };
 		6C77048F2B7229B1001B17CB /* NewsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C77048E2B7229B1001B17CB /* NewsListView.swift */; };
 		6C7704992B722A20001B17CB /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7704982B722A20001B17CB /* MainTabViewModel.swift */; };
@@ -110,6 +115,11 @@
 		6C454A872B9DB6C2006FD9D0 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		6C4F7BAA2BDE50C600ED01DA /* DailyReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportModel.swift; sourceTree = "<group>"; };
 		6C4F7BAC2BDE510900ED01DA /* DailyReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportViewModel.swift; sourceTree = "<group>"; };
+		6C7651372BF37E7200196536 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
+		6C76513B2BF37ED300196536 /* Extension+Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Log.swift"; sourceTree = "<group>"; };
+		6C76513D2BF37F1E00196536 /* Extension+OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+OSLog.swift"; sourceTree = "<group>"; };
+		6C76513F2BF37F3400196536 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		6C7651412BF37F5C00196536 /* OSLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSLog.framework; path = System/Library/Frameworks/OSLog.framework; sourceTree = SDKROOT; };
 		6C77048B2B722686001B17CB /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		6C77048E2B7229B1001B17CB /* NewsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListView.swift; sourceTree = "<group>"; };
 		6C7704982B722A20001B17CB /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
@@ -166,6 +176,7 @@
 				6CF130B72BAB74FD00A437B6 /* Moya in Frameworks */,
 				6CF130B92BAB74FD00A437B6 /* ReactiveMoya in Frameworks */,
 				6CE2AC1B2BD444BB00416A02 /* OpenAI in Frameworks */,
+				6C7651422BF37F5C00196536 /* OSLog.framework in Frameworks */,
 				6CF130B52BAB74FD00A437B6 /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +292,17 @@
 				6C454A872B9DB6C2006FD9D0 /* CustomNavigationBar.swift */,
 			);
 			path = CustomNavigationBar;
+			sourceTree = "<group>";
+		};
+		6C7651432BF381B000196536 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				6C7651372BF37E7200196536 /* MoyaLoggingPlugin.swift */,
+				6C76513B2BF37ED300196536 /* Extension+Log.swift */,
+				6C76513D2BF37F1E00196536 /* Extension+OSLog.swift */,
+				6C76513F2BF37F3400196536 /* Log.swift */,
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		6C7704852B72260F001B17CB /* Resources */ = {
@@ -511,6 +533,7 @@
 		6CE2AC152BD443F400416A02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C7651412BF37F5C00196536 /* OSLog.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -538,6 +561,7 @@
 		6CF130BC2BAB77BF00A437B6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				6C7651432BF381B000196536 /* Log */,
 				6CF130B12BAB74BA00A437B6 /* NewsService.swift */,
 			);
 			path = Service;
@@ -665,6 +689,7 @@
 			files = (
 				6C454A882B9DB6C2006FD9D0 /* CustomNavigationBar.swift in Sources */,
 				6CF130BF2BAB783300A437B6 /* APIConstants.swift in Sources */,
+				6C76513C2BF37ED300196536 /* Extension+Log.swift in Sources */,
 				6CE103102BD56A5B00498AA4 /* TypeReportViewModel.swift in Sources */,
 				6CF130C52BAB79DE00A437B6 /* ScoopAPI.swift in Sources */,
 				6CE103132BD56B1200498AA4 /* DailyReportView.swift in Sources */,
@@ -682,6 +707,7 @@
 				6C3237A12B7C377600B699AB /* BookmarkViewModel.swift in Sources */,
 				6C3237AC2B7C382200B699AB /* News.swift in Sources */,
 				6CE1030E2BD56A5200498AA4 /* TypeReportModel.swift in Sources */,
+				6C76513E2BF37F1E00196536 /* Extension+OSLog.swift in Sources */,
 				357FC6EA2BCE866B00AD8915 /* DetailCardNews.swift in Sources */,
 				6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */,
 				6C3237A52B7C37D100B699AB /* BookmarkView.swift in Sources */,
@@ -714,9 +740,11 @@
 				6C454A7C2B9DA71C006FD9D0 /* SignUpView.swift in Sources */,
 				6C41B8DA2BE104A800274FA4 /* RecentNewsCardView.swift in Sources */,
 				6CF130C72BAB7B9800A437B6 /* ScoopAPINews.swift in Sources */,
+				6C7651402BF37F3400196536 /* Log.swift in Sources */,
 				6CE1031A2BD57A2500498AA4 /* DebateSummaryView.swift in Sources */,
 				6CE1030C2BD56A4000498AA4 /* TypeReportView.swift in Sources */,
 				6C77049D2B722CE0001B17CB /* BookmarkListView.swift in Sources */,
+				6C7651382BF37E7200196536 /* MoyaLoggingPlugin.swift in Sources */,
 				6C77049B2B722A5A001B17CB /* TabType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
