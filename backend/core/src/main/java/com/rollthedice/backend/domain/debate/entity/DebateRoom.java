@@ -7,6 +7,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 @Getter
 @Entity
@@ -17,6 +18,10 @@ public class DebateRoom extends BaseTimeEntity {
     private Long id;
 
     private String topic;
+    private String summary;
+
+    @ColumnDefault("false")
+    private boolean isClosed;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
@@ -26,5 +31,13 @@ public class DebateRoom extends BaseTimeEntity {
     public DebateRoom(Member member, String topic) {
         this.member = member;
         this.topic = topic;
+    }
+
+    public void closeDebate() {
+        this.isClosed = true;
+    }
+
+    public void updateSummary(String summary) {
+        this.summary = summary;
     }
 }

@@ -2,6 +2,8 @@ package com.rollthedice.backend.domain.debate.service;
 
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
+import com.rollthedice.backend.domain.debate.exception.DebateRoomNotFoundException;
 import com.rollthedice.backend.domain.debate.mapper.DebateRoomMapper;
 import com.rollthedice.backend.domain.debate.repository.DebateRoomRepository;
 import com.rollthedice.backend.domain.member.entity.Member;
@@ -21,6 +23,7 @@ public class DebateRoomService {
     private final DebateRoomMapper debateRoomMapper;
     private final DebateRoomRepository debateRoomRepository;
     private final DebateMessageService debateMessageService;
+    private final ClovaSummary clovaSummary;
 
 
     @Transactional
@@ -42,4 +45,18 @@ public class DebateRoomService {
         debateMessageService.deleteAllDebateMessages(roomId);
         debateRoomRepository.deleteById(roomId);
     }
+
+    @Transactional
+    public DebateSummaryResponse summaryDebate(final Long roomId) {
+        StringBuilder sb = debateMessageService.getAllMessages(roomId);
+        String summary = clovaSummary.summaryDebate(sb.toString());
+        debateRoomRepository.findById(roomId).orElseThrow(DebateRoomNotFoundException::new)
+                .updateSummary(summary);
+
+        return DebateSummaryResponse.builder()
+                .roomId(roomId)
+                .summary(summary)
+                .build();
+    }
+
 }

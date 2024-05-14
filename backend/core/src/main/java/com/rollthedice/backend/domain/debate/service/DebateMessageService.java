@@ -2,18 +2,21 @@ package com.rollthedice.backend.domain.debate.service;
 
 import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateMessageResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
 import com.rollthedice.backend.domain.debate.entity.DebateRoom;
 import com.rollthedice.backend.domain.debate.exception.DebateRoomNotFoundException;
 import com.rollthedice.backend.domain.debate.mapper.DebateMessageMapper;
 import com.rollthedice.backend.domain.debate.repository.DebateRoomRepository;
 import com.rollthedice.backend.domain.news.repository.DebateMessageRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class DebateMessageService {
@@ -43,5 +46,12 @@ public class DebateMessageService {
         return debateMessageRepository.findAllByDebateRoomId(roomId)
                 .stream().map(debateMessageMapper::toResponse)
                 .collect(Collectors.toList());
+    }
+
+    public StringBuilder getAllMessages(Long roomId) {
+        StringBuilder sb = new StringBuilder();
+        getDebateMessages(roomId)
+                .forEach(message -> sb.append(message.getMessage()));
+        return sb;
     }
 }
