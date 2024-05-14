@@ -50,15 +50,21 @@ public class DebateRoomService {
     @Transactional
     public DebateSummaryResponse summaryDebate(final Long roomId) {
         DebateRoom room = debateRoomRepository.findById(roomId).orElseThrow(DebateRoomNotFoundException::new);
-        if (room.getSummary().isBlank()) {
-            StringBuilder sb = debateMessageService.getAllMessages(roomId);
-            String summary = clovaSummary.summaryDebate(sb.toString());
-            room.updateSummary(summary);
-        }
+        StringBuilder sb = debateMessageService.getAllMessages(roomId);
+        String summary = clovaSummary.summaryDebate(sb.toString());
+        room.updateSummary(summary);
+
         return DebateSummaryResponse.builder()
                 .roomId(roomId)
                 .summary(room.getSummary())
                 .build();
     }
 
+    public DebateSummaryResponse getSummarizedDebate(final Long roomId) {
+        DebateRoom room = debateRoomRepository.findById(roomId).orElseThrow(DebateRoomNotFoundException::new);
+        return DebateSummaryResponse.builder()
+                .roomId(roomId)
+                .summary(room.getSummary())
+                .build();
+    }
 }
