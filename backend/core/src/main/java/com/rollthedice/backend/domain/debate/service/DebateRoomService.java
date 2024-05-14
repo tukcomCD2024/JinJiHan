@@ -67,4 +67,10 @@ public class DebateRoomService {
                 .summary(room.getSummary())
                 .build();
     }
+
+    @Transactional
+    public void closeDebate(final Long roomId) {
+        DebateRoom room = debateRoomRepository.findById(roomId).orElseThrow(DebateRoomNotFoundException::new);
+        room.closeDebate();
+    }
 }
