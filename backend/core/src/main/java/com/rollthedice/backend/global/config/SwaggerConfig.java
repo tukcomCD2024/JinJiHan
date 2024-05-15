@@ -14,7 +14,10 @@ import java.util.List;
 @Configuration
 public class SwaggerConfig {
     private final String JWT = "JWT";
-    private final String BEARER = "Bearer";
+    private final String BEARER = "bearer";
+    private final String AUTHORIZATION = "Authorization";
+    private final String ACCESS_TOKEN = "access_token";
+
 
     @Bean
     public OpenAPI openAPI() {
@@ -28,21 +31,22 @@ public class SwaggerConfig {
 
     private List<Server> getServers() {
         return List.of(new Server()
-                        .url("/api")
-                        .description("백엔드 api 서버")
+                .url("/")
+                .description("백엔드 api 서버")
         );
     }
 
     private Info getInfo() {
         return new Info()
-                .title("Roll The Dice API")
-                .description("요약된 뉴스를 AR로 재미있게 즐기는 서비스")
+                .title("Scoop API")
+                .description("ChatGPT기반, 생성형 AI로 요약한 뉴스 학습 어플")
                 .version("demo");
     }
 
     private Components getComponents() {
-        return new Components().addSecuritySchemes(JWT, new SecurityScheme()
-                .name(JWT)
+        return new Components().addSecuritySchemes(ACCESS_TOKEN, new SecurityScheme()
+                .name(AUTHORIZATION)
+                .in(SecurityScheme.In.HEADER)
                 .type(SecurityScheme.Type.HTTP)
                 .scheme(BEARER)
                 .bearerFormat(JWT)

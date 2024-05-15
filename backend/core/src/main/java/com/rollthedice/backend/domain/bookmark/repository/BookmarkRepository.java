@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
     Boolean existsBookmarkByMemberAndNews(Member member, News news);
+    Boolean existsBookmarkByMemberAndNewsId(Member member, Long newsId);
 
     List<Bookmark> findAllByMemberOrderByCreatedAt(Member member, Pageable pageable);
 

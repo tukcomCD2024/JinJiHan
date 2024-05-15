@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.news.dto.response;
+package com.rollthedice.backend.domain.bookmark.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,10 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class NewsResponse {
+public class BookmarkResponse {
     private Long id;
-    private String title;
-    private String thumbnail;
-    private String postDate;
     private Boolean isBookmarked;
+
 }

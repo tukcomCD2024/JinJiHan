@@ -68,8 +68,7 @@ public class NewsService {
     }
 
     public NewsDetailResponse getDetailNews(Long newsId) {
-        Member member = authService.getMember();
         final News news = newsRepository.findById(newsId).orElseThrow(NewsNotFoundException::new);
-        return newsMapper.toDetailResponse(news, bookmarkService.isBookmarked(member, news));
+        return newsMapper.toDetailResponse(news);
     }
 }
