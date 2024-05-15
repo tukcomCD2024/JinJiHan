@@ -1,5 +1,6 @@
 package com.rollthedice.backend.domain.bookmark.service;
 
+import com.rollthedice.backend.domain.bookmark.dto.response.BookmarkResponse;
 import com.rollthedice.backend.domain.bookmark.entity.Bookmark;
 import com.rollthedice.backend.domain.bookmark.repository.BookmarkRepository;
 import com.rollthedice.backend.domain.member.entity.Member;
@@ -11,14 +12,15 @@ import com.rollthedice.backend.domain.news.mapper.NewsMapper;
 import com.rollthedice.backend.domain.news.repository.NewsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class BookmarkService {
     private final AuthService authService;
     private final BookmarkRepository bookmarkRepository;
@@ -31,7 +33,7 @@ public class BookmarkService {
     }
 
     @Transactional(readOnly = true)
-    public List<NewsResponse> getBookmarkedNews(Pageable pageable) {
+    public List<NewsResponse> getAllBookmarkedNews(Pageable pageable) {
         Member member = authService.getMember();
         return bookmarkRepository.findAllByMemberOrderByCreatedAt(member, pageable).stream()
                 .map(bookmark -> newsMapper.toResponse(bookmark.getNews(), true))
@@ -52,6 +54,15 @@ public class BookmarkService {
     @Transactional
     public void deleteBookmark(Long newsId) {
         bookmarkRepository.deleteByNewsId(newsId);
+    }
+
+    public BookmarkResponse getIsBookmarked(Long newsId) {
+        Member member = authService.getMember();
+        Boolean isBookmarked = bookmarkRepository.existsBookmarkByMemberAndNewsId(member, newsId);
+        return BookmarkResponse.builder()
+                .id(newsId)
+                .isBookmarked(isBookmarked)
+                .build();
     }
 }
 

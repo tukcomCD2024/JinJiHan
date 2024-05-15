@@ -58,8 +58,10 @@ struct DebateSummaryView: View {
                 VStack(spacing: 20) {
                     Rectangle()
                         .frame(height: 1)
+                        .foregroundStyle(.gray07)
                     
                     Text("“ 이번 토론의 핵심 내용을 알려줄게요! ”")
+                        .foregroundStyle(.gray07)
                         .font(.pretendardBold40)
                         .padding(.top, 40)
                     
@@ -68,7 +70,7 @@ struct DebateSummaryView: View {
                             .foregroundStyle(.gray03)
                             .overlay {
                                 Text("요약")
-                                
+                                    .foregroundStyle(.gray07)
                             }
                         ZStack(alignment: .topLeading) {
                             Rectangle()
@@ -99,6 +101,7 @@ struct DebateSummaryView: View {
                     Spacer()
                     Rectangle()
                         .frame(height: 1)
+                        .foregroundStyle(.gray07)
                 }
                 .padding(.horizontal, 40)
                 .padding(.vertical, 40)

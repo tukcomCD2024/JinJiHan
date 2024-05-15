@@ -1,5 +1,6 @@
 package com.rollthedice.backend.domain.bookmark.api;
 
+import com.rollthedice.backend.domain.bookmark.dto.response.BookmarkResponse;
 import com.rollthedice.backend.domain.bookmark.service.BookmarkService;
 import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +19,15 @@ public class BookmarkController implements BookmarkApi {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
     @Override
-    public List<NewsResponse> getBookmarked(final Pageable pageable) {
-        return bookmarkService.getBookmarkedNews(pageable);
+    public List<NewsResponse> getAllBookmarkedNews(final Pageable pageable) {
+        return bookmarkService.getAllBookmarkedNews(pageable);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/{newsId}")
+    @Override
+    public BookmarkResponse getIsBookmarked(@PathVariable final Long newsId) {
+        return bookmarkService.getIsBookmarked(newsId);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
