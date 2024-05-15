@@ -14,7 +14,7 @@ import java.util.List;
 @Configuration
 public class SwaggerConfig {
     private final String JWT = "JWT";
-    private final String BEARER = "Bearer";
+    private final String BEARER = "bearer";
     private final String AUTHORIZATION = "Authorization";
     private final String ACCESS_TOKEN = "access_token";
 
