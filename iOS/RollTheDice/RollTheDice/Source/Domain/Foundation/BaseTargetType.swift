@@ -13,7 +13,7 @@ public protocol BaseTargetType: TargetType {}
 
 extension BaseTargetType {
     public var baseURL: URL {
-        return URL(string: RollTheDiceAPI.baseURL)!
+        return URL(string: ScoopAPI.baseURL)!
     }
     
     public var headers: [String : String]? {

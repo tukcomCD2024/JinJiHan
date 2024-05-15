@@ -9,18 +9,18 @@ import Foundation
 import Moya
 
 enum NewsService {
-    case news(page: Int, size: Int, token: String)
+    case news(page: Int, size: Int, accessToken: String)
 }
 
 extension NewsService: BaseTargetType {
     var baseURL: URL {
-        return URL(string: RollTheDiceAPI.baseURL)!
+        return URL(string: ScoopAPI.baseURL)!
     }
     
     var path: String {
         switch self {
         case .news:
-            return RollTheDiceAPINews.newsFetch
+            return ScoopAPINews.newsFetch
         }
     }
     
@@ -36,20 +36,21 @@ extension NewsService: BaseTargetType {
         case .news(let page, let size, _):
             let parameters : [String : Any] = [
                 "page" : page,
-                "size" : size
+                "size" : size,
             ]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
-        let token: String
+        let accessToken: String
         switch self {
-        case .news(_, _, let tokenValue):
-            token = tokenValue
+        case .news(_, _, let accessTokenValue):
+            accessToken = accessTokenValue
             return [
-                "Content-Type": "application/json",
-                "Authorization": "Bearer \(token)"
+//                "Content-Type": "application/json",
+                "Authorization": "Bearer \(accessToken)",
+                "X-Content-Type_Options" : "nosniff"
             ]
         }
     }
