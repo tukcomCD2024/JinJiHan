@@ -11,5 +11,5 @@ public interface NewsMapper {
 
     NewsResponse toResponse(final News news, boolean isBookmarked);
 
-    NewsDetailResponse toDetailResponse(final News news, boolean isBookmarked);
+    NewsDetailResponse toDetailResponse(final News news);
 }

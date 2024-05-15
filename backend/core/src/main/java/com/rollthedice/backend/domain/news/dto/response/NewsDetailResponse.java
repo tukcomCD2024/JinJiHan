@@ -16,5 +16,4 @@ public class NewsDetailResponse {
     private String content;
     private String thumbnailUrl;
     private String postDate;
-    private Boolean isBookmarked;
 }
