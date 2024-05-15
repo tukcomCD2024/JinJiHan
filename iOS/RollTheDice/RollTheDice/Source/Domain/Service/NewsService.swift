@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum NewsService {
-    case news(page: Int, size: Int, sort: String, token: String)
+    case news(page: Int, size: Int, accessToken: String)
 }
 
 extension NewsService: BaseTargetType {
@@ -33,24 +33,24 @@ extension NewsService: BaseTargetType {
     
     var task: Moya.Task {
         switch self {
-        case .news(let page, let size, let sort, _):
+        case .news(let page, let size, _):
             let parameters : [String : Any] = [
                 "page" : page,
                 "size" : size,
-                "sort" : sort
             ]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
-        let token: String
+        let accessToken: String
         switch self {
-        case .news(_, _, _, let tokenValue):
-            token = tokenValue
+        case .news(_, _, let accessTokenValue):
+            accessToken = accessTokenValue
             return [
-                "Content-Type": "application/json",
-                "Authorization": "Bearer \(token)"
+//                "Content-Type": "application/json",
+                "Authorization": "Bearer \(accessToken)",
+                "X-Content-Type_Options" : "nosniff"
             ]
         }
     }
