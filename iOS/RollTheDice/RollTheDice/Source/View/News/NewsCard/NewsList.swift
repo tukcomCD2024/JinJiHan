@@ -12,12 +12,12 @@ struct NewsList: Codable, Identifiable {
     let id = UUID().uuidString // 이건 앱자체에서
     let newsId: Int
     let title, content: String?
-    let thumbnail: String?
+    let thumbnailUrl: String?
     let postDate: String?
     let isBookmarked: Bool?
     
     enum CodingKeys: String, CodingKey {
         case newsId = "id"
-        case title, content, thumbnail, postDate, isBookmarked
+        case title, content, thumbnailUrl, postDate, isBookmarked
     }
 }

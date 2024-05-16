@@ -18,4 +18,6 @@ enum PathType: Hashable {
     
     case bookmarkView       // 북마크뷰
     case mypageView         // 마이페이지뷰
+    
+    case webView(url: String)
 }
