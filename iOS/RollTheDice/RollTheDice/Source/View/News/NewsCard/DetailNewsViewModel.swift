@@ -11,24 +11,24 @@ import CombineMoya
 import Moya
 import SwiftUI
 
-@Observable class NewsViewModel: ObservableObject {
+@Observable class DetailNewsViewModel: ObservableObject {
     
-    var newsDetail: News?
+    var newsDetail: DetailNews?
     
     var newsCancellable: AnyCancellable?
     
     let provider = MoyaProvider<NewsService>(plugins: [MoyaLoggingPlugin()])
     
-    func newsToViewModel(_ model: News) {
+    func newsToViewModel(_ model: DetailNews) {
         self.newsDetail = model
     }
     
     
 }
 
-extension NewsViewModel {
+extension DetailNewsViewModel {
     public func getNewsDetail(newsId: Int) {
-        let accessToken = ""
+        let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImV4cCI6MTcxNjMwMzYwMiwiZW1haWwiOiJjaGVueWVvbmp5QGRhdW0ubmV0In0.UmW0VdDtxsI7L2WSBrpUaAof5zikQ8JWdp_DIsXIlFwPaFBRUrfhgJ0aYljVcosOkQrk4b2NwOhme5lR13aEgw"
         
         if let cancellable = newsCancellable {
             cancellable.cancel()
@@ -43,7 +43,7 @@ extension NewsViewModel {
         )
         .compactMap { $0.response?.data }
         .receive(on: DispatchQueue.main)
-        .decode(type: News.self, decoder: JSONDecoder())
+        .decode(type: DetailNews.self, decoder: JSONDecoder())
         .sink(receiveCompletion: { result in
             switch result {
                 // success

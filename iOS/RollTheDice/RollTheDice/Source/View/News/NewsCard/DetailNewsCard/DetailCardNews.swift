@@ -11,7 +11,7 @@ import SwiftUI
 struct DetailCardNews: View {
     @EnvironmentObject var pathModel: PathModel
     
-    var newsViewModel = NewsViewModel()
+    var newsViewModel = DetailNewsViewModel()
     var newsId: Int
     
     var body: some View {
