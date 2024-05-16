@@ -10,6 +10,7 @@ import SwiftUI
 struct NewsListView: View {
     
     var newsListViewModel: NewsListViewModel
+    var newsId: Int?
     @State var selectedIndex: Int = 0
 
     

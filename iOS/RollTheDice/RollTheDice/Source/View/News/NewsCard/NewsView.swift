@@ -9,7 +9,10 @@ import SwiftUI
 
 struct NewsView: View {
     
-    var news: News
+    @EnvironmentObject var pathModel : PathModel
+    
+//    var newsListViewModel: NewsListViewModel
+    var news: NewsList
     var isVisibleView: Bool = true
     var cardWidth: Double = 0.0
     var cardHeight: Double = 0.0
@@ -31,30 +34,32 @@ struct NewsView: View {
             }
             
             
-//            AsyncImage(url: URL(string: news.thumbnail ?? "")) { phase in
-//                switch phase {
-//                case .success(let image):
-//                    image
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .frame(width: 322, height: 160)
-//                        .clipShape(RoundedRectangle(cornerRadius: 8))
-//                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 0)
-//                case .empty:
-//                    Image(systemName: "photo.circle.fill")
-//                
-//                case .failure(_):
-//                    Image(systemName: "photo.circle.fill")
-//                @unknown default:
-//                    Text("");
-//                }
-//                
-//            }
+            AsyncImage(url: URL(string: news.thumbnail ?? "")) { phase in
+                switch phase {
+                case .success(let image):
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 322, height: 160)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 0)
+                case .empty:
+                    Image(systemName: "photo.circle.fill")
+                
+                case .failure(_):
+                    Image(systemName: "photo.circle.fill")
+                @unknown default:
+                    Text("");
+                }
+                
+            }
             
             
             if isVisibleView {
                 Button {
-                    
+                    let newsId:Int = news.newsId
+                    print("!!!!!!!!!!! newsID : \(news.newsId)")
+                    pathModel.paths.append(.detailNewsView(newsId: newsId))
                 } label: {
                     Text("더보기")
                         .font(.pretendardBold14)
