@@ -44,10 +44,19 @@ struct NewsView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                         .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 0)
                 case .empty:
-                    Image(systemName: "photo.circle.fill")
-                
+                    Image(.exampleNews)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 322, height: 160)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 0)
                 case .failure(_):
-                    Image(systemName: "photo.circle.fill")
+                    Image(.exampleNews)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 322, height: 160)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 0)
                 @unknown default:
                     Text("");
                 }

@@ -31,7 +31,7 @@ import SwiftUI
 extension NewsListViewModel {
     public func getAllNewsData(page: Int, size: Int) {
       
-        let accessToken = ""
+        let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImV4cCI6MTcxNjMwMzYwMiwiZW1haWwiOiJjaGVueWVvbmp5QGRhdW0ubmV0In0.UmW0VdDtxsI7L2WSBrpUaAof5zikQ8JWdp_DIsXIlFwPaFBRUrfhgJ0aYljVcosOkQrk4b2NwOhme5lR13aEgw"
         
         if let cancellable = newsCancellable {
             cancellable.cancel()
