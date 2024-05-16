@@ -34,7 +34,7 @@ struct NewsView: View {
             }
             
             
-            AsyncImage(url: URL(string: news.thumbnail ?? "")) { phase in
+            AsyncImage(url: URL(string: news.thumbnailUrl ?? "")) { phase in
                 switch phase {
                 case .success(let image):
                     image
@@ -131,7 +131,7 @@ struct NewsView: View {
 }
 
 #Preview {
-    NewsView(news: .init(newsId: 1, title: "1분기 선방한 dddddddd韓게임사들…엔씨만 울었다", content: "내용내용ㄴㅇㅇㅇ", thumbnail: "", postDate: "2222-22-22", isBookmarked: true))
+    NewsView(news: .init(newsId: 1, title: "1분기 선방한 dddddddd韓게임사들…엔씨만 울었다", content: "내용내용ㄴㅇㅇㅇ", thumbnailUrl: "", postDate: "2222-22-22", isBookmarked: true))
         .environmentObject(PathModel())
 }
 //#Preview(traits: .sizeThatFitsLayout) {

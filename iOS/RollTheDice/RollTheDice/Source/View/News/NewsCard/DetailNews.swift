@@ -13,7 +13,7 @@ struct DetailNews: Codable, Identifiable {
     let url: String?
     let title: String?
     let content: String?
-    let thumbnailURL: String?
+    let thumbnailUrl: String?
     let postDate: String?
 
 }

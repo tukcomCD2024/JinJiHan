@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignUpFinishView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @EnvironmentObject var signUpViewModel: SignUpViewModel
     
     var body: some View {
         
