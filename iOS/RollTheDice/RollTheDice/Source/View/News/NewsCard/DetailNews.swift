@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct News: Codable, Identifiable {
+struct DetailNews: Codable, Identifiable {
     let id: Int?
     let url: String?
     let title: String?

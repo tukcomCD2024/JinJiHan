@@ -11,7 +11,7 @@ import SwiftUI
 struct DetailCardNews: View {
     @EnvironmentObject var pathModel: PathModel
     
-    var newsViewModel = NewsViewModel()
+    var newsViewModel = DetailNewsViewModel()
     var newsId: Int
     
     var body: some View {
@@ -27,7 +27,7 @@ struct DetailCardNews: View {
                     
                     HStack(spacing: 0) {
                         
-                        AsyncImage(url: URL(string: "https://imgnews.pstatic.net/image/018/2024/05/15/0005739785_001_20240515190608817.jpg?type=w647")) { phase in
+                        AsyncImage(url: URL(string: newsViewModel.newsDetail?.thumbnailURL ?? "https://imgnews.pstatic.net/image/018/2024/05/15/0005739785_001_20240515190608817.jpg?type=w647")) { phase in
                             switch phase {
                             case .success(let image):
                                 image
