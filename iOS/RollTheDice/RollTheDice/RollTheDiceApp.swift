@@ -56,6 +56,8 @@ struct RollTheDiceApp: App {
                                 Text("mypageView")
                             case .debateSummaryView:
                                 DebateSummaryView()
+                            case .webView(let url):
+                                WebView(urlToLoad: url)
                             }
                         })
                 }
