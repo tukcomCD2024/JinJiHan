@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class NewsResponse {
     private Long id;
     private String title;
-    private String thumbnail;
+    private String thumbnailUrl;
     private String postDate;
     private Boolean isBookmarked;
 }
