@@ -9,7 +9,10 @@ import SwiftUI
 
 struct NewsView: View {
     
-    @State var news: News
+    @EnvironmentObject var pathModel : PathModel
+    
+//    var newsListViewModel: NewsListViewModel
+    var news: NewsList
     var isVisibleView: Bool = true
     var cardWidth: Double = 0.0
     var cardHeight: Double = 0.0
@@ -17,7 +20,7 @@ struct NewsView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             HStack {
-                Text(news.title)
+                Text(news.title ?? "")
                     .font(.pretendardBold32)
                     .foregroundStyle(.basicBlack)
                     .multilineTextAlignment(.leading)
@@ -25,13 +28,13 @@ struct NewsView: View {
             }
             HStack {
                 Spacer()
-                Text(news.postDate)
+                Text(news.postDate ?? "")
                     .font(.pretendardBold12)
                     .foregroundStyle(.gray05)
             }
             
             
-            AsyncImage(url: URL(string: news.image)) { phase in
+            AsyncImage(url: URL(string: news.thumbnail ?? "")) { phase in
                 switch phase {
                 case .success(let image):
                     image
@@ -54,7 +57,9 @@ struct NewsView: View {
             
             if isVisibleView {
                 Button {
-                    
+                    let newsId:Int = news.newsId
+                    print("!!!!!!!!!!! newsID : \(news.newsId)")
+                    pathModel.paths.append(.detailNewsView(newsId: newsId))
                 } label: {
                     Text("더보기")
                         .font(.pretendardBold14)
@@ -90,9 +95,9 @@ struct NewsView: View {
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    NewsView(news: .init(title: "NHN, 작년 영업익 555억원...전년비 42%", postDate: "2023년2월13일", image: "https://cdnimage.dailian.co.kr/news/202402/news_1707866329_1327972_m_1.png", content: "2NHN은 연결기준 지난해 영업이익이 555억원으로 전년 대비 42.2% 증가했다고 14일 밝혔다.같은 기간 매출은 7.3% 증가한 2조2696억원으로 연간 최대치를 기록했다. 작년 4분기 매출은 5983억원으로 전년 동기 대비 6.7% 올랐다. 반면 영업손실은 78억원으로 적자전환했다. 커머스 부문의 장기 미회수채권 대손상각비 인식과 기술 부문의 기 인식 매출 차감 등 일회성 요인이 영향을 미쳤다.", isBookmarked: false))
-        .previewInterfaceOrientation(.landscapeLeft)
-        .previewLayout(.sizeThatFits)
-        .colorScheme(.dark)
-}
+//#Preview(traits: .sizeThatFitsLayout) {
+//    NewsView(news: .init(title: "NHN, 작년 영업익 555억원...전년비 42%", postDate: "2023년2월13일", image: "https://cdnimage.dailian.co.kr/news/202402/news_1707866329_1327972_m_1.png", content: "2NHN은 연결기준 지난해 영업이익이 555억원으로 전년 대비 42.2% 증가했다고 14일 밝혔다.같은 기간 매출은 7.3% 증가한 2조2696억원으로 연간 최대치를 기록했다. 작년 4분기 매출은 5983억원으로 전년 동기 대비 6.7% 올랐다. 반면 영업손실은 78억원으로 적자전환했다. 커머스 부문의 장기 미회수채권 대손상각비 인식과 기술 부문의 기 인식 매출 차감 등 일회성 요인이 영향을 미쳤다.", isBookmarked: false))
+//        .previewInterfaceOrientation(.landscapeLeft)
+//        .previewLayout(.sizeThatFits)
+//        .colorScheme(.dark)
+//}

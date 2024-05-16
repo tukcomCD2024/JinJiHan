@@ -13,7 +13,7 @@ struct RollTheDiceApp: App {
     @StateObject var appState = AppState()
     @StateObject private var pathModel = PathModel()
     
-    @StateObject var newsListViewModel = NewsListViewModel()
+    var newsListViewModel = NewsListViewModel()
     @StateObject var bookmarkListViewModel = BookmarkListViewModel()
     
     var body: some Scene {
@@ -33,8 +33,8 @@ struct RollTheDiceApp: App {
                             case .chatView(isAiMode: false):
                                 Text("user")
                                     .navigationBarBackButtonHidden()
-                            case .detailNewsView:
-                                DetailCardNews()
+                            case .detailNewsView(let newsId):
+                                DetailCardNews(newsId: newsId)
                             case .typeReportView:
                                 TypeReportView()
                             case .dailyReportView:
