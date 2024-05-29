@@ -2,12 +2,11 @@ package com.rollthedice.backend.domain.debate.service;
 
 import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateMessageResponse;
-import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
 import com.rollthedice.backend.domain.debate.entity.DebateRoom;
 import com.rollthedice.backend.domain.debate.exception.DebateRoomNotFoundException;
 import com.rollthedice.backend.domain.debate.mapper.DebateMessageMapper;
 import com.rollthedice.backend.domain.debate.repository.DebateRoomRepository;
-import com.rollthedice.backend.domain.news.repository.DebateMessageRepository;
+import com.rollthedice.backend.domain.debate.repository.DebateMessageRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
