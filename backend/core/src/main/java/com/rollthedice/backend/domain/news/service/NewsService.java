@@ -3,7 +3,10 @@ package com.rollthedice.backend.domain.news.service;
 import com.rollthedice.backend.domain.bookmark.service.BookmarkService;
 import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.news.dto.response.NewsDetailResponse;
+import com.rollthedice.backend.domain.news.dto.response.ReadNewsResponse;
+import com.rollthedice.backend.domain.news.entity.ReadNews;
 import com.rollthedice.backend.domain.news.exception.NewsNotFoundException;
+import com.rollthedice.backend.domain.news.repository.ReadNewsRepository;
 import com.rollthedice.backend.global.oauth2.service.AuthService;
 import com.rollthedice.backend.domain.news.contentqueue.ContentProducer;
 import com.rollthedice.backend.domain.news.dto.ContentMessageDto;
@@ -29,6 +32,7 @@ public class NewsService {
     private final AuthService authService;
     private final ContentProducer contentProducer;
     private final NewsRepository newsRepository;
+    private final ReadNewsRepository readNewsRepository;
     private final NewsMapper newsMapper;
     private final BookmarkService bookmarkService;
 
@@ -50,13 +54,13 @@ public class NewsService {
         news.updateSummarizedContent(messageDto.getContent());
     }
 
-    @Transactional(readOnly = true)
-    public void summarizeNewsContent() {
-        List<ContentMessageDto> messages = new ArrayList<>();
-        newsRepository.findAll().forEach(n ->
-                messages.add(new ContentMessageDto(n.getId(), n.getContent())));
-        messages.forEach(contentProducer::sendMessage);
-    }
+//    @Transactional(readOnly = true)
+//    public void summarizeNewsContent() {
+//        List<ContentMessageDto> messages = new ArrayList<>();
+//        newsRepository.findAll().forEach(n ->
+//                messages.add(new ContentMessageDto(n.getId(), n.getContent())));
+//        messages.forEach(contentProducer::sendMessage);
+//    }
 
     @Transactional(readOnly = true)
     public List<NewsResponse> getNews(final Pageable pageable) {
@@ -69,6 +73,13 @@ public class NewsService {
 
     public NewsDetailResponse getDetailNews(Long newsId) {
         final News news = newsRepository.findById(newsId).orElseThrow(NewsNotFoundException::new);
+        readNewsRepository.save(ReadNews.builder()
+                .member(authService.getMember()).news(news).build());
         return newsMapper.toDetailResponse(news);
     }
+
+    public List<ReadNewsResponse> getNewsByReadNews(final List<News> news) {
+        return news.stream().map(newsMapper::toReadNewsResponse).collect(Collectors.toList());
+    }
+
 }
