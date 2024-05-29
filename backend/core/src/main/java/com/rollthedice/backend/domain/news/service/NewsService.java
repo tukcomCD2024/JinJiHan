@@ -54,13 +54,13 @@ public class NewsService {
         news.updateSummarizedContent(messageDto.getContent());
     }
 
-//    @Transactional(readOnly = true)
-//    public void summarizeNewsContent() {
-//        List<ContentMessageDto> messages = new ArrayList<>();
-//        newsRepository.findAll().forEach(n ->
-//                messages.add(new ContentMessageDto(n.getId(), n.getContent())));
-//        messages.forEach(contentProducer::sendMessage);
-//    }
+    @Transactional(readOnly = true)
+    public void summarizeNewsContent() {
+        List<ContentMessageDto> messages = new ArrayList<>();
+        newsRepository.findAll().forEach(n ->
+                messages.add(new ContentMessageDto(n.getId(), n.getContent())));
+        messages.forEach(contentProducer::sendMessage);
+    }
 
     @Transactional(readOnly = true)
     public List<NewsResponse> getNews(final Pageable pageable) {
