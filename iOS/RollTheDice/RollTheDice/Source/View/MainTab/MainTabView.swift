@@ -10,7 +10,7 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject private var pathModel: PathModel
-    @StateObject var newsListViewModel: NewsListViewModel
+    var newsListViewModel: NewsListViewModel
     
     @StateObject var mainTabViewModel = MainTabViewModel()
     

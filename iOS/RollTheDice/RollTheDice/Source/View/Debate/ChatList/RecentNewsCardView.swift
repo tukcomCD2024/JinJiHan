@@ -19,8 +19,9 @@ struct RecentNewsCardView: View {
     var titleView: some View {
         ZStack {
             VStack(alignment: .center, spacing: 20) {
-                Image(.chevronLeft)
-                Text("제목ahrhrhra제목 제목 미젝ㅁㄱㅈ 메좀ㄱㅈ게조깆거ㅣㅓ린러.ㄴ릴")
+                Text("📌")
+                    .font(.title)
+                Text("내 안경 못 봤어?\" 핸드폰이 알려준다…구글 \'일상 AI\' 공략 [팩플]")
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.gray07)
                     .font(.pretendardBold24)

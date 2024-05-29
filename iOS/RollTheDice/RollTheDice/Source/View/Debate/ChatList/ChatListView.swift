@@ -48,8 +48,10 @@ struct ChatListView: View {
                 .foregroundStyle(.basicWhite)
                 .font(.pretendardBold32)
             debateChatCellView
-            debateChatCellView
-            debateChatCellView
+            debateChatCellView2
+            debateChatCellView3
+            debateChatCellView4
+            debateChatCellView5
         }
     }
     
@@ -59,7 +61,135 @@ struct ChatListView: View {
                 Text("🏛️")
                     .padding(.leading, 26)
                     .font(.pretendardBold32)
-                Text("경제 기사 경제 기사저제목목제목 제목")
+                Text("삼성, 갤럭시Z플립6 두뇌 전량 퀄컴칩 탑재하나")
+                    .foregroundStyle(.gray07)
+                    .font(.pretendardBold24)
+                    .padding(.vertical, 24)
+                    
+                Spacer()
+                Button {
+                    pathModel.paths.append(.chatView(isAiMode: true))
+                } label: {
+                    Image(.chevronRight)
+                }
+            }
+            .background(.gray01)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .padding(.trailing, 16)
+            
+            //TODO: 버튼 영역 수정하기
+            Button {
+                pathModel.paths.append(.debateSummaryView)
+            } label: {
+                Image(.chevronLeft)
+//                    .background(.gray01)
+                    
+            }
+            .frame(width: 80, height: 80)
+            .background(.gray01)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+        }
+    }
+    var debateChatCellView2: some View {
+        HStack {
+            HStack(alignment: .center, spacing: 16) {
+                Text("📱")
+                    .padding(.leading, 26)
+                    .font(.pretendardBold32)
+                Text("모친 내친 한미약품 형제… 2644억 상속세 마련방안은 `아직`")
+                    .foregroundStyle(.gray07)
+                    .font(.pretendardBold24)
+                    .padding(.vertical, 24)
+                    
+                Spacer()
+                Image(.chevronRight)
+            }
+            .background(.gray01)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .padding(.trailing, 16)
+            
+            //TODO: 버튼 영역 수정하기
+            Button {
+                pathModel.paths.append(.debateSummaryView)
+            } label: {
+                Image(.chevronLeft)
+//                    .background(.gray01)
+                    
+            }
+            .frame(width: 80, height: 80)
+            .background(.gray01)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+        }
+    }
+    var debateChatCellView3: some View {
+        HStack {
+            HStack(alignment: .center, spacing: 16) {
+                Text("💌")
+                    .padding(.leading, 26)
+                    .font(.pretendardBold32)
+                Text("[ET단상]한바탕 휩쓴 방산 해킹 사건, 보안의 다른 \'답\'을 찾아야 할 때")
+                    .foregroundStyle(.gray07)
+                    .font(.pretendardBold24)
+                    .padding(.vertical, 24)
+                    
+                Spacer()
+                Image(.chevronRight)
+            }
+            .background(.gray01)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .padding(.trailing, 16)
+            
+            //TODO: 버튼 영역 수정하기
+            Button {
+                pathModel.paths.append(.debateSummaryView)
+            } label: {
+                Image(.chevronLeft)
+//                    .background(.gray01)
+                    
+            }
+            .frame(width: 80, height: 80)
+            .background(.gray01)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+        }
+    }
+    var debateChatCellView4: some View {
+        HStack {
+            HStack(alignment: .center, spacing: 16) {
+                Text("📱")
+                    .padding(.leading, 26)
+                    .font(.pretendardBold32)
+                Text("삼성, 갤럭시Z플립6 두뇌 전량 퀄컴칩 탑재하나")
+                    .foregroundStyle(.gray07)
+                    .font(.pretendardBold24)
+                    .padding(.vertical, 24)
+                    
+                Spacer()
+                Image(.chevronRight)
+            }
+            .background(.gray01)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .padding(.trailing, 16)
+            
+            //TODO: 버튼 영역 수정하기
+            Button {
+                pathModel.paths.append(.debateSummaryView)
+            } label: {
+                Image(.chevronLeft)
+//                    .background(.gray01)
+                    
+            }
+            .frame(width: 80, height: 80)
+            .background(.gray01)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+        }
+    }
+    var debateChatCellView5: some View {
+        HStack {
+            HStack(alignment: .center, spacing: 16) {
+                Text("🏛️")
+                    .padding(.leading, 26)
+                    .font(.pretendardBold32)
+                Text("삼성, 갤럭시Z플립6 두뇌 전량 퀄컴칩 탑재하나")
                     .foregroundStyle(.gray07)
                     .font(.pretendardBold24)
                     .padding(.vertical, 24)
