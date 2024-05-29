@@ -8,39 +8,37 @@
 import SwiftUI
 
 struct SignUpQuestionView: View {
-    
-//    @StateObject var p
-    @StateObject var viewModel = SignUpViewModel()
-    @State var process: Int = 1
+
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+    @EnvironmentObject var viewModel: SignUpViewModel
+    @State var process: Int = 0
     @State var isSelected: Bool = false
+    @State var nickname: String = ""
+    
+    @State var selectedQuestionNumber: Int?
     
     var body: some View {
         if viewModel.hasDoneTest {
-            
             SignUpFinishView()
         } else {
             VStack {
                 CustomNavigationBar()
-                ProcessView(process: $process)
+                processView
+                Spacer()
                 
                 VStack {
                     Spacer()
-                    QuestionView(viewModel: viewModel, process: $process, isSelected: $isSelected)
+                        .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    questionView
                     Spacer()
-                    NextButtonView(process: $process, isSelected: $isSelected)
+                    nextButtonView
                 }
-                .padding(.horizontal, 15)
+                .padding(.horizontal, 150)
             }
         }
     }
     
-    
-}
-
-private struct ProcessView: View {
-    @Binding var process: Int
-    
-    fileprivate var body: some View {
+    var processView: some View {
         VStack {
             ZStack {
                 Rectangle()
@@ -55,73 +53,80 @@ private struct ProcessView: View {
             }
         }
     }
-}
-
-private struct QuestionView: View {
-    @ObservedObject var viewModel: SignUpViewModel
-    @Binding var process: Int
-    @State var question: String = ""
-    @State var options: [String] = []
-    @State var selection: Int = -1      /// 선택한 버튼의 index
-    @Binding var isSelected: Bool
     
-    fileprivate var body: some View {
+    var questionView: some View {
         VStack {
-            
-            Spacer()
             HStack {
-                Text(question)
-                    .font(.largeTitle)
+                Text(viewModel.questions[process].question)
+                    .font(.pretendardBold40)
                     .foregroundStyle(.basicWhite)
+                
                 Spacer()
             }
-            Spacer()
-            HStack(spacing: 10) {
-                ForEach(options.indices, id: \.self) { q in
-                    Button {
-                        selection = q
-                        isSelected = true
-                    } label: {
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(lineWidth: 1.0)
-                            .foregroundStyle(q == selection ? .primary01 : .basicWhite)
-                            .frame(height: 200)
-                            .overlay {
-                                Text(options[q])
-                                    .font(.title)
-                                    .foregroundStyle(.basicWhite)
-                            }
+            
+            if process != 0 {
+                HStack(spacing: 10) {
+                    ForEach(viewModel.questions[process].options.indices, id: \.self) { q in
+                        Button {
+                            selectedQuestionNumber = q
+                            isSelected = true
+                        } label: {
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(lineWidth: 1.0)
+                                .foregroundStyle(q == selectedQuestionNumber ? .primary01 : .basicWhite)
+                                .frame(height: 200)
+                                .overlay {
+                                    Text(viewModel.questions[process].options[q])
+                                        .foregroundStyle(.basicWhite)
+                                        .font(.pretendardBold24)
+                                }
+                        }
                     }
                 }
+            } else {
+                RoundedRectangle(cornerRadius: 24)
+                    .fill(.clear)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 24)
+                            .strokeBorder(Color.primary01, lineWidth: 2)
+                    }
+                    .frame(height: 100)
+                    .overlay {
+                        TextField(
+                            "현재 닉네임",
+                            text: self.$nickname,
+                            prompt: Text("이름을 입력하세요").foregroundStyle(.white).font(.pretendardBold24)
+                        )
+                        .padding(30)
+                }
             }
-            
-            Spacer()
         }
-        .onAppear(perform: {
-            question = viewModel.questions[process].question
-            options = viewModel.questions[process].options
-        })
+        .onChange(of: nickname) {
+            if nickname != "" {
+                isSelected = true
+            } else {
+                isSelected = false
+            }
+        }
         .onChange(of: process) {
-            if process < 6 && process > 1 {
-                question = viewModel.questions[process].question
-                options = viewModel.questions[process].options
-                selection = -1
+            if process < 6 && process > -1 {
+                selectedQuestionNumber = -1
                 isSelected = false
             } else if process == 6 {
                 viewModel.hasDoneTest = true
             }
         }
     }
-}
-
-private struct NextButtonView: View {
-    @Binding var process: Int
-    @Binding var isSelected: Bool
     
-    fileprivate var body: some View {
+    var nextButtonView: some View {
         Button {
-            process += 1
+            if process < 5 {
+                process += 1
+            } else {
+                viewModel.hasDoneTest = true
+            }
         } label: {
+      
             RoundedRectangle(cornerRadius: 15)
                 .frame(height: 80)
                 .foregroundStyle(isSelected ? .primary01 : .gray05)
@@ -133,8 +138,12 @@ private struct NextButtonView: View {
         }
         .disabled(!isSelected)
     }
+    
 }
+
 
 #Preview {
     SignUpQuestionView()
+        .environmentObject(SignUpViewModel())
+        .environmentObject(AuthenticationViewModel())
 }

@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.news.repository;
+package com.rollthedice.backend.domain.debate.repository;
 
 import com.rollthedice.backend.domain.debate.entity.DebateMessage;
 import org.springframework.data.jpa.repository.JpaRepository;

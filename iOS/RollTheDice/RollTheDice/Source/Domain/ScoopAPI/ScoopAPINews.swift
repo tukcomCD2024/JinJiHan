@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum RollTheDiceAPINews {
+public enum ScoopAPINews {
     public static let newsFetch = String("/news")
 }

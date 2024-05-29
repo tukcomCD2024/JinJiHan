@@ -10,6 +10,5 @@ import java.util.List;
 @Repository
 public interface NewsRepository extends JpaRepository<News, Long> {
     List<News> findAllByContentIsNull();
-    List<News> findAllByOrderByViewsDescCreatedAtDesc(
-            final Pageable pageable);
+    List<News> findAllByOrderByViewsDescCreatedAtDesc(final Pageable pageable);
 }

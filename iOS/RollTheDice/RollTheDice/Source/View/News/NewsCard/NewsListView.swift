@@ -9,25 +9,32 @@ import SwiftUI
 
 struct NewsListView: View {
     
-    @StateObject var newsListViewModel: NewsListViewModel
+    var newsListViewModel: NewsListViewModel
+    var newsId: Int?
     @State var selectedIndex: Int = 0
+
     
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
-            NewsListContentView(newsList: newsListViewModel.newsList)
-                .padding(.leading, 20)
+            
+            NewsListContentView(newsList: newsListViewModel.newsList ?? [])
+        }
+        .task {
+            newsListViewModel.getAllNewsData(page: 0, size: 10)
         }
     }
     
     private struct NewsListContentView: View {
-        var newsList: [News]
+        var newsList: [NewsList]
+        
+       
         
         fileprivate var body: some View {
             GeometryReader { proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack {
-                        ForEach(newsList , id: \.self) { news in
+                    LazyHStack(spacing: -234567876455aa0) {
+                        ForEach(newsList) { news in
                             
                             NewsView(news: news)
                                 .frame(width: proxy.size.width)
@@ -35,7 +42,8 @@ struct NewsListView: View {
                                     effect
                                         .scaleEffect(phase.isIdentity ? 1 : 0.8)
                                         .blur(radius: phase.isIdentity ? 0 : 1)
-                                        .offset(x: offset(for: phase))
+                                        .grayscale(phase.isIdentity ? 0 : 0.7)
+                                        .offset(x: offset(for: phase, width: proxy.size.width))
                                 }
                         }
                     }
@@ -43,17 +51,20 @@ struct NewsListView: View {
                 }
                 .scrollTargetBehavior(.viewAligned)
             }
+            
         }
         
-        func offset (for phase: ScrollTransitionPhase) -> Double {
+        func offset (for phase: ScrollTransitionPhase, width: CGFloat) -> Double {
+            var calculatedSize: CGFloat
             switch phase {
             case .topLeading:
-                700
+                calculatedSize = width / 1.5
             case .identity:
-                0
+                calculatedSize = 0
             case .bottomTrailing:
-                -700
+                calculatedSize = -(width / 1.5)
             }
+            return calculatedSize
         }
     }
 }

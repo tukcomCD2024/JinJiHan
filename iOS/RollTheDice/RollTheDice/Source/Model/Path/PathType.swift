@@ -9,7 +9,7 @@ import Foundation
 
 enum PathType: Hashable {
     case chatView(isAiMode: Bool)
-    case detailNewsView     // 뉴스 자세히 보기
+    case detailNewsView(newsId: Int)     // 뉴스 자세히 보기
     
     case typeReportView     // 분야별 뉴스 통계
     case dailyReportView    // 요일별 뉴스 관람 개수 통계
@@ -18,4 +18,6 @@ enum PathType: Hashable {
     
     case bookmarkView       // 북마크뷰
     case mypageView         // 마이페이지뷰
+    
+    case webView(url: String)
 }
