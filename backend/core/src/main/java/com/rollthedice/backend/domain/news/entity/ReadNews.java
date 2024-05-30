@@ -4,6 +4,7 @@ import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.global.config.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -22,5 +23,11 @@ public class ReadNews extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "news_id")
     private News news;
+
+    @Builder
+    public ReadNews(Member member, News news) {
+        this.member = member;
+        this.news = news;
+    }
 
 }
