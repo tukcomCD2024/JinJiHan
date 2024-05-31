@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import KakaoSDKUser
+import KakaoSDKAuth
+import KakaoSDKCommon
 
 struct AuthenticatedView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-//    @EnvironmentObject var pathModel: PathModel
+    @EnvironmentObject var pathModel: PathModel
     
     var totalDuration = 10.0
     
@@ -120,6 +123,17 @@ struct AuthenticatedView: View {
             }
             
             Button {
+                if (UserApi.isKakaoTalkLoginAvailable()) {
+                    UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                            print(oauthToken)
+                            print(error)
+                        }
+                    } else {
+                        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                            print(oauthToken)
+                        print(error)
+                        }
+                    }
                 
             } label: {
                 Image(.kakaoSignInBtn01)
