@@ -20,4 +20,6 @@ enum PathType: Hashable {
     case mypageView         // 마이페이지뷰
     
     case webView(url: String)
+    
+    case gptChatView
 }

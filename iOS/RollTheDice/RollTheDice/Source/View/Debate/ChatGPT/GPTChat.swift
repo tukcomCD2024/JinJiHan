@@ -26,3 +26,5 @@ struct Message: Hashable, Identifiable {
     var content: String
     var isUser: Bool
 }
+
+

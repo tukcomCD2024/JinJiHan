@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RecentNewsCardView: View {
+    
+    @EnvironmentObject var pathModel: PathModel
+
     var body: some View {
         HStack {
             titleView
@@ -36,7 +39,7 @@ struct RecentNewsCardView: View {
                     }
                     .shadow(color: .basicBlack.opacity(0.1), radius: 2)
                 Button {
-                    
+                    pathModel.paths.append(.gptChatView)
                 } label: {
                     Text("토론 시작하기")
                         .foregroundStyle(.basicWhite)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350909182C1198D1007D76A1 /* GPTAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350909172C1198D1007D76A1 /* GPTAPI.swift */; };
 		357666102BBD4BF6002C226A /* ReportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576660F2BBD4BF6002C226A /* ReportListView.swift */; };
 		357666132BBD54AA002C226A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357666122BBD54AA002C226A /* SplashView.swift */; };
 		357FC6EA2BCE866B00AD8915 /* DetailCardNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */; };
@@ -91,6 +92,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350909172C1198D1007D76A1 /* GPTAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTAPI.swift; sourceTree = "<group>"; };
 		3576660F2BBD4BF6002C226A /* ReportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListView.swift; sourceTree = "<group>"; };
 		357666122BBD54AA002C226A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardNews.swift; sourceTree = "<group>"; };
@@ -248,13 +250,6 @@
 			path = ChatList;
 			sourceTree = "<group>";
 		};
-		6C41B8DD2BE116A200274FA4 /* Social */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Social;
-			sourceTree = "<group>";
-		};
 		6C454A762B9DA62C006FD9D0 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,7 +338,6 @@
 		6C7704862B722618001B17CB /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				6C41B8DD2BE116A200274FA4 /* Social */,
 				6C454A852B9DB429006FD9D0 /* General */,
 				6C7704882B722647001B17CB /* View */,
 				6C454A7F2B9DAF21006FD9D0 /* Model */,
@@ -500,6 +494,7 @@
 				6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */,
 				6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */,
 				6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */,
+				350909172C1198D1007D76A1 /* GPTAPI.swift */,
 			);
 			path = ChatGPT;
 			sourceTree = "<group>";
@@ -753,6 +748,7 @@
 				6CDB29FB2BAA07B10081037B /* GPTChatViewModel.swift in Sources */,
 				6C32379F2B7C376D00B699AB /* Bookmark.swift in Sources */,
 				6C454A7E2B9DAA3F006FD9D0 /* SignUpFinishView.swift in Sources */,
+				350909182C1198D1007D76A1 /* GPTAPI.swift in Sources */,
 				6C7704A12B722CEB001B17CB /* ProfileView.swift in Sources */,
 				6C4F7BAB2BDE50C600ED01DA /* DailyReportModel.swift in Sources */,
 				6C3237B72B7C434600B699AB /* ChatType.swift in Sources */,
