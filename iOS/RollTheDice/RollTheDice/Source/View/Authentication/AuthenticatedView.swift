@@ -148,6 +148,7 @@ struct AuthenticatedView: View {
                             print("Kakao Login Error: \(error)")
                         } else if let oauthToken = oauthToken {
                             print("Kakao Login Success: \(oauthToken)")
+                            TokenManager.shared.accessToken = oauthToken.accessToken
                             authViewModel.authenticationState = .completedSignUp                        }
                     }
                 } else {
@@ -156,6 +157,7 @@ struct AuthenticatedView: View {
                             print("Kakao Login Error: \(error)")
                         } else if let oauthToken = oauthToken {
                             print("Kakao Login Success: \(oauthToken)")
+                            TokenManager.shared.accessToken = oauthToken.accessToken
                             authViewModel.authenticationState = .completedSignUp                        }
                     }
                 }

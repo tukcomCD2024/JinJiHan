@@ -31,7 +31,12 @@ import SwiftUI
 extension NewsListViewModel {
     public func getAllNewsData(page: Int, size: Int) {
       
-        let accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImV4cCI6MTcxNjMwMzYwMiwiZW1haWwiOiJjaGVueWVvbmp5QGRhdW0ubmV0In0.UmW0VdDtxsI7L2WSBrpUaAof5zikQ8JWdp_DIsXIlFwPaFBRUrfhgJ0aYljVcosOkQrk4b2NwOhme5lR13aEgw"
+//        let accessToken = ""
+        // TokenManager에서 accessToken 가져오기
+        guard let accessToken = TokenManager.shared.accessToken else {
+            print("Access token 사용 불가능...")
+            return
+        }
         
         if let cancellable = newsCancellable {
             cancellable.cancel()
