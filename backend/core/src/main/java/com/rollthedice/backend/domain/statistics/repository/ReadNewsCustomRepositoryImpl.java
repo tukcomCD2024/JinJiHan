@@ -1,19 +1,20 @@
 package com.rollthedice.backend.domain.statistics.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.rollthedice.backend.domain.news.entity.QReadNews;
+import com.rollthedice.backend.domain.member.entity.Member;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
+
+import static com.rollthedice.backend.domain.news.entity.QNews.news;
+import static com.rollthedice.backend.domain.news.entity.QReadNews.readNews;
 
 @RequiredArgsConstructor
 public class ReadNewsCustomRepositoryImpl implements ReadNewsCustomRepository {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Long findReadNewsByDate(LocalDate date) {
-        QReadNews readNews = QReadNews.readNews;
-
+    public Long getCountOfReadNewsByDate(LocalDate date) {
         return queryFactory
                 .select(readNews.count())
                 .from(readNews)
@@ -21,5 +22,16 @@ public class ReadNewsCustomRepositoryImpl implements ReadNewsCustomRepository {
                         date.atStartOfDay(),
                         date.plusDays(1).atStartOfDay().minusNanos(1)))
                 .fetchOne();
+    }
+
+    @Override
+    public Long getCountOfReadNewsByCategory(Member member, String category) {
+        return queryFactory
+                .select(readNews.count())
+                .from(readNews)
+                .join(readNews.news, news)
+                .where(readNews.member.eq(member)
+                        .and(news.category.eq(category))
+                ).fetchOne();
     }
 }
