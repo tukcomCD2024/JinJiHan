@@ -16,19 +16,6 @@ import org.springframework.web.bind.annotation.*;
 public class MemberController implements MemberApi{
     private final MemberService memberService;
 
-    @PostMapping("")
-    public ResponseEntity<HttpStatus> updateMember(@LoginMemberEmail String email,
-                                                   @RequestBody MemberUpdateDto memberUpdateDto) {
-        MemberServiceDto memberServiceDto = memberUpdateDto.toServiceDto(email);
-
-        if (memberService.isDuplicatedNickname(memberServiceDto)) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
-        }
-        memberService.update(memberServiceDto);
-
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
-
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
     @Override
