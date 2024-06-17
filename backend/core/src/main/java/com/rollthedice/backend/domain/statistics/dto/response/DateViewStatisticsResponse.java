@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.statistics.dto;
+package com.rollthedice.backend.domain.statistics.dto.response;
 
 import lombok.*;
 
