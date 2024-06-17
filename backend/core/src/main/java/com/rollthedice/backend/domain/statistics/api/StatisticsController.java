@@ -1,6 +1,7 @@
 package com.rollthedice.backend.domain.statistics.api;
 
-import com.rollthedice.backend.domain.statistics.dto.DateViewStatisticsResponse;
+import com.rollthedice.backend.domain.statistics.dto.response.CategoryStatisticsResponse;
+import com.rollthedice.backend.domain.statistics.dto.response.DateViewStatisticsResponse;
 import com.rollthedice.backend.domain.statistics.service.StatisticsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,5 +23,12 @@ public class StatisticsController implements StatisticsApi {
     @Override
     public List<DateViewStatisticsResponse> getViewsOfDates() {
         return statisticsService.getViewsOfDates();
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/categories")
+    @Override
+    public List<CategoryStatisticsResponse> getCategoryStatistics() {
+        return statisticsService.getCategoryStatistics();
     }
 }

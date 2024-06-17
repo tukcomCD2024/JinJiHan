@@ -1,11 +1,10 @@
 package com.rollthedice.backend.domain.statistics.api;
 
-import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
-import com.rollthedice.backend.domain.statistics.dto.DateViewStatisticsResponse;
+import com.rollthedice.backend.domain.statistics.dto.response.CategoryStatisticsResponse;
+import com.rollthedice.backend.domain.statistics.dto.response.DateViewStatisticsResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -21,4 +20,16 @@ public interface StatisticsApi {
             description = "요청에 성공하였습니다."
     )
     List<DateViewStatisticsResponse> getViewsOfDates();
+
+    @Operation(
+            summary = "카테고리별 조회수 조회",
+            description = "카테고리별 조회수를 조회합니다.",
+            security = {@SecurityRequirement(name = "access_token")},
+            tags = {"Statistics"}
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "요청에 성공하였습니다."
+    )
+    List<CategoryStatisticsResponse> getCategoryStatistics();
 }
