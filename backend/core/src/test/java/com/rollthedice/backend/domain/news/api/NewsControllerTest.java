@@ -1,6 +1,5 @@
-package com.rollthedice.backend.domain.news.controller;
+package com.rollthedice.backend.domain.news.api;
 
-import com.rollthedice.backend.domain.news.api.NewsController;
 import com.rollthedice.backend.domain.news.exception.NewsNotFoundException;
 import com.rollthedice.backend.domain.news.repository.NewsRepository;
 import com.rollthedice.backend.domain.news.service.NewsService;

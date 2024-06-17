@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.news.service;
+package com.rollthedice.backend.domain.news.entity;
 
 import lombok.Getter;
 

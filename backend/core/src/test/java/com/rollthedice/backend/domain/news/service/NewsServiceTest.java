@@ -6,23 +6,19 @@ import com.rollthedice.backend.domain.news.dto.ContentMessageDto;
 import com.rollthedice.backend.domain.news.dto.response.NewsDetailResponse;
 import com.rollthedice.backend.domain.news.dto.response.ReadNewsResponse;
 import com.rollthedice.backend.domain.news.entity.News;
-import com.rollthedice.backend.domain.news.entity.ReadNews;
 import com.rollthedice.backend.domain.news.exception.NewsNotFoundException;
 import com.rollthedice.backend.domain.news.mapper.NewsMapper;
 import com.rollthedice.backend.domain.news.repository.NewsRepository;
 import com.rollthedice.backend.domain.news.repository.ReadNewsRepository;
 import com.rollthedice.backend.global.LoginTest;
-import com.rollthedice.backend.support.RepositoryTest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -36,7 +32,6 @@ import static com.rollthedice.backend.domain.news.NewsFixture.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.when;
 
 @Slf4j
 @DisplayName("NewsService의")
