@@ -2,7 +2,7 @@ package com.rollthedice.backend.domain.crawling;
 
 import com.rollthedice.backend.domain.news.dto.NewsUrlDto;
 import com.rollthedice.backend.domain.news.entity.News;
-import com.rollthedice.backend.domain.news.service.NewsCategory;
+import com.rollthedice.backend.domain.news.entity.NewsCategory;
 import com.rollthedice.backend.domain.news.service.NewsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,7 +31,7 @@ public class NewsCrawlingService {
     private final NewsService newsService;
 
     @Transactional
-    // @Scheduled(cron = CRON, zone = ZONE)
+//    @Scheduled(cron = CRON, zone = ZONE)
     public void scrap() throws IOException {
         for (NewsCategory category : NewsCategory.values()) {
             String categoryUrl = MAIN_URL + category.getNum();
