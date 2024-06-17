@@ -41,8 +41,8 @@ public class AuthService {
         Member member = Member.builder()
                 .socialType(socialType)
                 .oauthId(userInfo.getId())
-                .email(UUID.randomUUID() + "@socialUser.com")
-                .nickname(String.valueOf(UUID.randomUUID()))
+                .email(userInfo.getEmail())
+                .nickname(userInfo.getNickname())
                 .imageUrl(userInfo.getImageUrl())
                 .role(Role.USER)
                 .build();
@@ -51,10 +51,9 @@ public class AuthService {
     }
 
     public Member getMember() {
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        return memberRepository.findByEmail(userDetails.getUsername()).orElseThrow(MemberNotFoundException::new);
+        String username = authentication.getName();
+        return memberRepository.findByEmail(username).orElseThrow(MemberNotFoundException::new);
     }
 
 }

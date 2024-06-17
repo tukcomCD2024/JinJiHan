@@ -2,10 +2,7 @@ package com.rollthedice.backend.domain.news.entity;
 
 import com.rollthedice.backend.global.config.BaseTimeEntity;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.ColumnDefault;
 
@@ -31,9 +28,14 @@ public class News extends BaseTimeEntity {
     private long views;
 
     @Builder
-    public News(String url, String thumbnailUrl) {
+    public News(Long id, String url, String thumbnailUrl, String title, String content, String category, String postDate) {
+        this.id = id;
         this.url = url;
         this.thumbnailUrl = thumbnailUrl;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.postDate = postDate;
     }
 
     public void addNewsBody(String title, String content, String category, String postDate) {

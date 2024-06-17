@@ -1,6 +1,5 @@
 package com.rollthedice.backend.domain.news.api;
 
-import com.rollthedice.backend.domain.crawling.NewsCrawlingService;
 import com.rollthedice.backend.domain.news.dto.response.NewsDetailResponse;
 import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
 import com.rollthedice.backend.domain.news.dto.response.ReadNewsResponse;
@@ -19,7 +18,6 @@ import java.util.List;
 public class NewsController implements NewsApi {
     private final NewsService newsService;
     private final ReadNewsService readNewsService;
-    private final NewsCrawlingService crawlingService;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("")
