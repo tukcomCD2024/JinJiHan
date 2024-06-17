@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.statistics;
+package com.rollthedice.backend.domain.statistics.api;
 
 import com.rollthedice.backend.domain.statistics.api.StatisticsController;
 import com.rollthedice.backend.domain.statistics.dto.DateViewStatisticsResponse;
