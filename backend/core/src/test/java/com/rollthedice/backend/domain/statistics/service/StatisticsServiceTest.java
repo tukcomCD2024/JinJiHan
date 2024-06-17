@@ -33,7 +33,7 @@ public class StatisticsServiceTest extends LoginTest {
     void getViewsOfDates() {
         //given
         int oneWeek = 7;
-        given(readNewsRepository.getCountOfReadNewsByDate(LocalDate.now())).willReturn(anyLong());
+        given(readNewsRepository.getCountOfReadNewsByDate(loginUser, LocalDate.now())).willReturn(1L);
 
         //when
         List<DateViewStatisticsResponse> result = statisticsService.getViewsOfDates();

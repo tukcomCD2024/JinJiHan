@@ -14,13 +14,14 @@ public class ReadNewsCustomRepositoryImpl implements ReadNewsCustomRepository {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Long getCountOfReadNewsByDate(LocalDate date) {
+    public Long getCountOfReadNewsByDate(Member member, LocalDate date) {
         return queryFactory
                 .select(readNews.count())
                 .from(readNews)
-                .where(readNews.createdAt.between(
-                        date.atStartOfDay(),
-                        date.plusDays(1).atStartOfDay().minusNanos(1)))
+                .where(readNews.member.eq(member)
+                        .and(readNews.createdAt.between(
+                                date.atStartOfDay(),
+                                date.plusDays(1).atStartOfDay().minusNanos(1))))
                 .fetchOne();
     }
 

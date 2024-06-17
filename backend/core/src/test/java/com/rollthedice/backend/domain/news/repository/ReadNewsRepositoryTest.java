@@ -43,7 +43,7 @@ public class ReadNewsRepositoryTest {
         }
 
         //when
-        Long result = readNewsRepository.getCountOfReadNewsByDate(LocalDate.now());
+        Long result = readNewsRepository.getCountOfReadNewsByDate(member, LocalDate.now());
 
         //then
         assertThat(result).isEqualTo(expect);

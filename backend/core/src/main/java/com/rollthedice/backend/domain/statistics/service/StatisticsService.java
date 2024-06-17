@@ -22,10 +22,11 @@ public class StatisticsService {
     private final AuthService authService;
 
     public List<DateViewStatisticsResponse> getViewsOfDates() {
+        Member member = authService.getMember();
         List<DateViewStatisticsResponse> responses = new ArrayList<>();
         IntStream.range(0, 7)
                 .forEach(day -> responses.add(DateViewStatisticsResponse.builder()
-                        .views(readNewsRepository.getCountOfReadNewsByDate(LocalDate.now().minusDays(day)))
+                        .views(readNewsRepository.getCountOfReadNewsByDate(member, LocalDate.now().minusDays(day)))
                         .dateTime(LocalDate.now().minusDays(day)).build()));
         return responses;
     }
