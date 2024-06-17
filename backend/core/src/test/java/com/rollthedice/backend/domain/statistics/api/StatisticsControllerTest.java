@@ -1,7 +1,7 @@
 package com.rollthedice.backend.domain.statistics.api;
 
-import com.rollthedice.backend.domain.statistics.api.StatisticsController;
-import com.rollthedice.backend.domain.statistics.dto.DateViewStatisticsResponse;
+import com.rollthedice.backend.domain.statistics.dto.response.CategoryStatisticsResponse;
+import com.rollthedice.backend.domain.statistics.dto.response.DateViewStatisticsResponse;
 import com.rollthedice.backend.domain.statistics.service.StatisticsService;
 import com.rollthedice.backend.global.BaseControllerTest;
 import org.junit.jupiter.api.DisplayName;
@@ -13,6 +13,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import java.util.List;
 
+import static com.rollthedice.backend.domain.statistics.StatisticsFixture.CATEGORY_STATISTICS_RESPONSE;
 import static com.rollthedice.backend.domain.statistics.StatisticsFixture.DATE_VIEW_STATISTICS_RESPONSE;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -44,5 +45,26 @@ class StatisticsControllerTest extends BaseControllerTest {
         perform.andExpect(status().isOk())
                 .andExpect(jsonPath("$..['views']").exists())
                 .andExpect(jsonPath("$..['dateTime']").exists());
+    }
+
+    @Test
+    @DisplayName("카테고리별 조회수 조회 API가 수행되는 ")
+    void getCategoryStatistics() throws Exception {
+        //given
+        List<CategoryStatisticsResponse> responses = List.of(CATEGORY_STATISTICS_RESPONSE());
+        given(statisticsService.getCategoryStatistics()).willReturn(responses);
+
+        //when
+        final ResultActions perform = mockMvc.perform(
+                get("/statistics/categories")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .header("Authorization", "Bearer " + accessToken)
+        ).andDo(print());
+
+        //perform
+        perform.andExpect(status().isOk())
+                .andExpect(jsonPath("$..['views']").exists())
+                .andExpect(jsonPath("$..['category']").exists());
+
     }
 }

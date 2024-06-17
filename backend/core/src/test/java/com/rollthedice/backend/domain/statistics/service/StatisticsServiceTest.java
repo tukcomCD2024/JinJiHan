@@ -1,7 +1,10 @@
 package com.rollthedice.backend.domain.statistics.service;
 
+import com.rollthedice.backend.domain.member.entity.Member;
+import com.rollthedice.backend.domain.news.entity.NewsCategory;
 import com.rollthedice.backend.domain.news.repository.ReadNewsRepository;
-import com.rollthedice.backend.domain.statistics.dto.DateViewStatisticsResponse;
+import com.rollthedice.backend.domain.statistics.dto.response.CategoryStatisticsResponse;
+import com.rollthedice.backend.domain.statistics.dto.response.DateViewStatisticsResponse;
 import com.rollthedice.backend.global.LoginTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,12 +33,27 @@ public class StatisticsServiceTest extends LoginTest {
     void getViewsOfDates() {
         //given
         int oneWeek = 7;
-        given(readNewsRepository.findReadNewsByDate(LocalDate.now())).willReturn(anyLong());
+        given(readNewsRepository.getCountOfReadNewsByDate(LocalDate.now())).willReturn(anyLong());
 
         //when
         List<DateViewStatisticsResponse> result = statisticsService.getViewsOfDates();
 
         //then
         assertThat(result).hasSize(oneWeek);
+    }
+
+    @Test
+    @DisplayName("카테고리별 조회수가 조회되는가")
+    void getCategoryStatistics() {
+        //given
+        long views = 3;
+        String category = NewsCategory.SCIENCE.getName();
+        given(readNewsRepository.getCountOfReadNewsByCategory(loginUser, category)).willReturn(views);
+
+        //when
+        List<CategoryStatisticsResponse> result = statisticsService.getCategoryStatistics();
+
+        //then
+        assertThat(result).hasSize(NewsCategory.values().length);
     }
 }
