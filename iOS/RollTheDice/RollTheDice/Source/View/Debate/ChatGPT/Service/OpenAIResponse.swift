@@ -1,5 +1,5 @@
 //
-//  DebateViewModel.swift
+//  OpenAIResponse.swift
 //  RollTheDice
 //
 //  Created by 신예진 on 6/18/24.
