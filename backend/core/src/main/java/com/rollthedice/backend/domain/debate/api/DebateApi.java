@@ -4,6 +4,7 @@ import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateMessageResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateRoomSaveResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -29,7 +30,7 @@ public interface DebateApi {
             responseCode = "201",
             description = "Created"
     )
-    void saveDebateRoom(@RequestBody DebateRoomRequest request);
+    DebateRoomSaveResponse saveDebateRoom(@RequestBody DebateRoomRequest request);
 
     @Operation(
             summary = "토론방 전체 조회",

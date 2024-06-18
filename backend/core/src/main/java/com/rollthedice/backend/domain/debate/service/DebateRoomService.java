@@ -2,6 +2,7 @@ package com.rollthedice.backend.domain.debate.service;
 
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateRoomSaveResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
 import com.rollthedice.backend.domain.debate.entity.DebateRoom;
 import com.rollthedice.backend.domain.debate.exception.DebateRoomNotFoundException;
@@ -28,9 +29,11 @@ public class DebateRoomService {
 
 
     @Transactional
-    public void saveDebateRoom(DebateRoomRequest request) {
+    public DebateRoomSaveResponse saveDebateRoom(DebateRoomRequest request) {
         final Member member = authService.getMember();
-        debateRoomRepository.save(debateRoomMapper.toEntity(member, request));
+        DebateRoom debateRoom = debateRoomRepository
+                .save(debateRoomMapper.toEntity(member, request));
+        return DebateRoomSaveResponse.builder().debateRoom(debateRoom).build();
     }
 
     @Transactional(readOnly = true)

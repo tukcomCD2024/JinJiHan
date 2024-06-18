@@ -4,6 +4,7 @@ import com.rollthedice.backend.domain.debate.dto.request.DebateMessageRequest;
 import com.rollthedice.backend.domain.debate.dto.request.DebateRoomRequest;
 import com.rollthedice.backend.domain.debate.dto.response.DebateMessageResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
+import com.rollthedice.backend.domain.debate.dto.response.DebateRoomSaveResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
 import com.rollthedice.backend.domain.debate.service.DebateMessageService;
 import com.rollthedice.backend.domain.debate.service.DebateRoomService;
@@ -25,8 +26,8 @@ public class DebateController implements DebateApi {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     @Override
-    public void saveDebateRoom(@RequestBody @Valid final DebateRoomRequest request) {
-        debateRoomService.saveDebateRoom(request);
+    public DebateRoomSaveResponse saveDebateRoom(@RequestBody @Valid final DebateRoomRequest request) {
+        return debateRoomService.saveDebateRoom(request);
     }
 
     @ResponseStatus(HttpStatus.OK)

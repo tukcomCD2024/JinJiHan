@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import KakaoSDKUser
+import KakaoSDKAuth
+import KakaoSDKCommon
 
 struct AuthenticatedView: View {
     @EnvironmentObject var authViewModel: AuthenticationViewModel
-//    @EnvironmentObject var pathModel: PathModel
-    
+    @EnvironmentObject var pathModel: PathModel
+   
     var totalDuration = 10.0
     
     var body: some View {
@@ -119,14 +122,52 @@ struct AuthenticatedView: View {
                     .frame(height: 50)
             }
             
+//            Button {
+//                if (UserApi.isKakaoTalkLoginAvailable()) {
+//                    UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+//                            print(oauthToken)
+//                            print(error)
+//                        }
+//                    } else {
+//                        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+//                            print(oauthToken)
+//                        print(error)
+//                        }
+//                    }
+//                
+//            } label: {
+//                Image(.kakaoSignInBtn01)
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(height: 50)
+//            }
             Button {
-                
+                if UserApi.isKakaoTalkLoginAvailable() {
+                    UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
+                        if let error = error {
+                            print("Kakao Login Error: \(error)")
+                        } else if let oauthToken = oauthToken {
+                            print("Kakao Login Success: \(oauthToken)")
+                            TokenManager.shared.accessToken = oauthToken.accessToken
+                            authViewModel.authenticationState = .completedSignUp                        }
+                    }
+                } else {
+                    UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+                        if let error = error {
+                            print("Kakao Login Error: \(error)")
+                        } else if let oauthToken = oauthToken {
+                            print("Kakao Login Success: \(oauthToken)")
+                            TokenManager.shared.accessToken = oauthToken.accessToken
+                            authViewModel.authenticationState = .completedSignUp                        }
+                    }
+                }
             } label: {
                 Image(.kakaoSignInBtn01)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 50)
             }
+
         }
         
     }

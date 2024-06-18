@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 @main
 struct RollTheDiceApp: App {
@@ -19,6 +22,10 @@ struct RollTheDiceApp: App {
     var newsListViewModel = NewsListViewModel()
     @StateObject var bookmarkListViewModel = BookmarkListViewModel()
     
+    init() {
+            KakaoSDK.initSDK(appKey: "ff09b3d83873ed4e320f0d6bc90759d6")
+        }
+    
     var body: some Scene {
         WindowGroup {
             
@@ -26,6 +33,7 @@ struct RollTheDiceApp: App {
             case .unauthenticated:
                 AuthenticatedView()
                     .environmentObject(authViewModel)
+                
             case .authenticated:
                 SignUpQuestionView()
                     .environmentObject(authViewModel)
