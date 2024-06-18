@@ -42,6 +42,7 @@
 		6C4F7BAB2BDE50C600ED01DA /* DailyReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4F7BAA2BDE50C600ED01DA /* DailyReportModel.swift */; };
 		6C4F7BAD2BDE510900ED01DA /* DailyReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4F7BAC2BDE510900ED01DA /* DailyReportViewModel.swift */; };
 		6C5B0C8A2C1C308A00A0D5F4 /* ScoopAPIBookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5B0C892C1C308A00A0D5F4 /* ScoopAPIBookmarks.swift */; };
+		6C5B0C8C2C1C32C000A0D5F4 /* BookmarksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5B0C8B2C1C32C000A0D5F4 /* BookmarksService.swift */; };
 		6C7651382BF37E7200196536 /* MoyaLoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7651372BF37E7200196536 /* MoyaLoggingPlugin.swift */; };
 		6C76513C2BF37ED300196536 /* Extension+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76513B2BF37ED300196536 /* Extension+Log.swift */; };
 		6C76513E2BF37F1E00196536 /* Extension+OSLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C76513D2BF37F1E00196536 /* Extension+OSLog.swift */; };
@@ -128,6 +129,7 @@
 		6C4F7BAA2BDE50C600ED01DA /* DailyReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportModel.swift; sourceTree = "<group>"; };
 		6C4F7BAC2BDE510900ED01DA /* DailyReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReportViewModel.swift; sourceTree = "<group>"; };
 		6C5B0C892C1C308A00A0D5F4 /* ScoopAPIBookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoopAPIBookmarks.swift; sourceTree = "<group>"; };
+		6C5B0C8B2C1C32C000A0D5F4 /* BookmarksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksService.swift; sourceTree = "<group>"; };
 		6C7651372BF37E7200196536 /* MoyaLoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggingPlugin.swift; sourceTree = "<group>"; };
 		6C76513B2BF37ED300196536 /* Extension+Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Log.swift"; sourceTree = "<group>"; };
 		6C76513D2BF37F1E00196536 /* Extension+OSLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+OSLog.swift"; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 			children = (
 				6C7651432BF381B000196536 /* Log */,
 				6CF130B12BAB74BA00A437B6 /* NewsService.swift */,
+				6C5B0C8B2C1C32C000A0D5F4 /* BookmarksService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -769,6 +772,7 @@
 				6C454A782B9DA657006FD9D0 /* SignUpQuestionView.swift in Sources */,
 				6CA901962BA2EC0100E20259 /* Font.swift in Sources */,
 				6CF130C22BAB786600A437B6 /* APIHeaderManager.swift in Sources */,
+				6C5B0C8C2C1C32C000A0D5F4 /* BookmarksService.swift in Sources */,
 				6CDB29FB2BAA07B10081037B /* GPTChatViewModel.swift in Sources */,
 				6C32379F2B7C376D00B699AB /* Bookmarks.swift in Sources */,
 				6C454A7E2B9DAA3F006FD9D0 /* SignUpFinishView.swift in Sources */,
