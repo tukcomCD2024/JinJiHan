@@ -27,6 +27,7 @@ public class AuthService {
     private final OAuth2ProviderService oAuth2ProviderService;
     private final JwtService jwtService;
 
+    @Transactional
     public void authenticateOrRegisterUser(LoginRequest loginRequest, HttpServletResponse response) {
         OAuth2UserInfo userInfo = oAuth2ProviderService.getUserInfo(loginRequest);
         Member member = findOrElseRegisterMember(userInfo, loginRequest.getSocialType());
@@ -38,8 +39,7 @@ public class AuthService {
                 .orElseGet(() -> registerMember(socialType, userInfo));
     }
 
-    @Transactional
-    public Member registerMember(SocialType socialType, OAuth2UserInfo userInfo) {
+    private Member registerMember(SocialType socialType, OAuth2UserInfo userInfo) {
         Member member = Member.builder()
                 .socialType(socialType)
                 .oauthId(userInfo.getId())
