@@ -16,3 +16,8 @@ struct AuthModel: Codable {
 //        case AuthorizationRefresh = "Authorization-refresh"
 //    }
 }
+
+struct AuthRequestModel: Codable {
+    let token: String?
+    let socialType: String?
+}
