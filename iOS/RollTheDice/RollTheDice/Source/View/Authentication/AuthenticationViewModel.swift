@@ -8,6 +8,7 @@
 import Foundation
 import KakaoSDKAuth
 import KakaoSDKUser
+import Moya
 
 
 enum AuthenticationState {
@@ -20,9 +21,13 @@ enum AuthenticationState {
     // 로그인 상태에 따라 화면 분기처리
     var authenticationState: AuthenticationState = .unauthenticated
     var isLoading = false
+    
+    let provider = MoyaProvider<LoginService>()
 }
 
 extension AuthenticationViewModel {
+    
+    
     func loginWithKakao() {
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
@@ -34,10 +39,14 @@ extension AuthenticationViewModel {
                     UserApi.shared.me { (user, error) in
                         if let error = error {
                             print("Kakao user info error: \(error)")
+                            
                             self.authenticationState = .unauthenticated
                         } else {
                             // 사용자 정보 처리
-                            self.authenticationState = .authenticated
+//                            self.authenticationState = .authenticated
+                            self.loginToBackend(with: oauthToken!.accessToken, socialType: "KAKAO")
+                            
+                            
                         }
                     }
                 }
@@ -50,14 +59,19 @@ extension AuthenticationViewModel {
 }
 
 extension AuthenticationViewModel {
-    func loginToBackend(with token: String) {
-        AuthProvider.provider.request(.login(token: token)) { result in
+    func loginToBackend(with token: String, socialType: String) {
+        self.provider.request(.login(token: token, socialType: socialType)) { result in
             switch result {
             case .success(let response):
+                
+                
                 do {
                     let json = try response.mapJSON()
                     print("Login response: \(json)")
-                    self.authenticationState = .completedSignUp
+//                    self.authenticationState = .completedSignUp
+                    
+                    TokenManager.shared.accessToken = token
+                    
                 } catch {
                     print("Login error: \(error)")
                     self.authenticationState = .unauthenticated
