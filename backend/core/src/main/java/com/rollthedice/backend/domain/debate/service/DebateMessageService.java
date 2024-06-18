@@ -28,6 +28,7 @@ public class DebateMessageService {
         debateMessageRepository.save(request.toHumanMessageEntity(getDebateRoom(roomId)));
     }
 
+    @Transactional
     public void saveAIDebateMessage(Long roomId, DebateMessageRequest request) {
         debateMessageRepository.save(request.toAIMessageEntity(getDebateRoom(roomId)));
     }
