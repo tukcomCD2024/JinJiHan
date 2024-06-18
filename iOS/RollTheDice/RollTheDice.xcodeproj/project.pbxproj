@@ -103,7 +103,7 @@
 		350909192C1C1248007D76A1 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3576660F2BBD4BF6002C226A /* ReportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListView.swift; sourceTree = "<group>"; };
 		357666122BBD54AA002C226A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
-		357699432C09C7B900AD2DA4 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		357699432C09C7B900AD2DA4 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardNews.swift; sourceTree = "<group>"; };
 		6C32379E2B7C376D00B699AB /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		6C3237A02B7C377600B699AB /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
@@ -731,13 +731,14 @@
 			files = (
 				6C454A882B9DB6C2006FD9D0 /* CustomNavigationBar.swift in Sources */,
 				6CF130BF2BAB783300A437B6 /* APIConstants.swift in Sources */,
-				357699442C09C7B900AD2DA4 /* AuthAPI.swift in Sources */,
+				357699442C09C7B900AD2DA4 /* LoginService.swift in Sources */,
 				6C76513C2BF37ED300196536 /* Extension+Log.swift in Sources */,
 				6CE103102BD56A5B00498AA4 /* TypeReportViewModel.swift in Sources */,
 				6C5B0C8A2C1C308A00A0D5F4 /* ScoopAPIBookmarks.swift in Sources */,
 				6CF130C52BAB79DE00A437B6 /* ScoopAPI.swift in Sources */,
 				6CE103132BD56B1200498AA4 /* DailyReportView.swift in Sources */,
 				6C454A7A2B9DA67C006FD9D0 /* SignUpViewModel.swift in Sources */,
+				6CC6737A2C217C4B009FB30E /* ScoopAPILogin.swift in Sources */,
 				6C3237AA2B7C381500B699AB /* NewsView.swift in Sources */,
 				6CF130C92BAB7CC200A437B6 /* BaseTargetType.swift in Sources */,
 				6C7651492BF5FDB900196536 /* WebView.swift in Sources */,
