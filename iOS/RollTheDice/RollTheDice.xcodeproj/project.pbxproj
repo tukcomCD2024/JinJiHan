@@ -64,6 +64,7 @@
 		6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4DDC82B5574670080E7E8 /* ContentView.swift */; };
 		6CC4DDCB2B5574690080E7E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */; };
 		6CC4DDCE2B5574690080E7E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC4DDCD2B5574690080E7E8 /* Preview Assets.xcassets */; };
+		6CC6737A2C217C4B009FB30E /* ScoopAPILogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC673792C217C4B009FB30E /* ScoopAPILogin.swift */; };
 		6CC6737C2C21BA5B009FB30E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6737B2C21BA5B009FB30E /* Auth.swift */; };
 		6CDB29C92BA97C550081037B /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C02BA97C550081037B /* Pretendard-Black.otf */; };
 		6CDB29CA2BA97C550081037B /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C12BA97C550081037B /* Pretendard-ExtraBold.otf */; };
@@ -153,6 +154,7 @@
 		6CC4DDC82B5574670080E7E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CC4DDCD2B5574690080E7E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6CC673792C217C4B009FB30E /* ScoopAPILogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoopAPILogin.swift; sourceTree = "<group>"; };
 		6CC6737B2C21BA5B009FB30E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		6CDB29BF2BA9735C0081037B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDB29C02BA97C550081037B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 				6C7651432BF381B000196536 /* Log */,
 				6CF130B12BAB74BA00A437B6 /* NewsService.swift */,
 				6C5B0C8B2C1C32C000A0D5F4 /* BookmarksService.swift */,
+				357699432C09C7B900AD2DA4 /* LoginService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				6CF130C42BAB79DE00A437B6 /* ScoopAPI.swift */,
 				6CF130C62BAB7B9800A437B6 /* ScoopAPINews.swift */,
 				6C5B0C892C1C308A00A0D5F4 /* ScoopAPIBookmarks.swift */,
+				6CC673792C217C4B009FB30E /* ScoopAPILogin.swift */,
 			);
 			path = ScoopAPI;
 			sourceTree = "<group>";
