@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -37,7 +38,8 @@ public class AuthService {
                 .orElseGet(() -> registerMember(socialType, userInfo));
     }
 
-    private Member registerMember(SocialType socialType, OAuth2UserInfo userInfo) {
+    @Transactional
+    public Member registerMember(SocialType socialType, OAuth2UserInfo userInfo) {
         Member member = Member.builder()
                 .socialType(socialType)
                 .oauthId(userInfo.getId())
