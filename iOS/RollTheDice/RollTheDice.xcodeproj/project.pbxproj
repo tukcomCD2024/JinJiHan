@@ -15,7 +15,7 @@
 		3576993E2C09C1EB00AD2DA4 /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 3576993D2C09C1EB00AD2DA4 /* KakaoSDKCert */; };
 		357699402C09C1EB00AD2DA4 /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3576993F2C09C1EB00AD2DA4 /* KakaoSDKCertCore */; };
 		357699422C09C1EB00AD2DA4 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 357699412C09C1EB00AD2DA4 /* KakaoSDKCommon */; };
-		357699442C09C7B900AD2DA4 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357699432C09C7B900AD2DA4 /* AuthAPI.swift */; };
+		357699442C09C7B900AD2DA4 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357699432C09C7B900AD2DA4 /* LoginService.swift */; };
 		357FC6EA2BCE866B00AD8915 /* DetailCardNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */; };
 		35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = 35C71BF12B79F39900F777D1 /* ExyteChat */; };
 		6C32379F2B7C376D00B699AB /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32379E2B7C376D00B699AB /* Bookmarks.swift */; };
@@ -64,6 +64,7 @@
 		6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC4DDC82B5574670080E7E8 /* ContentView.swift */; };
 		6CC4DDCB2B5574690080E7E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */; };
 		6CC4DDCE2B5574690080E7E8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC4DDCD2B5574690080E7E8 /* Preview Assets.xcassets */; };
+		6CC6737C2C21BA5B009FB30E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6737B2C21BA5B009FB30E /* Auth.swift */; };
 		6CDB29C92BA97C550081037B /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C02BA97C550081037B /* Pretendard-Black.otf */; };
 		6CDB29CA2BA97C550081037B /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C12BA97C550081037B /* Pretendard-ExtraBold.otf */; };
 		6CDB29CB2BA97C550081037B /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6CDB29C22BA97C550081037B /* Pretendard-Regular.otf */; };
@@ -152,6 +153,7 @@
 		6CC4DDC82B5574670080E7E8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6CC4DDCA2B5574690080E7E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CC4DDCD2B5574690080E7E8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6CC6737B2C21BA5B009FB30E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		6CDB29BF2BA9735C0081037B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CDB29C02BA97C550081037B /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		6CDB29C12BA97C550081037B /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -575,7 +577,7 @@
 			children = (
 				6CF130AC2BAB0C4400A437B6 /* AuthenticationViewModel.swift */,
 				6CF130AE2BAB0C4F00A437B6 /* AuthenticatedView.swift */,
-				357699432C09C7B900AD2DA4 /* AuthAPI.swift */,
+				6CC6737B2C21BA5B009FB30E /* Auth.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -755,6 +757,7 @@
 				6C3237AC2B7C382200B699AB /* NewsList.swift in Sources */,
 				6CE1030E2BD56A5200498AA4 /* TypeReportModel.swift in Sources */,
 				6C76513E2BF37F1E00196536 /* Extension+OSLog.swift in Sources */,
+				6CC6737C2C21BA5B009FB30E /* Auth.swift in Sources */,
 				357FC6EA2BCE866B00AD8915 /* DetailCardNews.swift in Sources */,
 				6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */,
 				6C3237A52B7C37D100B699AB /* BookmarkView.swift in Sources */,
