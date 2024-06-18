@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3509091A2C1C1248007D76A1 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350909192C1C1248007D76A1 /* TokenManager.swift */; };
 		357666102BBD4BF6002C226A /* ReportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576660F2BBD4BF6002C226A /* ReportListView.swift */; };
 		357666132BBD54AA002C226A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357666122BBD54AA002C226A /* SplashView.swift */; };
+		3576993A2C09C1EB00AD2DA4 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 357699392C09C1EB00AD2DA4 /* KakaoSDK */; };
+		3576993C2C09C1EB00AD2DA4 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3576993B2C09C1EB00AD2DA4 /* KakaoSDKAuth */; };
+		3576993E2C09C1EB00AD2DA4 /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 3576993D2C09C1EB00AD2DA4 /* KakaoSDKCert */; };
+		357699402C09C1EB00AD2DA4 /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3576993F2C09C1EB00AD2DA4 /* KakaoSDKCertCore */; };
+		357699422C09C1EB00AD2DA4 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 357699412C09C1EB00AD2DA4 /* KakaoSDKCommon */; };
+		357699442C09C7B900AD2DA4 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357699432C09C7B900AD2DA4 /* AuthAPI.swift */; };
 		357FC6EA2BCE866B00AD8915 /* DetailCardNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */; };
 		35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = 35C71BF12B79F39900F777D1 /* ExyteChat */; };
 		6C32379F2B7C376D00B699AB /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32379E2B7C376D00B699AB /* Bookmark.swift */; };
@@ -91,8 +98,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350909192C1C1248007D76A1 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3576660F2BBD4BF6002C226A /* ReportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListView.swift; sourceTree = "<group>"; };
 		357666122BBD54AA002C226A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		357699432C09C7B900AD2DA4 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardNews.swift; sourceTree = "<group>"; };
 		6C32379E2B7C376D00B699AB /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		6C3237A02B7C377600B699AB /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
@@ -176,12 +185,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CF130BB2BAB74FD00A437B6 /* RxMoya in Frameworks */,
+				3576993A2C09C1EB00AD2DA4 /* KakaoSDK in Frameworks */,
 				35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */,
 				6CF130B72BAB74FD00A437B6 /* Moya in Frameworks */,
+				357699422C09C1EB00AD2DA4 /* KakaoSDKCommon in Frameworks */,
 				6CF130B92BAB74FD00A437B6 /* ReactiveMoya in Frameworks */,
 				6CE2AC1B2BD444BB00416A02 /* OpenAI in Frameworks */,
 				6C7651422BF37F5C00196536 /* OSLog.framework in Frameworks */,
 				6CF130B52BAB74FD00A437B6 /* CombineMoya in Frameworks */,
+				3576993C2C09C1EB00AD2DA4 /* KakaoSDKAuth in Frameworks */,
+				357699402C09C1EB00AD2DA4 /* KakaoSDKCertCore in Frameworks */,
+				3576993E2C09C1EB00AD2DA4 /* KakaoSDKCert in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,13 +260,6 @@
 				6C41B8DB2BE1095800274FA4 /* ChatListView.swift */,
 			);
 			path = ChatList;
-			sourceTree = "<group>";
-		};
-		6C41B8DD2BE116A200274FA4 /* Social */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Social;
 			sourceTree = "<group>";
 		};
 		6C454A762B9DA62C006FD9D0 /* SignUp */ = {
@@ -343,7 +350,6 @@
 		6C7704862B722618001B17CB /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				6C41B8DD2BE116A200274FA4 /* Social */,
 				6C454A852B9DB429006FD9D0 /* General */,
 				6C7704882B722647001B17CB /* View */,
 				6C454A7F2B9DAF21006FD9D0 /* Model */,
@@ -565,6 +571,7 @@
 			children = (
 				6CF130AC2BAB0C4400A437B6 /* AuthenticationViewModel.swift */,
 				6CF130AE2BAB0C4F00A437B6 /* AuthenticatedView.swift */,
+				357699432C09C7B900AD2DA4 /* AuthAPI.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -602,6 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				6CF130C12BAB786600A437B6 /* APIHeaderManager.swift */,
+				350909192C1C1248007D76A1 /* TokenManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -638,6 +646,11 @@
 				6CF130B82BAB74FD00A437B6 /* ReactiveMoya */,
 				6CF130BA2BAB74FD00A437B6 /* RxMoya */,
 				6CE2AC1A2BD444BB00416A02 /* OpenAI */,
+				357699392C09C1EB00AD2DA4 /* KakaoSDK */,
+				3576993B2C09C1EB00AD2DA4 /* KakaoSDKAuth */,
+				3576993D2C09C1EB00AD2DA4 /* KakaoSDKCert */,
+				3576993F2C09C1EB00AD2DA4 /* KakaoSDKCertCore */,
+				357699412C09C1EB00AD2DA4 /* KakaoSDKCommon */,
 			);
 			productName = RollTheDice;
 			productReference = 6CC4DDC32B5574670080E7E8 /* RollTheDice.app */;
@@ -671,6 +684,7 @@
 				35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */,
 				6CDB2A002BAA085A0081037B /* XCRemoteSwiftPackageReference "OpenAI" */,
 				6CF130B32BAB74FD00A437B6 /* XCRemoteSwiftPackageReference "Moya" */,
+				357699382C09C1EB00AD2DA4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 6CC4DDC42B5574670080E7E8 /* Products */;
 			projectDirPath = "";
@@ -711,6 +725,7 @@
 			files = (
 				6C454A882B9DB6C2006FD9D0 /* CustomNavigationBar.swift in Sources */,
 				6CF130BF2BAB783300A437B6 /* APIConstants.swift in Sources */,
+				357699442C09C7B900AD2DA4 /* AuthAPI.swift in Sources */,
 				6C76513C2BF37ED300196536 /* Extension+Log.swift in Sources */,
 				6CE103102BD56A5B00498AA4 /* TypeReportViewModel.swift in Sources */,
 				6CF130C52BAB79DE00A437B6 /* ScoopAPI.swift in Sources */,
@@ -763,6 +778,7 @@
 				6C7704992B722A20001B17CB /* MainTabViewModel.swift in Sources */,
 				6C454A7C2B9DA71C006FD9D0 /* SignUpView.swift in Sources */,
 				6C41B8DA2BE104A800274FA4 /* RecentNewsCardView.swift in Sources */,
+				3509091A2C1C1248007D76A1 /* TokenManager.swift in Sources */,
 				6CF130C72BAB7B9800A437B6 /* ScoopAPINews.swift in Sources */,
 				6C7651402BF37F3400196536 /* Log.swift in Sources */,
 				6CE1031A2BD57A2500498AA4 /* DebateSummaryView.swift in Sources */,
@@ -979,6 +995,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		357699382C09C1EB00AD2DA4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/Chat.git";
@@ -1006,6 +1030,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		357699392C09C1EB00AD2DA4 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 357699382C09C1EB00AD2DA4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		3576993B2C09C1EB00AD2DA4 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 357699382C09C1EB00AD2DA4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		3576993D2C09C1EB00AD2DA4 /* KakaoSDKCert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 357699382C09C1EB00AD2DA4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCert;
+		};
+		3576993F2C09C1EB00AD2DA4 /* KakaoSDKCertCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 357699382C09C1EB00AD2DA4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCertCore;
+		};
+		357699412C09C1EB00AD2DA4 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 357699382C09C1EB00AD2DA4 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
 		35C71BF12B79F39900F777D1 /* ExyteChat */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 35C71BF02B79F39900F777D1 /* XCRemoteSwiftPackageReference "Chat" */;

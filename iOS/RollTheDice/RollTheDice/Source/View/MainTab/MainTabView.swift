@@ -11,6 +11,8 @@ struct MainTabView: View {
     
     @EnvironmentObject private var pathModel: PathModel
     var newsListViewModel: NewsListViewModel
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
+
     
     @StateObject var mainTabViewModel = MainTabViewModel()
     
