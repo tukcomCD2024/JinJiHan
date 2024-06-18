@@ -23,7 +23,7 @@ struct RollTheDiceApp: App {
     @StateObject var bookmarkListViewModel = BookmarkListViewModel()
     
     init() {
-            KakaoSDK.initSDK(appKey: "88865e8a0481b67b98073d22cef6b248")
+            KakaoSDK.initSDK(appKey: "ff09b3d83873ed4e320f0d6bc90759d6")
         }
     
     var body: some Scene {

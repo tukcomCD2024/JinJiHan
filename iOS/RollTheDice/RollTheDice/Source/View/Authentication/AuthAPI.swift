@@ -40,7 +40,15 @@ enum AuthTarget: TargetType {
         }
     }
 
+//    var headers: [String: String]? {
+//        return ["Content-Type": "application/json"]
+//    }
+    
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
-    }
+            var headers = [String: String]()
+            if let token = TokenManager.shared.accessToken {
+                headers["Authorization"] = "Bearer \(token)"
+            }
+            return headers
+        }
 }
