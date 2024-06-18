@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 enum LoginService {
-    case login(token: String, socialType: String)
+    case login(request: AuthRequestModel)
 }
 
 //struct LoginService {
@@ -36,15 +36,15 @@ extension LoginService: BaseTargetType {
         }
     }
 
-    var task: Task {
+    var task: Moya.Task {
         switch self {
-        case .login(let token, let socialType):
-            let parameters : [String : Any] = [
-                "token" : token,
-                "socialType" : socialType,
-            ]
-            
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .login(let request):
+//            let parameters : [String : Any] = [
+//                "token" : token,
+//                "socialType" : socialType,
+//            ]
+//            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+            return .requestJSONEncodable(request)
         }
     }
     
