@@ -3,7 +3,10 @@ package com.rollthedice.backend.global.security.jwt.service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rollthedice.backend.domain.member.repository.MemberRepository;
+import com.rollthedice.backend.global.security.jwt.dto.TokenResponse;
 import com.rollthedice.backend.global.security.jwt.refresh.service.RefreshTokenService;
 import com.rollthedice.backend.global.security.jwt.exception.NotFoundEmailException;
 import com.rollthedice.backend.global.security.jwt.exception.NotFoundTokenException;
@@ -15,6 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Optional;
 
@@ -30,6 +34,7 @@ public class JwtService {
 
     private final MemberRepository memberRepository;
     private final RefreshTokenService refreshTokenService;
+    private final ObjectMapper objectMapper;
 
     @Value("${jwt.secret-key}")
     private String secretKey;
@@ -43,12 +48,22 @@ public class JwtService {
     private String refreshHeader;
 
     public void sendAccessAndRefreshToken(HttpServletResponse response, String email) {
-        setTokenHeader(response, accessHeader, createAccessToken(email));
-
+        String accessToken = createAccessToken(email);
         String refreshToken = createRefreshToken();
+
+        try {
+            String token = objectMapper.writeValueAsString(TokenResponse.builder()
+                    .accessToken(accessToken)
+                    .refreshToken(refreshToken)
+                    .build());
+            response.getWriter().write(token);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        setTokenHeader(response, accessHeader, accessToken);
         setTokenHeader(response, refreshHeader, refreshToken);
         refreshTokenService.updateToken(email, refreshToken);
-        log.info("Access Token, Refresh Token 헤더 설정 완료");
     }
 
     public String createAccessToken(String email) {

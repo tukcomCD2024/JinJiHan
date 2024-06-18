@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Schema(description = "토론 요약 결과")
 public class DebateSummaryResponse {
     Long roomId;
 

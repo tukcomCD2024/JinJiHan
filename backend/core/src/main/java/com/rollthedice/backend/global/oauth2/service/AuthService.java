@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -26,6 +27,7 @@ public class AuthService {
     private final OAuth2ProviderService oAuth2ProviderService;
     private final JwtService jwtService;
 
+    @Transactional
     public void authenticateOrRegisterUser(LoginRequest loginRequest, HttpServletResponse response) {
         OAuth2UserInfo userInfo = oAuth2ProviderService.getUserInfo(loginRequest);
         Member member = findOrElseRegisterMember(userInfo, loginRequest.getSocialType());
