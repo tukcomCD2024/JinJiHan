@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct AuthModel {
-    let Authorization: String?
-    let AuthorizationRefresh: String?
+struct AuthModel: Codable {
+    let accessToken: String?
+    let refreshToken: String?
 
-    enum CodingKeys: String, CodingKey {
-        case Authorization
-        case AuthorizationRefresh = "Authorization-refresh"
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case Authorization
+//        case AuthorizationRefresh = "Authorization-refresh"
+//    }
 }
