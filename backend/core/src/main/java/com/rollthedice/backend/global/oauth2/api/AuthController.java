@@ -1,4 +1,4 @@
-package com.rollthedice.backend.global.oauth2.controller;
+package com.rollthedice.backend.global.oauth2.api;
 
 import com.rollthedice.backend.domain.member.dto.MemberUpdateDto;
 import com.rollthedice.backend.domain.member.service.MemberService;
@@ -17,17 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class AuthController {
+public class AuthController implements AuthApi {
     private final AuthService authService;
     private final MemberService memberService;
 
     @PostMapping("/login")
+    @Override
     public ResponseEntity<HttpStatus> login(@RequestBody LoginRequest request, HttpServletResponse response) {
         authService.authenticateOrRegisterUser(request, response);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping("/oauth2/sign-up")
+    @Override
     public ResponseEntity<HttpStatus> updateMember(@LoginMemberEmail String email,
                                                    @RequestBody MemberUpdateDto memberUpdateDto) {
         memberService.update(memberUpdateDto);
