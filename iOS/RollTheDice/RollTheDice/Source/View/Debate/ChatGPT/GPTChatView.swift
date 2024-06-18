@@ -126,7 +126,6 @@ struct GPTChatView: View {
             }
         }
     }
-}
 
 
 
