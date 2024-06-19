@@ -10,6 +10,7 @@
 		3509091A2C1C1248007D76A1 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350909192C1C1248007D76A1 /* TokenManager.swift */; };
 		3544D7402C228EFC007DBD18 /* CreateDebateRoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544D73F2C228EFC007DBD18 /* CreateDebateRoomService.swift */; };
 		3544D7432C228F54007DBD18 /* CreateDebateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544D7422C228F54007DBD18 /* CreateDebateRoomViewModel.swift */; };
+		3544D7462C229436007DBD18 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544D7452C229436007DBD18 /* ChatService.swift */; };
 		357666102BBD4BF6002C226A /* ReportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576660F2BBD4BF6002C226A /* ReportListView.swift */; };
 		357666132BBD54AA002C226A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357666122BBD54AA002C226A /* SplashView.swift */; };
 		3576993A2C09C1EB00AD2DA4 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 357699392C09C1EB00AD2DA4 /* KakaoSDK */; };
@@ -107,6 +108,7 @@
 		350909192C1C1248007D76A1 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		3544D73F2C228EFC007DBD18 /* CreateDebateRoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDebateRoomService.swift; sourceTree = "<group>"; };
 		3544D7422C228F54007DBD18 /* CreateDebateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDebateRoomViewModel.swift; sourceTree = "<group>"; };
+		3544D7452C229436007DBD18 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		3576660F2BBD4BF6002C226A /* ReportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListView.swift; sourceTree = "<group>"; };
 		357666122BBD54AA002C226A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		357699432C09C7B900AD2DA4 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -228,6 +230,14 @@
 				3544D7422C228F54007DBD18 /* CreateDebateRoomViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3544D7442C229428007DBD18 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3544D7452C229436007DBD18 /* ChatService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		357666112BBD5494002C226A /* Splah */ = {
@@ -532,6 +542,7 @@
 		6CDB29F72BAA06FB0081037B /* ChatGPT */ = {
 			isa = PBXGroup;
 			children = (
+				3544D7442C229428007DBD18 /* Service */,
 				6CDB29F82BAA07350081037B /* GPTChat.swift */,
 				6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */,
 				6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */,
@@ -760,6 +771,7 @@
 				6C454A882B9DB6C2006FD9D0 /* CustomNavigationBar.swift in Sources */,
 				6CF130BF2BAB783300A437B6 /* APIConstants.swift in Sources */,
 				357699442C09C7B900AD2DA4 /* LoginService.swift in Sources */,
+				3544D7462C229436007DBD18 /* ChatService.swift in Sources */,
 				6C76513C2BF37ED300196536 /* Extension+Log.swift in Sources */,
 				6CE103102BD56A5B00498AA4 /* TypeReportViewModel.swift in Sources */,
 				6C5B0C8A2C1C308A00A0D5F4 /* ScoopAPIBookmarks.swift in Sources */,

@@ -11,7 +11,7 @@ struct GPTChatView: View {
     
     @EnvironmentObject var pathModel: PathModel
     @StateObject var chatListViewModel = GPTChatListViewModel()
-    @State var selectedChat: GPTChat? = .init(title: "hi", messages: [.init(content: "안녕하세요", isUser: false)])
+    @State var selectedChat: GPTChat? = .init(title: "토론제목입니다", messages: [.init(content: "ChatGPT와의 토론!", isUser: false)])
     
     var body: some View {
         ZStack {
