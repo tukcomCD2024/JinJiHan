@@ -28,7 +28,6 @@ struct TypePieChartView: View {
             .cornerRadius(8)
             .foregroundStyle(report.category?.color.gradient ?? Color.primary01.gradient)
         }
-        /// pie chart의 가운데 문구
         .chartBackground { chartProxy in
             GeometryReader { geometry in
                 let frame = geometry[chartProxy.plotFrame!]
