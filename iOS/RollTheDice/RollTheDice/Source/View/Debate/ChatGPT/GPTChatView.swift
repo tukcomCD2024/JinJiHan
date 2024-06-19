@@ -75,7 +75,9 @@ struct GPTChatView: View {
                                 viewModel.endDebate(roomId: "\(roomId)") { success in
                                     if success {
                                         print("토론이 종료되었습니다.")
-                                        pathModel.paths.append(.debateSummaryView)
+//                                        pathModel.paths.append(.debateSummaryView)
+                                        pathModel.paths.popLast()
+
                                     } else {
                                         print("토론 종료에 실패했습니다.")
                                     }

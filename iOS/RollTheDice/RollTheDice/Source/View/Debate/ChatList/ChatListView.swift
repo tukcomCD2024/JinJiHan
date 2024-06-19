@@ -86,7 +86,8 @@ struct ChatListView: View {
                 Button {
                     pathModel.paths.append(.chatView(isAiMode: true))
                 } label: {
-                    Image(.chevronRight)
+                    Image(systemName: "quote.bubble")
+                        .background(.gray01)
                 }
             }
             .background(.gray01)
@@ -221,8 +222,8 @@ struct ChatListView: View {
             Button {
                 pathModel.paths.append(.debateSummaryView)
             } label: {
-                Image(.chevronLeft)
-//                    .background(.gray01)
+                Image(systemName: "quote.bubble")
+                    .background(.gray01)
                     
             }
             .frame(width: 80, height: 80)
