@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct RecentNewsCardView: View {
+    @EnvironmentObject var pathModel: PathModel
+    @StateObject private var viewModel = CreateDebateRoomViewModel()
+    @State private var topic: String = ""
+    
     var body: some View {
         HStack {
             titleView
@@ -36,7 +40,9 @@ struct RecentNewsCardView: View {
                     }
                     .shadow(color: .basicBlack.opacity(0.1), radius: 2)
                 Button {
-                    
+                    print("버튼 클릭됨 - 주제: \(topic)")
+                    viewModel.createDebate(topic: topic)
+                    pathModel.paths.append(.createdebateroom)
                 } label: {
                     Text("토론 시작하기")
                         .foregroundStyle(.basicWhite)
@@ -46,6 +52,15 @@ struct RecentNewsCardView: View {
                         .background(.primary01)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
                 }
+            }
+            
+            if let debateID = viewModel.debateID {
+                Text("토론방 ID: \(debateID)")
+            }
+            
+            if let errorMessage = viewModel.errorMessage {
+                Text("Error: \(errorMessage)")
+                    .foregroundColor(.red)
             }
         }
         .padding(.horizontal, 20)
