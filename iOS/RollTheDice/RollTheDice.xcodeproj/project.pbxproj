@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3509091A2C1C1248007D76A1 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350909192C1C1248007D76A1 /* TokenManager.swift */; };
+		3544D7402C228EFC007DBD18 /* CreateDebateRoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544D73F2C228EFC007DBD18 /* CreateDebateRoomService.swift */; };
+		3544D7432C228F54007DBD18 /* CreateDebateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544D7422C228F54007DBD18 /* CreateDebateRoomViewModel.swift */; };
 		357666102BBD4BF6002C226A /* ReportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576660F2BBD4BF6002C226A /* ReportListView.swift */; };
 		357666132BBD54AA002C226A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357666122BBD54AA002C226A /* SplashView.swift */; };
 		3576993A2C09C1EB00AD2DA4 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 357699392C09C1EB00AD2DA4 /* KakaoSDK */; };
@@ -103,6 +105,8 @@
 
 /* Begin PBXFileReference section */
 		350909192C1C1248007D76A1 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		3544D73F2C228EFC007DBD18 /* CreateDebateRoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDebateRoomService.swift; sourceTree = "<group>"; };
+		3544D7422C228F54007DBD18 /* CreateDebateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDebateRoomViewModel.swift; sourceTree = "<group>"; };
 		3576660F2BBD4BF6002C226A /* ReportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListView.swift; sourceTree = "<group>"; };
 		357666122BBD54AA002C226A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		357699432C09C7B900AD2DA4 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -210,6 +214,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3544D73E2C228EDB007DBD18 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3544D73F2C228EFC007DBD18 /* CreateDebateRoomService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3544D7412C228F39007DBD18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3544D7422C228F54007DBD18 /* CreateDebateRoomViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		357666112BBD5494002C226A /* Splah */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +269,8 @@
 		6C41B8D62BE1048500274FA4 /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
+				3544D7412C228F39007DBD18 /* ViewModel */,
+				3544D73E2C228EDB007DBD18 /* Service */,
 				6C41B8D92BE104A800274FA4 /* RecentNewsCardView.swift */,
 				6C41B8DB2BE1095800274FA4 /* ChatListView.swift */,
 			);
@@ -750,6 +772,7 @@
 				6C7651492BF5FDB900196536 /* WebView.swift in Sources */,
 				6CDB29FF2BAA08280081037B /* GPTChatListViewModel.swift in Sources */,
 				6CF130AD2BAB0C4400A437B6 /* AuthenticationViewModel.swift in Sources */,
+				3544D7402C228EFC007DBD18 /* CreateDebateRoomService.swift in Sources */,
 				6CDB29F92BAA07350081037B /* GPTChat.swift in Sources */,
 				6C41B8DC2BE1095800274FA4 /* ChatListView.swift in Sources */,
 				6CDB29FD2BAA07FD0081037B /* GPTChatView.swift in Sources */,
@@ -763,6 +786,7 @@
 				6C76513E2BF37F1E00196536 /* Extension+OSLog.swift in Sources */,
 				6CC6737C2C21BA5B009FB30E /* Auth.swift in Sources */,
 				357FC6EA2BCE866B00AD8915 /* DetailCardNews.swift in Sources */,
+				3544D7432C228F54007DBD18 /* CreateDebateRoomViewModel.swift in Sources */,
 				6CC4DDC92B5574670080E7E8 /* ContentView.swift in Sources */,
 				6C3237A52B7C37D100B699AB /* BookmarkView.swift in Sources */,
 				6C3237AE2B7C382E00B699AB /* DetailNewsViewModel.swift in Sources */,
@@ -932,10 +956,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RollTheDice/Preview Content\"";
-				DEVELOPMENT_TEAM = 4YH4UGRTMH;
+				DEVELOPMENT_TEAM = NTXM48C3F8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RollTheDice/Resources/Support/Info.plist;
@@ -951,6 +976,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jinjihan.RollTheDice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -962,10 +988,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RollTheDice/Preview Content\"";
-				DEVELOPMENT_TEAM = 4YH4UGRTMH;
+				DEVELOPMENT_TEAM = NTXM48C3F8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RollTheDice/Resources/Support/Info.plist;
@@ -981,6 +1008,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jinjihan.RollTheDice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

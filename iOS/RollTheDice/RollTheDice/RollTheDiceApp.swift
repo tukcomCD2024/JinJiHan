@@ -66,6 +66,8 @@ struct RollTheDiceApp: App {
                                 DebateSummaryView()
                             case .webView(let url):
                                 WebView(urlToLoad: url)
+                            case .createdebateroom:
+                                GPTChatView()
                             }
                         })
                 }
