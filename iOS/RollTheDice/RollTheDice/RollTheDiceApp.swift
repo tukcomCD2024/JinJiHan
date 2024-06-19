@@ -46,7 +46,7 @@ struct RollTheDiceApp: App {
                             // 각 뷰마다 .navigationBarBackButtonHidden() 설정하기!
                             switch pathType {
                             case .chatView(isAiMode: true) :
-                                GPTChatView(topic: "")
+                                GPTChatView(topic: "토픽", roomId: 74)
                                     .navigationBarBackButtonHidden()
                                 
                             case .chatView(isAiMode: false):
@@ -67,7 +67,7 @@ struct RollTheDiceApp: App {
                             case .webView(let url):
                                 WebView(urlToLoad: url)
                             case .createdebateroom:
-                                GPTChatView(topic: "")
+                                GPTChatView(topic: "", roomId: 74)
                             }
                         })
                 }
