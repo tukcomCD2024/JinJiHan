@@ -11,7 +11,7 @@ import Charts
 
 struct DailyBarChartView: View {
     
-    @StateObject var dailyViewModel: DailyReportViewModel
+    var dailyViewModel: DailyReportViewModel
     
     @State var selectedDay: Date?
     @State var selectedView: Int?
@@ -21,9 +21,9 @@ struct DailyBarChartView: View {
     
     var selectedValue: (date: Date, views: Int)? {
         if let selectedDay {
-            for preview in dailyViewModel.dailyReportList.reportList {
+            for preview in dailyViewModel.dailyReportList ?? [] {
                 if preview.date.formatted(date: .long, time: .omitted) == selectedDay.formatted(date: .long, time: .omitted) {
-                    return (selectedDay, preview.views)
+                    return (selectedDay, preview.views!)
                 }
             }
         }
@@ -57,10 +57,10 @@ struct DailyBarChartView: View {
             
             
             Chart{
-                ForEach(dailyViewModel.dailyReportList.reportList) { day in
+                ForEach(dailyViewModel.dailyReportList ?? []) { day in
                     BarMark(
                         x: .value("Day", day.date, unit: .weekdayOrdinal),
-                        y: .value("Views", day.views)
+                        y: .value("Views", day.views ?? 0)
                         
                     )
                     .cornerRadius(8)
@@ -100,6 +100,9 @@ struct DailyBarChartView: View {
             }
             .chartYAxis(.hidden)
             .chartXSelection(value: $selectedDay)
+            .task {
+                dailyViewModel.getDailyViews()
+            }
         }
     }
     
