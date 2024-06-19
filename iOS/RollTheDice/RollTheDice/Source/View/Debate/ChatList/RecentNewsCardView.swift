@@ -139,8 +139,12 @@ struct RecentNewsCardView: View {
                 Button {
                     print("버튼 클릭됨 - 주제: \(news.title)")
                     topic = news.title
-                    debateRoomViewModel.createDebate(topic: topic)
-                    pathModel.paths.append(.createdebateroom)
+                    debateRoomViewModel.createDebate(topic: topic) { debateTopic in
+                        pathModel.paths.append(.createdebateroom)
+                        print("토론방 생성 완료 - 주제: \(debateTopic)")
+
+                    }
+//                    pathModel.paths.append(.createdebateroom)
                 } label: {
                     Text("토론 시작하기")
                         .foregroundStyle(.basicWhite)
