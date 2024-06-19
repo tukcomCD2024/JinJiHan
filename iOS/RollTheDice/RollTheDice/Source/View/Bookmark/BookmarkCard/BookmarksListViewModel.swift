@@ -24,7 +24,10 @@ import SwiftUI
 
 extension BookmarksListViewModel {
     public func getAllBookmarksData(page: Int, size: Int) {
-        let accessToken = "5Gu45OmOoZnvANl-qfZv-xHv_2eSweVeAAAAAQopyNkAAAGQFbGnJSn2EFsnJsRZ"
+        guard let accessToken = TokenManager.shared.accessToken else {
+            print("Access token 사용 불가능...")
+            return
+        }
         
         if let cancellable = bookmarksCancellable {
             cancellable.cancel()
