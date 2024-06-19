@@ -10,7 +10,7 @@ import Moya
 
 enum StatisticsService {
     case recentSevenPerDate(accessToken: String) /// 최근 일주일 날짜별 뉴스 조회수 조회
-    case statisticsCategory(accessToken: String)
+    case statisticsCategory(accessToken: String) /// 카테고리별 조회수 조회
 }
 
 extension StatisticsService: BaseTargetType {
