@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 
-enum NewsType {
-    case politics   // 정치
-    case economy    // 경제
-    case society    // 사회
-    case living     // 생활/문화
-    case world      // 세계
-    case science    // IT/과학
+enum NewsType: String, Codable {
+    case politics = "정치"   // 정치
+    case economy = "경제"    // 경제
+    case society = "사회"    // 사회
+    case living = "생활/문화"    // 생활/문화
+    case world = "세계"      // 세계
+    case science = "IT/과학"    // IT/과학
     
     var desciption: String {
         switch self {
