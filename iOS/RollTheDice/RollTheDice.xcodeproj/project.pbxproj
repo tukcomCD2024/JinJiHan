@@ -27,8 +27,6 @@
 		357699422C09C1EB00AD2DA4 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 357699412C09C1EB00AD2DA4 /* KakaoSDKCommon */; };
 		357699442C09C7B900AD2DA4 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357699432C09C7B900AD2DA4 /* LoginService.swift */; };
 		357FC6EA2BCE866B00AD8915 /* DetailCardNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */; };
-<<<<<<< HEAD
-		3586B53C2C22DF41006B1458 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B53B2C22DF41006B1458 /* News.swift */; };
 		3586B53E2C22DF67006B1458 /* RecentNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B53D2C22DF67006B1458 /* RecentNewsService.swift */; };
 		3586B5402C22DFCB006B1458 /* RecentNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B53F2C22DFCB006B1458 /* RecentNewsViewModel.swift */; };
 		3586B5422C232C00006B1458 /* EndDebateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B5412C232C00006B1458 /* EndDebateService.swift */; };
@@ -38,11 +36,9 @@
 		3586B54F2C23B767006B1458 /* GetDebateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B54E2C23B767006B1458 /* GetDebateRoom.swift */; };
 		3586B5512C23B79F006B1458 /* GetDebateRoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B5502C23B79F006B1458 /* GetDebateRoomService.swift */; };
 		3586B5532C23B7DC006B1458 /* GetDebateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B5522C23B7DC006B1458 /* GetDebateRoomViewModel.swift */; };
-=======
 		3586B5562C23D25A006B1458 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B5552C23D25A006B1458 /* News.swift */; };
 		3586B5582C23D27C006B1458 /* RecentNewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B5572C23D27C006B1458 /* RecentNewsService.swift */; };
 		3586B55A2C23D296006B1458 /* RecentNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3586B5592C23D296006B1458 /* RecentNewsViewModel.swift */; };
->>>>>>> DeviOS
 		35C71BF22B79F39900F777D1 /* ExyteChat in Frameworks */ = {isa = PBXBuildFile; productRef = 35C71BF12B79F39900F777D1 /* ExyteChat */; };
 		6C32379F2B7C376D00B699AB /* Bookmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C32379E2B7C376D00B699AB /* Bookmarks.swift */; };
 		6C3237A12B7C377600B699AB /* BookmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3237A02B7C377600B699AB /* BookmarkViewModel.swift */; };
@@ -145,7 +141,6 @@
 		357666122BBD54AA002C226A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		357699432C09C7B900AD2DA4 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		357FC6E92BCE866B00AD8915 /* DetailCardNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardNews.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		3586B53B2C22DF41006B1458 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		3586B53D2C22DF67006B1458 /* RecentNewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentNewsService.swift; sourceTree = "<group>"; };
 		3586B53F2C22DFCB006B1458 /* RecentNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentNewsViewModel.swift; sourceTree = "<group>"; };
@@ -155,12 +150,8 @@
 		3586B54B2C235731006B1458 /* DebateSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebateSummaryViewModel.swift; sourceTree = "<group>"; };
 		3586B54E2C23B767006B1458 /* GetDebateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDebateRoom.swift; sourceTree = "<group>"; };
 		3586B5502C23B79F006B1458 /* GetDebateRoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDebateRoomService.swift; sourceTree = "<group>"; };
-		3586B5522C23B7DC006B1458 /* GetDebateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDebateRoomViewModel.swift; sourceTree = "<group>"; };
-=======
-		3586B5552C23D25A006B1458 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		3586B5572C23D27C006B1458 /* RecentNewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentNewsService.swift; sourceTree = "<group>"; };
+		3586B5522C23B7DC006B1458 /* GetDebateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDebateRoomViewModel.swift; sourceTree = "<group>"; };		3586B5572C23D27C006B1458 /* RecentNewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentNewsService.swift; sourceTree = "<group>"; };
 		3586B5592C23D296006B1458 /* RecentNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentNewsViewModel.swift; sourceTree = "<group>"; };
->>>>>>> DeviOS
 		6C32379E2B7C376D00B699AB /* Bookmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmarks.swift; sourceTree = "<group>"; };
 		6C3237A02B7C377600B699AB /* BookmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewModel.swift; sourceTree = "<group>"; };
 		6C3237A42B7C37D100B699AB /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
@@ -270,13 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				3544D73F2C228EFC007DBD18 /* CreateDebateRoomService.swift */,
-<<<<<<< HEAD
-				3586B53D2C22DF67006B1458 /* RecentNewsService.swift */,
-				3586B5502C23B79F006B1458 /* GetDebateRoomService.swift */,
-=======
 				3586B5572C23D27C006B1458 /* RecentNewsService.swift */,
 				35710D7E2C23DC830041ECD2 /* GetDebateRoomService.swift */,
->>>>>>> DeviOS
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -285,13 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				3544D7422C228F54007DBD18 /* CreateDebateRoomViewModel.swift */,
-<<<<<<< HEAD
-				3586B53F2C22DFCB006B1458 /* RecentNewsViewModel.swift */,
-				3586B5522C23B7DC006B1458 /* GetDebateRoomViewModel.swift */,
-=======
 				3586B5592C23D296006B1458 /* RecentNewsViewModel.swift */,
 				35710D7C2C23DC6A0041ECD2 /* GetDebateRoomViewModel.swift */,
->>>>>>> DeviOS
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -300,11 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				3544D7452C229436007DBD18 /* ChatService.swift */,
-<<<<<<< HEAD
-				3586B5412C232C00006B1458 /* EndDebateService.swift */,
-=======
 				35710D742C23D9350041ECD2 /* EndDebateService.swift */,
->>>>>>> DeviOS
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -349,58 +326,15 @@
 			path = Splah;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		3586B5392C22DF03006B1458 /* RecentNewsModel */ = {
-			isa = PBXGroup;
-			children = (
-				3586B53B2C22DF41006B1458 /* News.swift */,
-=======
+
 		3586B5542C23D246006B1458 /* RecentNewsModel */ = {
 			isa = PBXGroup;
 			children = (
 				3586B5552C23D25A006B1458 /* News.swift */,
->>>>>>> DeviOS
 			);
 			path = RecentNewsModel;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
-		3586B5432C232C44006B1458 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3586B5442C232C7C006B1458 /* EndDebateViewModel.swift */,
-				6CDB29FA2BAA07B10081037B /* GPTChatViewModel.swift */,
-				6CDB29FE2BAA08280081037B /* GPTChatListViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3586B5472C2356E1006B1458 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				3586B5482C2356F2006B1458 /* DebateSummaryService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		3586B54A2C23571D006B1458 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3586B54B2C235731006B1458 /* DebateSummaryViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3586B54D2C23B748006B1458 /* GetDebateRoomModel */ = {
-			isa = PBXGroup;
-			children = (
-				3586B54E2C23B767006B1458 /* GetDebateRoom.swift */,
-			);
-			path = GetDebateRoomModel;
-			sourceTree = "<group>";
-		};
-=======
->>>>>>> DeviOS
 		6C32379D2B7C374E00B699AB /* BookmarkCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,13 +366,8 @@
 		6C41B8D62BE1048500274FA4 /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				3586B54D2C23B748006B1458 /* GetDebateRoomModel */,
-				3586B5392C22DF03006B1458 /* RecentNewsModel */,
-=======
 				35710D802C23DC970041ECD2 /* GetDebateRoomModel */,
 				3586B5542C23D246006B1458 /* RecentNewsModel */,
->>>>>>> DeviOS
 				3544D7412C228F39007DBD18 /* ViewModel */,
 				3544D73E2C228EDB007DBD18 /* Service */,
 				6C41B8D92BE104A800274FA4 /* RecentNewsCardView.swift */,
@@ -702,11 +631,7 @@
 		6CDB29F72BAA06FB0081037B /* ChatGPT */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				3586B5432C232C44006B1458 /* ViewModel */,
-=======
 				35710D712C23D8F10041ECD2 /* ViewModel */,
->>>>>>> DeviOS
 				3544D7442C229428007DBD18 /* Service */,
 				6CDB29F82BAA07350081037B /* GPTChat.swift */,
 				6CDB29FC2BAA07FD0081037B /* GPTChatView.swift */,
@@ -749,13 +674,8 @@
 		6CE103182BD57A1600498AA4 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				3586B54A2C23571D006B1458 /* ViewModel */,
-				3586B5472C2356E1006B1458 /* Service */,
-=======
 				35710D792C23DC250041ECD2 /* Service */,
 				35710D782C23DC100041ECD2 /* ViewModel */,
->>>>>>> DeviOS
 				6CE103192BD57A2500498AA4 /* DebateSummaryView.swift */,
 			);
 			path = Summary;
@@ -1019,13 +939,9 @@
 				3586B5532C23B7DC006B1458 /* GetDebateRoomViewModel.swift in Sources */,
 				3586B5452C232C7C006B1458 /* EndDebateViewModel.swift in Sources */,
 				3509091A2C1C1248007D76A1 /* TokenManager.swift in Sources */,
-<<<<<<< HEAD
-				3586B54F2C23B767006B1458 /* GetDebateRoom.swift in Sources */,
-=======
 				35710D7D2C23DC6A0041ECD2 /* GetDebateRoomViewModel.swift in Sources */,
 				35710D7B2C23DC360041ECD2 /* DebateSummaryService.swift in Sources */,
 				35710D732C23D9030041ECD2 /* EndDebateViewModel.swift in Sources */,
->>>>>>> DeviOS
 				6CF130C72BAB7B9800A437B6 /* ScoopAPINews.swift in Sources */,
 				6CC6737E2C233443009FB30E /* StatisticsService.swift in Sources */,
 				35710D7F2C23DC830041ECD2 /* GetDebateRoomService.swift in Sources */,
