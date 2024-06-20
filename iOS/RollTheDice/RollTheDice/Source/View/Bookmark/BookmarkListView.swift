@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct BookmarkListView: View {
-    
     @EnvironmentObject var pathModel: PathModel
-    var bookmarkListViewModel : BookmarksListViewModel
-    var bookmarkPage: Int?
+    @StateObject var bookmarkListViewModel : BookmarkListViewModel
     @State var selectedIndex: Int = 0
     
     var columns: [GridItem] = [ GridItem(), GridItem()]
@@ -41,19 +39,16 @@ struct BookmarkListView: View {
                 Spacer()
             }
         }
-        .task {
-            bookmarkListViewModel.getAllBookmarksData(page: 0, size: 10)
-        }
         .navigationBarBackButtonHidden()
     }
     
-    @ViewBuilder
     var bookmarkListView: some View {
+        
         
         ScrollViewReader { value in
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: columns, spacing: 10) {
-                    ForEach(bookmarkListViewModel.bookmarksList ?? []) { bookmark in
+                    ForEach(bookmarkListViewModel.bookmarkList, id: \.self) { bookmark in
                         BookmarkView(bookmark: bookmark)
 //                                .onTapGesture {
 //                                    withAnimation {
@@ -94,6 +89,6 @@ struct BookmarkListView: View {
 }
 
 #Preview {
-    BookmarkListView(bookmarkListViewModel: BookmarksListViewModel())
-        .environmentObject(PathModel())
+    BookmarkListView(bookmarkListViewModel: BookmarkListViewModel())
+        .environmentObject(BookmarkListViewModel())
 }

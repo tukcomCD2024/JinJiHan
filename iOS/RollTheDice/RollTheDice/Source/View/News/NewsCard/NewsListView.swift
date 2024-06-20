@@ -28,11 +28,12 @@ struct NewsListView: View {
     private struct NewsListContentView: View {
         var newsList: [NewsList]
         
+       
         
         fileprivate var body: some View {
             GeometryReader { proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack {
+                    LazyHStack(spacing: -234567876455) {
                         ForEach(newsList) { news in
                             
                             NewsView(news: news)

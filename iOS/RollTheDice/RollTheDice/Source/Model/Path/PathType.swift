@@ -20,7 +20,4 @@ enum PathType: Hashable {
     case mypageView         // 마이페이지뷰
     
     case webView(url: String)
-    
-    case createdebateroom //토론방 생성
-    
 }

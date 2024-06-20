@@ -20,7 +20,7 @@ struct RollTheDiceApp: App {
     var signUpViewModel = SignUpViewModel()
     
     var newsListViewModel = NewsListViewModel()
-    var bookmarkListViewModel = BookmarksListViewModel()
+    @StateObject var bookmarkListViewModel = BookmarkListViewModel()
     
     init() {
             KakaoSDK.initSDK(appKey: "ff09b3d83873ed4e320f0d6bc90759d6")
@@ -46,7 +46,7 @@ struct RollTheDiceApp: App {
                             // 각 뷰마다 .navigationBarBackButtonHidden() 설정하기!
                             switch pathType {
                             case .chatView(isAiMode: true) :
-                                GPTChatView(topic: "토픽", roomId: 74)
+                                GPTChatView()
                                     .navigationBarBackButtonHidden()
                                 
                             case .chatView(isAiMode: false):
@@ -66,8 +66,6 @@ struct RollTheDiceApp: App {
                                 DebateSummaryView()
                             case .webView(let url):
                                 WebView(urlToLoad: url)
-                            case .createdebateroom:
-                                GPTChatView(topic: "", roomId: 74)
                             }
                         })
                 }
