@@ -11,7 +11,7 @@ struct ChatListView: View {
     
     @EnvironmentObject var pathModel: PathModel
     @StateObject private var newsViewModel = RecentNewsViewModel()
-    
+
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
@@ -32,28 +32,30 @@ struct ChatListView: View {
             Text("최근 본 뉴스")
                 .foregroundStyle(.basicWhite)
                 .font(.pretendardBold32)
+//            HStack {
+//                RecentNewsCardView()
+//                Spacer()
+//                RecentNewsCardView()
+//                Spacer()
+//                RecentNewsCardView()
+//            }
             HStack {
-//                RecentNewsCardView()
-//                Spacer()
-//                RecentNewsCardView()
-//                Spacer()
-//                RecentNewsCardView()
-                if newsViewModel.news.isEmpty {
-                    Text("최근 읽은 뉴스를 불러오는 중...")
-                        .onAppear {
-                            print("뷰가 나타남 - 최근 읽은 뉴스 조회 시작")
-                            newsViewModel.fetchViewedHistory()
+                    if newsViewModel.news.isEmpty {
+                        Text("최근 읽은 뉴스를 불러오는 중...")
+                            .onAppear {
+                                print("뷰가 나타남 - 최근 읽은 뉴스 조회 시작")
+                                newsViewModel.fetchViewedHistory()
+                            }
+                    } else {
+                        ForEach(newsViewModel.news.prefix(3), id: \.id) { news in
+                            RecentNewsCardView(news: news)
+                            Spacer()
                         }
-                } else {
-                    ForEach(newsViewModel.news.prefix(3), id: \.id) { news in
-                        RecentNewsCardView(news: news)
-                        Spacer()
                     }
                 }
-            }
-            .padding()
-            }
+                .padding()
         }
+    }
     
     @ViewBuilder
     var debateChatListView: some View {
@@ -84,7 +86,8 @@ struct ChatListView: View {
                 Button {
                     pathModel.paths.append(.chatView(isAiMode: true))
                 } label: {
-                    Image(.chevronRight)
+                    Image(systemName: "quote.bubble")
+                        .background(.gray01)
                 }
             }
             .background(.gray01)
@@ -219,8 +222,8 @@ struct ChatListView: View {
             Button {
                 pathModel.paths.append(.debateSummaryView)
             } label: {
-                Image(.chevronLeft)
-//                    .background(.gray01)
+                Image(systemName: "quote.bubble")
+                    .background(.gray01)
                     
             }
             .frame(width: 80, height: 80)
