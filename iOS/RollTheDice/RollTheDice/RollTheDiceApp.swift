@@ -46,7 +46,7 @@ struct RollTheDiceApp: App {
                             // 각 뷰마다 .navigationBarBackButtonHidden() 설정하기!
                             switch pathType {
                             case .chatView(isAiMode: true) :
-                                GPTChatView()
+                                GPTChatView(topic: "")
                                     .navigationBarBackButtonHidden()
                                 
                             case .chatView(isAiMode: false):
@@ -67,7 +67,7 @@ struct RollTheDiceApp: App {
                             case .webView(let url):
                                 WebView(urlToLoad: url)
                             case .createdebateroom:
-                                GPTChatView()
+                                GPTChatView(topic: "")
                             }
                         })
                 }
@@ -81,13 +81,13 @@ struct RollTheDiceApp: App {
 //                NavigationStack(path: $pathModel.paths) {
 //                    MainTabView(newsListViewModel: newsListViewModel)
 //                        .navigationDestination(for: PathType.self, destination: { pathType in
-//                            
+//
 //                            // 각 뷰마다 .navigationBarBackButtonHidden() 설정하기!
 //                            switch pathType {
 //                            case .chatView(isAiMode: true) :
 //                                GPTChatView()
 //                                    .navigationBarBackButtonHidden()
-//                                
+//
 //                            case .chatView(isAiMode: false):
 //                                Text("user")
 //                                    .navigationBarBackButtonHidden()
@@ -106,10 +106,10 @@ struct RollTheDiceApp: App {
 //                            }
 //                        })
 //                }
-//                
+//
 //                .environmentObject(pathModel)
-//                
-//                
+//
+//
 //            } else {
 //                AuthenticatedView()
 //                    .environmentObject(pathModel)

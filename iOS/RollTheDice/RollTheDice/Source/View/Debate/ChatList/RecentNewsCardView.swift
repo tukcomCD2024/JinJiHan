@@ -10,8 +10,9 @@
 //struct RecentNewsCardView: View {
 //    @EnvironmentObject var pathModel: PathModel
 //    @StateObject private var viewModel = CreateDebateRoomViewModel()
+//    @StateObject private var newsviewModel = RecentNewsViewModel()
 //    @State private var topic: String = ""
-//    
+//
 //    var body: some View {
 //        HStack {
 //            titleView
@@ -19,7 +20,7 @@
 ////        .frame(width: 260, height: 244)
 //        .clipShape(RoundedRectangle(cornerRadius: 8))
 //    }
-//    
+//
 //    var titleView: some View {
 //        ZStack {
 //            VStack(alignment: .center, spacing: 20) {
@@ -53,11 +54,11 @@
 //                        .clipShape(RoundedRectangle(cornerRadius: 16))
 //                }
 //            }
-//            
+//
 //            if let debateID = viewModel.debateID {
 //                Text("토론방 ID: \(debateID)")
 //            }
-//            
+//
 //            if let errorMessage = viewModel.errorMessage {
 //                Text("Error: \(errorMessage)")
 //                    .foregroundColor(.red)
@@ -73,6 +74,13 @@
 //#Preview {
 //    RecentNewsCardView()
 //}
+
+//
+//  RecentNewsCardView.swift
+//  RollTheDice
+//
+//  Created by Subeen on 4/30/24.
+//
 
 import SwiftUI
 import Combine
@@ -131,8 +139,12 @@ struct RecentNewsCardView: View {
                 Button {
                     print("버튼 클릭됨 - 주제: \(news.title)")
                     topic = news.title
-                    debateRoomViewModel.createDebate(topic: topic)
-                    pathModel.paths.append(.createdebateroom)
+                    debateRoomViewModel.createDebate(topic: topic) { debateTopic in
+                        pathModel.paths.append(.createdebateroom)
+                        print("토론방 생성 완료 - 주제: \(debateTopic)")
+
+                    }
+//                    pathModel.paths.append(.createdebateroom)
                 } label: {
                     Text("토론 시작하기")
                         .foregroundStyle(.basicWhite)
@@ -159,4 +171,5 @@ struct RecentNewsCardView: View {
         .background(.gray02)
     }
 }
+
 
