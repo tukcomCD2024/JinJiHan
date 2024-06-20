@@ -13,8 +13,19 @@ struct MainTabView: View {
     var newsListViewModel: NewsListViewModel
     var bookmarksListViewModel: BookmarksListViewModel
     @EnvironmentObject var authViewModel: AuthenticationViewModel
+//    var recentNewsViewModel: RecentNewsViewModel
+//    var debateSummaryViewModel: DebateSummaryViewModel
+//    var endDebateViewModel: EndDebateViewModel
+//    var getdebateroomviewModel: GetDebateRoomViewModel
+//    let roomId: Int
+////    @State private var roomId: Int // EndDebateViewModel로부터 받아올 roomId
+    @StateObject var newsViewModel = RecentNewsViewModel()
+    @StateObject var debateSummaryViewModel = DebateSummaryViewModel()
+    @StateObject var endDebateViewModel = EndDebateViewModel()
+    @StateObject var getdebateroomviewModel = GetDebateRoomViewModel()
+    @State var roomId = 123 // 예시로 roomId 값을 할당
 
-    
+
     @StateObject var mainTabViewModel = MainTabViewModel()
     
     var body: some View {
@@ -45,8 +56,15 @@ struct MainTabView: View {
                     //                    .environmentObject(newsListViewModel)
                         .tag(1)
                     
-                    ChatListView()
-                    //                    .environmentObject(pathModel)
+                    ChatListView(
+                        pathModel: _pathModel,
+                                newsViewModel: newsViewModel,
+                                viewModel: debateSummaryViewModel,
+                                endDebateViewModel: endDebateViewModel,
+                                roomId: roomId, // roomId를 Int로 전달
+                                getdebateroomviewModel: getdebateroomviewModel
+                            )
+                            .environmentObject(pathModel)
                         .tabItem {
                             Image(systemName: "message")
                         }

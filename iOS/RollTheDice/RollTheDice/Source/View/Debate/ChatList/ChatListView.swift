@@ -10,13 +10,13 @@ import SwiftUI
 struct ChatListView: View {
     
     @EnvironmentObject var pathModel: PathModel
-    @StateObject private var newsViewModel = RecentNewsViewModel()
-    @StateObject private var viewModel = DebateSummaryViewModel()
-    @StateObject private var endDebateViewModel = EndDebateViewModel()
-    @State private var roomId: String = "" // EndDebateViewModel로부터 받아올 roomId
-    @StateObject private var getdebateroomviewModel = GetDebateRoomViewModel()
-    
-    
+    @StateObject var newsViewModel = RecentNewsViewModel()
+    @StateObject var viewModel = DebateSummaryViewModel()
+    @StateObject var endDebateViewModel = EndDebateViewModel()
+    @State var roomId: Int // EndDebateViewModel로부터 받아올 roomId
+    @StateObject var getdebateroomviewModel = GetDebateRoomViewModel()
+    @StateObject var debateSummaryViewModel = DebateSummaryViewModel()
+
     var body: some View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
@@ -73,9 +73,12 @@ struct ChatListView: View {
             //            debateChatCellView3
             //            debateChatCellView4
             //            debateChatCellView5
+//            ForEach(getdebateroomviewModel.debates) { debate in
+//                DebateChatCellView(debateSummaryViewModel : debateSummaryViewModel, summary: SummaryDebate, debate: debate)
+//            }
             ForEach(getdebateroomviewModel.debates) { debate in
-                DebateChatCellView(debate: debate)
-            }
+                DebateChatCellView(debate: debate, roomId: debate.id)
+                       }
         }
         .onAppear {
             print("채팅방 불러와짐")
@@ -85,7 +88,10 @@ struct ChatListView: View {
     
     struct DebateChatCellView: View {
         let debate: GetDebateRoom
+        let roomId: Int
         let emojis = ["🏛️", "🔥", "📌", "⭐️", "🧬", "👩🏼‍💻", "🎨", "🎬", "💌", "🔗", "👀"]
+        
+        @ObservedObject private var debateSummaryViewModel = DebateSummaryViewModel()
 
         @EnvironmentObject var pathModel: PathModel
         
@@ -106,6 +112,8 @@ struct ChatListView: View {
                         .padding(.vertical, 24)
                         
                     Spacer()
+                    
+                    //MARK :토론 내용 조회하는 버튼
                     Button {
                         pathModel.paths.append(.chatView(isAiMode: true))
                     } label: {
@@ -117,16 +125,23 @@ struct ChatListView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .padding(.trailing, 16)
                 
-                Button {
-                    pathModel.paths.append(.debateSummaryView)
-                } label: {
-                    Image("quote.bubble")
-                        .foregroundColor(.gray01)
-                        
+                ZStack{
+                    //MARK: 토론 요약하는 버튼
+                    Button {
+                        print("버튼 왜 안 눌리지?")
+                        pathModel.paths.append(.debateSummaryView)
+                        debateSummaryViewModel.fetchDebateSummary(roomId: roomId)
+    } label: {
+                            Image("quote.bubble")
+    //                        .foregroundColor(.gray01)
+                            
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(.gray01)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    
                 }
-                .frame(width: 80, height: 80)
-                .background(.gray01)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
+   
             }
         }
     }
@@ -292,6 +307,6 @@ struct ChatListView: View {
 //    }
 }
 
-#Preview {
-    ChatListView()
-}
+//#Preview {
+//    ChatListView()
+//}
