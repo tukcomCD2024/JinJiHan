@@ -11,6 +11,7 @@ struct MainTabView: View {
     
     @EnvironmentObject private var pathModel: PathModel
     var newsListViewModel: NewsListViewModel
+    var bookmarksListViewModel: BookmarksListViewModel
     @EnvironmentObject var authViewModel: AuthenticationViewModel
 
     
@@ -37,7 +38,7 @@ struct MainTabView: View {
                         }
                         .tag(0)
                     
-                    NewsListView(newsListViewModel: newsListViewModel)
+                    NewsListView(newsListViewModel: newsListViewModel, bookmarksViewModel: bookmarksListViewModel)
                         .tabItem {
                             Image(systemName: "square.3.layers.3d.down.left")
                         }
@@ -59,7 +60,7 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView(newsListViewModel: NewsListViewModel())
+    MainTabView(newsListViewModel: NewsListViewModel(), bookmarksListViewModel: BookmarksListViewModel())
         .environmentObject(PathModel())
 //        .environmentObject(NewsListViewModel())
 }
