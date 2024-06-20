@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-//let id = UUID().uuidString
-//let newsId: Int
-//let title, thumbnailURL, postDate: String
-//let isBookmarked: Bool
-
 struct BookmarkView: View {
     @State var bookmark: Bookmarks
     var body: some View {
