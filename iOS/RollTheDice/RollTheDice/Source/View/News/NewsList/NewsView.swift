@@ -82,7 +82,7 @@ struct NewsView: View {
                         print("북마크 버튼눌림")
                         print(news.isBookmarked)
                         if news.isBookmarked ?? false {
-                            
+                            bookmarksViewModel.deleteBookmark(newsId: news.newsId)
                         } else {
                             bookmarksViewModel.saveBookmark(newsId: news.newsId)
                         }

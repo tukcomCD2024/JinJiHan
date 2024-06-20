@@ -127,22 +127,57 @@ extension BookmarksListViewModel {
         .sink(receiveCompletion: { result in
             switch result {
             case .finished:
-                print("bookmark 여부 확인 성공")
+                print("bookmarks 저장")
             case .failure(let error):
                 Log.network("network error bookmark 여부 확인 실패", error.localizedDescription)
             }
         }, receiveValue: { [weak self] response in
             print(response)
             if response.response?.statusCode == 201 {
-                print("북마크 저장 성공")
+                print("bookmarks 저장 성공")
             } else {
-                print("북마크 저장 실패")
+                print("bookmarks 저장 실패")
             }
         })
         
     }
     
     /// 북마크 삭제
-    
+    public func deleteBookmark(newsId: Int) {
+        print("saveBookmark \(newsId)")
+        
+        guard let accessToken = TokenManager.shared.accessToken else {
+            print("Access token 사용 불가능...")
+            return
+        }
+        
+        if let cancellable = bookmarksCancellable {
+            cancellable.cancel()
+        }
+        
+        bookmarksCancellable = provider.requestWithProgressPublisher(
+            .deleteBookmarks(
+                newsId: newsId,
+                accessToken: accessToken
+            )
+        )
+        .receive(on: DispatchQueue.main)
+        .sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                print("bookmarks 삭제")
+            case .failure(let error):
+                Log.network("network error bookmark 여부 확인 실패", error.localizedDescription)
+            }
+        }, receiveValue: { [weak self] response in
+            print(response)
+            if response.response?.statusCode == 204 {
+                print("bookmarks 삭제 성공")
+            } else {
+                print("bookmarks 삭제 실패")
+            }
+        })
+        
+    }
     
 }
