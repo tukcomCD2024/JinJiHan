@@ -79,10 +79,12 @@ struct NewsView: View {
                 HStack {
                     Spacer()
                     Button {
+                        print("북마크 버튼눌림")
+                        print(news.isBookmarked)
                         if news.isBookmarked ?? false {
                             
                         } else {
-                            
+                            bookmarksViewModel.saveBookmark(newsId: news.newsId)
                         }
                     } label: {
                         Image(news.isBookmarked ?? false ? .bookmarkfill : .bookmarkunfill)

@@ -103,7 +103,44 @@ extension BookmarksListViewModel {
     }
     
     /// 북마크 저장
-    
+    public func saveBookmark(newsId: Int) {
+        print("saveBookmark \(newsId)")
+        
+        guard let accessToken = TokenManager.shared.accessToken else {
+            print("Access token 사용 불가능...")
+            return
+        }
+        
+        if let cancellable = bookmarksCancellable {
+            cancellable.cancel()
+        }
+        
+        bookmarksCancellable = provider.requestWithProgressPublisher(
+            .saveBookmarks(
+                newsId: newsId,
+                accessToken: accessToken
+            )
+        )
+//        .compactMap { $0.response?.data }
+        .receive(on: DispatchQueue.main)
+//        .decode(type: Bookmarks.self, decoder: JSONDecoder())
+        .sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                print("bookmark 여부 확인 성공")
+            case .failure(let error):
+                Log.network("network error bookmark 여부 확인 실패", error.localizedDescription)
+            }
+        }, receiveValue: { [weak self] response in
+            print(response)
+            if response.response?.statusCode == 201 {
+                print("북마크 저장 성공")
+            } else {
+                print("북마크 저장 실패")
+            }
+        })
+        
+    }
     
     /// 북마크 삭제
     
