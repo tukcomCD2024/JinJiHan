@@ -13,9 +13,12 @@ class CreateDebateRoomViewModel: ObservableObject {
     private let provider = MoyaProvider<CreateDebateRoomService>()
     @Published var debateID: Int?
     @Published var errorMessage: String?
+    @Published var topic: String = ""
+
     
-    func createDebate(topic: String) {
+    func createDebate(topic: String, completion: @escaping (String) -> Void) {
         print("API 호출 시작 - 토론 주제: \(topic)")
+        self.topic = topic // 토론 주제 저장
         provider.request(.createDebate(topic: topic)) { result in
             switch result {
             case .success(let response):
@@ -26,6 +29,7 @@ class CreateDebateRoomViewModel: ObservableObject {
                         DispatchQueue.main.async {
                             self.debateID = id
                             print("토론방 생성 성공 - ID: \(id)")
+                            completion(topic) // 주제를 반환하여 초기 메시지 설정
                         }
                     }
                 } catch {
@@ -43,3 +47,4 @@ class CreateDebateRoomViewModel: ObservableObject {
         }
     }
 }
+
