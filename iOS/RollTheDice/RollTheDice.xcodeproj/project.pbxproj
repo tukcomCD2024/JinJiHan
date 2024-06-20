@@ -13,6 +13,11 @@
 		3544D7462C229436007DBD18 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544D7452C229436007DBD18 /* ChatService.swift */; };
 		35710D732C23D9030041ECD2 /* EndDebateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35710D722C23D9030041ECD2 /* EndDebateViewModel.swift */; };
 		35710D752C23D9350041ECD2 /* EndDebateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35710D742C23D9350041ECD2 /* EndDebateService.swift */; };
+		35710D772C23DBEA0041ECD2 /* DebateSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35710D762C23DBEA0041ECD2 /* DebateSummaryViewModel.swift */; };
+		35710D7B2C23DC360041ECD2 /* DebateSummaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35710D7A2C23DC360041ECD2 /* DebateSummaryService.swift */; };
+		35710D7D2C23DC6A0041ECD2 /* GetDebateRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35710D7C2C23DC6A0041ECD2 /* GetDebateRoomViewModel.swift */; };
+		35710D7F2C23DC830041ECD2 /* GetDebateRoomService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35710D7E2C23DC830041ECD2 /* GetDebateRoomService.swift */; };
+		35710D822C23DCA40041ECD2 /* GetDebateRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35710D812C23DCA40041ECD2 /* GetDebateRoom.swift */; };
 		357666102BBD4BF6002C226A /* ReportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3576660F2BBD4BF6002C226A /* ReportListView.swift */; };
 		357666132BBD54AA002C226A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357666122BBD54AA002C226A /* SplashView.swift */; };
 		3576993A2C09C1EB00AD2DA4 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 357699392C09C1EB00AD2DA4 /* KakaoSDK */; };
@@ -118,6 +123,11 @@
 		3544D7452C229436007DBD18 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		35710D722C23D9030041ECD2 /* EndDebateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndDebateViewModel.swift; sourceTree = "<group>"; };
 		35710D742C23D9350041ECD2 /* EndDebateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndDebateService.swift; sourceTree = "<group>"; };
+		35710D762C23DBEA0041ECD2 /* DebateSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebateSummaryViewModel.swift; sourceTree = "<group>"; };
+		35710D7A2C23DC360041ECD2 /* DebateSummaryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebateSummaryService.swift; sourceTree = "<group>"; };
+		35710D7C2C23DC6A0041ECD2 /* GetDebateRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDebateRoomViewModel.swift; sourceTree = "<group>"; };
+		35710D7E2C23DC830041ECD2 /* GetDebateRoomService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDebateRoomService.swift; sourceTree = "<group>"; };
+		35710D812C23DCA40041ECD2 /* GetDebateRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDebateRoom.swift; sourceTree = "<group>"; };
 		3576660F2BBD4BF6002C226A /* ReportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListView.swift; sourceTree = "<group>"; };
 		357666122BBD54AA002C226A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		357699432C09C7B900AD2DA4 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
@@ -235,6 +245,7 @@
 			children = (
 				3544D73F2C228EFC007DBD18 /* CreateDebateRoomService.swift */,
 				3586B5572C23D27C006B1458 /* RecentNewsService.swift */,
+				35710D7E2C23DC830041ECD2 /* GetDebateRoomService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -244,6 +255,7 @@
 			children = (
 				3544D7422C228F54007DBD18 /* CreateDebateRoomViewModel.swift */,
 				3586B5592C23D296006B1458 /* RecentNewsViewModel.swift */,
+				35710D7C2C23DC6A0041ECD2 /* GetDebateRoomViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -263,6 +275,30 @@
 				35710D722C23D9030041ECD2 /* EndDebateViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		35710D782C23DC100041ECD2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				35710D762C23DBEA0041ECD2 /* DebateSummaryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		35710D792C23DC250041ECD2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				35710D7A2C23DC360041ECD2 /* DebateSummaryService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		35710D802C23DC970041ECD2 /* GetDebateRoomModel */ = {
+			isa = PBXGroup;
+			children = (
+				35710D812C23DCA40041ECD2 /* GetDebateRoom.swift */,
+			);
+			path = GetDebateRoomModel;
 			sourceTree = "<group>";
 		};
 		357666112BBD5494002C226A /* Splah */ = {
@@ -312,6 +348,7 @@
 		6C41B8D62BE1048500274FA4 /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
+				35710D802C23DC970041ECD2 /* GetDebateRoomModel */,
 				3586B5542C23D246006B1458 /* RecentNewsModel */,
 				3544D7412C228F39007DBD18 /* ViewModel */,
 				3544D73E2C228EDB007DBD18 /* Service */,
@@ -621,6 +658,8 @@
 		6CE103182BD57A1600498AA4 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
+				35710D792C23DC250041ECD2 /* Service */,
+				35710D782C23DC100041ECD2 /* ViewModel */,
 				6CE103192BD57A2500498AA4 /* DebateSummaryView.swift */,
 			);
 			path = Summary;
@@ -813,6 +852,7 @@
 				6CE103102BD56A5B00498AA4 /* TypeReportViewModel.swift in Sources */,
 				6C5B0C8A2C1C308A00A0D5F4 /* ScoopAPIBookmarks.swift in Sources */,
 				6CF130C52BAB79DE00A437B6 /* ScoopAPI.swift in Sources */,
+				35710D822C23DCA40041ECD2 /* GetDebateRoom.swift in Sources */,
 				6CE103132BD56B1200498AA4 /* DailyReportView.swift in Sources */,
 				6C454A7A2B9DA67C006FD9D0 /* SignUpViewModel.swift in Sources */,
 				6CC6737A2C217C4B009FB30E /* ScoopAPILogin.swift in Sources */,
@@ -829,6 +869,7 @@
 				6C41B8D22BDE696200274FA4 /* NewsType.swift in Sources */,
 				357666102BBD4BF6002C226A /* ReportListView.swift in Sources */,
 				6C41B8D42BDE6D2500274FA4 /* TypePieChartView.swift in Sources */,
+				35710D772C23DBEA0041ECD2 /* DebateSummaryViewModel.swift in Sources */,
 				6C3237A12B7C377600B699AB /* BookmarkViewModel.swift in Sources */,
 				6C7651462BF5B45A00196536 /* DetailNews.swift in Sources */,
 				6C3237AC2B7C382200B699AB /* NewsList.swift in Sources */,
@@ -873,9 +914,12 @@
 				6C454A7C2B9DA71C006FD9D0 /* SignUpView.swift in Sources */,
 				6C41B8DA2BE104A800274FA4 /* RecentNewsCardView.swift in Sources */,
 				3509091A2C1C1248007D76A1 /* TokenManager.swift in Sources */,
+				35710D7D2C23DC6A0041ECD2 /* GetDebateRoomViewModel.swift in Sources */,
+				35710D7B2C23DC360041ECD2 /* DebateSummaryService.swift in Sources */,
 				35710D732C23D9030041ECD2 /* EndDebateViewModel.swift in Sources */,
 				6CF130C72BAB7B9800A437B6 /* ScoopAPINews.swift in Sources */,
 				6CC6737E2C233443009FB30E /* StatisticsService.swift in Sources */,
+				35710D7F2C23DC830041ECD2 /* GetDebateRoomService.swift in Sources */,
 				6C7651402BF37F3400196536 /* Log.swift in Sources */,
 				6CE1031A2BD57A2500498AA4 /* DebateSummaryView.swift in Sources */,
 				6CE1030C2BD56A4000498AA4 /* TypeReportView.swift in Sources */,

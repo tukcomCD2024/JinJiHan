@@ -9,6 +9,9 @@ import SwiftUI
 
 struct DebateSummaryView: View {
     @EnvironmentObject var pathModel: PathModel
+    @StateObject private var viewModel = DebateSummaryViewModel()
+    @StateObject private var endDebateViewModel = EndDebateViewModel()
+        @State private var roomId: String = "" // EndDebateViewModel로부터 받아오는 roomid
     
     var body: some View {
         ZStack {
@@ -53,7 +56,7 @@ struct DebateSummaryView: View {
                 
                 
             }
-            // TODO: 말풍선 수정하기 
+            // TODO: 말풍선 수정하기
             .overlay {
                 VStack(spacing: 20) {
                     Rectangle()
@@ -115,3 +118,4 @@ struct DebateSummaryView: View {
 #Preview {
     DebateSummaryView()
 }
+
