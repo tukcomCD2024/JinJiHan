@@ -40,7 +40,7 @@ struct RollTheDiceApp: App {
                     .environmentObject(signUpViewModel)
             case .completedSignUp:
                 NavigationStack(path: $pathModel.paths) {
-                    MainTabView(newsListViewModel: newsListViewModel)
+                    MainTabView(newsListViewModel: newsListViewModel, bookmarksListViewModel: bookmarkListViewModel)
                         .navigationDestination(for: PathType.self, destination: { pathType in
                             
                             // 각 뷰마다 .navigationBarBackButtonHidden() 설정하기!
