@@ -8,9 +8,10 @@
 
 import Foundation
 
-struct GPTChat: Hashable {
+struct GPTChat: Hashable, Identifiable{
     var title: String
     var messages: [Message]
+    var id: UUID = .init() // id 속성 추가
     
     init(
         title: String = "",
