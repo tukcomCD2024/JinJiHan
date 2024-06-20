@@ -10,12 +10,9 @@ import SwiftUI
 struct NewsView: View {
     
     @EnvironmentObject var pathModel : PathModel
-    
-//    var newsListViewModel: NewsListViewModel
+
     var news: NewsList
-//    var isVisibleView: Bool = true
-//    var cardWidth: Double = 0.0
-//    var cardHeight: Double = 0.0
+    var bookmarksViewModel: BookmarksListViewModel
     
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
@@ -52,7 +49,6 @@ struct NewsView: View {
         
             Button {
                 let newsId:Int = news.newsId
-                print("!!!!!!!!!!! newsID : \(news.newsId)")
                 pathModel.paths.append(.detailNewsView(newsId: newsId))
             } label: {
                 Text("더보기")
@@ -74,7 +70,6 @@ struct NewsView: View {
         .padding(.top, 50)
         .frame(width: 380)
         .background(
-//                LinearGradient(colors: isVisibleView ?  [.basicWhite, .primaryLight01] : [.basicWhite], startPoint: .top, endPoint: .bottom)
                 LinearGradient(colors: [.basicWhite, .primaryLight01], startPoint: .top, endPoint: .bottom)
         )
         .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -84,9 +79,13 @@ struct NewsView: View {
                 HStack {
                     Spacer()
                     Button {
-                        
+                        if news.isBookmarked ?? false {
+                            
+                        } else {
+                            
+                        }
                     } label: {
-                        Image(.bookmarkfill)
+                        Image(news.isBookmarked ?? false ? .bookmarkfill : .bookmarkunfill)
                             .shadow(color: .gray06, radius: 2)
                     }
                     .offset(CGSize(width: -20, height: -10))
@@ -98,6 +97,6 @@ struct NewsView: View {
 }
 
 #Preview {
-    NewsView(news: .init(newsId: 1, title: "1분기 선방한 dddddddd韓게임사들…엔씨만 울었다", content: "내용내용ㄴㅇㅇㅇ", thumbnailUrl: "", postDate: "2222-22-22", isBookmarked: true))
+    NewsView(news: .init(newsId: 1, title: "1분기 선방한 dddddddd韓게임사들…엔씨만 울었다", content: "내용내용ㄴㅇㅇㅇ", thumbnailUrl: "", postDate: "2222-22-22", isBookmarked: true), bookmarksViewModel: BookmarksListViewModel())
         .environmentObject(PathModel())
 }
