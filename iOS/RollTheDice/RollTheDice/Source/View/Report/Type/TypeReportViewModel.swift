@@ -6,28 +6,61 @@
 //
 
 import Foundation
+import Combine
+import CombineMoya
+import Moya
+import SwiftUI
 
-class TypeReportViewModel: ObservableObject {
+@Observable class TypeReportViewModel {
     
-    @Published var reportList: TypeReportList
-    
-    init(
-        reportList: TypeReportList = .init(
-            reportList: [
-                .init(newsType: .economy, view: 10),
-                .init(newsType: .living, view: 20),
-                .init(newsType: .politics, view: 30),
-                .init(newsType: .science, view: 5),
-                .init(newsType: .society, view: 5),
-                .init(newsType: .world, view: 30)
-            ]
-        )
-    ) {
-        self.reportList = reportList
-    }
-    
+    var typeReportList: [TypeReport]?
+
     // 비율이 낮은 순으로 정렬 (파이 차트에서 반시계방향으로 그래프 차지)
     var sortedList: [TypeReport] {
-        return reportList.reportList.sorted { $0.view > $1.view }
+        if let reportList = typeReportList {
+            return reportList.sorted { ($0.views ?? 0) < ($1.views ?? 0) }
+        } else {
+            return []
+        }
+    }
+    
+    var typeCancellable: AnyCancellable?
+    
+    let provider = MoyaProvider<StatisticsService>(plugins: [MoyaLoggingPlugin()])
+    
+    func typeToViewModel(_ list: [TypeReport]) {
+        self.typeReportList = list
+    }
+}
+
+extension TypeReportViewModel {
+    
+    public func getTypeReport() {
+        guard let accessToken = TokenManager.shared.accessToken else {
+            print("Access token 사용 불가능...")
+            return
+        }
+        
+        if let cancellable = typeCancellable {
+            cancellable.cancel()
+        }
+        
+        typeCancellable = provider.requestWithProgressPublisher(
+            .statisticsCategory(accessToken: accessToken)
+        )
+        .compactMap { $0.response?.data }
+        .receive(on: DispatchQueue.main)
+        .decode(type: [TypeReport].self, decoder: JSONDecoder())
+        .sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                print("type report 조회성공")
+            case .failure(let error):
+                Log.network("type report network error", error.localizedDescription)
+            }
+        }, receiveValue: { [weak self] response in
+            self?.typeToViewModel(response)
+            print(response)
+        })
     }
 }

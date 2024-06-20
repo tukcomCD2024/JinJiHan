@@ -12,7 +12,7 @@
 //    @StateObject private var viewModel = CreateDebateRoomViewModel()
 //    @StateObject private var newsviewModel = RecentNewsViewModel()
 //    @State private var topic: String = ""
-//    
+//
 //    var body: some View {
 //        HStack {
 //            titleView
@@ -20,7 +20,7 @@
 ////        .frame(width: 260, height: 244)
 //        .clipShape(RoundedRectangle(cornerRadius: 8))
 //    }
-//    
+//
 //    var titleView: some View {
 //        ZStack {
 //            VStack(alignment: .center, spacing: 20) {
@@ -54,11 +54,11 @@
 //                        .clipShape(RoundedRectangle(cornerRadius: 16))
 //                }
 //            }
-//            
+//
 //            if let debateID = viewModel.debateID {
 //                Text("토론방 ID: \(debateID)")
 //            }
-//            
+//
 //            if let errorMessage = viewModel.errorMessage {
 //                Text("Error: \(errorMessage)")
 //                    .foregroundColor(.red)
@@ -108,7 +108,7 @@ struct RecentNewsCardView: View {
 //            }
 //        }
 //    }
-//    
+//
        var body: some View {
            HStack {
                titleView

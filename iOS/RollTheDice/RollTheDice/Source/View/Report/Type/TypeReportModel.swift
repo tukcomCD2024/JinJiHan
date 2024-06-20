@@ -7,19 +7,9 @@
 
 import Foundation
 
-struct TypeReportList: Hashable {
-    var reportList: [TypeReport]
-}
-
-struct TypeReport: Hashable, Identifiable {
-    var id = UUID()
-    var newsType: NewsType
-    var view: Int
-
-    //  case politics   // 정치
-    //  case economy    // 경제
-    //  case society    // 사회
-    //  case living     // 생활/문화
-    //  case world      // 세계
-    //  case science    // IT/과학
+struct TypeReport: Codable, Identifiable {
+    
+    let id = UUID().uuidString
+    let category: NewsType?
+    let views: Int?
 }

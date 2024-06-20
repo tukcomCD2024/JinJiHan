@@ -12,7 +12,7 @@ enum BookmarksService {
     case bookmarksIsChecked(newsId: Int, accessToken: String)   ///뉴스 북마크 여부 조회
     case saveBookmarks(newsId: Int, accessToken: String)    ///북마크 저장
     case deleteBookmarks(newsId: Int, accessToken: String)  ///북마크 삭제
-    case allBookmarks(page: Int, size: Int, accessToken: String)  ///북마크 전체 조회/
+    case allBookmarks(page: Int, size: Int, accessToken: String)  ///북마크 전체 조회
 }
 
 extension BookmarksService: BaseTargetType {
@@ -49,11 +49,13 @@ extension BookmarksService: BaseTargetType {
     
     var task: Moya.Task {
         switch self {
-        case .bookmarksIsChecked(let newsId, _),
-                .saveBookmarks(let newsId, _),
-                .deleteBookmarks(let newsId, _):
+        case .bookmarksIsChecked(_, _),
+                .deleteBookmarks(_, _):
             let parameters : [String : Any] = [:]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+            
+        case .saveBookmarks(_, _):
+            return .requestPlain
             
         case .allBookmarks(let page, let size, _):
             let parameters : [String : Any] = [
