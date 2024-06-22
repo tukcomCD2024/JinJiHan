@@ -1,9 +1,10 @@
-package com.rollthedice.backend.domain.news.service;
+package com.rollthedice.backend.domain.readNews.service;
 
 import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.news.dto.response.ReadNewsResponse;
-import com.rollthedice.backend.domain.news.entity.ReadNews;
+import com.rollthedice.backend.domain.readNews.entity.ReadNews;
 import com.rollthedice.backend.domain.news.repository.ReadNewsRepository;
+import com.rollthedice.backend.domain.news.service.NewsService;
 import com.rollthedice.backend.global.oauth2.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

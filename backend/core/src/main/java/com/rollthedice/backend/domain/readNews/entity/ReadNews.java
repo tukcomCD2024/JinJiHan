@@ -1,6 +1,7 @@
-package com.rollthedice.backend.domain.news.entity;
+package com.rollthedice.backend.domain.readNews.entity;
 
 import com.rollthedice.backend.domain.member.entity.Member;
+import com.rollthedice.backend.domain.news.entity.News;
 import com.rollthedice.backend.global.config.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;

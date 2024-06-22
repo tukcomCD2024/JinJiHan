@@ -4,7 +4,7 @@ import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.member.repository.MemberRepository;
 import com.rollthedice.backend.domain.news.entity.News;
 import com.rollthedice.backend.domain.news.entity.NewsCategory;
-import com.rollthedice.backend.domain.news.entity.ReadNews;
+import com.rollthedice.backend.domain.readNews.entity.ReadNews;
 import com.rollthedice.backend.support.RepositoryTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
