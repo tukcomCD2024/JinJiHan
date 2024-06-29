@@ -46,18 +46,4 @@ public interface NewsApi {
             @Parameter(in = ParameterIn.PATH, description = "뉴스 ID", required = true)
             Long newsId
     );
-
-    @Operation(
-            summary = "최근 읽은 뉴스 조회",
-            description = "가장 최근에 읽은 3개의 뉴스를 조회합니다.",
-            security = {@SecurityRequirement(name = "access_token")},
-            tags = {"news"}
-    )
-    @ApiResponse(
-            responseCode = "200",
-            description = "요청에 성공하였습니다."
-    )
-    List<ReadNewsResponse> getReadNews();
-
-
 }

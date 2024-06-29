@@ -16,7 +16,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -33,7 +32,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 
-@Slf4j
 @DisplayName("NewsService의")
 @ExtendWith(MockitoExtension.class)
 class NewsServiceTest extends LoginTest {
@@ -44,11 +42,7 @@ class NewsServiceTest extends LoginTest {
     @MockBean
     private NewsRepository newsRepository;
     @MockBean
-    private BookmarkRepository bookmarkRepository;
-    @MockBean
     private ReadNewsRepository readNewsRepository;
-    @Mock
-    private NewsMapper newsMapper;
 
     private News news;
 
@@ -87,7 +81,7 @@ class NewsServiceTest extends LoginTest {
     }
 
     @Test
-    @DisplayName("뉴스를 상세조회할 수 있는가")
+    @DisplayName("뉴스를 상세 조회할 수 있는가")
     void getDetailNews() {
         //given
         NewsDetailResponse expect = NEWS_DETAIL_RESPONSE();
