@@ -22,6 +22,6 @@ public class ReadNewsService {
     public List<ReadNewsResponse> getReadNews() {
         Member member = authService.getMember();
         List<ReadNews> readNews = readNewsReository.getTop3ByMemberOrderByCreatedAtDesc(member);
-        return newsService.getNewsByReadNews(readNews.stream().map(r -> r.getNews()).collect(Collectors.toList()));
+        return newsService.getNewsByReadNews(readNews.stream().map(ReadNews::getNews).collect(Collectors.toList()));
     }
 }
