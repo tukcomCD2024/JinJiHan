@@ -1,9 +1,11 @@
-package com.rollthedice.backend.domain.news.repository;
+package com.rollthedice.backend.domain.readNews.repository;
 
 import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.member.repository.MemberRepository;
 import com.rollthedice.backend.domain.news.entity.News;
 import com.rollthedice.backend.domain.news.entity.NewsCategory;
+import com.rollthedice.backend.domain.news.repository.NewsRepository;
+import com.rollthedice.backend.domain.news.repository.ReadNewsRepository;
 import com.rollthedice.backend.domain.readNews.entity.ReadNews;
 import com.rollthedice.backend.support.RepositoryTest;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("ReadNewsRepository의 ")
 @RepositoryTest
-public class ReadNewsRepositoryTest {
+class ReadNewsRepositoryTest {
     @Autowired
     private ReadNewsRepository readNewsRepository;
     @Autowired
