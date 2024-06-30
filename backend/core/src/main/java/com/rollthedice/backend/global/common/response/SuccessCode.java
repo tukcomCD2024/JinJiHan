@@ -36,6 +36,10 @@ public enum SuccessCode {
     // statistics
     GET_VIEWS_OF_DATE_SUCCESS(200, "최근 일주일 날짜별 뉴스 조회수 조회에 성공했습니다."),
     GET_CATEGORY_VIEWS_SUCCESS(200, "카테고리별 조회수 조회에 성공했습니다."),
+
+    // auth
+    GET_SOCIAL_LOGIN_SUCCESS(201, "소셜 로그인에 성공했습니다."),
+    UPDATE_NICKNAME_SUCCESS(204, "닉네임 입력에 성공했습니다.")
     ;
 
     private final int status;

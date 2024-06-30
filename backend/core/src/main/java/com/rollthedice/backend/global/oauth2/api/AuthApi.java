@@ -1,6 +1,7 @@
 package com.rollthedice.backend.global.oauth2.api;
 
 import com.rollthedice.backend.domain.member.dto.MemberUpdateDto;
+import com.rollthedice.backend.global.common.response.SuccessResponse;
 import com.rollthedice.backend.global.oauth2.dto.LoginRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -18,10 +19,10 @@ public interface AuthApi {
             tags = {"인증"}
     )
     @ApiResponse(
-            responseCode = "201",
-            description = "Created"
+            responseCode = "200",
+            description = "소셜 로그인에 성공했습니다."
     )
-    ResponseEntity<HttpStatus> login(
+    SuccessResponse<String> login(
             @RequestBody LoginRequest request,
             HttpServletResponse response
     );
@@ -34,9 +35,9 @@ public interface AuthApi {
     )
     @ApiResponse(
             responseCode = "201",
-            description = "Created"
+            description = "닉네임 입력에 성공했습니다."
     )
-    ResponseEntity<HttpStatus> updateMember(
+    SuccessResponse<String> updateMember(
             String email,
             @RequestBody MemberUpdateDto memberUpdateDto
     );
