@@ -2,6 +2,7 @@ package com.rollthedice.backend.domain.bookmark.api;
 
 import com.rollthedice.backend.domain.bookmark.dto.response.BookmarkResponse;
 import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
+import com.rollthedice.backend.global.common.response.SuccessResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -22,7 +23,7 @@ public interface BookmarkApi {
             responseCode = "200",
             description = "OK"
     )
-    List<NewsResponse> getAllBookmarkedNews(
+    SuccessResponse<List<NewsResponse>> getAllBookmarkedNews(
             Pageable pageable
     );
 
@@ -36,7 +37,7 @@ public interface BookmarkApi {
             responseCode = "200",
             description = "OK"
     )
-    BookmarkResponse getIsBookmarked(
+    SuccessResponse<BookmarkResponse> getIsBookmarked(
             @Parameter(in = ParameterIn.PATH, description = "뉴스 ID", required = true)
             Long newsId
     );
@@ -52,7 +53,7 @@ public interface BookmarkApi {
             responseCode = "201",
             description = "Created"
     )
-    void saveBookmark(
+    SuccessResponse<String> saveBookmark(
             @Parameter(in = ParameterIn.PATH, description = "뉴스 ID", required = true)
             Long newsId
     );
@@ -67,7 +68,7 @@ public interface BookmarkApi {
             responseCode = "204",
             description = "No Content"
     )
-    void deleteBookmark(
+    SuccessResponse<String> deleteBookmark(
             @Parameter(in = ParameterIn.PATH, description = "뉴스 ID", required = true)
             Long newsId
     );
