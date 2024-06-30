@@ -10,16 +10,17 @@ import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
+@Tag(name = "Tag")
 public interface NewsApi {
     @Operation(
             summary = "요약 뉴스 전체 조회",
             description = "요약 뉴스를 페이지로 나누어 조회합니다.",
-            security = {@SecurityRequirement(name = "access_token")},
-            tags = {"news"}
+            security = {@SecurityRequirement(name = "access_token")}
     )
     @ApiResponse(
             responseCode = "200",
@@ -30,8 +31,7 @@ public interface NewsApi {
     @Operation(
             summary = "요약 뉴스 상세 조회",
             description = "하나의 요약 뉴스를 상세 조회합니다.",
-            security = {@SecurityRequirement(name = "access_token")},
-            tags = {"news"}
+            security = {@SecurityRequirement(name = "access_token")}
     )
     @ApiResponses(value = {
         @ApiResponse(

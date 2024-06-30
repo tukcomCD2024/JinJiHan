@@ -5,15 +5,16 @@ import com.rollthedice.backend.global.common.response.SuccessResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 import java.util.List;
 
+@Tag(name = "Read News")
 public interface ReadNewsApi {
     @Operation(
             summary = "최근 읽은 뉴스 조회",
             description = "가장 최근에 읽은 3개의 뉴스를 조회합니다.",
-            security = {@SecurityRequirement(name = "access_token")},
-            tags = {"news"}
+            security = {@SecurityRequirement(name = "access_token")}
     )
     @ApiResponse(
             responseCode = "200",
