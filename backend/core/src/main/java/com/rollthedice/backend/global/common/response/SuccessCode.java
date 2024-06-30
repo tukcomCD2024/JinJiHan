@@ -26,6 +26,10 @@ public enum SuccessCode {
     // member
     GET_MEMBER_INFO_SUCCESS(200, "사용자 정보 조회에 성공했습니다."),
 
+    // news
+    GET_ALL_NEWS_SUCCESS(200, "전체 뉴스 조회에 성공했습니다."),
+    GET_DETAIL_NEWS_SUCCESS(200, "요약 뉴스 상세 조회에 성공했습니다."),
+
     ;
 
     private final int status;

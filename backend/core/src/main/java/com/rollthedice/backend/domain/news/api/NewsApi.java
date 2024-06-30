@@ -3,6 +3,7 @@ package com.rollthedice.backend.domain.news.api;
 import com.rollthedice.backend.domain.news.dto.response.NewsDetailResponse;
 import com.rollthedice.backend.domain.news.dto.response.NewsResponse;
 import com.rollthedice.backend.domain.news.dto.response.ReadNewsResponse;
+import com.rollthedice.backend.global.common.response.SuccessResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -24,7 +25,7 @@ public interface NewsApi {
             responseCode = "200",
             description = "요청에 성공하였습니다."
     )
-    List<NewsResponse> getNews(Pageable pageable);
+    SuccessResponse<List<NewsResponse>> getNews(Pageable pageable);
 
     @Operation(
             summary = "요약 뉴스 상세 조회",
@@ -42,7 +43,7 @@ public interface NewsApi {
                 description = "뉴스를 찾지 못했습니다."
         )
     })
-    NewsDetailResponse getDetailNews(
+    SuccessResponse<NewsDetailResponse> getDetailNews(
             @Parameter(in = ParameterIn.PATH, description = "뉴스 ID", required = true)
             Long newsId
     );
