@@ -22,6 +22,10 @@ public enum SuccessCode {
     GET_DEBATE_MESSAGES_SUCCESS(200, "토론 메세지 조회에 성공했습니다."),
     CREATE_DEBATE_SUMMARY_SUCCESS(201, "토론 요약에 성공했습니다."),
     GET_DEBATE_SUMMARY_SUCCESS(200, "토론 요약 조회에 성공했습니다."),
+
+    // member
+    GET_MEMBER_INFO_SUCCESS(200, "사용자 정보 조회에 성공했습니다."),
+
     ;
 
     private final int status;
