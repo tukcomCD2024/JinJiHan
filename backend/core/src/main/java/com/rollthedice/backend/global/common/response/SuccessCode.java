@@ -33,6 +33,9 @@ public enum SuccessCode {
     // read news
     GET_RECENT_READ_NEWS_SUCCESS(200, "최근 읽은 뉴스 조회에 성공했습니다."),
 
+    // statistics
+    GET_VIEWS_OF_DATE_SUCCESS(200, "최근 일주일 날짜별 뉴스 조회수 조회에 성공했습니다."),
+    GET_CATEGORY_VIEWS_SUCCESS(200, "카테고리별 조회수 조회에 성공했습니다."),
     ;
 
     private final int status;

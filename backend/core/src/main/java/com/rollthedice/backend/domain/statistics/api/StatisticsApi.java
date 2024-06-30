@@ -2,6 +2,7 @@ package com.rollthedice.backend.domain.statistics.api;
 
 import com.rollthedice.backend.domain.statistics.dto.response.CategoryStatisticsResponse;
 import com.rollthedice.backend.domain.statistics.dto.response.DateViewStatisticsResponse;
+import com.rollthedice.backend.global.common.response.SuccessResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -19,7 +20,7 @@ public interface StatisticsApi {
             responseCode = "200",
             description = "요청에 성공하였습니다."
     )
-    List<DateViewStatisticsResponse> getViewsOfDates();
+    SuccessResponse<List<DateViewStatisticsResponse>> getViewsOfDates();
 
     @Operation(
             summary = "카테고리별 조회수 조회",
@@ -31,5 +32,5 @@ public interface StatisticsApi {
             responseCode = "200",
             description = "요청에 성공하였습니다."
     )
-    List<CategoryStatisticsResponse> getCategoryStatistics();
+    SuccessResponse<List<CategoryStatisticsResponse>> getCategoryStatistics();
 }
