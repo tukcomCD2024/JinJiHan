@@ -36,15 +36,12 @@ public class ClovaSummary {
     private String CLIENT_ID;
 
     public String summaryDebate(String messages) {
-        log.info("요약할 메세지: {}" ,messages);
         try {
             URL url = new URL(API_URL);
             HttpURLConnection connection = createRequestHeader(url);
             createRequestBody(connection, messages);
 
-            log.info("정상1");
             StringBuilder response = getResponse(connection);
-            log.info("정상2");
             return parseResponse(response);
         } catch (Exception e) {
             e.printStackTrace();
