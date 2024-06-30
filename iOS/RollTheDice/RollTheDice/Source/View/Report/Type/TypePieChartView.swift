@@ -10,25 +10,24 @@ import Charts
 
 struct TypePieChartView: View {
     
-    @StateObject var reportViewModel: TypeReportViewModel
+    var reportViewModel: TypeReportViewModel
     
     var isPreview: Bool = false
     
     var mostViewed: NewsType {
-        return reportViewModel.sortedList.first!.newsType
+        return reportViewModel.sortedList.first?.category ?? .economy
     }
     
     var body: some View {
         Chart(reportViewModel.sortedList) { report in
             SectorMark(
-                angle: .value("Views", report.view),
+                angle: .value("Views", report.views ?? 0),
                 innerRadius: .ratio(0.7),
                 angularInset: 2.0
             )
             .cornerRadius(8)
-            .foregroundStyle(report.newsType.color.gradient)
+            .foregroundStyle(report.category?.color.gradient ?? Color.primary01.gradient)
         }
-        /// pie chart의 가운데 문구
         .chartBackground { chartProxy in
             GeometryReader { geometry in
                 let frame = geometry[chartProxy.plotFrame!]
@@ -47,6 +46,9 @@ struct TypePieChartView: View {
             }
         }
         .padding(100)
+        .task {
+            reportViewModel.getTypeReport()
+        }
     }
 }
 

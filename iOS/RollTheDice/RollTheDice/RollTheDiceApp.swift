@@ -20,7 +20,7 @@ struct RollTheDiceApp: App {
     var signUpViewModel = SignUpViewModel()
     
     var newsListViewModel = NewsListViewModel()
-    @StateObject var bookmarkListViewModel = BookmarkListViewModel()
+    var bookmarkListViewModel = BookmarksListViewModel()
     
     init() {
             KakaoSDK.initSDK(appKey: "ff09b3d83873ed4e320f0d6bc90759d6")
@@ -40,13 +40,13 @@ struct RollTheDiceApp: App {
                     .environmentObject(signUpViewModel)
             case .completedSignUp:
                 NavigationStack(path: $pathModel.paths) {
-                    MainTabView(newsListViewModel: newsListViewModel)
+                    MainTabView(newsListViewModel: newsListViewModel, bookmarksListViewModel: bookmarkListViewModel)
                         .navigationDestination(for: PathType.self, destination: { pathType in
                             
                             // 각 뷰마다 .navigationBarBackButtonHidden() 설정하기!
                             switch pathType {
                             case .chatView(isAiMode: true) :
-                                GPTChatView()
+                                GPTChatView(topic: "",roomId: 74)
                                     .navigationBarBackButtonHidden()
                                 
                             case .chatView(isAiMode: false):
@@ -66,6 +66,8 @@ struct RollTheDiceApp: App {
                                 DebateSummaryView()
                             case .webView(let url):
                                 WebView(urlToLoad: url)
+                            case .createdebateroom:
+                                GPTChatView(topic: "",roomId: 74)
                             }
                         })
                 }
@@ -79,13 +81,13 @@ struct RollTheDiceApp: App {
 //                NavigationStack(path: $pathModel.paths) {
 //                    MainTabView(newsListViewModel: newsListViewModel)
 //                        .navigationDestination(for: PathType.self, destination: { pathType in
-//                            
+//
 //                            // 각 뷰마다 .navigationBarBackButtonHidden() 설정하기!
 //                            switch pathType {
 //                            case .chatView(isAiMode: true) :
 //                                GPTChatView()
 //                                    .navigationBarBackButtonHidden()
-//                                
+//
 //                            case .chatView(isAiMode: false):
 //                                Text("user")
 //                                    .navigationBarBackButtonHidden()
@@ -104,10 +106,10 @@ struct RollTheDiceApp: App {
 //                            }
 //                        })
 //                }
-//                
+//
 //                .environmentObject(pathModel)
-//                
-//                
+//
+//
 //            } else {
 //                AuthenticatedView()
 //                    .environmentObject(pathModel)
