@@ -29,7 +29,7 @@ public interface DebateApi {
     )
     @ApiResponse(
             responseCode = "201",
-            description = "Created"
+            description = "토론방 생성에 성공했습니다."
     )
     SuccessResponse<DebateRoomSaveResponse> saveDebateRoom(@RequestBody DebateRoomRequest request);
 
@@ -41,7 +41,7 @@ public interface DebateApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "요청에 성공하였습니다."
+            description = "토론방 전체 조회에 성공했습니다"
     )
     SuccessResponse<List<DebateRoomResponse>> getDebateRooms(Pageable pageable);
 
@@ -53,7 +53,7 @@ public interface DebateApi {
     )
     @ApiResponse(
             responseCode = "204",
-            description = "토론방 삭제에 성공하였으며, 응답값은 없습니다."
+            description = "토론방 삭제에 성공했습니다."
     )
     SuccessResponse<String> deleteDebateRoom(@Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
                           Long roomId
@@ -67,7 +67,7 @@ public interface DebateApi {
     )
     @ApiResponse(
             responseCode = "201",
-            description = "Created"
+            description = "사용자가 보낸 토론 메세지 저장에 성공했습니다."
     )
     SuccessResponse<String> saveHumanDebateMessage(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
@@ -84,7 +84,7 @@ public interface DebateApi {
     )
     @ApiResponse(
             responseCode = "201",
-            description = "Created"
+            description = "AI가 보낸 토론 메세지 저장에 성공했습니다."
     )
     SuccessResponse<String> saveAIDebateMessage(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
@@ -102,7 +102,7 @@ public interface DebateApi {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "204",
-                    description = "요청에 성공하였으며 응답값은 없습니다."
+                    description = "토론 종료에 성공했습니다."
             ),
             @ApiResponse(
                     responseCode = "404",
@@ -122,7 +122,7 @@ public interface DebateApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "요청에 성공하였습니다."
+            description = "토론 메세지 조회에 성공했습니다."
     )
     SuccessResponse<List<DebateMessageResponse>> getDebateMessages(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
@@ -138,7 +138,7 @@ public interface DebateApi {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "201",
-                    description = "토론 요약이 성공하였습니다."
+                    description = "토론 요약에 성공했습니다."
             ),
             @ApiResponse(
                     responseCode = "404",
@@ -159,7 +159,7 @@ public interface DebateApi {
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "요청에 성공하였습니다."
+                    description = "토론 요약 조회에 성공했습니다."
             ),
             @ApiResponse(
                     responseCode = "404",

@@ -18,7 +18,7 @@ public interface StatisticsApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "요청에 성공하였습니다."
+            description = "최근 일주일 날짜별 뉴스 조회수 조회에 성공했습니다."
     )
     SuccessResponse<List<DateViewStatisticsResponse>> getViewsOfDates();
 
@@ -30,7 +30,7 @@ public interface StatisticsApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "요청에 성공하였습니다."
+            description = "카테고리별 조회수 조회에 성공했습니다."
     )
     SuccessResponse<List<CategoryStatisticsResponse>> getCategoryStatistics();
 }

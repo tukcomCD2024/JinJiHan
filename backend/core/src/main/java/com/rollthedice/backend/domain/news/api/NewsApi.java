@@ -23,7 +23,7 @@ public interface NewsApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "요청에 성공하였습니다."
+            description = "전체 뉴스 조회에 성공했습니다."
     )
     SuccessResponse<List<NewsResponse>> getNews(Pageable pageable);
 
@@ -36,7 +36,7 @@ public interface NewsApi {
     @ApiResponses(value = {
         @ApiResponse(
                 responseCode = "200",
-                description = "요청에 성공하였습니다."
+                description = "요약 뉴스 상세 조회에 성공했습니다."
         ),
         @ApiResponse(
                 responseCode = "404",

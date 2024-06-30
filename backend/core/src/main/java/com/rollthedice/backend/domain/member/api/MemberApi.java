@@ -15,7 +15,7 @@ public interface MemberApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "OK"
+            description = "사용자 정보 조회에 성공했습니다."
     )
     SuccessResponse<MemberResponse> getMemberInfo();
 }

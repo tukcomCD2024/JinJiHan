@@ -21,7 +21,7 @@ public interface BookmarkApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "OK"
+            description = "북마크 전체 조회를 성공했습니다."
     )
     SuccessResponse<List<NewsResponse>> getAllBookmarkedNews(
             Pageable pageable
@@ -35,7 +35,7 @@ public interface BookmarkApi {
     )
     @ApiResponse(
             responseCode = "200",
-            description = "OK"
+            description = "뉴스가 북마크 여부 조회를 성공했습니다."
     )
     SuccessResponse<BookmarkResponse> getIsBookmarked(
             @Parameter(in = ParameterIn.PATH, description = "뉴스 ID", required = true)
@@ -51,7 +51,7 @@ public interface BookmarkApi {
     )
     @ApiResponse(
             responseCode = "201",
-            description = "Created"
+            description = "북마크 저장에 성공했습니다."
     )
     SuccessResponse<String> saveBookmark(
             @Parameter(in = ParameterIn.PATH, description = "뉴스 ID", required = true)
@@ -66,7 +66,7 @@ public interface BookmarkApi {
     )
     @ApiResponse(
             responseCode = "204",
-            description = "No Content"
+            description = "북마크 삭제에 성공했습니다."
     )
     SuccessResponse<String> deleteBookmark(
             @Parameter(in = ParameterIn.PATH, description = "뉴스 ID", required = true)
