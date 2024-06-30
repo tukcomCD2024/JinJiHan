@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import java.time.LocalDate;
 
 import static com.rollthedice.backend.domain.news.entity.QNews.news;
-import static com.rollthedice.backend.domain.news.entity.QReadNews.readNews;
+import static com.rollthedice.backend.domain.readNews.entity.QReadNews.readNews;
 
 @RequiredArgsConstructor
 public class ReadNewsCustomRepositoryImpl implements ReadNewsCustomRepository {

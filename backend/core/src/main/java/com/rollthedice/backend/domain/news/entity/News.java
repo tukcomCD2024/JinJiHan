@@ -1,6 +1,6 @@
 package com.rollthedice.backend.domain.news.entity;
 
-import com.rollthedice.backend.global.config.BaseTimeEntity;
+import com.rollthedice.backend.global.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;

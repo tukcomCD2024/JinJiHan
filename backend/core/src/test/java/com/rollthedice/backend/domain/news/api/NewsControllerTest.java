@@ -3,7 +3,7 @@ package com.rollthedice.backend.domain.news.api;
 import com.rollthedice.backend.domain.news.exception.NewsNotFoundException;
 import com.rollthedice.backend.domain.news.repository.NewsRepository;
 import com.rollthedice.backend.domain.news.service.NewsService;
-import com.rollthedice.backend.domain.news.service.ReadNewsService;
+import com.rollthedice.backend.domain.readNews.service.ReadNewsService;
 import com.rollthedice.backend.global.BaseControllerTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,10 +25,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class NewsControllerTest extends BaseControllerTest {
     @MockBean
     private NewsService newsService;
-    @MockBean
-    private ReadNewsService readNewsService;
-    @MockBean
-    private NewsRepository newsRepository;
 
     @Test
     @DisplayName("News 전체 조회 API가 수행되는가")
@@ -75,19 +71,5 @@ class NewsControllerTest extends BaseControllerTest {
         //then
         perform.andExpect(status().isNotFound())
                 .andExpect(jsonPath(ERROR_MESSAGE, NEWS_NOT_FOUND_ERROR.getErrorMessage()).exists());
-    }
-
-    @Test
-    @DisplayName("조회한 News 전체 조회 API가 수행되는가")
-    void getReadNews() throws Exception{
-        //when
-        final ResultActions perform = mockMvc.perform(
-                get("/news/viewed-history")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .header("Authorization", "Bearer " + accessToken)
-        ).andDo(print());
-
-        //then
-        perform.andExpect(status().isOk());
     }
 }

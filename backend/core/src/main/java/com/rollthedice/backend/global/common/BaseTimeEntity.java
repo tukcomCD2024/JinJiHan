@@ -1,4 +1,4 @@
-package com.rollthedice.backend.global.config;
+package com.rollthedice.backend.global.common;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

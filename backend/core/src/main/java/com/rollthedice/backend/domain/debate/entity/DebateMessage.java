@@ -1,7 +1,6 @@
 package com.rollthedice.backend.domain.debate.entity;
 
-import com.rollthedice.backend.domain.member.entity.Member;
-import com.rollthedice.backend.global.config.BaseTimeEntity;
+import com.rollthedice.backend.global.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -31,5 +30,4 @@ public class DebateMessage extends BaseTimeEntity {
         this.senderType = senderType;
         this.debateRoom = debateRoom;
     }
-
 }

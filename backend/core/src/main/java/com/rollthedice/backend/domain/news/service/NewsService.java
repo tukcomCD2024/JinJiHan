@@ -4,7 +4,7 @@ import com.rollthedice.backend.domain.bookmark.service.BookmarkService;
 import com.rollthedice.backend.domain.member.entity.Member;
 import com.rollthedice.backend.domain.news.dto.response.NewsDetailResponse;
 import com.rollthedice.backend.domain.news.dto.response.ReadNewsResponse;
-import com.rollthedice.backend.domain.news.entity.ReadNews;
+import com.rollthedice.backend.domain.readNews.entity.ReadNews;
 import com.rollthedice.backend.domain.news.exception.NewsNotFoundException;
 import com.rollthedice.backend.domain.news.repository.ReadNewsRepository;
 import com.rollthedice.backend.global.oauth2.service.AuthService;
@@ -30,11 +30,11 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class NewsService {
     private final AuthService authService;
+    private final BookmarkService bookmarkService;
     private final ContentProducer contentProducer;
     private final NewsRepository newsRepository;
     private final ReadNewsRepository readNewsRepository;
     private final NewsMapper newsMapper;
-    private final BookmarkService bookmarkService;
 
 
     @Transactional
