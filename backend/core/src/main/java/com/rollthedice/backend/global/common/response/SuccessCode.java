@@ -30,6 +30,9 @@ public enum SuccessCode {
     GET_ALL_NEWS_SUCCESS(200, "전체 뉴스 조회에 성공했습니다."),
     GET_DETAIL_NEWS_SUCCESS(200, "요약 뉴스 상세 조회에 성공했습니다."),
 
+    // read news
+    GET_RECENT_READ_NEWS_SUCCESS(200, "최근 읽은 뉴스 조회에 성공했습니다."),
+
     ;
 
     private final int status;

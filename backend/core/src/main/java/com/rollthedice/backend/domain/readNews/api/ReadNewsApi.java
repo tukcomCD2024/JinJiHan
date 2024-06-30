@@ -1,6 +1,7 @@
 package com.rollthedice.backend.domain.readNews.api;
 
 import com.rollthedice.backend.domain.news.dto.response.ReadNewsResponse;
+import com.rollthedice.backend.global.common.response.SuccessResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -18,5 +19,5 @@ public interface ReadNewsApi {
             responseCode = "200",
             description = "요청에 성공하였습니다."
     )
-    List<ReadNewsResponse> getReadNews();
+    SuccessResponse<List<ReadNewsResponse>> getReadNews();
 }
