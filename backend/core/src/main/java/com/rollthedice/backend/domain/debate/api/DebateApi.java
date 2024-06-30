@@ -6,6 +6,7 @@ import com.rollthedice.backend.domain.debate.dto.response.DebateMessageResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateRoomSaveResponse;
 import com.rollthedice.backend.domain.debate.dto.response.DebateSummaryResponse;
+import com.rollthedice.backend.global.common.response.SuccessResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -30,7 +31,7 @@ public interface DebateApi {
             responseCode = "201",
             description = "Created"
     )
-    DebateRoomSaveResponse saveDebateRoom(@RequestBody DebateRoomRequest request);
+    SuccessResponse<DebateRoomSaveResponse> saveDebateRoom(@RequestBody DebateRoomRequest request);
 
     @Operation(
             summary = "토론방 전체 조회",
@@ -42,7 +43,7 @@ public interface DebateApi {
             responseCode = "200",
             description = "요청에 성공하였습니다."
     )
-    List<DebateRoomResponse> getDebateRooms(Pageable pageable);
+    SuccessResponse<List<DebateRoomResponse>> getDebateRooms(Pageable pageable);
 
     @Operation(
             summary = "토론방 삭제",
@@ -54,7 +55,7 @@ public interface DebateApi {
             responseCode = "204",
             description = "토론방 삭제에 성공하였으며, 응답값은 없습니다."
     )
-    void deleteDebateRoom(@Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
+    SuccessResponse<String> deleteDebateRoom(@Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
                           Long roomId
     );
 
@@ -68,7 +69,7 @@ public interface DebateApi {
             responseCode = "201",
             description = "Created"
     )
-    void saveHumanDebateMessage(
+    SuccessResponse<String> saveHumanDebateMessage(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
             Long roomId,
 
@@ -85,7 +86,7 @@ public interface DebateApi {
             responseCode = "201",
             description = "Created"
     )
-    void saveAIDebateMessage(
+    SuccessResponse<String> saveAIDebateMessage(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
             Long roomId,
 
@@ -108,7 +109,7 @@ public interface DebateApi {
                     description = "토론방을 찾지 못했습니다."
             )
     })
-    void finishDebate(
+    SuccessResponse<String> finishDebate(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
             Long roomId
     );
@@ -123,7 +124,7 @@ public interface DebateApi {
             responseCode = "200",
             description = "요청에 성공하였습니다."
     )
-    List<DebateMessageResponse> getDebateMessages(
+    SuccessResponse<List<DebateMessageResponse>> getDebateMessages(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
             Long roomId
     );
@@ -144,7 +145,7 @@ public interface DebateApi {
                     description = "토론방을 찾지 못했습니다."
             )
     })
-    DebateSummaryResponse summarizeDebate(
+    SuccessResponse<DebateSummaryResponse> summarizeDebate(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
             Long roomId
     );
@@ -165,7 +166,7 @@ public interface DebateApi {
                     description = "토론방을 찾지 못했습니다."
             )
     })
-    DebateSummaryResponse getSummarizedDebate(
+    SuccessResponse<DebateSummaryResponse> getSummarizedDebate(
             @Parameter(in = ParameterIn.PATH, description = "토론방 ID", required = true)
             Long roomId
     );
