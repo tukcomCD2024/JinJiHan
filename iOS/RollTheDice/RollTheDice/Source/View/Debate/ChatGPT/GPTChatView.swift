@@ -13,12 +13,10 @@ struct GPTChatView: View {
 //    @State var selectedChat: GPTChat? = .init(title: "토론제목입니다", messages: [.init(content: "ChatGPT와의 토론!", isUser: false)])
     @State var selectedChat: GPTChat?
     @StateObject var chatListViewModel = GPTChatListViewModel(topic: "토론")
-    @StateObject var createDebateRoomViewModel = CreateDebateRoomViewModel()
-    @StateObject private var viewModel = EndDebateViewModel()
-    var roomId: Int
+        @StateObject var createDebateRoomViewModel = CreateDebateRoomViewModel()
 
-    init(topic: String, roomId: Int) {
-        self.roomId = roomId
+
+    init(topic: String) {
         _chatListViewModel = StateObject(wrappedValue: GPTChatListViewModel(topic: topic))
         _selectedChat = State(initialValue: GPTChat(title: topic, messages: [.init(content: "\(createDebateRoomViewModel.topic) ChatGPT와의 토론!", isUser: false)]))
     }
@@ -28,9 +26,7 @@ struct GPTChatView: View {
             Color.backgroundDark.ignoresSafeArea(.all)
             VStack {
                 CustomNavigationBar(title: selectedChat?.title ?? "", isDisplayLeadingBtn: true, leadingItems: [(Image(.chevronLeft), {pathModel.paths.popLast()})])
-                
-                MessageTitleView(chatListViewModel: chatListViewModel, selectedChat: $selectedChat, roomId: roomId)
-                
+                MessageTitleView(chatListViewModel: chatListViewModel, selectedChat: $selectedChat)
             }
         }
     }
@@ -41,10 +37,6 @@ struct GPTChatView: View {
         @Binding var selectedChat: GPTChat?
         @State var string: String = ""
         @State var index: Int? = 0
-        @StateObject private var viewModel = EndDebateViewModel()
-        var roomId: Int
-        @EnvironmentObject var pathModel: PathModel
-
         
         fileprivate var body: some View {
             if chatListViewModel.chatList.isEmpty {
@@ -68,34 +60,6 @@ struct GPTChatView: View {
                                     MessageCellView(message: message)
                                 }
                             }
-                            
-                            //MARK : 토론 종료 버튼
-                            Button(action: {
-                                print("토론종료버튼 눌림!")
-                                viewModel.endDebate(roomId: "\(roomId)") { success in
-                                    if success {
-                                        print("토론이 종료되었습니다.")
-//                                        pathModel.paths.append(.debateSummaryView)
-                                        pathModel.paths.popLast()
-
-                                    } else {
-                                        print("토론 종료에 실패했습니다.")
-                                    }
-                                }
-                                
-                                
-                            }) {
-                                Text("토론종료")
-                                    .font(.title3.weight(.semibold))
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .background(Color.primary01)
-                                    .cornerRadius(15)
-                                    .shadow(radius: 4, x: 0, y: 4)
-                            }
-                            .frame(width: 100, height: 30)
-                            .padding(.bottom, 20)
-                            
                             Divider()
                             
                             HStack {
@@ -111,8 +75,6 @@ struct GPTChatView: View {
                                     string = ""
                                 } label: {
                                     Image(systemName: "paperplane")
-                                        .foregroundColor(.primary01)
-
                                 }
                             }
                             .padding()
@@ -130,7 +92,7 @@ struct GPTChatView: View {
     }
     
     private struct TitleCellView: View {
-        var title: String 
+        var title: String
         fileprivate var body: some View {
             HStack {
                 Text(title)
@@ -181,7 +143,7 @@ struct GPTChatView: View {
 //}
 
 //struct GPTChatView: View {
-//    
+//
 //    @EnvironmentObject var pathModel: PathModel
 //    @State var selectedChat: GPTChat?
 //    @StateObject var chatListViewModel: GPTChatListViewModel
@@ -191,7 +153,7 @@ struct GPTChatView: View {
 //        _chatListViewModel = StateObject(wrappedValue: GPTChatListViewModel(topic: topic))
 //        _selectedChat = State(initialValue: GPTChat(title: topic, messages: [.init(content: "\(topic)ChatGPT와의 토론!", isUser: false)]))
 //    }
-//    
+//
 //    var body: some View {
 //        ZStack {
 //            Color.backgroundDark.ignoresSafeArea(.all)
@@ -201,13 +163,13 @@ struct GPTChatView: View {
 //            }
 //        }
 //    }
-//        
+//
 //    private struct MessageTitleView: View {
 //        @ObservedObject var chatListViewModel: GPTChatListViewModel
 //        @Binding var selectedChat: GPTChat?
 //        @State var string: String = ""
 //        @State var index: Int? = 0
-//        
+//
 //        fileprivate var body: some View {
 //            if chatListViewModel.chatList.isEmpty {
 //                // TODO: 채팅방 생성 뷰
@@ -230,7 +192,7 @@ struct GPTChatView: View {
 //                                }
 //                            }
 //                            Divider()
-//                            
+//
 //                            HStack {
 //                                TextField("Message...", text: $string, axis: .vertical)
 //                                    .padding(5)
@@ -257,7 +219,7 @@ struct GPTChatView: View {
 //            }
 //        }
 //    }
-//    
+//
 //    private struct TitleCellView: View {
 //        var title: String
 //        fileprivate var body: some View {
@@ -271,10 +233,10 @@ struct GPTChatView: View {
 //            }
 //        }
 //    }
-//    
+//
 //    private struct MessageCellView:  View {
 //        var message: Message
-//        
+//
 //        fileprivate var body: some View {
 //            Group {
 //                if message.isUser {

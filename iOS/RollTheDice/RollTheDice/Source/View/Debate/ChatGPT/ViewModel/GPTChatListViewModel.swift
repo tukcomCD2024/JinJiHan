@@ -14,14 +14,14 @@ import Moya
 //    @Published var chatList: [GPTChat]
 //    private var cancellables = Set<AnyCancellable>()
 //    private let provider = MoyaProvider<ChatService>()
-//    
+//
 //    // OpenAI API 토큰 관리
 //        private let openAI: OpenAI
-//    
+//
 ////    // TODO: Token Hidden
 ////    /// token 추가해야 함
 ////    let openAI = OpenAI(apiToken: "")
-//    
+//
 //    init(
 //        topic: String,
 //        chatList: [GPTChat] = [],
@@ -39,20 +39,20 @@ import Moya
 //    /// OpenAI
 //    func sendNewMessage(index: Int, content: String) {
 //        print("call sendNewMessage func")
-//        
+//
 //        let userMessage = Message(content: content, isUser: true)
 //        self.chatList[index].messages.append(userMessage)
-//        
+//
 //        getBotReply(index: index)
 //    }
-//    
+//
 //    func getBotReply(index: Int) {
 //        print("call getBotReply func")
-//        
+//
 //        let messages = self.chatList[index].messages.map {
 //            Chat(role: $0.isUser ? .user : .system, content: $0.content)
 //        }
-//        
+//
 //        //        openAI.chats(
 //        //            query: .init(
 //        //                model: .gpt3_5Turbo,
@@ -82,19 +82,19 @@ import Moya
 //            )
 //        ) { [weak self] result in
 //            guard let self = self else { return }
-//            
+//
 //            switch result {
 //            case .success(let success):
 //                guard let choice = success.choices.first else {
 //                    return
 //                }
 //                let message = choice.message.content
-//                
+//
 //                DispatchQueue.main.async {
 //                    self.chatList[index].messages.append(.init(content: message ?? "Error", isUser: false))
 //                    print("gpt msg: \(self.chatList[index].messages.last?.content ?? "Error")")
 //                }
-//                
+//
 //            case .failure(let failure):
 //                print(failure)
 //            }
@@ -107,14 +107,13 @@ class GPTChatListViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let provider = MoyaProvider<ChatService>()
     private let debateprovider = MoyaProvider<CreateDebateRoomService>()
-    private let enddebateprovider = MoyaProvider<EndDebateService>()
     private let openAI: OpenAI
     @Published var topic: String = ""
     
     init(
         topic: String,
         chatList: [GPTChat] = [],
-        apiToken: String = "" //깃허브 보안 이슈로 계속 제거해야됨.
+        apiToken: String = ""
     ) {
         self.chatList = chatList.isEmpty ? [GPTChat(title: topic, messages: [])] : chatList
         self.openAI = OpenAI(apiToken: apiToken)
@@ -127,6 +126,7 @@ class GPTChatListViewModel: ObservableObject {
             }
         }
     }
+
     
     func sendNewMessage(index: Int, content: String) {
         print("call sendNewMessage func")
