@@ -56,7 +56,7 @@ struct DebateSummaryView: View {
                 
                 
             }
-            // TODO: 말풍선 수정하기 
+            // TODO: 말풍선 수정하기
             .overlay {
                 VStack(spacing: 20) {
                     Rectangle()
