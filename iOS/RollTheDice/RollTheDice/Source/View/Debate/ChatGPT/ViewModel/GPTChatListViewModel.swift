@@ -107,13 +107,14 @@ class GPTChatListViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private let provider = MoyaProvider<ChatService>()
     private let debateprovider = MoyaProvider<CreateDebateRoomService>()
+    private let enddebateprovider = MoyaProvider<EndDebateService>()
     private let openAI: OpenAI
     @Published var topic: String = ""
     
     init(
         topic: String,
         chatList: [GPTChat] = [],
-        apiToken: String = ""
+        apiToken: String = "" //깃허브 보안 이슈로 계속 제거해야됨.
     ) {
         self.chatList = chatList.isEmpty ? [GPTChat(title: topic, messages: [])] : chatList
         self.openAI = OpenAI(apiToken: apiToken)
@@ -126,7 +127,6 @@ class GPTChatListViewModel: ObservableObject {
             }
         }
     }
-
     
     func sendNewMessage(index: Int, content: String) {
         print("call sendNewMessage func")
