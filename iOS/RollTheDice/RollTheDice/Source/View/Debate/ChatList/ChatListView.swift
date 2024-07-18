@@ -140,11 +140,7 @@ struct ChatListView: View {
 //                    .foregroundStyle(.gray07)
 //                    .font(.pretendardBold24)
 //                    .padding(.vertical, 24)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //                Spacer()
 //                Button {
 //                    pathModel.paths.append(.chatView(isAiMode: true))
@@ -156,22 +152,14 @@ struct ChatListView: View {
 //            .background(.gray01)
 //            .clipShape(RoundedRectangle(cornerRadius: 8))
 //            .padding(.trailing, 16)
-<<<<<<< HEAD
-//            
-=======
-//
->>>>>>> DeviOS
+
 //            //TODO: 버튼 영역 수정하기
 //            Button {
 //                pathModel.paths.append(.debateSummaryView)
 //            } label: {
 //                Image("quote.bubble")
 //                    .foregroundColor(.gray01)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //            }
 //            .frame(width: 80, height: 80)
 //            .background(.gray01)
@@ -188,33 +176,21 @@ struct ChatListView: View {
 //                    .foregroundStyle(.gray07)
 //                    .font(.pretendardBold24)
 //                    .padding(.vertical, 24)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //                Spacer()
 //                Image(.chevronRight)
 //            }
 //            .background(.gray01)
 //            .clipShape(RoundedRectangle(cornerRadius: 8))
 //            .padding(.trailing, 16)
-<<<<<<< HEAD
-//            
-=======
-//
->>>>>>> DeviOS
+
 //            //TODO: 버튼 영역 수정하기
 //            Button {
 //                pathModel.paths.append(.debateSummaryView)
 //            } label: {
 //                Image(.chevronLeft)
 ////                    .background(.gray01)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //            }
 //            .frame(width: 80, height: 80)
 //            .background(.gray01)
@@ -231,33 +207,21 @@ struct ChatListView: View {
 //                    .foregroundStyle(.gray07)
 //                    .font(.pretendardBold24)
 //                    .padding(.vertical, 24)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //                Spacer()
 //                Image(.chevronRight)
 //            }
 //            .background(.gray01)
 //            .clipShape(RoundedRectangle(cornerRadius: 8))
 //            .padding(.trailing, 16)
-<<<<<<< HEAD
-//            
-=======
-//
->>>>>>> DeviOS
+
 //            //TODO: 버튼 영역 수정하기
 //            Button {
 //                pathModel.paths.append(.debateSummaryView)
 //            } label: {
 //                Image(.chevronLeft)
 ////                    .background(.gray01)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //            }
 //            .frame(width: 80, height: 80)
 //            .background(.gray01)
@@ -274,33 +238,21 @@ struct ChatListView: View {
 //                    .foregroundStyle(.gray07)
 //                    .font(.pretendardBold24)
 //                    .padding(.vertical, 24)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //                Spacer()
 //                Image(.chevronRight)
 //            }
 //            .background(.gray01)
 //            .clipShape(RoundedRectangle(cornerRadius: 8))
 //            .padding(.trailing, 16)
-<<<<<<< HEAD
-//            
-=======
-//
->>>>>>> DeviOS
+
 //            //TODO: 버튼 영역 수정하기
 //            Button {
 //                pathModel.paths.append(.debateSummaryView)
 //            } label: {
 //                Image(.chevronLeft)
 ////                    .background(.gray01)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //            }
 //            .frame(width: 80, height: 80)
 //            .background(.gray01)
@@ -317,33 +269,21 @@ struct ChatListView: View {
 //                    .foregroundStyle(.gray07)
 //                    .font(.pretendardBold24)
 //                    .padding(.vertical, 24)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //                Spacer()
 //                Image(.chevronRight)
 //            }
 //            .background(.gray01)
 //            .clipShape(RoundedRectangle(cornerRadius: 8))
 //            .padding(.trailing, 16)
-<<<<<<< HEAD
-//            
-=======
-//
->>>>>>> DeviOS
+
 //            //TODO: 버튼 영역 수정하기
 //            Button {
 //                pathModel.paths.append(.debateSummaryView)
 //            } label: {
 //                Image(systemName: "quote.bubble")
 //                    .background(.gray01)
-<<<<<<< HEAD
-//                    
-=======
-//
->>>>>>> DeviOS
+
 //            }
 //            .frame(width: 80, height: 80)
 //            .background(.gray01)

@@ -77,10 +77,6 @@ struct GPTChatView: View {
                                         print("토론이 종료되었습니다.")
 //                                        pathModel.paths.append(.debateSummaryView)
                                         pathModel.paths.popLast()
-<<<<<<< HEAD
-
-=======
->>>>>>> DeviOS
                                     } else {
                                         print("토론 종료에 실패했습니다.")
                                     }
@@ -184,11 +180,7 @@ struct GPTChatView: View {
 //}
 
 //struct GPTChatView: View {
-<<<<<<< HEAD
-//    
-=======
-//
->>>>>>> DeviOS
+
 //    @EnvironmentObject var pathModel: PathModel
 //    @State var selectedChat: GPTChat?
 //    @StateObject var chatListViewModel: GPTChatListViewModel
@@ -198,11 +190,7 @@ struct GPTChatView: View {
 //        _chatListViewModel = StateObject(wrappedValue: GPTChatListViewModel(topic: topic))
 //        _selectedChat = State(initialValue: GPTChat(title: topic, messages: [.init(content: "\(topic)ChatGPT와의 토론!", isUser: false)]))
 //    }
-<<<<<<< HEAD
-//    
-=======
-//
->>>>>>> DeviOS
+
 //    var body: some View {
 //        ZStack {
 //            Color.backgroundDark.ignoresSafeArea(.all)
@@ -212,21 +200,13 @@ struct GPTChatView: View {
 //            }
 //        }
 //    }
-<<<<<<< HEAD
-//        
-=======
-//
->>>>>>> DeviOS
+
 //    private struct MessageTitleView: View {
 //        @ObservedObject var chatListViewModel: GPTChatListViewModel
 //        @Binding var selectedChat: GPTChat?
 //        @State var string: String = ""
 //        @State var index: Int? = 0
-<<<<<<< HEAD
-//        
-=======
-//
->>>>>>> DeviOS
+
 //        fileprivate var body: some View {
 //            if chatListViewModel.chatList.isEmpty {
 //                // TODO: 채팅방 생성 뷰
@@ -249,11 +229,7 @@ struct GPTChatView: View {
 //                                }
 //                            }
 //                            Divider()
-<<<<<<< HEAD
-//                            
-=======
-//
->>>>>>> DeviOS
+
 //                            HStack {
 //                                TextField("Message...", text: $string, axis: .vertical)
 //                                    .padding(5)
@@ -280,11 +256,7 @@ struct GPTChatView: View {
 //            }
 //        }
 //    }
-<<<<<<< HEAD
-//    
-=======
-//
->>>>>>> DeviOS
+
 //    private struct TitleCellView: View {
 //        var title: String
 //        fileprivate var body: some View {
@@ -298,17 +270,7 @@ struct GPTChatView: View {
 //            }
 //        }
 //    }
-<<<<<<< HEAD
-//    
-//    private struct MessageCellView:  View {
-//        var message: Message
-//        
-=======
-//
-//    private struct MessageCellView:  View {
-//        var message: Message
-//
->>>>>>> DeviOS
+
 //        fileprivate var body: some View {
 //            Group {
 //                if message.isUser {
@@ -335,7 +297,4 @@ struct GPTChatView: View {
 //        }
 //    }
 //}
-<<<<<<< HEAD
-=======
 
->>>>>>> DeviOS
