@@ -1,4 +1,4 @@
-package com.rollthedice.backend.domain.crawling.newsUrlStep;
+package com.rollthedice.backend.batch.newsUrlStep;
 
 import com.rollthedice.backend.domain.news.entity.NewsCategory;
 import org.jsoup.Jsoup;
@@ -37,7 +37,6 @@ public class NewsUrlReader implements ItemReader<InitNewsDto> {
         Elements newsList = doc.select(".sa_list").select("li");
         if (newsList.size() < crawlingQuantity) {
             return scrapNewsUrl(newsList.size(), newsList, category);
-
         }
         return scrapNewsUrl(crawlingQuantity, newsList, category);
     }
