@@ -51,6 +51,7 @@ public class BatchJobConfig {
     }
 
     @Bean
+    @JobScope
     public Step crawlingNewsUrlStep(JobRepository jobRepository,
                                     PlatformTransactionManager transactionManager) {
         return new StepBuilder("crawlingNewsUrlStep", jobRepository)
@@ -62,11 +63,13 @@ public class BatchJobConfig {
     }
 
     @Bean
+    @StepScope
     public ItemReader<InitNewsDto> newsUrlReader() {
         return new NewsUrlReader();
     }
 
     @Bean
+    @StepScope
     public JdbcBatchItemWriter<InitNewsDto> newsUrlWriter() {
         return new JdbcBatchItemWriterBuilder<InitNewsDto>()
                 .dataSource(dataSource)
