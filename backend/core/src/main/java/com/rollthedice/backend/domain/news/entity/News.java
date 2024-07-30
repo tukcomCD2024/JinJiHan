@@ -38,11 +38,10 @@ public class News extends BaseTimeEntity {
         this.postDate = postDate;
     }
 
-    public void addNewsBody(String title, String content, String category, String postDate) {
+    public void addNewsBody(String title, String content, String postDate) {
         log.info("now category name: {}", category);
         this.title = title;
         this.content = content;
-        this.category = category;
         this.postDate = postDate;
     }
 
