@@ -28,10 +28,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
-@Slf4j
 @Configuration
 @RequiredArgsConstructor
-public class BatchJobConfig {
+public class ScrapJobConfig {
 
     @Value("${batch.chunk-size}")
     private int chunkSize;
