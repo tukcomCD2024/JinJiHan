@@ -14,9 +14,14 @@ public enum NewsCategory {
     private final int num;
     private final String name;
 
+    private static final String MAIN_URL = "https://news.naver.com/section/";
+
     NewsCategory(int num, String name) {
         this.num = num;
         this.name = name;
     }
 
+    public String getCategoryUrl() {
+        return MAIN_URL + num;
+    }
 }
