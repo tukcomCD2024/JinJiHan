@@ -92,11 +92,11 @@ extension BookmarksListViewModel {
         }, receiveValue: { [weak self] response in
             print(response)
             
-            if response.isBookmarked ?? false {
-                isBookmarked = true
-            } else {
-                isBookmarked = false
-            }
+//            if response.isBookmarked ?? false {
+//                isBookmarked = true
+//            } else {
+//                isBookmarked = false
+//            }
         })
         
         return isBookmarked

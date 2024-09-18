@@ -34,20 +34,20 @@ struct NewsListView: View {
         fileprivate var body: some View {
             GeometryReader { proxy in
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack {
-                        ForEach(newsList) { news in
-                            
-                            NewsView(news: news, bookmarksViewModel: bookmarksViewModel)
-                                .frame(width: proxy.size.width)
-                                .scrollTransition(.interactive, axis: .horizontal) { effect, phase in
-                                    effect
-                                        .scaleEffect(phase.isIdentity ? 1 : 0.8)
-                                        .blur(radius: phase.isIdentity ? 0 : 1)
-                                        .grayscale(phase.isIdentity ? 0 : 0.7)
-                                        .offset(x: offset(for: phase, width: proxy.size.width))
-                                }
-                        }
-                    }
+//                    LazyHStack {
+//                        ForEach(newsList) { news in
+//                            
+//                            NewsView(news: news, bookmarksViewModel: bookmarksViewModel)
+//                                .frame(width: proxy.size.width)
+//                                .scrollTransition(.interactive, axis: .horizontal) { effect, phase in
+//                                    effect
+//                                        .scaleEffect(phase.isIdentity ? 1 : 0.8)
+//                                        .blur(radius: phase.isIdentity ? 0 : 1)
+//                                        .grayscale(phase.isIdentity ? 0 : 0.7)
+//                                        .offset(x: offset(for: phase, width: proxy.size.width))
+//                                }
+//                        }
+//                    }
                     .scrollTargetLayout()
                 }
                 .scrollTargetBehavior(.viewAligned)

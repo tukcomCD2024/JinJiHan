@@ -15,25 +15,25 @@ struct BookmarkView: View {
             
             
             VStack(alignment: .leading, spacing: 0) {
-                Text(bookmark.title ?? "네트워크 통신 중")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundStyle(.basicWhite)
-                    .multilineTextAlignment(.leading)
-                    .padding(.top, 30)
+//                Text(bookmark.title ?? "네트워크 통신 중")
+//                    .font(.system(size: 24, weight: .bold))
+//                    .foregroundStyle(.basicWhite)
+//                    .multilineTextAlignment(.leading)
+//                    .padding(.top, 30)
                 
                 Spacer()
 
                 HStack {
-                    AsyncImage(url: URL(string: bookmark.thumbnailURL ?? "")) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 150, height: 150)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                        
-                    } placeholder: {
-                        Image("photo.circle.fill")
-                    }
+//                    AsyncImage(url: URL(string: bookmark.thumbnailURL ?? "")) { image in
+//                        image
+//                            .resizable()
+//                            .scaledToFill()
+//                            .frame(width: 150, height: 150)
+//                            .clipShape(RoundedRectangle(cornerRadius: 15))
+//                        
+//                    } placeholder: {
+//                        Image("photo.circle.fill")
+//                    }
                     Spacer()
                 }
                 .padding(.bottom, 30)
@@ -61,7 +61,7 @@ struct BookmarkView: View {
                     .frame(width: 40, height: 65)
 //                    .fixedSize()
                     
-                    .foregroundStyle(bookmark.isBookmarked ?? true ? .primary01 : .gray01)
+//                    .foregroundStyle(bookmark.isBookmarked ?? true ? .primary01 : .gray01)
 
             }
             .offset(x: 110, y: -130)

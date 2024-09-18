@@ -24,7 +24,7 @@ struct RollTheDiceApp: App {
     
     init() {
             KakaoSDK.initSDK(appKey: "ff09b3d83873ed4e320f0d6bc90759d6")
-        }
+    }
     
     var body: some Scene {
         WindowGroup {

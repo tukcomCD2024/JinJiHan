@@ -17,10 +17,10 @@ struct NewsView: View {
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             HStack {
-                Text(news.title ?? "")
-                    .font(.pretendardBold32)
-                    .foregroundStyle(.basicBlack)
-                    .multilineTextAlignment(.leading)
+//                Text(news.title ?? "")
+//                    .font(.pretendardBold32)
+//                    .foregroundStyle(.basicBlack)
+//                    .multilineTextAlignment(.leading)
                 Spacer()
             }
             HStack {

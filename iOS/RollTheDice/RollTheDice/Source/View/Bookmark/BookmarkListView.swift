@@ -53,15 +53,15 @@ struct BookmarkListView: View {
         ScrollViewReader { value in
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: columns, spacing: 10) {
-                    ForEach(bookmarkListViewModel.bookmarksList ?? []) { bookmark in
-                        BookmarkView(bookmark: bookmark)
-//                                .onTapGesture {
-//                                    withAnimation {
-//                                        selectedIndex = index
-//                                        value.scrollTo(index)
-//                                }
-//                            }
-                    }
+//                    ForEach(bookmarkListViewModel.bookmarksList ?? []) { bookmark in
+//                        BookmarkView(bookmark: bookmark)
+////                                .onTapGesture {
+////                                    withAnimation {
+////                                        selectedIndex = index
+////                                        value.scrollTo(index)
+////                                }
+////                            }
+//                    }
                 }
                 .padding(.vertical, 90)
             }

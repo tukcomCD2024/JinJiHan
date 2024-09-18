@@ -10,7 +10,7 @@ import Moya
 
 enum AuthTarget {
     case signUp(signUpRequest: SignUpRequest)
-    case login(loginRequest: LoginRequest)
+    case login(loginRequest: AuthRequestModel)
 }
 
 extension AuthTarget: BaseTargetType {

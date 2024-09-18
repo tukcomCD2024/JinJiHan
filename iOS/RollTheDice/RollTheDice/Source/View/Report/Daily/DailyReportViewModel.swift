@@ -18,9 +18,9 @@ import SwiftUI
     var averageView: String {
         var aver = 0.0
         
-        for daily in dailyReportList ?? [] {
-            aver += Double(daily.views ?? 0)
-        }
+//        for daily in dailyReportList ?? [] {
+//            aver += Double(daily.views ?? 0)
+//        }
         
         return String(format: "%.1f", aver / 7)
     }
