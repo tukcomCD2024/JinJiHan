@@ -11,7 +11,8 @@ import CombineMoya
 import Moya
 import SwiftUI
 
-@Observable class TypeReportViewModel {
+@Observable
+class TypeReportViewModel {
     
     var typeReportList: [TypeReport]?
 

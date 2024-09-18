@@ -19,7 +19,8 @@ enum AuthenticationState {
     case completedSignUp    // 회원가입까지 성공
 }
 
-@Observable class AuthenticationViewModel: ObservableObject {
+@Observable
+class AuthenticationViewModel: ObservableObject {
     // 로그인 상태에 따라 화면 분기처리
     var authenticationState: AuthenticationState = .unauthenticated
     var isLoading = false

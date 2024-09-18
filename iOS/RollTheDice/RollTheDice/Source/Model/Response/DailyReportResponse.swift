@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 
-//struct DailyReportList: Codable {
-//    var reportList: [DailyReport]
-//}
+struct DailyReport: Codable {
+    let status: Int?
+    let message: String?
+    let data: [DailyReportDatum]?
+}
 
-struct DailyReport: Codable, Identifiable {
-    
+struct DailyReportDatum: Codable, Identifiable {
     let id = UUID().uuidString
     let views: Int?
     let dateTime: String?
