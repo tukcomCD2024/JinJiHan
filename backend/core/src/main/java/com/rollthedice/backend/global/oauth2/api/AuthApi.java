@@ -8,8 +8,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @Tag(name = "Auth")
@@ -23,7 +21,7 @@ public interface AuthApi {
             responseCode = "200",
             description = "소셜 로그인에 성공했습니다."
     )
-    SuccessResponse<String> login(
+    void login(
             @RequestBody LoginRequest request,
             HttpServletResponse response
     );
