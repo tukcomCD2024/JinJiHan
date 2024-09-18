@@ -7,9 +7,21 @@
 
 import Foundation
 
+// MARK: - DebateChat
+struct DebateChat: Codable {
+    let status: Int?
+    let message: String?
+    let data: [DebateChatDatum]?
+}
 
-struct DebateRoom: Identifiable, Codable {
-    let id: Int
-    let topic: String
+struct DebateChatDatum: Codable, Identifiable {
+    let id = UUID().uuidString
+    let roomId: Int?
+    let topic: String?
     let isClosed: Bool?
+
+    enum CodingKeys: String, CodingKey {
+        case roomId = "id"
+        case topic, isClosed
+    }
 }
