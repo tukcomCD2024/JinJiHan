@@ -41,7 +41,7 @@ struct RecentNewsCardView: View {
                     print("버튼 클릭됨 - 주제: \(news.title)")
                     topic = news.title ?? ""
                     debateViewModel.createDebates(topic: topic)
-                    debateViewModel.getDebates(page: 1, size: 3)
+//                    debateViewModel.getDebates(page: 1, size: 2)
                 } label: {
                     Text("토론 시작하기")
                         .foregroundStyle(.basicWhite)
