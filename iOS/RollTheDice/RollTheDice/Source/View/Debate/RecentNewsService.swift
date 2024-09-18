@@ -12,15 +12,12 @@ enum RecentNewsService {
     case getViewedHistory
 }
 
-extension RecentNewsService: TargetType {
-    var baseURL: URL {
-        return URL(string: "http://roll-the-dice.store:8080")!
-    }
+extension RecentNewsService: BaseTargetType {
 
     var path: String {
         switch self {
         case .getViewedHistory:
-            return "/news/viewed-history"
+            return "/read-news/viewed-history"
         }
     }
 
@@ -40,9 +37,5 @@ extension RecentNewsService: TargetType {
             return nil
         }
         return ["Authorization": "Bearer \(token)"]
-    }
-
-    var sampleData: Data {
-        return Data()
     }
 }

@@ -19,7 +19,7 @@ struct NewsListView: View {
         ZStack {
             Color.backgroundDark.ignoresSafeArea(.all)
             
-            NewsListContentView(newsList: newsListViewModel.newsList ?? [], bookmarksViewModel: bookmarksViewModel)
+            NewsListContentView(newsList: newsListViewModel.newsList?.data ?? [], bookmarksViewModel: bookmarksViewModel)
         }
         .task {
             newsListViewModel.getAllNewsData(page: 0, size: 10)
@@ -27,7 +27,7 @@ struct NewsListView: View {
     }
     
     private struct NewsListContentView: View {
-        var newsList: [NewsList]
+        var newsList: [NewsData]
         var bookmarksViewModel: BookmarksListViewModel
         
         

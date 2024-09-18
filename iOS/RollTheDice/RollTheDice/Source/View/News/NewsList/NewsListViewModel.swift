@@ -14,7 +14,7 @@ import SwiftUI
 // Macro -> iOS 17.0 이상부터. @Published 안 해도 됨.
 // 사용할 때 var 형식으로 해도 됨.
 @Observable class NewsListViewModel {
-    var newsList: [NewsList]?
+    var newsList: NewsList?
 //    var selectedNewsId: Int?
     var currentPage = 0
     var newsCancellable: AnyCancellable?
@@ -23,7 +23,7 @@ import SwiftUI
     //TODO: Plugin Settings
     let provider = MoyaProvider<NewsService>(plugins: [MoyaLoggingPlugin()])
     
-    func newsToViewModel(_ list: [NewsList]) {
+    func newsToViewModel(_ list: NewsList) {
         self.newsList = list
     }
 }
@@ -52,7 +52,7 @@ extension NewsListViewModel {
         )
         .compactMap { $0.response?.data }
         .receive(on: DispatchQueue.main)
-        .decode(type: [NewsList].self, decoder: JSONDecoder())
+        .decode(type: NewsList.self, decoder: JSONDecoder())
         .sink(receiveCompletion: { result in
             switch result {
                 // success
