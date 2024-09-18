@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct DebateSummaryView: View {
+
     @EnvironmentObject var pathModel: PathModel
-    @StateObject private var viewModel = DebateSummaryViewModel()
-    @StateObject private var endDebateViewModel = EndDebateViewModel()
-        @State private var roomId: String = "" // EndDebateViewModel로부터 받아오는 roomid
+    @StateObject private var debateViewModel = DebateSummaryViewModel()
+    var roomId: Int
     
     var body: some View {
         ZStack {
@@ -22,6 +22,9 @@ struct DebateSummaryView: View {
                 
                 sumView
 
+            }
+            .onAppear {
+                debateViewModel.getDebateSummary(roomId: roomId)
             }
         }
         .navigationBarBackButtonHidden()
@@ -72,7 +75,7 @@ struct DebateSummaryView: View {
                         UnevenRoundedRectangle(topLeadingRadius: 60, bottomLeadingRadius: 60, bottomTrailingRadius: 60)
                             .foregroundStyle(.gray03)
                             .overlay {
-                                Text("요약")
+                                Text("\(debateViewModel.summary?.data?.summary ?? "요약 중입니다 ~")")
                                     .foregroundStyle(.gray07)
                             }
                         ZStack(alignment: .topLeading) {
@@ -116,6 +119,6 @@ struct DebateSummaryView: View {
 }
 
 #Preview {
-    DebateSummaryView()
+    DebateSummaryView(roomId: 0)
 }
 

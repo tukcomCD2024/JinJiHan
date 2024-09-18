@@ -12,15 +12,18 @@ import Moya
 import SwiftUI
 
 @Observable class DailyReportViewModel {
-    var dailyReportList: [DailyReport]?
+    var dailyReportList: DailyReport?
     
     /// 일주일 평균 조회수 
     var averageView: String {
         var aver = 0.0
         
-        for daily in dailyReportList ?? [] {
-            aver += Double(daily.views ?? 0)
+        if let list = dailyReportList?.data {
+            for daily in list {
+                aver += Double(daily.views ?? 0)
+            }
         }
+        
         
         return String(format: "%.1f", aver / 7)
     }
@@ -29,7 +32,7 @@ import SwiftUI
     
     let provider = MoyaProvider<StatisticsService>(plugins: [MoyaLoggingPlugin()])
     
-    func dailyToViewModel(_ list: [DailyReport]) {
+    func dailyToViewModel(_ list: DailyReport) {
         self.dailyReportList = list
     }
 }
@@ -51,7 +54,7 @@ extension DailyReportViewModel {
         )
         .compactMap { $0.response?.data }
         .receive(on: DispatchQueue.main)
-        .decode(type: [DailyReport].self, decoder: JSONDecoder())
+        .decode(type: DailyReport.self, decoder: JSONDecoder())
         .sink(receiveCompletion: { result in
             switch result {
             case .finished:

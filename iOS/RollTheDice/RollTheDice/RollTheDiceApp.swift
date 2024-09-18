@@ -45,13 +45,13 @@ struct RollTheDiceApp: App {
                             
                             // 각 뷰마다 .navigationBarBackButtonHidden() 설정하기!
                             switch pathType {
-                            case .chatView(isAiMode: true) :
-                                GPTChatView(topic: "",roomId: 74)
+                            case .chatView(let topic, let roomId) :
+                                ChatView(topic: topic, roomId: roomId)
                                     .navigationBarBackButtonHidden()
                                 
-                            case .chatView(isAiMode: false):
-                                Text("user")
-                                    .navigationBarBackButtonHidden()
+//                            case .chatView(isAiMode: false):
+//                                Text("user")
+//                                    .navigationBarBackButtonHidden()
                             case .detailNewsView(let newsId):
                                 DetailCardNews(newsId: newsId)
                             case .typeReportView:
@@ -62,12 +62,12 @@ struct RollTheDiceApp: App {
                                 BookmarkListView(bookmarkListViewModel: bookmarkListViewModel)
                             case .mypageView:
                                 Text("mypageView")
-                            case .debateSummaryView:
-                                DebateSummaryView()
+                            case .debateSummaryView(let roomId):
+                                DebateSummaryView(roomId: roomId)
                             case .webView(let url):
                                 WebView(urlToLoad: url)
-                            case .createdebateroom:
-                                GPTChatView(topic: "",roomId: 74)
+//                            case .createdebateroom:
+//                                GPTChatView(topic: "",roomId: 74)
                             }
                         })
                 }

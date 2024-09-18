@@ -8,17 +8,17 @@
 import Foundation
 import Combine
 import Moya
-import Combine
 
 class RecentNewsViewModel: ObservableObject {
-    @Published var news: [News] = []
+    @Published var recentNews: RecentNews?
+    
     private var cancellables = Set<AnyCancellable>()
     private let provider = MoyaProvider<RecentNewsService>()
 
     func fetchViewedHistory() {
         print("최근 읽은 뉴스 조회 요청 시작")
         provider.requestPublisher(.getViewedHistory)
-            .map([News].self)
+            .map(RecentNews.self)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -28,8 +28,9 @@ class RecentNewsViewModel: ObservableObject {
                     print("최근 읽은 뉴스 조회 완료")
                 }
             }, receiveValue: { [weak self] news in
-                self?.news = news
-                for item in news {
+                print(news)
+                self?.recentNews = news
+                for item in news.data ?? [] {
                     print("최근 읽은 뉴스 조회 성공 - 뉴스 id: \(item.id), 뉴스 제목: \(item.title)")
                 }
             })
