@@ -5,8 +5,9 @@ import Combine
 struct RecentNewsCardView: View {
     let news: RecentNewsDatum
     @EnvironmentObject var pathModel: PathModel
+    @ObservedObject var debateViewModel: DebateRoomViewModel
 //    @StateObject private var newsViewModel = RecentNewsViewModel()
-    @StateObject private var debateRoomViewModel = CreateDebateRoomViewModel()
+//    @StateObject private var debateRoomViewModel = CreateDebateRoomViewModel()
     @State private var topic: String = ""
     
        var body: some View {
@@ -39,12 +40,8 @@ struct RecentNewsCardView: View {
                 Button {
                     print("버튼 클릭됨 - 주제: \(news.title)")
                     topic = news.title ?? ""
-                    debateRoomViewModel.createDebate(topic: topic) { debateTopic in
-                        pathModel.paths.append(.createdebateroom)
-                        print("토론방 생성 완료 - 주제: \(debateTopic)")
-
-                    }
-//                    pathModel.paths.append(.createdebateroom)
+                    debateViewModel.createDebates(topic: topic)
+                    debateViewModel.getDebates(page: 1, size: 3)
                 } label: {
                     Text("토론 시작하기")
                         .foregroundStyle(.basicWhite)
@@ -54,15 +51,6 @@ struct RecentNewsCardView: View {
                         .background(.primary01)
                         .clipShape(RoundedRectangle(cornerRadius: 16))
                 }
-            }
-            
-            if let debateID = debateRoomViewModel.debateID {
-                Text("토론방 ID: \(debateID)")
-            }
-            
-            if let errorMessage = debateRoomViewModel.errorMessage {
-                Text("Error: \(errorMessage)")
-                    .foregroundColor(.red)
             }
         }
         .padding(.horizontal, 20)
