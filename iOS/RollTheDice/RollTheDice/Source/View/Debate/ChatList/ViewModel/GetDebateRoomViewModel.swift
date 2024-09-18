@@ -10,14 +10,14 @@ import Combine
 import Moya
 
 class GetDebateRoomViewModel: ObservableObject {
-    @Published var debates: [GetDebateRoom] = []
+    @Published var debates: [DebateRoom] = []
     private var cancellables = Set<AnyCancellable>()
     private let provider = MoyaProvider<GetDebateRoomService>()
     
     func fetchDebates(page: Int, size: Int) {
         provider.requestPublisher(.getDebates(page: page, size: size))
             .map(\.data)
-            .decode(type: [GetDebateRoom].self, decoder: JSONDecoder())
+            .decode(type: [DebateRoom].self, decoder: JSONDecoder())
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):

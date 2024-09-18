@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct GetDebateRoom: Identifiable, Codable {
+struct DebateRoom: Identifiable, Codable {
     let id: Int
     let topic: String
     let isClosed: Bool?

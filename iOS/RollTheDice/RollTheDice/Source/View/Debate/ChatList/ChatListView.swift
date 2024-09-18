@@ -10,7 +10,7 @@ import SwiftUI
 struct ChatListView: View {
     
     @EnvironmentObject var pathModel: PathModel
-    @StateObject private var newsViewModel = RecentNewsViewModel()
+    @StateObject private var recentNewsViewModel = RecentNewsViewModel()
     @StateObject private var viewModel = DebateSummaryViewModel()
     @StateObject private var endDebateViewModel = EndDebateViewModel()
     @State private var roomId: String = "" // EndDebateViewModel로부터 받아올 roomId
@@ -28,6 +28,9 @@ struct ChatListView: View {
                 .padding(.horizontal, 120)
             }
             .scrollIndicators(.hidden)
+            .onAppear {
+                recentNewsViewModel.fetchViewedHistory()
+            }
         }
     }
     
@@ -37,26 +40,13 @@ struct ChatListView: View {
             Text("최근 본 뉴스")
                 .foregroundStyle(.basicWhite)
                 .font(.pretendardBold32)
-            //            HStack {
-            //                RecentNewsCardView()
-            //                Spacer()
-            //                RecentNewsCardView()
-            //                Spacer()
-            //                RecentNewsCardView()
-            //            }
+
             HStack {
-                if newsViewModel.news.isEmpty {
-                    Text("최근 읽은 뉴스를 불러오는 중...")
-                        .onAppear {
-                            print("뷰가 나타남 - 최근 읽은 뉴스 조회 시작")
-                            newsViewModel.fetchViewedHistory()
-                        }
-                } else {
-                    ForEach(newsViewModel.news.prefix(3), id: \.id) { news in
+                ForEach(recentNewsViewModel.recentNews?.data ?? []) { news in
                         RecentNewsCardView(news: news)
                         Spacer()
-                    }
                 }
+                
             }
             .padding()
         }
@@ -84,7 +74,7 @@ struct ChatListView: View {
     }
     
     struct DebateChatCellView: View {
-        let debate: GetDebateRoom
+        let debate: DebateRoom
         let emojis = ["🏛️", "🔥", "📌", "⭐️", "🧬", "👩🏼‍💻", "🎨", "🎬", "💌", "🔗", "👀"]
 
         @EnvironmentObject var pathModel: PathModel

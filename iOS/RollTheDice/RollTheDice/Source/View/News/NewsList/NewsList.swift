@@ -2,13 +2,14 @@
 
 import Foundation
 
-// MARK: - NewsElement
-// data는 옵셔널처리. JSONNull 사용 X
-//struct NewsResponse: Codable {
-//    let newsResponse: [News]?
-//}
+struct NewsList: Codable {
+    
+    let status: Int?
+    let message: String?
+    let data: [NewsData]?
+}
 
-struct NewsList: Codable, Identifiable {
+struct NewsData: Codable, Identifiable {
     let id = UUID().uuidString // 이건 앱자체에서
     let newsId: Int
     let title, content: String?

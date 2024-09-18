@@ -12,7 +12,14 @@ import SwiftUI
 //    var reportList: [DailyReport]
 //}
 
-struct DailyReport: Codable, Identifiable {
+struct DailyReport: Codable {
+    
+    let status: String?
+    let message: String?
+    let data: [DailyReportData]?
+}
+
+struct DailyReportData: Codable, Identifiable {
     
     let id = UUID().uuidString
     let views: Int?
@@ -30,3 +37,4 @@ struct DailyReport: Codable, Identifiable {
         return convertedDate!
     }
 }
+

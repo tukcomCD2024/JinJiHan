@@ -11,7 +11,7 @@ struct NewsView: View {
     
     @EnvironmentObject var pathModel : PathModel
 
-    var news: NewsList
+    var news: NewsData
     var bookmarksViewModel: BookmarksListViewModel
     
     var body: some View {

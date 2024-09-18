@@ -27,7 +27,7 @@ struct DetailCardNews: View {
                     
                     HStack(spacing: 0) {
                         
-                        AsyncImage(url: URL(string: newsViewModel.newsDetail?.thumbnailUrl ?? "https://imgnews.pstatic.net/image/018/2024/05/15/0005739785_001_20240515190608817.jpg?type=w647")) { phase in
+                        AsyncImage(url: URL(string: newsViewModel.newsDetail?.data?.thumbnailUrl ?? "https://imgnews.pstatic.net/image/018/2024/05/15/0005739785_001_20240515190608817.jpg?type=w647")) { phase in
                             switch phase {
                             case .success(let image):
                                 image
@@ -62,7 +62,7 @@ struct DetailCardNews: View {
                                 .foregroundStyle(.black)
                                 .frame(height: 1)
                             
-                            Text(newsViewModel.newsDetail?.title ?? "기사 제목 불러오는 중 ~")
+                            Text(newsViewModel.newsDetail?.data?.title ?? "기사 제목 불러오는 중 ~")
                                 .font(.pretendardBold32)
                                 .foregroundColor(.basicBlack)
                                 .padding(.vertical, 10)
@@ -71,7 +71,7 @@ struct DetailCardNews: View {
                             
                             HStack {
                                 Spacer()
-                                Text("발행일자 : \(newsViewModel.newsDetail?.postDate ?? "2024-01-01")")
+                                Text("발행일자 : \(newsViewModel.newsDetail?.data?.postDate ?? "2024-01-01")")
                                     .font(.pretendardRegular14)
                                     .foregroundStyle(.gray05)
                                 
@@ -80,7 +80,7 @@ struct DetailCardNews: View {
                             .padding(.horizontal, 20)
                             
                             ScrollView {
-                                Text(newsViewModel.newsDetail?.content ?? "요약 불러오는 중 ~")
+                                Text(newsViewModel.newsDetail?.data?.content ?? "요약 불러오는 중 ~")
                                     .font(
                                         .pretendardRegular16
                                     )
@@ -94,7 +94,7 @@ struct DetailCardNews: View {
                             HStack {
                                 Spacer()
                                 Button {
-                                    pathModel.paths.append(.webView(url: newsViewModel.newsDetail?.url ?? "https://n.news.naver.com/mnews/article/014/0005185580"))
+                                    pathModel.paths.append(.webView(url: newsViewModel.newsDetail?.data?.url ?? "https://n.news.naver.com/mnews/article/014/0005185580"))
                                 } label: {
                                     Text("원문 보러 가기  ➡️")
                                         .font(.pretendardBold12)
