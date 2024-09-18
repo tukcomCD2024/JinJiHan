@@ -102,27 +102,27 @@ extension DebateService: BaseTargetType {
             let parameters : [String : Any] = [
                 "message" : message
             ]
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
             
         case .saveDebatesAI(_, let message, _):
             let parameters : [String : Any] = [
                 "message" : message
             ]
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
             
-        case .getDebatesSum(let roomId, let accessToken):
+        case .getDebatesSum:
             return .requestPlain
             
-        case .sumDebates(let roomId, let accessToken):
+        case .sumDebates:
             return .requestPlain
             
-        case .getDebatesMsg(let roomId, let accessToken):
+        case .getDebatesMsg:
             return .requestPlain
             
-        case .deleteDebatesRoom(let roomId, let accessToken):
+        case .deleteDebatesRoom:
             return .requestPlain
             
-        case .endDebatesRoom(let roomId, let accessToken):
+        case .endDebatesRoom:
             return .requestPlain
         }
     }
@@ -139,9 +139,9 @@ extension DebateService: BaseTargetType {
         .saveDebatesAI(_, _, let accessToken),
         .getDebatesSum(_, let accessToken),
         .sumDebates(_, let accessToken),
-        .getDebatesMsg(_, accessToken: let accessToken),
-        .deleteDebatesRoom(_, accessToken: let accessToken),
-        .endDebatesRoom(_, accessToken: let accessToken):
+        .getDebatesMsg(_, let accessToken),
+        .deleteDebatesRoom(_, let accessToken),
+        .endDebatesRoom(_, let accessToken):
             token = accessToken
             return [
                 "Authorization": "Bearer \(token)",
