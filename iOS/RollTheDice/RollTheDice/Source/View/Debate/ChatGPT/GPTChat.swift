@@ -8,23 +8,28 @@
 
 import Foundation
 
-struct GPTChat: Hashable, Identifiable{
-    var title: String
-    var messages: [Message]
-    var id: UUID = .init() // id 속성 추가
-    
-    init(
-        title: String = "",
-        messages: [Message] = []
-    ) {
-        self.title = title
-        self.messages = messages
-    }
+//struct GPTChat: Codable {
+////    var id = UUID().uuidString
+//    var title: String?
+//    var messages: [Message]?
+////    var id: UUID = .init() // id 속성 추가
+//}
+//
+//struct Message: Codable, Identifiable {
+//    var id: UUID = .init()
+//    var content: String
+//    var isUser: Bool
+//}
+
+
+struct DebateChat: Codable {
+    let status: Int?
+    let message: String?
+    var data: [Message]?
 }
 
-struct Message: Hashable, Identifiable {
-    var id: UUID = .init()
-    var content: String
-    var isUser: Bool
+struct Message: Codable, Identifiable {
+    let id = UUID().uuidString
+    let message: String?
+    let senderType: SenderType?
 }
-

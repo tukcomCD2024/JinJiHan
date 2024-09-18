@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct DebateChatCellView: View {
-    var debate: DebateChatDatum?
+    var debate: DebateRoomDatum?
     let emojis = ["🏛️", "🔥", "📌", "⭐️", "🧬", "👩🏼‍💻", "🎨", "🎬", "💌", "🔗", "👀"]
 
 //        @EnvironmentObject var pathModel: PathModel

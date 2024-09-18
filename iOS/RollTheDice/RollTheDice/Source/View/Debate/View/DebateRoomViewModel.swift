@@ -22,7 +22,7 @@ import Combine
  */
 
 class DebateRoomViewModel: ObservableObject {
-    var debateChatRoom: DebateChat?
+    var debateRoom: DebateRoom?
     
     private let provider = MoyaProvider<DebateService>(plugins: [MoyaLoggingPlugin()])
     
@@ -48,7 +48,7 @@ extension DebateRoomViewModel {
         )
         .compactMap { $0.response?.data }
         .receive(on: DispatchQueue.main)
-        .decode(type: DebateChat.self, decoder: jsonDecoder)
+        .decode(type: DebateRoom.self, decoder: jsonDecoder)
         .sink(receiveCompletion: { result in
             switch result {
             case .finished:
@@ -57,7 +57,7 @@ extension DebateRoomViewModel {
                 Log.network("debateChatRoom network error", error.localizedDescription)
             }
         }, receiveValue: { [weak self] response in
-            self?.debateChatRoom = response
+            self?.debateRoom = response
             print("debateChatRoom 결과값 \(response)")
         })
     }
