@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - DebateChat
-struct DebateChat: Codable {
+struct DebateRoom: Codable {
     let status: Int?
     let message: String?
-    let data: [DebateChatDatum]?
+    let data: [DebateRoomDatum]?
 }
 
-struct DebateChatDatum: Codable, Identifiable {
+struct DebateRoomDatum: Codable, Identifiable {
     let id = UUID().uuidString
     let roomId: Int?
     let topic: String?
