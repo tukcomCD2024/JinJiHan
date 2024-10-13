@@ -77,15 +77,6 @@ jobs:
           docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }} .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}
 
-#      # FastAPI를 빌드하고 푸시
-#      - name: Build and push Docker image
-#        uses: docker/build-push-action@v5
-#        with:
-#          context: ./backend/ai_response_processor
-#          file: ./backend/ai_response_processor/Dockerfile
-#          push: true
-#          tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.AI_DOCKER_REPO }}:latest
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
